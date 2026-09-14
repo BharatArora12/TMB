@@ -1,11 +1,1196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Towards My Bharat — Honouring Our Roots. Shaping Our Future.</title>
+  <meta name="description"
+    content="Towards My Bharat is a youth-led movement uniting young minds across India through intellectual rigor, civilizational depth, ethical leadership, and grassroots nation-building.">
+  <link rel="icon" type="image/png" href="photos/TMB Logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet">
+
+  <!-- Tailwind CDN & Custom Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#333a45",
+            "on-secondary-container": "#a7b9db",
+            "surface-container": "#19202b",
+            "tertiary-fixed": "#ffdcc5",
+            "on-primary-fixed-variant": "#584400",
+            "secondary": "#b5c7ea",
+            "on-primary-fixed": "#241a00",
+            "on-surface-variant": "#d1c5af",
+            "on-secondary-fixed-variant": "#364764",
+            "on-tertiary-container": "#612f00",
+            "surface-dim": "#0d141e",
+            "primary-fixed-dim": "#ecc246",
+            "primary": "#ecc246",
+            "on-tertiary-fixed": "#301400",
+            "secondary-fixed": "#d6e3ff",
+            "tertiary": "#ffb783",
+            "inverse-primary": "#755b00",
+            "on-tertiary": "#4f2500",
+            "secondary-container": "#384a67",
+            "primary-container": "#c9a227",
+            "inverse-surface": "#dce3f2",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary": "#3d2e00",
+            "outline-variant": "#4d4635",
+            "background": "#0d141e",
+            "surface": "#0d141e",
+            "primary-fixed": "#ffe08e",
+            "inverse-on-surface": "#2a313c",
+            "error-container": "#93000a",
+            "surface-container-low": "#151c26",
+            "surface-tint": "#ecc246",
+            "on-error-container": "#ffdad6",
+            "on-background": "#dce3f2",
+            "on-primary-container": "#4b3a00",
+            "error": "#ffb4ab",
+            "on-secondary-fixed": "#071c36",
+            "on-surface": "#dce3f2",
+            "secondary-fixed-dim": "#b5c7ea",
+            "on-secondary": "#1f314d",
+            "tertiary-container": "#f78b30",
+            "surface-container-lowest": "#070e19",
+            "surface-container-high": "#232a35",
+            "outline": "#99907b",
+            "surface-container-highest": "#2e3540",
+            "surface-variant": "#2e3540",
+            "on-tertiary-fixed-variant": "#713700",
+            "on-error": "#690005"
+          },
+          borderRadius: {
+            "DEFAULT": "0px",
+            "none": "0px",
+            "sm": "0px",
+            "md": "0px",
+            "lg": "0px",
+            "xl": "0px",
+            "full": "0px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "2rem",
+            "space-xl": "3.5rem",
+            "space-xxl": "6rem",
+            "gutter": "1.5rem",
+            "gutter-desktop": "2.5rem",
+            "margin": "1.25rem",
+            "margin-tablet": "3rem",
+            "margin-desktop": "5rem"
+          },
+          fontFamily: {
+            "serif": ["EB Garamond", "Georgia", "serif"],
+            "sans": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["EB Garamond", "serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "headline-sm": ["EB Garamond", "serif"],
+            "display-hero": ["EB Garamond", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-caps": ["Plus Jakarta Sans", "sans-serif"],
+            "label-ui": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["0.8125rem", { "lineHeight": "1.375rem", "letterSpacing": "0.015em", "fontWeight": "400" }],
+            "body-md": ["0.9375rem", { "lineHeight": "1.625rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["1.125rem", { "lineHeight": "1.875rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-caps": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.18em", "fontWeight": "600" }],
+            "label-ui": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "headline-sm": ["1.625rem", { "lineHeight": "2rem", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-lg": ["3.25rem", { "lineHeight": "3.75rem", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["2.125rem", { "lineHeight": "2.5rem", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-hero": ["5rem", { "lineHeight": "5.25rem", "letterSpacing": "-0.025em", "fontWeight": "400" }],
+            "display-hero-mobile": ["2.75rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #070e19;
+      color: #dce3f2;
+      overflow-x: hidden;
+    }
+
+    /* Modal active state */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 14, 25, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Mobile nav drawer */
+    #mobileNav {
+      transition: all 0.3s ease-in-out;
+    }
+
+    #mobileNav.open {
+      display: block;
+    }
+
+    /* Hero Slideshow Transitions */
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+  </style>
 </head>
-<body>
-    
+
+<body
+  class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary selection:text-on-primary">
+
+  <!-- TOP NOTICE ANNOUNCEMENT BAR -->
+  <aside
+    class="w-full bg-[#0b1f3a] border-b border-primary-container/30 py-2 px-4 text-center text-xs text-on-surface-variant flex items-center justify-center gap-3">
+    <span
+      class="bg-tertiary-container text-white px-2 py-0.5 font-label-caps text-[0.625rem] font-bold uppercase tracking-wider">Cohort
+      IV Open</span>
+    <span class="font-body-sm">National Fellowship Applications are now invited for 2025–26.</span>
+    <a href="#participate"
+      class="text-primary font-label-caps uppercase tracking-wider underline hover:text-white transition-colors ml-1">Learn
+      More &rarr;</a>
+  </aside>
+
+  <!-- HEADER NAVIGATION -->
+  <header
+    class="sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-surface-dim/90 backdrop-blur-md border-b border-primary-container/20">
+    <div
+      class="h-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter">
+
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-space-md">
+        <a class="flex items-center gap-3 group focus:outline-none" href="#hero">
+          <div
+            class="w-10 h-10 border border-primary/50 flex items-center justify-center p-1 bg-surface-container/60 group-hover:border-primary transition-colors">
+            <img alt="Towards My Bharat Emblem"
+              class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              src="photos/TMB Logo.png">
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-label-caps text-label-caps uppercase text-on-surface tracking-[0.2em] font-semibold leading-none">Towards
+              My Bharat</span>
+            <span
+              class="font-label-caps text-[0.5625rem] text-primary tracking-[0.25em] uppercase mt-1 leading-none">Foundation</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a class="font-label-ui text-label-ui text-primary border-b-2 border-primary pb-1 font-medium transition-colors"
+          href="#hero">Home</a>
+        <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary hover:border-b-2 hover:border-primary/60 pb-1 transition-colors"
+          href="#story">About</a>
+        <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary hover:border-b-2 hover:border-primary/60 pb-1 transition-colors"
+          href="#framework">Pillars</a>
+        <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary hover:border-b-2 hover:border-primary/60 pb-1 transition-colors"
+          href="#initiatives">Work We Do</a>
+        <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary hover:border-b-2 hover:border-primary/60 pb-1 transition-colors"
+          href="#voices">Voices</a>
+        <a class="font-label-ui text-label-ui text-on-surface-variant hover:text-primary hover:border-b-2 hover:border-primary/60 pb-1 transition-colors"
+          href="#participate">Participate</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-3">
+        <button
+          class="open-modal-trigger hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest px-5 py-2.5 border border-primary transition-all duration-200 focus:outline-none shadow-lg cursor-pointer"
+          data-track="General Fellowship">
+          Join Movement
+        </button>
+
+        <!-- Mobile Toggle Button -->
+        <button id="mobileToggle"
+          class="lg:hidden flex items-center justify-center p-2.5 bg-surface-container border border-primary/40 text-primary hover:bg-surface-bright focus:outline-none"
+          aria-label="Toggle navigation" aria-expanded="false">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div id="mobileNav" class="hidden lg:hidden bg-surface-container-low border-b border-primary/30 px-6 py-6">
+      <ul class="flex flex-col gap-4">
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#hero">Home</a></li>
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-on-surface-variant hover:text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#story">About TMB</a></li>
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-on-surface-variant hover:text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#framework">Our Framework</a></li>
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-on-surface-variant hover:text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#initiatives">Initiatives</a></li>
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-on-surface-variant hover:text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#voices">Voices of Vanguard</a></li>
+        <li><a
+            class="mobile-nav-link block py-2 border-b border-outline-variant/30 text-on-surface-variant hover:text-primary font-label-caps text-sm uppercase tracking-wider"
+            href="#participate">Join the Movement</a></li>
+        <li class="pt-2">
+          <button
+            class="open-modal-trigger w-full py-3 bg-primary text-on-primary font-label-caps text-xs uppercase tracking-widest text-center font-bold"
+            data-track="General Fellowship">
+            Enlist for Fellowship
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="w-full">
+
+    <!-- SECTION 1: CINEMATIC HERO SLIDESHOW -->
+    <section id="hero"
+      class="relative w-full min-h-[92vh] flex items-center justify-center pt-16 pb-space-xxl overflow-hidden bg-surface-dim border-b border-primary-container/20">
+      
+      <!-- Background Slideshow Container (5 curated images representing Bharat & TMB) -->
+      <div id="heroSlideshow" class="absolute inset-0 z-0 overflow-hidden">
+        <!-- Slide 1: University courtyard wisdom and student dialogue -->
+        <div class="hero-slide active"
+          style="background-image: url('assets/images/hero-courtyard.jpg');"
+          data-caption="Nalanda Wisdom Tradition // Campus Dialectics"></div>
+
+        <!-- Slide 2: Varanasi sacred Ganga ghats and ancient temple spires -->
+        <div class="hero-slide"
+          style="background-image: url('assets/images/varanasi-ghats.jpg');"
+          data-caption="Ganga Ghats, Kashi // Civilizational Continuity"></div>
+
+        <!-- Slide 3: Young Indian leaders collaborating on nation building initiatives -->
+        <div class="hero-slide"
+          style="background-image: url('assets/images/youth-nation-building.jpg');"
+          data-caption="Yuva Leadership // Sovereign Blueprint &amp; Innovation"></div>
+
+        <!-- Slide 4: Classical manuscript archiving and primary historical scholarship -->
+        <div class="hero-slide"
+          style="background-image: url('assets/images/research-archive.jpg');"
+          data-caption="Saraswathi Mahal Archive // Historiography Fellowship"></div>
+
+        <!-- Slide 5: Student volunteers teaching in village communities and grassroots seva -->
+        <div class="hero-slide"
+          style="background-image: url('assets/images/community-workshop.jpg');"
+          data-caption="Gram Seva &amp; Living Heritage // Grassroots Action"></div>
+      </div>
+
+      <!-- Cinematic Vignette & Atmospheric Gradients -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-t from-surface-dim via-surface-dim/80 to-surface-dim/60 pointer-events-none"></div>
+      <div class="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-surface-dim/60 to-surface-dim pointer-events-none"></div>
+
+      <!-- Hero Main Content -->
+      <div
+        class="relative z-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop w-full flex flex-col items-start pt-space-md">
+        <div
+          class="flex items-center gap-space-sm mb-space-md py-1.5 px-3.5 bg-surface-container/90 backdrop-blur-md border border-primary/30">
+          <span class="w-2 h-2 bg-primary animate-pulse"></span>
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.22em] uppercase font-semibold">A
+            Youth-Led Movement for Bharat</span>
+        </div>
+
+        <h1
+          class="font-display-hero text-display-hero-mobile lg:text-display-hero text-white max-w-5xl leading-[1.05] tracking-tight mb-space-lg">
+          Honouring Our Roots.<br>
+          <span class="text-primary italic font-normal">Shaping Our Future.</span>
+        </h1>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mb-space-xl font-light">
+          Towards My Bharat is a national youth movement uniting young minds through civilizational depth, intellectual rigor, and active nation-building across India.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-space-md w-full sm:w-auto">
+          <a class="inline-flex items-center justify-center bg-primary hover:bg-white text-on-primary hover:text-surface-dim font-label-caps text-label-caps uppercase tracking-widest px-8 py-4 transition-all duration-300 shadow-2xl group border border-primary"
+            href="#initiatives">
+            <span>Explore Initiatives</span>
+            <span
+              class="material-symbols-outlined text-sm ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+          <a class="inline-flex items-center justify-center bg-surface-container-high/80 hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-widest px-8 py-4 transition-all duration-300 backdrop-blur-sm border border-outline-variant/40 hover:border-primary/50"
+            href="#story">
+            <span>Discover Our Story</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE QUESTION (Reflective Civilizational Plate) -->
+    <section
+      class="w-full bg-surface-container-highest text-on-surface py-space-xxl relative border-b border-primary-container/20">
+      <div
+        class="max-w-5xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col items-center text-center">
+        <span
+          class="font-label-caps text-label-caps uppercase text-primary tracking-[0.25em] mb-space-md">Civilizational
+          Inquiry</span>
+
+        <blockquote
+          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg italic font-normal text-white leading-tight max-w-4xl mb-space-lg">
+          “We know where we are going. But do we remember what shaped us?”
+        </blockquote>
+
+        <div class="w-16 h-0.5 bg-primary/60 mb-space-lg"></div>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed font-light">
+          A society detached from its core wisdom loses its compass. As Bharat surges into an era of high
+          technological momentum, our generation carries the dual duty of preserving our enduring philosophical
+          pillars while constructing an equitable, forward-facing sovereign future.
+        </p>
+
+        <div class="mt-space-xl grid grid-cols-1 md:grid-cols-3 gap-gutter text-left w-full pt-space-lg">
+          <div
+            class="p-space-lg bg-surface-container-low/80 border border-primary/20 hover:border-primary/50 transition-colors">
+            <span class="font-headline-sm text-headline-sm text-primary italic mb-2 block">01 / Roots</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Reclaiming primary sources, oral histories, and
+              vernacular science preserved across millennia.</p>
+          </div>
+          <div
+            class="p-space-lg bg-surface-container-low/80 border border-primary/20 hover:border-primary/50 transition-colors">
+            <span class="font-headline-sm text-headline-sm text-primary italic mb-2 block">02 / Conscience</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Grounding contemporary civic action in selfless
+              duty, empathy, and collective societal welfare.</p>
+          </div>
+          <div
+            class="p-space-lg bg-surface-container-low/80 border border-primary/20 hover:border-primary/50 transition-colors">
+            <span class="font-headline-sm text-headline-sm text-primary italic mb-2 block">03 / Sovereignty</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Formulating modern research frameworks and
+              indigenous models for constructive global leadership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ABOUT TMB (Editorial Split Layout) -->
+    <section class="w-full bg-surface-container-low py-space-xxl border-b border-primary-container/20" id="story">
+      <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+
+          <div class="lg:col-span-6 relative">
+            <div
+              class="relative overflow-hidden bg-surface-container border border-primary/40 shadow-2xl p-2 bg-[#070e19]">
+              <img class="w-full h-[480px] object-cover filter contrast-[1.05]"
+                data-alt="A young Indian scholar immersed in reading ancient palm-leaf and bound classical manuscripts in a quiet historic archives library with sunlight streaming over wooden tables"
+                src="assets/images/research-archive.jpg">
+              <div
+                class="p-space-md bg-surface-container-lowest/95 border-t border-primary/20 flex items-center justify-between">
+                <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Archive Folio //
+                  04</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Saraswathi Mahal Archive
+                  Fellowship</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col items-start lg:pl-space-md">
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase font-semibold mb-space-sm">About
+              Towards My Bharat</span>
+            <h2
+              class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white leading-tight mb-space-md font-normal">
+              A movement rooted in Bharat.<br>
+              <span class="italic text-primary">Built for its future.</span>
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+              Towards My Bharat emerged not as an insular theoretical society, but as an urgent digital and grassroots
+              assembly of university thinkers, grassroots volunteers, historians, and tech innovators dedicated to
+              reconnecting Indian youth with their living heritage.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              We operate beyond political polarization and commercial novelty. Through rigorously structured research
+              fellowships, inter-campus councils, field preservation programs, and high-impact rural stewardship, we
+              nurture a generation that carries deep intellectual pride, critical discernment, and civic devotion.
+            </p>
+            <div class="flex items-center gap-space-lg pt-space-xs">
+              <a class="inline-flex items-center gap-space-xs text-primary font-label-caps text-label-caps uppercase tracking-widest hover:text-white transition-colors py-2"
+                href="#framework">
+                <span>Explore Structural Pillars</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+              <span class="text-outline-variant font-headline-sm italic">est. 2021</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: STRUCTURAL FRAMEWORK / FOUR PILLARS -->
+    <section id="framework" class="w-full bg-surface-dim py-space-xxl relative border-b border-primary-container/20">
+      <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+          <div>
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase font-semibold block mb-2">Our
+              Structural Framework</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">Four ideas. One
+              direction.</h2>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-4 md:mt-0">
+            The programmatic foundation driving every circle, publication, and student fellowship across the
+            subcontinent.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+
+          <!-- Pillar 1 -->
+          <div
+            class="bg-surface-container p-space-lg flex flex-col justify-between hover:bg-surface-bright border border-primary/20 hover:border-primary/60 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="font-headline-sm text-headline-sm italic text-primary">01</span>
+                <span
+                  class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">auto_stories</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-space-sm">Rediscover Identity</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Uncovering cultural depth, philosophical traditions, and timeless values from original sources rather
+                than filtered narratives.
+              </p>
+            </div>
+            <div class="mt-space-lg pt-space-sm border-t border-outline-variant/30">
+              <span class="font-label-caps text-[0.625rem] text-primary uppercase tracking-widest">Core Pillar</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div
+            class="bg-surface-container p-space-lg flex flex-col justify-between hover:bg-surface-bright border border-primary/20 hover:border-primary/60 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="font-headline-sm text-headline-sm italic text-primary">02</span>
+                <span
+                  class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">explore</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-space-sm">Reconnect with Bharat</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Immersive field engagement with living heritage, sacred geographies, artisan communities, and resilient
+                ecological practices.
+              </p>
+            </div>
+            <div class="mt-space-lg pt-space-sm border-t border-outline-variant/30">
+              <span class="font-label-caps text-[0.625rem] text-primary uppercase tracking-widest">Ground Action</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div
+            class="bg-surface-container p-space-lg flex flex-col justify-between hover:bg-surface-bright border border-primary/20 hover:border-primary/60 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="font-headline-sm text-headline-sm italic text-primary">03</span>
+                <span
+                  class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">verified_user</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-space-sm">Build Character</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Cultivating youthful leadership grounded in integrity, selfless service, historical empathy, and
+                unyielding intellectual clarity.
+              </p>
+            </div>
+            <div class="mt-space-lg pt-space-sm border-t border-outline-variant/30">
+              <span class="font-label-caps text-[0.625rem] text-primary uppercase tracking-widest">Internal
+                Anchor</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div
+            class="bg-surface-container p-space-lg flex flex-col justify-between hover:bg-surface-bright border border-primary/20 hover:border-primary/60 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="font-headline-sm text-headline-sm italic text-primary">04</span>
+                <span
+                  class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">rocket_launch</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-space-sm">Shape the Future</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Equipping youth to design technologically superior, sovereign, and self-reliant solutions addressing
+                national challenges.
+              </p>
+            </div>
+            <div class="mt-space-lg pt-space-sm border-t border-outline-variant/30">
+              <span class="font-label-caps text-[0.625rem] text-primary uppercase tracking-widest">Vanguard
+                Trajectory</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: OUR INITIATIVES (From Ideas to Direct Action) -->
+    <section id="initiatives"
+      class="w-full bg-surface-container-lowest py-space-xxl border-b border-primary-container/20">
+      <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-4">
+          <div>
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase font-semibold block mb-2">Programmatic
+              Wings</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">From Ideas to Direct
+              Action</h2>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="filter-nav flex flex-wrap gap-2">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="research">Fellowships</button>
+            <button class="filter-btn" data-filter="assembly">Conclaves</button>
+            <button class="filter-btn" data-filter="artisan">Artisans</button>
+            <button class="filter-btn" data-filter="campus">Campus</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
+
+          <!-- Card 1 (Span 7) -->
+          <div
+            class="pillar-card lg:col-span-7 bg-surface-container p-space-xl flex flex-col justify-between relative overflow-hidden group border border-primary/30 hover:border-primary"
+            data-category="research">
+            <div class="relative z-10">
+              <span
+                class="inline-block px-3 py-1 bg-surface-container-high text-primary font-label-caps text-[0.625rem] uppercase tracking-widest mb-space-md border border-primary/20">
+                Research &amp; Fellowship
+              </span>
+              <h3
+                class="font-headline-md text-headline-md text-white mb-space-sm group-hover:text-primary transition-colors">
+                Bharatiya Heritage &amp; Historiography Fellowship
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-xl mb-space-lg">
+                A 9-month residential and field fellowship equipping university postgraduates to transcribe palm leaf
+                documents, digitize folk architecture, and reconstruct regional history.
+              </p>
+            </div>
+            <div class="relative z-10 flex items-center justify-between pt-space-md border-t border-outline-variant/30">
+              <span class="font-body-sm text-body-sm text-on-surface-variant/80">3 Cohorts • 85 Scholars Selected</span>
+              <button
+                class="open-modal-trigger inline-flex items-center gap-1 text-primary hover:text-white font-label-caps text-label-caps uppercase tracking-widest bg-transparent border-none cursor-pointer p-0"
+                data-track="Heritage Fellowship">
+                Apply Cohort IV <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 (Span 5) -->
+          <div
+            class="pillar-card lg:col-span-5 bg-surface-container-high p-space-xl flex flex-col justify-between relative group border border-primary/30 hover:border-primary"
+            data-category="assembly">
+            <div>
+              <span
+                class="inline-block px-3 py-1 bg-surface-container text-tertiary font-label-caps text-[0.625rem] uppercase tracking-widest mb-space-md border border-tertiary/20">
+                National Assembly
+              </span>
+              <h3
+                class="font-headline-md text-headline-md text-white mb-space-sm group-hover:text-primary transition-colors">
+                Yuva Leadership Conclave
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+                Annual gathering bringing 1,200 student council presidents, social founders, and innovators to
+                deliberate on economic sovereignty and cultural revitalization.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-md border-t border-outline-variant/30">
+              <span class="font-body-sm text-body-sm text-on-surface-variant/80">Varanasi • Nov 2025</span>
+              <button
+                class="open-modal-trigger inline-flex items-center gap-1 text-primary hover:text-white font-label-caps text-label-caps uppercase tracking-widest bg-transparent border-none cursor-pointer p-0"
+                data-track="Leadership Conclave">
+                Register <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 (Span 5) -->
+          <div
+            class="pillar-card lg:col-span-5 bg-surface-container-high p-space-xl flex flex-col justify-between relative group border border-primary/30 hover:border-primary"
+            data-category="artisan">
+            <div>
+              <span
+                class="inline-block px-3 py-1 bg-surface-container text-secondary font-label-caps text-[0.625rem] uppercase tracking-widest mb-space-md border border-secondary/20">
+                Artisan Economies
+              </span>
+              <h3
+                class="font-headline-md text-headline-md text-white mb-space-sm group-hover:text-primary transition-colors">
+                Living Traditions &amp; Artisan Labs
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+                Pairing student industrial designers and digital marketers with master generational craftsmen to build
+                sustainable global supply chains.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-md border-t border-outline-variant/30">
+              <span class="font-body-sm text-body-sm text-on-surface-variant/80">42 Guild Partnerships</span>
+              <button
+                class="open-modal-trigger inline-flex items-center gap-1 text-primary hover:text-white font-label-caps text-label-caps uppercase tracking-widest bg-transparent border-none cursor-pointer p-0"
+                data-track="Artisan Guilds">
+                View Guilds <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4 (Span 7) -->
+          <div
+            class="pillar-card lg:col-span-7 bg-surface-container p-space-xl flex flex-col justify-between relative group border border-primary/30 hover:border-primary"
+            data-category="campus">
+            <div>
+              <span
+                class="inline-block px-3 py-1 bg-surface-container-high text-primary font-label-caps text-[0.625rem] uppercase tracking-widest mb-space-md border border-primary/20">
+                Higher Education
+              </span>
+              <h3
+                class="font-headline-md text-headline-md text-white mb-space-sm group-hover:text-primary transition-colors">
+                Campus Cultural Circles (CCC Network)
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-xl mb-space-lg">
+                Autonomous student chapters operating across 65+ tier-1 and central universities conducting weekly
+                dialectics on Indian philosophy, ecology, and indigenous governance.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-md border-t border-outline-variant/30">
+              <span class="font-body-sm text-body-sm text-on-surface-variant/80">Active in 18 States</span>
+              <button
+                class="open-modal-trigger inline-flex items-center gap-1 text-primary hover:text-white font-label-caps text-label-caps uppercase tracking-widest bg-transparent border-none cursor-pointer p-0"
+                data-track="Campus Circle Lead">
+                Launch a Circle <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: VOICES OF THE VANGUARD (Community Voices) -->
+    <section id="voices" class="w-full bg-surface-container-low py-space-xxl border-b border-primary-container/20">
+      <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+          <div>
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase font-semibold block mb-2">Reflections
+              From The Field</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">Voices of the Vanguard
+            </h2>
+          </div>
+          <span class="font-headline-sm italic text-on-surface-variant/60 hidden md:block">Real Stories • Real
+            Conviction</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+          <!-- Voice 1 -->
+          <div
+            class="bg-surface-dim p-space-xl flex flex-col justify-between shadow-lg border border-primary/20 hover:border-primary/50 transition-colors">
+            <div>
+              <div class="text-primary mb-space-md">
+                <span class="material-symbols-outlined text-3xl">format_quote</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface leading-relaxed mb-space-lg italic">
+                “Before joining our campus circle, history felt like a dry chronological exam subject.
+                Reconstructing the tank irrigation systems of Kanchipuram taught me that our ancestors solved
+                structural civil engineering challenges with profound environmental reverence.”
+              </p>
+            </div>
+            <div class="pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 bg-primary-container text-on-primary flex items-center justify-center font-headline-sm italic text-sm font-bold">
+                  AS
+                </div>
+                <div>
+                  <h5 class="font-label-ui text-label-ui text-white font-semibold">Ananya Sharma</h5>
+                  <p class="font-body-sm text-xs text-on-surface-variant">Civil Engg., IIT Delhi • Delhi Chapter</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voice 2 -->
+          <div
+            class="bg-surface-dim p-space-xl flex flex-col justify-between shadow-lg border border-primary/20 hover:border-primary/50 transition-colors">
+            <div>
+              <div class="text-primary mb-space-md">
+                <span class="material-symbols-outlined text-3xl">format_quote</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface leading-relaxed mb-space-lg italic">
+                “TMB gave us intellectual tools rather than slogans. Sitting with tribal elders in Bastar to
+                document seed preservation showed our team that true leadership is rooted in listening, humble
+                service, and scientific inquiry.”
+              </p>
+            </div>
+            <div class="pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 bg-secondary-container text-on-secondary flex items-center justify-center font-headline-sm italic text-sm font-bold">
+                  RV
+                </div>
+                <div>
+                  <h5 class="font-label-ui text-label-ui text-white font-semibold">Raghav Verma</h5>
+                  <p class="font-body-sm text-xs text-on-surface-variant">Public Policy, Pune University</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voice 3 -->
+          <div
+            class="bg-surface-dim p-space-xl flex flex-col justify-between shadow-lg border border-primary/20 hover:border-primary/50 transition-colors">
+            <div>
+              <div class="text-primary mb-space-md">
+                <span class="material-symbols-outlined text-3xl">format_quote</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface leading-relaxed mb-space-lg italic">
+                “The fellowship restored my agency. As an economics student, I am now building market linkages
+                for traditional weavers without stripping away their generational dignity. Towards My Bharat
+                makes nationalism synonymous with work.”
+              </p>
+            </div>
+            <div class="pt-space-md border-t border-outline-variant/30">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 bg-surface-bright text-primary flex items-center justify-center font-headline-sm italic text-sm font-bold">
+                  SN
+                </div>
+                <div>
+                  <h5 class="font-label-ui text-label-ui text-white font-semibold">Sunidhi Nayak</h5>
+                  <p class="font-body-sm text-xs text-on-surface-variant">Development Studies, Utkal University</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: JOIN THE MOVEMENT (Action Portal & Pathways) -->
+    <section id="participate" class="relative w-full bg-surface-dim py-space-xxl overflow-hidden">
+
+      <div class="relative z-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+
+        <div class="max-w-3xl mb-space-xl text-left">
+          <span
+            class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase font-semibold block mb-space-sm">Your
+            Role in the Vanguard</span>
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white leading-tight mb-space-md font-normal">
+            Bharat’s future is not something we wait for.<br>
+            <span class="italic text-primary">It is something we help shape.</span>
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant font-light max-w-2xl">
+            Whether you are a university student, researcher, artist, or young professional, there is an active
+            discipline for your commitment. Choose your pathway below or submit your enrollment.
+          </p>
+        </div>
+
+        <!-- 3 Pathway Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-space-xl">
+
+          <!-- Pathway 1 -->
+          <div
+            class="bg-surface-container p-space-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300 shadow-xl group border border-primary/20 hover:border-primary">
+            <div>
+              <div
+                class="w-12 h-12 bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:bg-primary group-hover:text-on-primary transition-colors border border-primary/30">
+                <span class="material-symbols-outlined text-2xl">volunteer_activism</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-2">Volunteer Cadre</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Participate in weekend archaeological restoration, village teaching workshops, oral archiving,
+                and regional event logistics.
+              </p>
+            </div>
+            <button
+              class="open-modal-trigger inline-flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest group-hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0 text-left"
+              data-track="Volunteer Cadre">
+              <span>Enlist as Volunteer</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+
+          <!-- Pathway 2 -->
+          <div
+            class="bg-surface-container p-space-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300 shadow-xl group border border-primary/20 hover:border-primary">
+            <div>
+              <div
+                class="w-12 h-12 bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:bg-primary group-hover:text-on-primary transition-colors border border-primary/30">
+                <span class="material-symbols-outlined text-2xl">school</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-2">Campus Leadership Fellow</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Lead an autonomous Campus Cultural Circle, coordinate university speaker debates, and manage
+                localized field documentation teams.
+              </p>
+            </div>
+            <button
+              class="open-modal-trigger inline-flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest group-hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0 text-left"
+              data-track="Campus Circle Lead">
+              <span>Charter Your Campus</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+
+          <!-- Pathway 3 -->
+          <div
+            class="bg-surface-container p-space-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300 shadow-xl group border border-primary/20 hover:border-primary">
+            <div>
+              <div
+                class="w-12 h-12 bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:bg-primary group-hover:text-on-primary transition-colors border border-primary/30">
+                <span class="material-symbols-outlined text-2xl">handshake</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-white mb-2">Institutional Partnerships</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                For research institutes, cultural foundations, artisan guilds, and corporate CSR initiatives
+                seeking high-integrity execution on the ground.
+              </p>
+            </div>
+            <button
+              class="open-modal-trigger inline-flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest group-hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0 text-left"
+              data-track="Institutional Partnerships">
+              <span>Collaborate With Us</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Application Form Portal -->
+        <div class="p-space-xl bg-surface-container border border-primary/40 shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+
+            <div class="lg:col-span-5 text-left">
+              <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-2">Pledge
+                Your Service</span>
+              <h3 class="font-headline-lg text-headline-lg-mobile md:text-3xl text-white mb-4">Direct Enrollment Portal
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-6">
+                Fill out the application below to align with active national circles, research expeditions, or local
+                campus leadership.
+              </p>
+              <div class="space-y-3 font-body-sm text-xs text-on-surface-variant">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                  <span>Direct mentorship by renowned civilizational scholars</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                  <span>Field accreditation and publication rights</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                  <span>Access to closed national roundtables</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <form id="mainJoinForm" class="space-y-4 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                      for="formName">Full Name *</label>
+                    <input type="text" id="formName" required
+                      class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none"
+                      placeholder="Devansh Trivedi">
+                  </div>
+                  <div>
+                    <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                      for="formEmail">Email Address *</label>
+                    <input type="email" id="formEmail" required
+                      class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none"
+                      placeholder="devansh@university.edu">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                      for="formPhone">Phone / WhatsApp</label>
+                    <input type="tel" id="formPhone"
+                      class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none"
+                      placeholder="+91 98765 43210">
+                  </div>
+                  <div>
+                    <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                      for="formTrack">Selected Track *</label>
+                    <select id="formTrack" required
+                      class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none">
+                      <option value="General Fellowship">General Fellowship</option>
+                      <option value="Heritage Fellowship">Bharatiya Heritage &amp; Historiography</option>
+                      <option value="Campus Circle Lead">Campus Leadership Fellow</option>
+                      <option value="Volunteer Cadre">Volunteer Cadre</option>
+                      <option value="Artisan Guilds">Artisan Labs &amp; Craft Revival</option>
+                      <option value="Institutional Partnerships">Institutional Partnership</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                    for="formInst">University / Organization</label>
+                  <input type="text" id="formInst"
+                    class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none"
+                    placeholder="IIT Delhi / JNU / Banaras Hindu University">
+                </div>
+
+                <div>
+                  <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1.5"
+                    for="formMessage">Brief Statement of Intent</label>
+                  <textarea id="formMessage" rows="3"
+                    class="w-full bg-[#070e19] border border-primary/30 px-3.5 py-2.5 text-white text-sm focus:border-primary focus:outline-none resize-none"
+                    placeholder="Describe your background and why you want to contribute to Towards My Bharat..."></textarea>
+                </div>
+
+                <button type="submit"
+                  class="w-full py-3.5 bg-primary hover:bg-white text-on-primary hover:text-surface-dim font-label-caps text-xs uppercase tracking-widest font-bold transition-all duration-200 shadow-xl cursor-pointer border border-primary">
+                  Transmit Application to Secretariat
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- POPUP APPLICATION MODAL -->
+  <div id="applyModal" class="modal-overlay">
+    <div class="bg-surface-container-low border border-primary max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button
+        class="modal-close absolute top-4 right-4 text-on-surface-variant hover:text-white bg-transparent border border-primary/30 hover:border-primary p-1 text-sm flex items-center justify-center"
+        aria-label="Close Modal">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+
+      <span class="font-label-caps text-[0.625rem] text-primary uppercase tracking-widest block mb-1">Enlistment
+        Portal</span>
+      <h3 class="font-headline-md text-2xl text-white mb-2">Join Towards My Bharat</h3>
+      <p class="font-body-sm text-xs text-on-surface-variant mb-4">Select your track and submit your coordinates to
+        connect directly with the national leadership council.</p>
+
+      <form
+        onsubmit="event.preventDefault(); alert('Application received for ' + document.getElementById('modalTrackSelect').value + '. We will contact you.'); document.getElementById('applyModal').classList.remove('active'); document.body.style.overflow='';"
+        class="space-y-3.5 text-left">
+        <div>
+          <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1">Track</label>
+          <select id="modalTrackSelect"
+            class="w-full bg-[#070e19] border border-primary/30 px-3 py-2 text-white text-sm focus:border-primary focus:outline-none">
+            <option value="General Fellowship">General Fellowship</option>
+            <option value="Heritage Fellowship">Bharatiya Heritage &amp; Historiography</option>
+            <option value="Leadership Conclave">Yuva Leadership Conclave</option>
+            <option value="Campus Circle Lead">Campus Leadership Fellow</option>
+            <option value="Volunteer Cadre">Volunteer Cadre</option>
+            <option value="Artisan Guilds">Artisan Labs</option>
+            <option value="Institutional Partnerships">Institutional Partnership</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1">Your Name
+            *</label>
+          <input type="text" required
+            class="w-full bg-[#070e19] border border-primary/30 px-3 py-2 text-white text-sm focus:border-primary focus:outline-none"
+            placeholder="Your full name">
+        </div>
+        <div>
+          <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1">Email Address
+            *</label>
+          <input type="email" required
+            class="w-full bg-[#070e19] border border-primary/30 px-3 py-2 text-white text-sm focus:border-primary focus:outline-none"
+            placeholder="your.email@domain.com">
+        </div>
+        <div>
+          <label class="block font-label-caps text-[0.625rem] text-primary uppercase tracking-widest mb-1">University /
+            City</label>
+          <input type="text"
+            class="w-full bg-[#070e19] border border-primary/30 px-3 py-2 text-white text-sm focus:border-primary focus:outline-none"
+            placeholder="E.g., Delhi, Varanasi, Pune...">
+        </div>
+        <button type="submit"
+          class="w-full py-3 bg-primary text-on-primary font-label-caps text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-surface-dim transition-colors cursor-pointer border border-primary mt-2">
+          Confirm &amp; Enlist
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-lowest border-t border-primary-container/30">
+    <div class="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-space-xl pb-space-lg">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-desktop pb-space-xl border-b border-outline-variant/30">
+
+        <!-- Col 1: Brand -->
+        <div class="lg:col-span-5 flex flex-col items-start">
+          <div class="flex items-center gap-3 mb-space-md">
+            <div class="w-10 h-10 border border-primary/40 flex items-center justify-center p-1 bg-surface-container">
+              <img alt="Towards My Bharat Emblem" class="h-8 w-auto object-contain" src="photos/TMB Logo.png">
+            </div>
+            <span class="font-label-caps text-label-caps uppercase text-white tracking-[0.2em] font-semibold">Towards My
+              Bharat</span>
+          </div>
+          <p class="font-headline-sm text-headline-sm text-primary italic mb-space-sm max-w-md">Honouring Our Roots.
+            Shaping Our Future.</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed mb-space-lg">
+            A high-culture digital assembly and national movement uniting youth through historical weight, classical
+            proportion, and modern digital leadership.
+          </p>
+          <div class="flex items-center gap-space-md">
+            <a aria-label="Public Archive"
+              class="w-9 h-9 flex items-center justify-center border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary transition-colors"
+              href="#hero">
+              <span class="material-symbols-outlined text-base">public</span>
+            </a>
+            <a aria-label="News Stream"
+              class="w-9 h-9 flex items-center justify-center border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary transition-colors"
+              href="#initiatives">
+              <span class="material-symbols-outlined text-base">rss_feed</span>
+            </a>
+            <a aria-label="Official Communique"
+              class="w-9 h-9 flex items-center justify-center border border-outline-variant/50 text-on-surface-variant hover:text-primary hover:border-primary transition-colors"
+              href="#participate">
+              <span class="material-symbols-outlined text-base">mail</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="lg:col-span-3 flex flex-col">
+          <h3
+            class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-space-lg border-b border-outline-variant/20 pb-space-xs">
+            Navigation
+          </h3>
+          <ul class="flex flex-col gap-space-sm">
+            <li>
+              <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors flex items-center gap-2"
+                href="#story">
+                <span class="font-headline-sm italic text-xs text-primary/80">01</span> About TMB
+              </a>
+            </li>
+            <li>
+              <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors flex items-center gap-2"
+                href="#framework">
+                <span class="font-headline-sm italic text-xs text-primary/80">02</span> Structural Framework
+              </a>
+            </li>
+            <li>
+              <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors flex items-center gap-2"
+                href="#initiatives">
+                <span class="font-headline-sm italic text-xs text-primary/80">03</span> National Initiatives
+              </a>
+            </li>
+            <li>
+              <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-white transition-colors flex items-center gap-2"
+                href="#voices">
+                <span class="font-headline-sm italic text-xs text-primary/80">04</span> Voices of Vanguard
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Newsletter & Participation -->
+        <div class="lg:col-span-4 flex flex-col">
+          <h3
+            class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest mb-space-lg border-b border-outline-variant/20 pb-space-xs">
+            Editorial Dispatches
+          </h3>
+          <div class="flex flex-col gap-space-md">
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Receive quarterly monographs on civilizational research, historical restorations, and conclave schedules.
+            </p>
+            <form id="newsletterForm" class="flex">
+              <input type="email" required placeholder="your.email@domain.com"
+                class="flex-grow bg-[#070e19] border border-primary/30 px-3 py-2 text-white text-xs focus:border-primary focus:outline-none">
+              <button type="submit"
+                class="bg-primary text-on-primary px-4 py-2 font-label-caps text-xs uppercase tracking-wider font-bold hover:bg-white hover:text-surface-dim transition-colors cursor-pointer border border-primary">
+                Subscribe
+              </button>
+            </form>
+            <div class="pt-2">
+              <a href="#participate"
+                class="inline-flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest hover:text-white transition-colors">
+                <span>Enlist for National Fellowship</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div
+        class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-caps text-[0.625rem] tracking-wider">
+        <div class="flex items-center gap-space-md">
+          <span>© TOWARDS MY BHARAT FOUNDATION. ALL RIGHTS RESERVED.</span>
+        </div>
+        <div class="flex items-center gap-space-lg">
+          <span>ARCHITECTURAL EDITION VOL. IV</span>
+          <span class="text-primary">BHARAT FIRST</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
+
 </html>
