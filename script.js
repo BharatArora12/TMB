@@ -20,6 +20,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2200);
   }
 
+  // Keep a work preview open until the user selects another card or dismisses it.
+  const workCards = document.querySelectorAll('.work-glimpse-hit-area');
+  const closeWorkPreview = () => {
+    workCards.forEach((workCard) => {
+      workCard.classList.remove('is-open');
+    });
+  };
+
+  workCards.forEach((workCard) => {
+    const card = workCard.querySelector('.work-glimpse-card');
+
+    card.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const wasOpen = workCard.classList.contains('is-open');
+      closeWorkPreview();
+      if (!wasOpen) {
+        workCard.classList.add('is-open');
+      }
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeWorkPreview);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeWorkPreview();
+    }
+  });
+
   // Automatic Hero Background Slideshow (Transitions every 2.5s)
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
