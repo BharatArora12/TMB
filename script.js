@@ -106,35 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initiative Filtering Tabs
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const pillarCards = document.querySelectorAll('.pillar-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      pillarCards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(10px)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 200);
-        }
-      });
-    });
-  });
-
   // Animated Statistics Counter
   const statsElements = document.querySelectorAll('.counter-val');
   let statsCounted = false;

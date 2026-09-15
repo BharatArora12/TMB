@@ -657,6 +657,354 @@ h1, h2, h3, h4, .font-serif {
   color: var(--text-muted);
 }
 
+/* Field Gallery */
+.field-gallery-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-xxl) 0 var(--space-xl);
+  background: #07152b;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.field-gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.field-gallery-header p {
+  max-width: 30rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.field-gallery-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.field-gallery-viewport::before,
+.field-gallery-viewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(2rem, 8vw, 9rem);
+  pointer-events: none;
+}
+
+.field-gallery-viewport::before {
+  left: 0;
+  background: linear-gradient(to right, #07152b, transparent);
+}
+
+.field-gallery-viewport::after {
+  right: 0;
+  background: linear-gradient(to left, #07152b, transparent);
+}
+
+.field-gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  animation: field-gallery-drift 58s linear infinite;
+  will-change: transform;
+}
+
+.field-gallery-viewport:hover .field-gallery-track {
+  animation-play-state: paused;
+}
+
+.field-gallery-slide {
+  position: relative;
+  flex: 0 0 clamp(18rem, 27vw, 27rem);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(236, 194, 70, 0.3);
+  background: var(--bg-surface);
+}
+
+.field-gallery-slide::after {
+  content: '';
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(7, 14, 25, 0.95));
+  pointer-events: none;
+}
+
+.field-gallery-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88);
+  transition: filter 500ms ease, transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.field-gallery-slide:hover img {
+  filter: saturate(1.05);
+  transform: scale(1.03);
+}
+
+.field-gallery-slide figcaption {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  left: 1.25rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.field-gallery-slide figcaption span {
+  color: var(--primary-gold);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.field-gallery-slide figcaption strong {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+@keyframes field-gallery-drift {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .field-gallery-section {
+    padding: 4rem 0 3rem;
+  }
+
+  .field-gallery-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .field-gallery-header p {
+    max-width: 32rem;
+  }
+
+  .field-gallery-slide {
+    flex-basis: min(78vw, 24rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-gallery-track {
+    animation: none;
+    transform: translateX(0);
+  }
+
+  .field-gallery-slide img {
+    transition: none;
+  }
+}
+
+/* Field Journal */
+.journal-section {
+  padding: var(--space-xxl) 0;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.journal-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.journal-index-link,
+.journal-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--primary-gold);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.journal-index-link:hover,
+.journal-read-link:hover {
+  gap: 0.75rem;
+  color: #fff;
+}
+
+.journal-index-link .material-symbols-outlined,
+.journal-read-link .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 3rem;
+}
+
+.journal-feature {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.journal-image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border-gold);
+  background: var(--bg-surface);
+}
+
+.journal-image-link img,
+.journal-post img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms ease;
+}
+
+.journal-image-link:hover img,
+.journal-post:hover img {
+  filter: saturate(1.05);
+  transform: scale(1.035);
+}
+
+.journal-feature-copy {
+  padding: 1.5rem 0 0;
+}
+
+.journal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.65rem;
+  color: var(--primary-gold);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.journal-meta span + span {
+  color: var(--text-subtle);
+}
+
+.journal-feature h3,
+.journal-post h3 {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+.journal-feature h3 {
+  max-width: 35rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.journal-feature p {
+  max-width: 35rem;
+  margin: 0.85rem 0 1.25rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.journal-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-gold);
+}
+
+.journal-post {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.journal-post img {
+  width: 10rem;
+  height: 7.25rem;
+  border: 1px solid var(--border-gold);
+}
+
+.journal-post h3 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.08;
+}
+
+.journal-post p {
+  margin-bottom: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .journal-section {
+    padding: 4rem 0;
+  }
+
+  .journal-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .journal-post {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .journal-post img {
+    width: 7.5rem;
+    height: 6rem;
+  }
+
+  .journal-post p {
+    display: none;
+  }
+}
+
 /* Pillars & Initiatives Showcase */
 .pillars-section {
   padding: var(--space-xxl) 0;
