@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   workCards.forEach((workCard) => {
     const card = workCard.querySelector('.work-glimpse-card');
+    if (!card) return;
 
     card.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -186,15 +187,19 @@ document.addEventListener('DOMContentLoaded', () => {
     mainJoinForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = mainJoinForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'TRANSMITTING APPLICATION...';
-      submitBtn.disabled = true;
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.textContent = 'TRANSMITTING APPLICATION...';
+        submitBtn.disabled = true;
+      }
 
       setTimeout(() => {
         alert('Thank you for pledging your dedication to Towards My Bharat. Your fellowship enrollment has been received. Our leadership secretariat will contact you shortly.');
         mainJoinForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
       }, 1200);
     });
   }
