@@ -31,6 +31,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2200);
   }
 
+  // Hover-driven reveal for the four pillar highlight cards.
+  const continuumSteps = document.querySelectorAll('.continuum-step');
+  const pillarCards = document.querySelectorAll('.pillar-card');
+  const resetPillarState = () => {
+    pillarCards.forEach((card) => card.classList.remove('is-active'));
+    continuumSteps.forEach((step) => step.classList.remove('active'));
+  };
+
+  if (continuumSteps.length > 0 && pillarCards.length > 0) {
+    continuumSteps.forEach((step, index) => {
+      step.addEventListener('mouseenter', () => {
+        resetPillarState();
+        step.classList.add('active');
+        pillarCards[index].classList.add('is-active');
+      });
+
+      step.addEventListener('focus', () => {
+        resetPillarState();
+        step.classList.add('active');
+        pillarCards[index].classList.add('is-active');
+      });
+
+      step.addEventListener('mouseleave', () => {
+        resetPillarState();
+      });
+
+      step.addEventListener('blur', () => {
+        resetPillarState();
+      });
+    });
+  }
+
   // Keep a work preview open until the user selects another card or dismisses it.
   const workCards = document.querySelectorAll('.work-glimpse-hit-area');
   const closeWorkPreview = () => {
