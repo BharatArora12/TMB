@@ -4,6 +4,17 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const blogSlides = document.querySelectorAll('.blog-slide');
+  let blogSlideIndex = 0;
+
+  if (blogSlides.length > 0) {
+    setInterval(() => {
+      blogSlides[blogSlideIndex].classList.remove('active');
+      blogSlideIndex = (blogSlideIndex + 1) % blogSlides.length;
+      blogSlides[blogSlideIndex].classList.add('active');
+    }, 2500);
+  }
+
   const rotatingBharatWord = document.getElementById('rotatingBharatWord');
   const bharatNames = ['Bharat', 'India', 'भारत'];
   let currentBharatName = 0;
