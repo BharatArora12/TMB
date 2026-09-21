@@ -93,6 +93,53 @@
         <div class="hero-slide" style="background-image: url('assets/images/community-workshop.jpg');"></div>
       </div>
 
+      <!-- Timed Chandrayaan-inspired flyby -->
+      <div class="rocket-flyby" aria-hidden="true">
+        <svg class="rocket-art" viewBox="0 0 180 300" role="img" aria-label="Chandrayaan-3 rocket">
+          <defs>
+            <!-- Metallic stage, booster, and exhaust gradients keep the silhouette readable over photographs. -->
+            <linearGradient id="rocketStage" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff"></stop>
+              <stop offset="0.5" stop-color="#d8d9d4"></stop>
+              <stop offset="1" stop-color="#8e959b"></stop>
+            </linearGradient>
+            <linearGradient id="rocketBooster" x1="0" x2="1">
+              <stop offset="0" stop-color="#717a83"></stop>
+              <stop offset="0.45" stop-color="#e5e4dc"></stop>
+              <stop offset="1" stop-color="#6d747b"></stop>
+            </linearGradient>
+            <linearGradient id="rocketFlame" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#fff3a0"></stop>
+              <stop offset="0.42" stop-color="#f2b52f"></stop>
+              <stop offset="1" stop-color="#e35c20" stop-opacity="0"></stop>
+            </linearGradient>
+            <clipPath id="rocketStageClip">
+              <path d="M90 12 C75 31 67 47 67 69 V219 L90 239 L113 219 V69 C113 47 105 31 90 12Z"></path>
+            </clipPath>
+          </defs>
+
+          <!-- Symmetrical side boosters flank the central launch stage. -->
+          <path d="M49 72 C38 85 33 105 33 128 V218 L48 231 L58 216 V91Z" fill="url(#rocketBooster)" stroke="#f5f2e9" stroke-opacity=".6"></path>
+          <path d="M131 72 C142 85 147 105 147 128 V218 L132 231 L122 216 V91Z" fill="url(#rocketBooster)" stroke="#f5f2e9" stroke-opacity=".6"></path>
+          <path d="M90 12 C75 31 67 47 67 69 V219 L90 239 L113 219 V69 C113 47 105 31 90 12Z" fill="url(#rocketStage)" stroke="#fffdf2" stroke-width="1.5"></path>
+          <g clip-path="url(#rocketStageClip)">
+            <rect x="62" y="118" width="56" height="9" fill="#e88932"></rect>
+            <rect x="62" y="127" width="56" height="9" fill="#f7f4ea"></rect>
+            <rect x="62" y="136" width="56" height="9" fill="#19894a"></rect>
+            <rect x="67" y="158" width="46" height="46" fill="#aab0b2" opacity=".35"></rect>
+          </g>
+          <!-- Payload nose and viewing window. -->
+          <path d="M90 12 L101 37 H79Z" fill="#f2c34d" stroke="#fff0a8"></path>
+          <circle cx="90" cy="91" r="8" fill="#182d3b" stroke="#f2c34d" stroke-width="2"></circle>
+          <path d="M67 203 L45 239 L68 231Z" fill="#c99731"></path>
+          <path d="M113 203 L135 239 L112 231Z" fill="#c99731"></path>
+          <!-- Engine nozzle and exhaust flame sit below the fins. -->
+          <path d="M78 236 H102 L96 251 H84Z" fill="#4d555c"></path>
+          <path d="M78 248 C82 264 84 281 90 294 C96 281 98 264 102 248Z" fill="url(#rocketFlame)"></path>
+          <text x="90" y="185" fill="#202d38" font-family="Plus Jakarta Sans, sans-serif" font-size="7" font-weight="800" letter-spacing=".6" text-anchor="middle" transform="rotate(-90 90 185)">CHANDRAYAAN-3</text>
+        </svg>
+      </div>
+
       <!-- Vignette Gradient Overlays -->
       <div class="hero-vignette-linear"></div>
       <div class="hero-vignette-radial"></div>
@@ -524,10 +571,6 @@
             <p>
               Small, guided groups exploring Indian history, ideas, and civilizational knowledge through reading and dialogue.
             </p>
-            <a class="program-link open-modal-trigger" data-track="Campus Circle Lead" href="#applyModal">
-              <span>Explore the circle</span>
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
           </article>
 
           <!-- Program 2 (Featured) -->
@@ -540,10 +583,6 @@
             <p>
               A focused fellowship for original research, oral histories, and field documentation that make overlooked knowledge accessible.
             </p>
-            <a class="program-link open-modal-trigger" data-track="Heritage Fellowship" href="#applyModal">
-              <span>View the fellowship</span>
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
           </article>
 
           <!-- Program 3 -->
@@ -556,10 +595,6 @@
             <p>
               Practical projects in education, heritage, and local livelihoods that turn thoughtful citizenship into visible work.
             </p>
-            <a class="program-link open-modal-trigger" data-track="Volunteer Cadre" href="#applyModal">
-              <span>Find your role</span>
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
           </article>
 
         </div>
@@ -597,66 +632,12 @@
           <div class="impact-label">Field programs</div>
         </article>
         <article class="impact-metric">
-          <div class="impact-number">12k+</div>
+          <div class="impact-number">20k+</div>
           <div class="impact-label">Young participants reached</div>
         </article>
       </div>
     </div>
   </section>
-
-  <!-- =========================================================================
-       POPUP APPLICATION MODAL
-       ========================================================================= -->
-  <div id="applyModal" class="modal-overlay">
-    <div class="modal-box">
-
-      <!-- Close Button -->
-      <button class="modal-close" aria-label="Close Modal">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-
-      <span class="section-badge" style="margin-bottom: 0.75rem;">Enlistment Portal</span>
-      <h3 class="modal-title">Join Towards My Bharat</h3>
-      <p class="modal-desc">
-        Select your track and submit your coordinates to connect directly with the national leadership council.
-      </p>
-
-      <form id="mainJoinForm">
-        <div class="form-group">
-          <label class="form-label" for="modalTrackSelect">Track</label>
-          <select id="modalTrackSelect" class="form-select">
-            <option value="General Fellowship">General Fellowship</option>
-            <option value="Heritage Fellowship">Bharatiya Heritage &amp; Historiography</option>
-            <option value="Leadership Conclave">Yuva Leadership Conclave</option>
-            <option value="Campus Circle Lead">Campus Leadership Fellow</option>
-            <option value="Volunteer Cadre">Volunteer Cadre</option>
-            <option value="Artisan Guilds">Artisan Labs</option>
-            <option value="Institutional Partnerships">Institutional Partnership</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Your Name *</label>
-          <input type="text" required class="form-input" placeholder="Your full name">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Email Address *</label>
-          <input type="email" required class="form-input" placeholder="your.email@domain.com">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">University / City</label>
-          <input type="text" class="form-input" placeholder="E.g., Delhi, Varanasi, Pune...">
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
-          Confirm &amp; Enlist
-        </button>
-      </form>
-
-    </div>
-  </div>
 
   <!-- =========================================================================
        FOOTER

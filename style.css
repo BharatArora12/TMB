@@ -456,6 +456,139 @@ button, input, select, textarea {
   transform: scale(1.06);
 }
 
+/* The rocket is fixed to the viewport so each pass rises from the screen bottom to the navbar. */
+.rocket-flyby {
+  position: fixed;
+  top: 0;
+  left: 75%;
+  z-index: 990;
+  width: 8rem;
+  height: 16rem;
+  opacity: 0;
+  pointer-events: none;
+  scale: 1;
+  transform: translate(-50%, 110vh);
+  animation: rocket-flyby 75s linear infinite;
+  filter: drop-shadow(0 0 1rem rgba(255, 193, 70, 0.35));
+}
+
+.rocket-art {
+  /* The SVG owns the vehicle geometry; this wrapper only controls its display size and glow. */
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 0.45rem rgba(255, 244, 188, 0.35));
+}
+
+.rocket-body {
+  position: absolute;
+  top: 1.4rem;
+  left: 2.15rem;
+  width: 1.7rem;
+  height: 8.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: linear-gradient(180deg, #fbfaf4 0 66%, #d9d6ca 66% 100%);
+  clip-path: polygon(50% 0, 78% 10%, 78% 88%, 100% 100%, 0 100%, 22% 88%, 22% 10%);
+}
+
+.rocket-payload {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.33rem;
+  width: 1rem;
+  height: 1.25rem;
+  border: 1px solid #f0c84b;
+  background: #8e7840;
+}
+
+.rocket-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.22rem;
+}
+
+.rocket-band-saffron { top: 3.25rem; background: #e88932; }
+.rocket-band-white { top: 3.47rem; background: #ffffff; }
+.rocket-band-green { top: 3.69rem; background: #19894a; }
+
+.rocket-window {
+  position: absolute;
+  top: 2.2rem;
+  left: 0.58rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  border: 1px solid #d29f28;
+  border-radius: 50% !important;
+  background: #1d3849;
+}
+
+.rocket-booster {
+  position: absolute;
+  top: 2.45rem;
+  width: 1.15rem;
+  height: 6.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, #e9e7dd, #a9a79d);
+  clip-path: polygon(50% 0, 86% 8%, 86% 86%, 100% 100%, 0 100%, 14% 86%, 14% 8%);
+}
+
+.rocket-booster-left { left: 0.6rem; }
+.rocket-booster-right { left: 4.25rem; }
+
+.rocket-fin {
+  position: absolute;
+  top: 9rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: #c6922f;
+}
+
+.rocket-fin-left { left: 1.05rem; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+.rocket-fin-right { left: 3.65rem; clip-path: polygon(0 0, 100% 100%, 0 100%); }
+
+.rocket-exhaust {
+  position: absolute;
+  top: 10rem;
+  left: 2.35rem;
+  width: 1.3rem;
+  height: 2.8rem;
+  background: linear-gradient(180deg, #f5d34e, #e88932 45%, transparent);
+  filter: blur(0.18rem);
+  clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.rocket-name {
+  position: absolute;
+  top: 4.15rem;
+  left: 0.56rem;
+  z-index: 2;
+  color: #263443;
+  font-size: 0.39rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 0.15rem rgba(255, 255, 255, 0.9);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+@keyframes rocket-flyby {
+  /* The first 15 seconds are the pass; the remaining 60 seconds stay invisible before looping. */
+  0%, 2% { opacity: 0; transform: translate(-50%, 110vh); }
+  4% { opacity: 1; transform: translate(-50%, 110vh); }
+  18% { opacity: 1; transform: translate(-50%, -14rem); }
+  20%, 100% { opacity: 0; transform: translate(-50%, -14rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rocket-flyby {
+    display: none;
+  }
+}
+
 .hero-vignette-linear {
   position: absolute;
   inset: 0;
@@ -1073,6 +1206,14 @@ button, input, select, textarea {
   background: var(--bg-surface);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
   transform: translate(-50%, -50%);
+  transform-origin: var(--popup-origin-x, 50%) var(--popup-origin-y, 50%);
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease,
+    border-color 0.25s ease, box-shadow 0.42s ease;
+}
+
+.work-glimpse-hit-area.is-open.is-opening .work-glimpse-card {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.12);
 }
 
 .work-glimpse-hit-area.is-open .work-glimpse-card > .work-image-wrap {
@@ -1802,98 +1943,6 @@ button, input, select, textarea {
   color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-}
-
-/* --------------------------------------------------------------------------
-   11. APPLICATION POPUP MODAL
-   -------------------------------------------------------------------------- */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(13, 20, 30, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.modal-overlay.active {
-  display: flex;
-}
-
-.modal-box {
-  background: var(--bg-surface-low);
-  border: 1px solid var(--primary-gold);
-  max-width: 32rem;
-  width: 100%;
-  padding: 2rem;
-  position: relative;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid var(--border-gold);
-  padding: 0.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-close:hover {
-  color: #ffffff;
-  border-color: var(--primary-gold);
-}
-
-.modal-title {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  color: #ffffff;
-  margin-bottom: 0.35rem;
-}
-
-.modal-desc {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-}
-
-.form-group {
-  margin-bottom: 0.85rem;
-  text-align: left;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.625rem;
-  color: var(--primary-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.form-input, .form-select {
-  width: 100%;
-  background: var(--bg-obsidian);
-  border: 1px solid var(--border-gold);
-  padding: 0.6rem 0.85rem;
-  color: #ffffff;
-  font-size: 0.875rem;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.form-input:focus, .form-select:focus {
-  border-color: var(--primary-gold);
 }
 
 /* --------------------------------------------------------------------------

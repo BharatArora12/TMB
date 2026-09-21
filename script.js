@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Cycle through editorial blog images only when the page contains slideshow slides.
   const blogSlides = document.querySelectorAll('.blog-slide');
   let blogSlideIndex = 0;
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
+  // Rotate the hero's identity word while keeping the layout width stable in CSS.
   const rotatingBharatWord = document.getElementById('rotatingBharatWord');
   const bharatNames = ['Bharat', 'India', 'भारत'];
   let currentBharatName = 0;
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Hover-driven reveal for the four pillar highlight cards.
+  // Keep the continuum step and its matching pillar card active together.
   const continuumSteps = document.querySelectorAll('.continuum-step');
   const pillarCards = document.querySelectorAll('.pillar-card');
   const resetPillarState = () => {
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Keep a work preview open until the user selects another card or dismisses it.
+  // Work cards expand from their original position and close on outside click or Escape.
   const workCards = document.querySelectorAll('.work-glimpse-hit-area');
   const closeWorkPreview = () => {
     workCards.forEach((workCard) => {
@@ -81,6 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
       closeWorkPreview();
       if (!wasOpen) {
         workCard.classList.add('is-open');
+
+        const sourceRect = card.getBoundingClientRect();
+        const sourceX = sourceRect.left + sourceRect.width / 2;
+        const sourceY = sourceRect.top + sourceRect.height / 2;
+
+        requestAnimationFrame(() => {
+          const expandedRect = card.getBoundingClientRect();
+          card.style.setProperty('--popup-origin-x', `${sourceX - expandedRect.left}px`);
+          card.style.setProperty('--popup-origin-y', `${sourceY - expandedRect.top}px`);
+          card.classList.remove('is-opening');
+        });
       }
     });
 
@@ -100,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Automatic Hero Background Slideshow (Transitions every 2.5s)
+  // The CSS establishes the hero layers; JavaScript only advances the active background.
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
 
@@ -133,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Mobile Navigation Toggle
+  // Mirror the drawer state in aria-expanded for keyboard and assistive-technology users.
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileNav = document.getElementById('mobileNav');
   
@@ -151,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Animated Statistics Counter
+  // Start counters once, when the impact section first enters the viewport.
   const statsElements = document.querySelectorAll('.counter-val');
   let statsCounted = false;
 
@@ -186,68 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(statsSection);
   }
 
-  // Modal Handlers
-  const modalOverlay = document.getElementById('applyModal');
-  const openModalBtns = document.querySelectorAll('.open-modal-trigger');
-  const closeModalBtns = document.querySelectorAll('.modal-close');
-
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const track = btn.getAttribute('data-track') || 'General Fellowship';
-      const trackSelect = document.getElementById('modalTrackSelect');
-      if (trackSelect) {
-        trackSelect.value = track;
-      }
-      if (modalOverlay) {
-        modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
-
-  closeModalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (modalOverlay) {
-        modalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        modalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  // Application Form Submit Handler
-  const mainJoinForm = document.getElementById('mainJoinForm');
-  if (mainJoinForm) {
-    mainJoinForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = mainJoinForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.textContent : '';
-      if (submitBtn) {
-        submitBtn.textContent = 'TRANSMITTING APPLICATION...';
-        submitBtn.disabled = true;
-      }
-
-      setTimeout(() => {
-        alert('Thank you for pledging your dedication to Towards My Bharat. Your fellowship enrollment has been received. Our leadership secretariat will contact you shortly.');
-        mainJoinForm.reset();
-        if (submitBtn) {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }
-      }, 1200);
-    });
-  }
-
   // Newsletter Submit Handler
+  // Keep the static newsletter form on the page while preventing a full-page submission.
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
