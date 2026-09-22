@@ -456,138 +456,7 @@ button, input, select, textarea {
   transform: scale(1.06);
 }
 
-/* The rocket is fixed to the viewport so each pass rises from the screen bottom to the navbar. */
-.rocket-flyby {
-  position: fixed;
-  top: 0;
-  left: 75%;
-  z-index: 990;
-  width: 8rem;
-  height: 16rem;
-  opacity: 0;
-  pointer-events: none;
-  scale: 1;
-  transform: translate(-50%, 110vh);
-  animation: rocket-flyby 75s linear infinite;
-  filter: drop-shadow(0 0 1rem rgba(255, 193, 70, 0.35));
-}
 
-.rocket-art {
-  /* The SVG owns the vehicle geometry; this wrapper only controls its display size and glow. */
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  filter: drop-shadow(0 0 0.45rem rgba(255, 244, 188, 0.35));
-}
-
-.rocket-body {
-  position: absolute;
-  top: 1.4rem;
-  left: 2.15rem;
-  width: 1.7rem;
-  height: 8.8rem;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  background: linear-gradient(180deg, #fbfaf4 0 66%, #d9d6ca 66% 100%);
-  clip-path: polygon(50% 0, 78% 10%, 78% 88%, 100% 100%, 0 100%, 22% 88%, 22% 10%);
-}
-
-.rocket-payload {
-  position: absolute;
-  top: 0.2rem;
-  left: 0.33rem;
-  width: 1rem;
-  height: 1.25rem;
-  border: 1px solid #f0c84b;
-  background: #8e7840;
-}
-
-.rocket-band {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 0.22rem;
-}
-
-.rocket-band-saffron { top: 3.25rem; background: #e88932; }
-.rocket-band-white { top: 3.47rem; background: #ffffff; }
-.rocket-band-green { top: 3.69rem; background: #19894a; }
-
-.rocket-window {
-  position: absolute;
-  top: 2.2rem;
-  left: 0.58rem;
-  width: 0.52rem;
-  height: 0.52rem;
-  border: 1px solid #d29f28;
-  border-radius: 50% !important;
-  background: #1d3849;
-}
-
-.rocket-booster {
-  position: absolute;
-  top: 2.45rem;
-  width: 1.15rem;
-  height: 6.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  background: linear-gradient(180deg, #e9e7dd, #a9a79d);
-  clip-path: polygon(50% 0, 86% 8%, 86% 86%, 100% 100%, 0 100%, 14% 86%, 14% 8%);
-}
-
-.rocket-booster-left { left: 0.6rem; }
-.rocket-booster-right { left: 4.25rem; }
-
-.rocket-fin {
-  position: absolute;
-  top: 9rem;
-  width: 1.3rem;
-  height: 1.3rem;
-  background: #c6922f;
-}
-
-.rocket-fin-left { left: 1.05rem; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
-.rocket-fin-right { left: 3.65rem; clip-path: polygon(0 0, 100% 100%, 0 100%); }
-
-.rocket-exhaust {
-  position: absolute;
-  top: 10rem;
-  left: 2.35rem;
-  width: 1.3rem;
-  height: 2.8rem;
-  background: linear-gradient(180deg, #f5d34e, #e88932 45%, transparent);
-  filter: blur(0.18rem);
-  clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
-}
-
-.rocket-name {
-  position: absolute;
-  top: 4.15rem;
-  left: 0.56rem;
-  z-index: 2;
-  color: #263443;
-  font-size: 0.39rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-shadow: 0 0 0.15rem rgba(255, 255, 255, 0.9);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-}
-
-@keyframes rocket-flyby {
-  /* The first 15 seconds are the pass; the remaining 60 seconds stay invisible before looping. */
-  0%, 2% { opacity: 0; transform: translate(-50%, 110vh); }
-  4% { opacity: 1; transform: translate(-50%, 110vh); }
-  18% { opacity: 1; transform: translate(-50%, -14rem); }
-  20%, 100% { opacity: 0; transform: translate(-50%, -14rem); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rocket-flyby {
-    display: none;
-  }
-}
 
 .hero-vignette-linear {
   position: absolute;
@@ -1407,6 +1276,12 @@ button, input, select, textarea {
   gap: 1.5rem;
 }
 
+.blog-explore-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 @media (min-width: 768px) {
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1446,6 +1321,7 @@ button, input, select, textarea {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1457,24 +1333,23 @@ button, input, select, textarea {
 
 .blog-card img {
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
 }
 
 .featured-blog {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr;
+  grid-column: auto;
+  display: flex;
 }
 
 @media (min-width: 900px) {
   .featured-blog {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: none;
   }
 
   .featured-blog img {
-    height: 100%;
-    min-height: 100%;
+    height: 220px;
+    min-height: 220px;
   }
 }
 
@@ -1492,14 +1367,7 @@ button, input, select, textarea {
   color: #ffffff;
   margin-bottom: 0.5rem;
   line-height: 1.1;
-}
-
-.blog-card-body h2 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
-}
-
-.blog-card-body h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
 }
 
 .blog-card-body p {

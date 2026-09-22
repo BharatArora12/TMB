@@ -32,7 +32,7 @@
 
       <!-- Brand Logo & Title -->
       <a class="nav-brand" href="#hero">
-        <img alt="Towards My Bharat Emblem" src="photos/TMB logo.png">
+        <img alt="Towards My Bharat Logo" src="photos/TMB logo.png">
         <span class="nav-brand-text">Towards My Bharat</span>
       </a>
 
@@ -91,53 +91,6 @@
         <div class="hero-slide" style="background-image: url('assets/images/youth-nation-building.jpg');"></div>
         <div class="hero-slide" style="background-image: url('assets/images/research-archive.jpg');"></div>
         <div class="hero-slide" style="background-image: url('assets/images/community-workshop.jpg');"></div>
-      </div>
-
-      <!-- Timed Chandrayaan-inspired flyby -->
-      <div class="rocket-flyby" aria-hidden="true">
-        <svg class="rocket-art" viewBox="0 0 180 300" role="img" aria-label="Chandrayaan-3 rocket">
-          <defs>
-            <!-- Metallic stage, booster, and exhaust gradients keep the silhouette readable over photographs. -->
-            <linearGradient id="rocketStage" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#ffffff"></stop>
-              <stop offset="0.5" stop-color="#d8d9d4"></stop>
-              <stop offset="1" stop-color="#8e959b"></stop>
-            </linearGradient>
-            <linearGradient id="rocketBooster" x1="0" x2="1">
-              <stop offset="0" stop-color="#717a83"></stop>
-              <stop offset="0.45" stop-color="#e5e4dc"></stop>
-              <stop offset="1" stop-color="#6d747b"></stop>
-            </linearGradient>
-            <linearGradient id="rocketFlame" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#fff3a0"></stop>
-              <stop offset="0.42" stop-color="#f2b52f"></stop>
-              <stop offset="1" stop-color="#e35c20" stop-opacity="0"></stop>
-            </linearGradient>
-            <clipPath id="rocketStageClip">
-              <path d="M90 12 C75 31 67 47 67 69 V219 L90 239 L113 219 V69 C113 47 105 31 90 12Z"></path>
-            </clipPath>
-          </defs>
-
-          <!-- Symmetrical side boosters flank the central launch stage. -->
-          <path d="M49 72 C38 85 33 105 33 128 V218 L48 231 L58 216 V91Z" fill="url(#rocketBooster)" stroke="#f5f2e9" stroke-opacity=".6"></path>
-          <path d="M131 72 C142 85 147 105 147 128 V218 L132 231 L122 216 V91Z" fill="url(#rocketBooster)" stroke="#f5f2e9" stroke-opacity=".6"></path>
-          <path d="M90 12 C75 31 67 47 67 69 V219 L90 239 L113 219 V69 C113 47 105 31 90 12Z" fill="url(#rocketStage)" stroke="#fffdf2" stroke-width="1.5"></path>
-          <g clip-path="url(#rocketStageClip)">
-            <rect x="62" y="118" width="56" height="9" fill="#e88932"></rect>
-            <rect x="62" y="127" width="56" height="9" fill="#f7f4ea"></rect>
-            <rect x="62" y="136" width="56" height="9" fill="#19894a"></rect>
-            <rect x="67" y="158" width="46" height="46" fill="#aab0b2" opacity=".35"></rect>
-          </g>
-          <!-- Payload nose and viewing window. -->
-          <path d="M90 12 L101 37 H79Z" fill="#f2c34d" stroke="#fff0a8"></path>
-          <circle cx="90" cy="91" r="8" fill="#182d3b" stroke="#f2c34d" stroke-width="2"></circle>
-          <path d="M67 203 L45 239 L68 231Z" fill="#c99731"></path>
-          <path d="M113 203 L135 239 L112 231Z" fill="#c99731"></path>
-          <!-- Engine nozzle and exhaust flame sit below the fins. -->
-          <path d="M78 236 H102 L96 251 H84Z" fill="#4d555c"></path>
-          <path d="M78 248 C82 264 84 281 90 294 C96 281 98 264 102 248Z" fill="url(#rocketFlame)"></path>
-          <text x="90" y="185" fill="#202d38" font-family="Plus Jakarta Sans, sans-serif" font-size="7" font-weight="800" letter-spacing=".6" text-anchor="middle" transform="rotate(-90 90 185)">CHANDRAYAAN-3</text>
-        </svg>
       </div>
 
       <!-- Vignette Gradient Overlays -->
@@ -327,7 +280,7 @@
             <div>
               <div class="pillar-header">
                 <span class="pillar-num">04</span>
-                <span class="material-symbols-outlined pillar-icon">rocket_launch</span>
+                <span class="material-symbols-outlined pillar-icon">trending_up</span>
               </div>
               <h3>Future-Focused Impact</h3>
               <p>
@@ -347,7 +300,7 @@
     <!-- =========================================================================
          SECTION 3: A GLIMPSE OF OUR WORK (Interactive Bento Tiles)
          ========================================================================= -->
-    <section class="work-section">
+    <section id="initiatives" class="work-section">
       <div class="container">
 
         <!-- Section Header -->
@@ -483,68 +436,10 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         SECTION 4: FIELD GALLERY (Continuous Visual Marquee)
-         ========================================================================= -->
-    <section id="framework" class="field-gallery-section" aria-labelledby="field-gallery-title">
-      <div class="container field-gallery-header">
-        <div>
-          <span class="section-badge">Field notes / visual archive</span>
-          <h2 id="field-gallery-title" class="section-title">A living direction.</h2>
-        </div>
-        <p class="text-muted">Selected moments from the people, places, and ideas shaping our work across Bharat.</p>
-      </div>
-
-      <div class="field-gallery-viewport" aria-label="Moving image gallery">
-        <div class="field-gallery-track">
-          <figure class="field-gallery-slide">
-            <img src="assets/images/youth-nation-building.jpg" alt="Young people gathered for a community discussion">
-            <figcaption><span>01 / People</span><strong>Learning in public</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide">
-            <img src="assets/images/varanasi-ghats.jpg" alt="A quiet view of the Varanasi ghats">
-            <figcaption><span>02 / Place</span><strong>Memory in the landscape</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide">
-            <img src="assets/images/research-archive.jpg" alt="Historical research materials arranged on a table">
-            <figcaption><span>03 / Archive</span><strong>Returning to the source</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide">
-            <img src="assets/images/hero-courtyard.jpg" alt="A sunlit heritage courtyard">
-            <figcaption><span>04 / Heritage</span><strong>Culture in motion</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide">
-            <img src="assets/images/community-workshop.jpg" alt="Participants working together in a community workshop">
-            <figcaption><span>05 / Practice</span><strong>Ideas become action</strong></figcaption>
-          </figure>
-
-          <!-- Duplicate Slides for Seamless Infinite Scrolling Loop -->
-          <figure class="field-gallery-slide" aria-hidden="true">
-            <img src="assets/images/youth-nation-building.jpg" alt="">
-            <figcaption><span>01 / People</span><strong>Learning in public</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide" aria-hidden="true">
-            <img src="assets/images/varanasi-ghats.jpg" alt="">
-            <figcaption><span>02 / Place</span><strong>Memory in the landscape</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide" aria-hidden="true">
-            <img src="assets/images/research-archive.jpg" alt="">
-            <figcaption><span>03 / Archive</span><strong>Returning to the source</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide" aria-hidden="true">
-            <img src="assets/images/hero-courtyard.jpg" alt="">
-            <figcaption><span>04 / Heritage</span><strong>Culture in motion</strong></figcaption>
-          </figure>
-          <figure class="field-gallery-slide" aria-hidden="true">
-            <img src="assets/images/community-workshop.jpg" alt="">
-            <figcaption><span>05 / Practice</span><strong>Ideas become action</strong></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- =========================================================================
-         SECTION 5: PROGRAMS (Study Circles, Fellowship, Action)
+         SECTION 4: PROGRAMS (Study Circles, Fellowship, Action)
          ========================================================================= -->
     <section id="voices" class="programs-section" aria-labelledby="programs-title">
       <div class="container">
