@@ -526,6 +526,23 @@ button, input, select, textarea {
   width: 100%;
 }
 
+.hero-credential {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-credential .material-symbols-outlined {
+  color: var(--primary-gold);
+  font-size: 1.15rem;
+}
+
 @media (min-width: 640px) {
   .hero-btn-group {
     width: auto;
@@ -1811,6 +1828,103 @@ button, input, select, textarea {
   color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.14em;
+}
+
+.testimonials-section {
+  width: 100%;
+  background: var(--bg-surface-low);
+  border-top: 1px solid var(--border-gold-subtle);
+  padding: 5rem 0;
+}
+
+.testimonials-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.testimonials-header h2 {
+  margin-top: 1rem;
+  max-width: 42rem;
+}
+
+.testimonials-intro {
+  max-width: 30rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .testimonials-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.testimonial-card {
+  display: flex;
+  min-height: 19rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.75rem;
+  background: rgba(13, 20, 30, 0.72);
+  border: 1px solid var(--border-muted);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold);
+}
+
+.testimonial-card-featured {
+  background: linear-gradient(145deg, rgba(87, 65, 23, 0.44), rgba(13, 20, 30, 0.9));
+  border-color: var(--border-gold);
+}
+
+.testimonial-mark {
+  color: var(--primary-gold);
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-card blockquote {
+  flex: 1;
+  margin: 0;
+  color: var(--text-main);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.testimonial-card footer {
+  width: 100%;
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-muted);
+  color: var(--primary-gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.testimonial-card footer span {
+  padding: 0 0.3rem;
+  color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------

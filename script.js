@@ -4,6 +4,79 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const blogs = [
+    {
+      image: 'hero-courtyard.jpg',
+      alt: 'Heritage courtyard and architecture',
+      category: 'Heritage',
+      readTime: '07 min read',
+      title: 'Why a courtyard still teaches us how to gather',
+      description: 'Design, memory, and community often begin in the same spatial rhythm: the place where people meet, pause, and think together.'
+    },
+    {
+      image: 'youth-nation-building.jpg',
+      alt: 'Youth building a future together',
+      category: 'Leadership',
+      readTime: '05 min read',
+      title: 'Leadership is not performance',
+      description: 'On building trust, humility, and steadiness in a culture that often rewards noise over judgment.'
+    },
+    {
+      image: 'research-archive.jpg',
+      alt: 'Archive materials and historical references',
+      category: 'Research',
+      readTime: '04 min read',
+      title: 'Research begins with listening',
+      description: 'What happens when we stop searching for answers and begin by tracing the questions that shaped a place over time.'
+    },
+    {
+      image: 'varanasi-ghats.jpg',
+      alt: 'Sacred ghats along the river',
+      category: 'Field notes',
+      readTime: '06 min read',
+      title: 'Walking a riverfront with attention',
+      description: 'Places live in memory, rituals, and repeated acts of care. To notice them is to notice history continuing to speak.'
+    },
+    {
+      image: 'community-workshop.jpg',
+      alt: 'People collaborating in a workshop',
+      category: 'Practice',
+      readTime: '03 min read',
+      title: 'Making together builds belonging',
+      description: 'Participation is not just a method; it is a way of cultivating trust, skill, and shared direction.'
+    },
+    {
+      image: 'research-archive.jpg',
+      alt: 'Historical learning table with documents',
+      category: 'Education',
+      readTime: '05 min read',
+      title: 'Classrooms that connect memory and future',
+      description: 'Education becomes broader and more valuable when students are invited to relate ideas to actual living traditions and communities.'
+    }
+  ];
+
+  const renderBlogs = (container, posts) => {
+    container.innerHTML = posts.map((post, index) => `
+      <article class="blog-card${index === 0 ? ' featured-blog' : ''}">
+        <img src="assets/images/${post.image}" alt="${post.alt}">
+        <div class="blog-card-body">
+          <div class="journal-meta"><span>${post.category}</span><span>${post.readTime}</span></div>
+          <${index === 0 ? 'h2' : 'h3'}>${post.title}</${index === 0 ? 'h2' : 'h3'}>
+          <p>${post.description}</p>
+          <a class="journal-read-link" href="#">
+            <span>Read story</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+    `).join('');
+  };
+
+  const latestBlogs = document.getElementById('latestBlogs');
+  const allBlogs = document.getElementById('allBlogs');
+  if (latestBlogs) renderBlogs(latestBlogs, blogs.slice(0, 4));
+  if (allBlogs) renderBlogs(allBlogs, blogs);
+
   // Cycle through editorial blog images only when the page contains slideshow slides.
   const blogSlides = document.querySelectorAll('.blog-slide');
   let blogSlideIndex = 0;
