@@ -1875,6 +1875,8 @@ button, input, select, textarea {
 }
 
 .testimonial-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   min-height: 19rem;
   flex-direction: column;
@@ -1885,9 +1887,31 @@ button, input, select, textarea {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--tricolor-saffron) 0 33.33%,
+    var(--patriot-ivory) 33.33% 66.66%,
+    var(--tricolor-green) 66.66% 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
 .testimonial-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-gold);
+}
+
+.testimonial-card:hover::before {
+  opacity: 0.75;
 }
 
 .testimonial-card-featured {
