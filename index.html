@@ -18,6 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     rel="stylesheet">
 
+  <script src="theme.js"></script>
+
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -40,12 +42,17 @@
       <nav class="nav-links" aria-label="Main Navigation">
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#who-we-are" class="nav-link">About</a>
-        <a href="#initiatives" class="nav-link">Events</a>
+        <a href="#initiatives" class="nav-link">Work We Do</a>
         <a href="blog.html" class="nav-link">Blogs</a>
       </nav>
 
       <!-- Header Actions -->
       <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode"
+          aria-pressed="false" title="Switch to dark mode">
+          <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+        </button>
+
         <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
           rel="noopener noreferrer" class="nav-cta-btn">
           Join Us
@@ -63,10 +70,10 @@
     <div id="mobileNav" class="mobile-nav-drawer">
       <ul class="mobile-nav-list">
         <li><a class="mobile-nav-link" href="#hero">Home</a></li>
-        <li><a class="mobile-nav-link" href="#who-we-are">About TMB</a></li>
-        <li><a class="mobile-nav-link" href="#initiatives">Events</a></li>
+        <li><a class="mobile-nav-link" href="#who-we-are">About</a></li>
+        <li><a class="mobile-nav-link" href="#initiatives">Work We Do</a></li>
         <li><a class="mobile-nav-link" href="#voices">Programs</a></li>
-        <li><a class="mobile-nav-link" href="blog.html">Blog</a></li>
+        <li><a class="mobile-nav-link" href="blog.html">Blogs</a></li>
         <li>
           <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
             rel="noopener noreferrer" class="mobile-cta">
@@ -665,6 +672,8 @@
         <span>© TOWARDS MY BHARAT FOUNDATION. ALL RIGHTS RESERVED.</span>
         <span class="text-gold" style="font-weight: 600;">BHARAT FIRST</span>
       </div>
+
+      <div class="footer-wordmark" aria-hidden="true">TowardsMyBharat</div>
 
     </div>
   </footer>
