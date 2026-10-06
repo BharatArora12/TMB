@@ -1,18 +1,18 @@
 
 :root {
   color-scheme: light;
-  --color-background: #F7FAF5;
-  --color-background-soft: #EDF4E9;
+  --color-background: #E8F4FF;
+  --color-background-soft: #EAF5FF;
   --color-surface: #FFFFFF;
-  --color-card: #E2EFD9;
-  --color-primary: #285D3B;
-  --color-text: #244B32;
-  --color-text-muted: #647B65;
-  --color-text-on-accent: #244B32;
-  --color-accent: #A8D94F;
-  --color-border: #D3E3CC;
-  --shadow-card: 0 4px 14px rgba(40, 93, 59, 0.10);
-  --shadow-card-hover: 0 10px 28px rgba(40, 93, 59, 0.14);
+  --color-card: #DDEEFF;
+  --color-primary: #3882F6;
+  --color-text: #1E3A8A;
+  --color-text-muted: #49698C;
+  --color-text-on-accent: #1E3A8A;
+  --color-accent: #A7D8FF;
+  --color-border: #CFE8FF;
+  --shadow-card: 0 4px 14px rgba(56, 130, 246, 0.12);
+  --shadow-card-hover: 0 10px 28px rgba(56, 130, 246, 0.18);
 
   /* Backwards-compatible names used by existing component styles. */
   --bg-obsidian: var(--color-background);
@@ -25,7 +25,7 @@
   --primary-gold: var(--color-primary);
   --earth-gold: var(--color-accent);
   --earth-gold-dim: var(--color-primary);
-  --gold-glow: rgba(168, 217, 79, 0.18);
+  --gold-glow: rgba(167, 216, 255, 0.22);
 
   --tricolor-saffron: var(--color-accent);
   --tricolor-white: var(--color-surface);
@@ -42,8 +42,8 @@
   --text-white: var(--color-surface);
 
   --border-gold: var(--color-border);
-  --border-gold-subtle: rgba(211, 227, 204, 0.72);
-  --border-gold-bright: rgba(40, 93, 59, 0.42);
+  --border-gold-subtle: rgba(207, 232, 255, 0.8);
+  --border-gold-bright: rgba(59, 130, 246, 0.42);
   --border-muted: var(--color-border);
 
   /* Typography */
@@ -66,23 +66,23 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --color-background: #111A14;
-  --color-background-soft: #18271D;
-  --color-surface: #1D2C22;
-  --color-card: #223629;
-  --color-primary: #A8D94F;
-  --color-text: #E7EFE5;
-  --color-text-muted: #B1C2B0;
-  --color-text-on-accent: #18271D;
-  --color-accent: #B8E36B;
-  --color-border: #344B38;
-  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.18);
-  --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.28);
+  --color-background: #0C1E35;
+  --color-background-soft: #123055;
+  --color-surface: #163E6E;
+  --color-card: #1B4B82;
+  --color-primary: #A7D8FF;
+  --color-text: #EAF5FF;
+  --color-text-muted: #C9E1F7;
+  --color-text-on-accent: #102338;
+  --color-accent: #D8F2FF;
+  --color-border: #2B5C99;
+  --shadow-card: 0 4px 14px rgba(8, 19, 35, 0.32);
+  --shadow-card-hover: 0 10px 28px rgba(8, 19, 35, 0.4);
 
-  --gold-glow: rgba(184, 227, 107, 0.14);
-  --text-subtle: #9AAF99;
-  --border-gold-subtle: rgba(52, 75, 56, 0.78);
-  --border-gold-bright: rgba(184, 227, 107, 0.5);
+  --gold-glow: rgba(167, 216, 255, 0.18);
+  --text-subtle: #C9E1F7;
+  --border-gold-subtle: rgba(43, 92, 153, 0.8);
+  --border-gold-bright: rgba(167, 216, 255, 0.52);
 }
 
 *, *::before, *::after {
@@ -2001,8 +2001,8 @@ html[data-theme="dark"] .work-badge {
   flex-direction: column;
   align-items: flex-start;
   padding: 1.75rem;
-  background: var(--color-card);
-  border: 1px solid var(--border-muted);
+  background: var(--color-background-soft);
+  border: 1px solid var(--color-accent);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -2031,11 +2031,6 @@ html[data-theme="dark"] .work-badge {
 
 .testimonial-card:hover::before {
   opacity: 0.75;
-}
-
-.testimonial-card-featured {
-  background: var(--color-background-soft);
-  border-color: var(--color-primary);
 }
 
 .testimonial-mark {
@@ -2188,9 +2183,8 @@ html[data-theme="dark"] .work-badge {
   width: 100%;
   margin-top: 2.5rem;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(40, 93, 59, 0.22), rgba(40, 93, 59, 0.08));
-  background-clip: text;
-  color: transparent;
+  color: #8796A8;
+  text-shadow: 0 4px 10px rgba(30, 58, 138, 0.14);
   font-size: clamp(2rem, 10.4vw, 9.25rem);
   font-weight: 700;
   letter-spacing: -0.085em;
@@ -2198,11 +2192,6 @@ html[data-theme="dark"] .work-badge {
   text-align: center;
   white-space: nowrap;
   user-select: none;
-  -webkit-background-clip: text;
-}
-
-html[data-theme="dark"] .footer-wordmark {
-  background-image: linear-gradient(180deg, rgba(231, 239, 229, 0.24), rgba(231, 239, 229, 0.08));
 }
 
 @media (min-width: 640px) {
