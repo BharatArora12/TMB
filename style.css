@@ -1177,6 +1177,7 @@ html[data-theme="dark"] .work-badge {
 }
 
 .work-card-body p {
+  display: none;
   font-size: 0.875rem;
   color: var(--color-text-muted);
   margin-top: 0.35rem;
@@ -1246,6 +1247,7 @@ html[data-theme="dark"] .work-badge {
 }
 
 .work-glimpse-hit-area.is-open .work-glimpse-card > div:last-child p {
+  display: block;
   max-width: 30rem;
   margin-top: 1rem;
   font-size: 1rem;
