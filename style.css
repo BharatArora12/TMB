@@ -1120,6 +1120,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   height: 2.5rem;
   background: var(--color-card);
   border: 1px solid var(--color-border);
+  border-radius: 50%;
   color: var(--color-text);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1188,6 +1189,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   height: 480px;
   margin-left: calc(-1 * min(90vw, 380px) / 2);
   transform-style: preserve-3d;
+  border-radius: 18px;
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
               opacity 0.65s ease,
               filter 0.65s ease,
@@ -1201,6 +1203,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   width: 100%;
   height: 100%;
   border: 1px solid var(--border-gold-subtle);
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1218,7 +1221,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   top: 0;
   right: 0;
   left: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(
     to right,
     var(--tricolor-saffron) 0 33.33%,
@@ -1315,6 +1318,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   gap: 0.45rem;
   background: rgba(17, 26, 20, 0.75);
   border: 1px solid rgba(168, 217, 79, 0.45);
+  border-radius: 9999px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   padding: 0.35rem 0.75rem;
@@ -1323,6 +1327,10 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #FFFDF7;
+}
+
+.card-tag-pill:empty {
+  display: none !important;
 }
 
 .card-tag-pill .pulse-dot {
@@ -1414,6 +1422,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   gap: 0.45rem;
   background: var(--color-background-soft);
   border: 1px solid var(--color-border);
+  border-radius: 9999px;
   padding: 0.4rem;
   max-width: 100%;
 }
@@ -1425,6 +1434,7 @@ html[data-theme="dark"] .hero-btn-group .btn-outline:hover {
   padding: 0.55rem 1rem;
   background: var(--color-card);
   border: 1px solid var(--color-border);
+  border-radius: 9999px;
   color: var(--color-text);
   cursor: pointer;
   position: relative;
@@ -1490,9 +1500,11 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   .work-slider-tabs {
     gap: 0.3rem;
     padding: 0.3rem;
+    border-radius: 14px;
   }
   .work-slider-tab {
     padding: 0.45rem 0.75rem;
+    border-radius: 10px;
   }
   .work-slider-tab .tab-label {
     font-size: 0.6875rem;
@@ -1536,6 +1548,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   max-height: 88vh;
   background-color: var(--color-surface);
   border: 1px solid var(--border-gold-bright);
+  border-radius: 20px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 32px var(--gold-glow);
   overflow-y: auto;
   padding: 2.25rem;
