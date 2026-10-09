@@ -146,12 +146,12 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 2: WHO WE ARE & WHY WE ARE
-         ========================================================================= -->
+         SECTION 2: WHO WE ARE & WHY WE ARE (COMMENTED OUT)
+         =========================================================================
     <section id="who-we-are" class="about-section">
       <div class="container">
 
-        <!-- Top Header & Statement -->
+        <!-- Top Header & Statement -- >
         <div class="section-header-compact">
           <div class="section-badge">
             <span class="pulse-dot"></span>
@@ -165,10 +165,10 @@
           </h2>
         </div>
 
-        <!-- Who We Are & Why We Are Dual Cards -->
+        <!-- Who We Are & Why We Are Dual Cards -- >
         <div class="about-cards-grid">
 
-          <!-- Who We Are Card -->
+          <!-- Who We Are Card -- >
           <div class="about-card">
             <div>
               <div class="about-card-tag">
@@ -190,7 +190,7 @@
             </div>
           </div>
 
-          <!-- Why We Are Card -->
+          <!-- Why We Are Card -- >
           <div class="about-card">
             <div>
               <div class="about-card-tag">
@@ -213,7 +213,7 @@
 
         </div>
 
-        <!-- The Continuous Continuum Bar: ROOTS → IDENTITY → PURPOSE → IMPACT -->
+        <!-- The Continuous Continuum Bar: ROOTS → IDENTITY → PURPOSE → IMPACT -- >
         <div class="continuum-bar">
           <div class="continuum-step">
             <span class="step-num text-gold">01</span>
@@ -233,10 +233,10 @@
           </div>
         </div>
 
-        <!-- 4 Consolidated Pillars / Core Directives -->
+        <!-- 4 Consolidated Pillars / Core Directives -- >
         <div class="pillars-grid">
 
-          <!-- Card 1 -->
+          <!-- Card 1 -- >
           <div class="pillar-card">
             <div>
               <div class="pillar-header">
@@ -253,7 +253,7 @@
             </div>
           </div>
 
-          <!-- Card 2 -->
+          <!-- Card 2 -- >
           <div class="pillar-card">
             <div>
               <div class="pillar-header">
@@ -270,7 +270,7 @@
             </div>
           </div>
 
-          <!-- Card 3 -->
+          <!-- Card 3 -- >
           <div class="pillar-card">
             <div>
               <div class="pillar-header">
@@ -288,7 +288,7 @@
             </div>
           </div>
 
-          <!-- Card 4 -->
+          <!-- Card 4 -- >
           <div class="pillar-card">
             <div>
               <div class="pillar-header">
@@ -310,152 +310,233 @@
 
       </div>
     </section>
+         ========================================================================= -->
 
     <!-- =========================================================================
-         SECTION 3: A GLIMPSE OF OUR WORK (Interactive Bento Tiles)
+         SECTION 3: WHAT WORK WE DO (Interactive 3D Slider)
          ========================================================================= -->
-    <section id="initiatives" class="work-section">
+    <section id="initiatives" class="work-section" aria-label="What Work We Do">
       <div class="container">
 
         <!-- Section Header -->
         <div class="work-header">
           <div class="work-header-copy">
             <span class="section-badge">Practical Initiatives</span>
-            <h2 class="section-title">A Glimpse of Our Work</h2>
-            <p class="text-muted">
-              Translating philosophy into structured interventions across educational spaces, grassroots field
-              expeditions, and digital dialogues.
+            <h2 class="section-title">What Work We Do</h2>
+            <p class="work-subtext">
+              Translating civilizational knowledge into dynamic media, immersive learning cohorts, field action, and international representation.
             </p>
           </div>
-          <a class="work-explore-link" href="#voices">
-            <span>Explore All Impact Areas</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
+
+
+          <div class="work-slider-nav-top">
+            <button type="button" class="slider-arrow-btn prev-btn" id="workSliderPrev" aria-label="Previous Slide" disabled>
+              <span class="material-symbols-outlined">west</span>
+            </button>
+            <div class="slider-counter-badge" aria-live="polite">
+              <span class="counter-current" id="workCounterCurrent">01</span>
+              <span class="counter-divider">/</span>
+              <span class="counter-total">05</span>
+            </div>
+            <button type="button" class="slider-arrow-btn next-btn" id="workSliderNext" aria-label="Next Slide">
+              <span class="material-symbols-outlined">east</span>
+            </button>
+          </div>
         </div>
 
-        <!-- 6 Interactive Bento Tiles -->
-        <div class="work-grid">
+        <!-- 3D Slider Container -->
+        <div class="work-3d-slider-container" id="work3dSlider" role="region" aria-roledescription="carousel" aria-label="Our Works 3D Carousel">
+          <div class="work-3d-stage">
 
-          <!-- Impact 1 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Documentary photograph of youth leadership retreat under Banyan tree"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZkB0P_QZxvdJad0hEy5BmdLK6mqTU6a4oapVQGwUKe_ccinpr_djlw4uCBiw9tI_1iJQXKgkUAsMqGgCc7XIwjC0wB5PebLuEG4n_8WRwH6jy0b41GqXJWKHiBwTFlTjgmJ4IUfJHbS2_lL7xh7CDraArGp5n_4qWS5LiVYHj5hKyUCqSDfkomzr25dJg2lvraYtrCqwniz2xV5U3QM2FrsxBTzArD0lPMacb7cspqM40MPmfg9">
-                <span class="work-badge">Pillar 01</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Leadership &amp; Character Development</h3>
-                <p>
-                  Intensive residential academies and immersive mentorship retreats equipping students with inner
-                  clarity and moral courage.
-                </p>
+            <!-- Slide 1: Short Form Videos -->
+            <div class="work-3d-card is-active" data-index="0" tabindex="0" role="group" aria-roledescription="slide" aria-label="1 of 5: Short Form Videos">
+              <div class="card-inner card-glass-image">
+                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU2jkST6NpQtfzrpQXeauyIdyWqSHonfxEyQOhYkuY0bN_kM0QQOYvIrlk8uKZZu2y0sayKCy73_xjVAwG7WGaNbOT21TU886kx_ZbkEHoPEriQ4Vb3EarkRbGsnXRYVVRcpHKmJ307y-7DdfpoU41X86NOU2ecRXs-iWCosfR5RdoNN1_wwc_FHE6oh7ElW8MsBRp_AYqewzDzrXVSMzjBGlJkK3e1hATfe3coCAvxHVbDDxQu9DK');"></div>
+                <div class="card-glass-overlay"></div>
+
+                <div class="card-top-bar">
+                  <span class="card-num">01</span>
+                  <div class="card-tag-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Digital Media</span>
+                  </div>
+                </div>
+
+                <div class="card-content-bottom">
+                  <h3 class="card-heading">Short Form Videos</h3>
+                  <p class="card-desc">
+                    High-impact cultural explainers, reels, and digital narratives making civilizational wisdom accessible for youth.
+                  </p>
+                  <div class="card-footer-cta">
+                    <span class="card-explore-hint">
+                      <span>Click for Full Details</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Impact 2 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Editorial portrait of youth orator speaking in an auditorium"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWbGttBjAFB1JuIhNk5aG3J-hCHHVL_9rVaEPLLEWjWvfjDXjbNg0CqVxmZ9pI8VFV6UPOvwc7Bb-MetSUXESYQwTb76zi6Al49hgNR49gQkSbFJ6CUkPpyqoig-XbrVJV105VbviURPSb26qAqEuxYRAgb5FIOcuAHpNbEdGAWrIxjl3GBiwucPwHB9CeV49TXdYmZQexNBferYTKQC3isANIKKaIIdkaUgfC7haQ4Ap_vOdiCFj">
-                <span class="work-badge">Pillar 02</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Communication &amp; Public Speaking</h3>
-                <p>
-                  Mastering the art of dialogue, classical rhetoric (Vada tradition), and presenting nuanced
-                  perspectives with eloquence and empathy.
-                </p>
+            <!-- Slide 2: Online Courses -->
+            <div class="work-3d-card" data-index="1" tabindex="0" role="group" aria-roledescription="slide" aria-label="2 of 5: Online Courses">
+              <div class="card-inner card-glass-image">
+                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCORyPckMAGmZSh9rSuavHzI6zX6S2H8rfHs60fpP42Y6wKOGNu8NzrfeCwvT4tUlRpa1woxeTf4oDoZqNbvz0bxVNLdJeq4M4YSScWMABQYLVwf1Vzt7OYEslB3jSpsiMzC-xaqMIiB0Q42H1wQ150p6tWILMfKuhFfjGUx3xznZeFhMNyv5iGTjKWsavhWOAYM8h0kJCAAN64wPoBDdZWubwA6AOT0hRb3-7D1_o0lspK2GCwbTd8');"></div>
+                <div class="card-glass-overlay"></div>
+
+                <div class="card-top-bar">
+                  <span class="card-num">02</span>
+                  <div class="card-tag-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Pedagogy</span>
+                  </div>
+                </div>
+
+                <div class="card-content-bottom">
+                  <h3 class="card-heading">Online Courses</h3>
+                  <p class="card-desc">
+                    Structured masterclasses on Indian Knowledge Systems (IKS), classical philosophy, and sovereign leadership.
+                  </p>
+                  <div class="card-footer-cta">
+                    <span class="card-explore-hint">
+                      <span>Click for Full Details</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Impact 3 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Documentary photo of students collaborating over instruments and charts"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCORyPckMAGmZSh9rSuavHzI6zX6S2H8rfHs60fpP42Y6wKOGNu8NzrfeCwvT4tUlRpa1woxeTf4oDoZqNbvz0bxVNLdJeq4M4YSScWMABQYLVwf1Vzt7OYEslB3jSpsiMzC-xaqMIiB0Q42H1wQ150p6tWILMfKuhFfjGUx3xznZeFhMNyv5iGTjKWsavhWOAYM8h0kJCAAN64wPoBDdZWubwA6AOT0hRb3-7D1_o0lspK2GCwbTd8">
-                <span class="work-badge">Pillar 03</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Youth Education &amp; Learning</h3>
-                <p>
-                  Supplementary learning cohorts bridging formal school curricula with indigenous problem-solving and
-                  critical historical literacy.
-                </p>
+            <!-- Slide 3: Offline Workshops -->
+            <div class="work-3d-card" data-index="2" tabindex="0" role="group" aria-roledescription="slide" aria-label="3 of 5: Offline Workshops">
+              <div class="card-inner card-glass-image">
+                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZkB0P_QZxvdJad0hEy5BmdLK6mqTU6a4oapVQGwUKe_ccinpr_djlw4uCBiw9tI_1iJQXKgkUAsMqGgCc7XIwjC0wB5PebLuEG4n_8WRwH6jy0b41GqXJWKHiBwTFlTjgmJ4IUfJHbS2_lL7xh7CDraArGp5n_4qWS5LiVYHj5hKyUCqSDfkomzr25dJg2lvraYtrCqwniz2xV5U3QM2FrsxBTzArD0lPMacb7cspqM40MPmfg9');"></div>
+                <div class="card-glass-overlay"></div>
+
+                <div class="card-top-bar">
+                  <span class="card-num">03</span>
+                  <div class="card-tag-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Immersive</span>
+                  </div>
+                </div>
+
+                <div class="card-content-bottom">
+                  <h3 class="card-heading">Offline Workshops</h3>
+                  <p class="card-desc">
+                    On-ground bootcamps, classical Vada debate circles, and heritage retreats cultivating inner leadership clarity.
+                  </p>
+                  <div class="card-footer-cta">
+                    <span class="card-explore-hint">
+                      <span>Click for Full Details</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Impact 4 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Documentary shot of youth researchers exploring temple architecture"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPaUByhKzRTn3kRFAoxIf1_VDWG7cYpFMiRe5rJ41JPAPMEUPzAS0vv22dkaNtWtMV3sUuuDjmXLnLfTflYA8V0rtafJ-7_ww9JE-fbKIkpLUKOOrICYi8k9ulVzQ8lY2BSiSJl6nv3-n6Y-OQkaTREED-0QC22GUl3DC4Z-Nz-zASGBr3wYAnlnhy_zwddoaqtZifl0B4Tdq4_z7eqHNw8CEw_h4kWn_Tkqd2E6a9-L2GqU7lITf8">
-                <span class="work-badge">Pillar 04</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Culture &amp; Bharat</h3>
-                <p>
-                  Field expeditions across forgotten heritage sites, artisan clusters, and sacred geography to
-                  experience living culture firsthand.
-                </p>
+            <!-- Slide 4: Collaborations with NGOs -->
+            <div class="work-3d-card" data-index="3" tabindex="0" role="group" aria-roledescription="slide" aria-label="4 of 5: Collaborations with NGOs">
+              <div class="card-inner card-glass-image">
+                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPaUByhKzRTn3kRFAoxIf1_VDWG7cYpFMiRe5rJ41JPAPMEUPzAS0vv22dkaNtWtMV3sUuuDjmXLnLfTflYA8V0rtafJ-7_ww9JE-fbKIkpLUKOOrICYi8k9ulVzQ8lY2BSiSJl6nv3-n6Y-OQkaTREED-0QC22GUl3DC4Z-Nz-zASGBr3wYAnlnhy_zwddoaqtZifl0B4Tdq4_z7eqHNw8CEw_h4kWn_Tkqd2E6a9-L2GqU7lITf8');"></div>
+                <div class="card-glass-overlay"></div>
+
+                <div class="card-top-bar">
+                  <span class="card-num">04</span>
+                  <div class="card-tag-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Grassroots</span>
+                  </div>
+                </div>
+
+                <div class="card-content-bottom">
+                  <h3 class="card-heading">Collaborations with NGOs</h3>
+                  <p class="card-desc">
+                    Mobilizing youth talent for rural education, artisan cluster support, and community social impact projects.
+                  </p>
+                  <div class="card-footer-cta">
+                    <span class="card-explore-hint">
+                      <span>Click for Full Details</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Impact 5 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Documentary filmmakers interviewing a traditional master weaver"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU2jkST6NpQtfzrpQXeauyIdyWqSHonfxEyQOhYkuY0bN_kM0QQOYvIrlk8uKZZu2y0sayKCy73_xjVAwG7WGaNbOT21TU886kx_ZbkEHoPEriQ4Vb3EarkRbGsnXRYVVRcpHKmJ307y-7DdfpoU41X86NOU2ecRXs-iWCosfR5RdoNN1_wwc_FHE6oh7ElW8MsBRp_AYqewzDzrXVSMzjBGlJkK3e1hATfe3coCAvxHVbDDxQu9DK">
-                <span class="work-badge">Pillar 05</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Content &amp; Storytelling</h3>
-                <p>
-                  High-production short documentaries, long-form essays, podcasts, and digital explainers capturing
-                  India's civilizational legacy.
-                </p>
+            <!-- Slide 5: Representing India Globally -->
+            <div class="work-3d-card" data-index="4" tabindex="0" role="group" aria-roledescription="slide" aria-label="5 of 5: Representing India Globally">
+              <div class="card-inner card-glass-image">
+                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdWbGttBjAFB1JuIhNk5aG3J-hCHHVL_9rVaEPLLEWjWvfjDXjbNg0CqVxmZ9pI8VFV6UPOvwc7Bb-MetSUXESYQwTb76zi6Al49hgNR49gQkSbFJ6CUkPpyqoig-XbrVJV105VbviURPSb26qAqEuxYRAgb5FIOcuAHpNbEdGAWrIxjl3GBiwucPwHB9CeV49TXdYmZQexNBferYTKQC3isANIKKaIIdkaUgfC7haQ4Ap_vOdiCFj');"></div>
+                <div class="card-glass-overlay"></div>
+
+                <div class="card-top-bar">
+                  <span class="card-num">05</span>
+                  <div class="card-tag-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Global Voice</span>
+                  </div>
+                </div>
+
+                <div class="card-content-bottom">
+                  <h3 class="card-heading">Representing India Globally</h3>
+                  <p class="card-desc">
+                    Empowering Indian youth delegates to articulate Bharat's civilizational diplomacy at international summits.
+                  </p>
+                  <div class="card-footer-cta">
+                    <span class="card-explore-hint">
+                      <span>Click for Full Details</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
 
-          <!-- Impact 6 -->
-          <div class="work-glimpse-hit-area">
-            <div class="work-glimpse-card" tabindex="0">
-              <div class="work-image-wrap">
-                <img alt="Researchers examining historical manuscripts and charts"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjonO-trTpp9YT95KPjkIWAoCyhYjt3uYauulSfwg7LKtmBjz8cCYx_CunucNLyMLB3obgDstnY-rJ7Y3oX2CX-KifFmdSIv12P2pd3LEWGA7WVcpX8UuoJGYLCh3KqCw4o6o3v82bomBFcEJS7mIzNezru-4kDqgPeHT6L5oL2Y90w5hfvzSgRkueFuU2wHobQ1TWEJP8cg52DJ52FpR2JrsXsvR7NsQRkv4Gd5WaOJQG91kRlr77">
-                <span class="work-badge">Pillar 06</span>
-              </div>
-              <div class="work-card-body">
-                <h3>Research &amp; Curriculum Development</h3>
-                <p>
-                  Translating classical Indic thought into actionable modules for leadership, ethics, architecture, and
-                  environmental conservation.
-                </p>
-              </div>
+          <!-- Interactive Slide Tabs & Pagination Bar -->
+          <div class="work-slider-tabs-container">
+            <div class="work-slider-tabs" id="workSliderTabs" role="tablist" aria-label="Work Initiatives Tabs">
+              <button type="button" class="work-slider-tab is-active" data-index="0" role="tab" aria-selected="true" aria-controls="slide-0">
+                <span class="tab-num">01</span>
+                <span class="tab-label">Short Videos</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="1" role="tab" aria-selected="false" aria-controls="slide-1">
+                <span class="tab-num">02</span>
+                <span class="tab-label">Online Courses</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="2" role="tab" aria-selected="false" aria-controls="slide-2">
+                <span class="tab-num">03</span>
+                <span class="tab-label">Workshops</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="3" role="tab" aria-selected="false" aria-controls="slide-3">
+                <span class="tab-num">04</span>
+                <span class="tab-label">NGO Partnerships</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="4" role="tab" aria-selected="false" aria-controls="slide-4">
+                <span class="tab-num">05</span>
+                <span class="tab-label">Global Voice</span>
+              </button>
             </div>
           </div>
-
         </div>
 
-        <!-- Action Footer -->
-        <div class="work-action-footer">
-          <a class="btn btn-primary" href="#voices">
-            <span>Explore Our Work</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
+        <!-- Initiative Details Popup Modal -->
+        <div class="work-detail-modal-backdrop" id="workDetailModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="workModalTitle">
+          <div class="work-detail-modal-container">
+            <button type="button" class="work-modal-close-btn" id="workModalClose" aria-label="Close details popup">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="work-modal-body" id="workModalContent">
+              <!-- Content rendered dynamically on click -->
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
+
 
 
 
