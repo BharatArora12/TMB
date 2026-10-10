@@ -89,7 +89,6 @@ html[data-theme="dark"] {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 0 !important; /* Strict architectural geometry */
 }
 
 html {
@@ -757,6 +756,7 @@ html[data-theme="dark"] .site-header {
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
+  perspective: 1200px;
 }
 
 @media (min-width: 768px) {
@@ -767,18 +767,23 @@ html[data-theme="dark"] .site-header {
 }
 
 .about-card {
+  overflow: hidden;
   padding: 2rem;
   background: var(--color-card);
   border: 1px solid var(--color-border);
+  border-radius: 1.5rem 1.5rem 1.5rem 0.35rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
 }
 
 .about-card:hover {
+  transform: translateY(-6px) rotateX(2deg);
   border-color: var(--border-gold-bright);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .about-card::before,
@@ -2295,6 +2300,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   justify-content: space-between;
   background: var(--color-card);
   border: 1px solid var(--color-border);
+  border-radius: 1.75rem 0.65rem 1.75rem 0.65rem;
   padding: 2.25rem 2rem 2rem;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -2375,6 +2381,7 @@ html[data-theme="dark"] .course-featured-3d .course-card-glass {
   color: #18271D;
   background: var(--color-accent);
   padding: 0.25rem 0.75rem;
+  border-radius: 0 0 0.75rem 0.75rem;
   box-shadow: 0 4px 12px rgba(167, 201, 87, 0.35);
   z-index: 3;
 }
@@ -2475,6 +2482,7 @@ html[data-theme="dark"] .status-pipeline {
   justify-content: center;
   background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-card) 100%);
   border: 1px solid var(--color-border);
+  border-radius: 50%;
   box-shadow: 0 8px 18px rgba(46, 93, 58, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.6);
   color: var(--color-primary);
   transform: translateZ(25px);
@@ -2857,6 +2865,7 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
+  perspective: 1000px;
 }
 
 @media (min-width: 640px) {
@@ -2872,32 +2881,61 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
 }
 
 .impact-metric {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 2rem 1.5rem;
   background: var(--color-card);
   border: 1px solid var(--border-muted);
+  border-radius: 1.75rem 0.55rem 1.75rem 0.55rem;
   text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.impact-metric::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -3.5rem;
+  right: -3.5rem;
+  width: 9rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--border-gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1rem var(--gold-glow), 0 0 0 2rem transparent;
+  opacity: 0.6;
+  transition: transform 0.45s ease, opacity 0.35s ease;
 }
 
 .impact-metric:hover {
-  transform: translateY(-4px);
+  transform: translateY(-7px) rotateX(5deg) rotateY(-3deg);
   border-color: var(--primary-gold);
   box-shadow: var(--shadow-card-hover);
 }
 
+.impact-metric:hover::after {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
 .impact-number {
+  position: relative;
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1;
   color: var(--color-primary);
   margin-bottom: 0.75rem;
+  transform: translateZ(24px);
 }
 
 .impact-label {
+  position: relative;
   font-size: 0.8rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.14em;
+  transform: translateZ(14px);
 }
 
 .testimonials-section {
@@ -2925,86 +2963,139 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
   line-height: 1.8;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+.testimonial-showcase {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 31rem;
+  margin-bottom: 1.25rem;
+  perspective: 1400px;
 }
 
-@media (min-width: 768px) {
-  .testimonials-header {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
+.testimonial-portrait {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 53%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 42% 1.25rem 42% 1.25rem / 1.25rem 35% 1.25rem 35%;
+  background: var(--color-background-soft);
+  box-shadow: 0 1.5rem 3rem rgba(17, 26, 20, 0.18);
+  transform: rotateY(5deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
 
-  .testimonials-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
+.testimonial-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+.testimonial-featured {
+  position: relative;
+  z-index: 1;
+  width: 69%;
+  margin: 3rem 0 3rem auto;
+  padding: clamp(2rem, 5vw, 4rem);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0.75rem 2rem 0.75rem 2rem;
+  box-shadow: var(--shadow-card);
+  transform: rotateY(-3deg) translateZ(24px);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.testimonial-showcase:hover .testimonial-portrait {
+  transform: rotateY(1deg) scale(1.015);
+  box-shadow: 0 2rem 3.5rem rgba(17, 26, 20, 0.24);
+}
+
+.testimonial-showcase:hover .testimonial-featured {
+  transform: rotateY(0) translateY(-4px) translateZ(38px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.testimonial-featured-mark {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.testimonial-featured-role {
+  margin-bottom: 0.2rem;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.testimonial-featured h3 {
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.testimonial-featured blockquote {
+  color: var(--color-text-muted);
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.testimonials-supporting {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
 .testimonial-card {
-  position: relative;
-  overflow: hidden;
   display: flex;
-  min-height: 19rem;
+  min-height: 15rem;
   flex-direction: column;
   align-items: flex-start;
   padding: 1.75rem;
   background: var(--color-background-soft);
-  border: 1px solid var(--color-accent);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.testimonial-card::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  right: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    var(--tricolor-saffron) 0 33.33%,
-    var(--patriot-ivory) 33.33% 66.66%,
-    var(--tricolor-green) 66.66% 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: 1.5rem 0.5rem 1.5rem 0.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-gold);
-}
-
-.testimonial-card:hover::before {
-  opacity: 0.75;
+  transform: translateY(-6px) rotateX(3deg);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .testimonial-mark {
-  color: var(--primary-gold);
-  font-size: 2rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 1.75rem;
 }
 
 .testimonial-card blockquote {
   flex: 1;
   margin: 0;
-  color: var(--text-main);
+  color: var(--color-text);
   font-family: var(--font-serif);
-  font-size: 1.35rem;
-  line-height: 1.45;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .testimonial-card footer {
   width: 100%;
-  margin-top: 1.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-muted);
-  color: var(--primary-gold);
+  margin-top: 1.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-primary);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -3013,7 +3104,76 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
 
 .testimonial-card footer span {
   padding: 0 0.3rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .testimonials-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-showcase {
+    display: block;
+    min-height: 0;
+  }
+
+  .testimonial-portrait {
+    position: relative;
+    width: 100%;
+    height: 18rem;
+    border-radius: 40% 1rem 1rem 1rem / 28% 1rem 1rem 1rem;
+    transform: none;
+  }
+
+  .testimonial-featured {
+    width: calc(100% - 1rem);
+    margin: -2rem 0 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+    transform: none;
+  }
+
+  .testimonial-featured-mark {
+    margin-bottom: 1rem;
+  }
+
+  .testimonials-supporting {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-showcase:hover .testimonial-portrait,
+  .testimonial-showcase:hover .testimonial-featured {
+    transform: none;
+  }
+
+  .testimonial-card:hover,
+  .impact-metric:hover,
+  .about-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card,
+  .impact-metric,
+  .impact-metric::after,
+  .testimonial-portrait,
+  .testimonial-featured,
+  .testimonial-card {
+    transition: none;
+  }
+
+  .about-card:hover,
+  .impact-metric:hover,
+  .testimonial-card:hover,
+  .testimonial-showcase:hover .testimonial-portrait,
+  .testimonial-showcase:hover .testimonial-featured {
+    transform: none;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -3139,9 +3299,13 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
   width: 100%;
   margin-top: 2.5rem;
   overflow: hidden;
-  color: #8796A8;
-  text-shadow: 0 4px 10px rgba(30, 58, 138, 0.14);
-  font-size: clamp(2rem, 10.4vw, 9.25rem);
+  background: linear-gradient(100deg, #A7C957 5%, #E1F0B5 48%, #6F9E45 95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  font-size: clamp(2rem, 10.8vw, 9.75rem);
   font-weight: 700;
   letter-spacing: -0.085em;
   line-height: 1;
