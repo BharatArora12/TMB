@@ -89,6 +89,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
+  const testimonialCarousel = document.querySelector('.testimonial-carousel');
+  if (testimonialCarousel) {
+    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-slide'));
+    const testimonialIndicators = Array.from(testimonialCarousel.querySelectorAll('.testimonial-indicator'));
+    const testimonialArrows = Array.from(testimonialCarousel.querySelectorAll('.testimonial-arrow'));
+    let activeTestimonial = testimonialSlides.findIndex((slide) => !slide.hidden);
+
+    if (testimonialSlides.length > 0 && testimonialIndicators.length === testimonialSlides.length) {
+      const showTestimonial = (index) => {
+        activeTestimonial = (index + testimonialSlides.length) % testimonialSlides.length;
+
+        testimonialSlides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === activeTestimonial;
+          slide.hidden = !isActive;
+          slide.setAttribute('aria-label', `${slideIndex + 1} of ${testimonialSlides.length}`);
+        });
+
+        testimonialIndicators.forEach((indicator, indicatorIndex) => {
+          const isActive = indicatorIndex === activeTestimonial;
+          indicator.classList.toggle('is-active', isActive);
+          indicator.setAttribute('aria-pressed', String(isActive));
+        });
+      };
+
+      testimonialArrows.forEach((arrow) => {
+        arrow.addEventListener('click', () => {
+          showTestimonial(activeTestimonial + Number(arrow.dataset.testimonialDirection));
+        });
+      });
+
+      testimonialIndicators.forEach((indicator) => {
+        indicator.addEventListener('click', () => {
+          showTestimonial(Number(indicator.dataset.testimonialIndex));
+        });
+      });
+
+      testimonialCarousel.addEventListener('keydown', (event) => {
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          showTestimonial(activeTestimonial - 1);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          showTestimonial(activeTestimonial + 1);
+        }
+      });
+    }
+  }
+
   // Rotate the hero's identity word while keeping the layout width stable in CSS.
   const rotatingBharatWord = document.getElementById('rotatingBharatWord');
   const bharatNames = ['Bharat', 'India', 'भारत'];
@@ -833,4 +883,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-

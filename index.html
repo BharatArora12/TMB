@@ -748,33 +748,70 @@
           Bharat.</p>
       </div>
 
-      <div class="testimonial-showcase">
-        <figure class="testimonial-portrait">
-          <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
-        </figure>
-        <article class="testimonial-featured">
-          <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
-          <p class="testimonial-featured-role">Field Program</p>
-          <h3>Community Partner</h3>
-          <blockquote>“The work is thoughtful, grounded, and practical. It turns heritage from something we inherit into
-            something we carry forward.”</blockquote>
-        </article>
-      </div>
+      <div class="testimonial-carousel" role="region" aria-roledescription="carousel"
+        aria-label="Community testimonials">
+        <div class="testimonial-slides" id="testimonialSlides" aria-live="polite">
+          <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
+            aria-label="1 of 3">
+            <figure class="testimonial-portrait">
+              <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
+            </figure>
+            <article class="testimonial-featured">
+              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
+              <p class="testimonial-featured-role">Study Circles</p>
+              <h3>Student Fellow</h3>
+              <blockquote>“TMB gave me the confidence to ask better questions about my own community and the tools to
+                act on them.”</blockquote>
+            </article>
+          </div>
 
-      <div class="testimonials-supporting">
-        <article class="testimonial-card">
-          <span class="material-symbols-outlined testimonial-mark" aria-hidden="true">format_quote</span>
-          <blockquote>“TMB gave me the confidence to ask better questions about my own community and the tools to act on
-            them.”</blockquote>
-          <footer>Student Fellow <span>·</span> Study Circles</footer>
-        </article>
+          <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
+            aria-label="2 of 3" hidden>
+            <figure class="testimonial-portrait">
+              <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
+            </figure>
+            <article class="testimonial-featured">
+              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
+              <p class="testimonial-featured-role">Field Program</p>
+              <h3>Community Partner</h3>
+              <blockquote>“The work is thoughtful, grounded, and practical. It turns heritage from something we inherit
+                into something we carry forward.”</blockquote>
+            </article>
+          </div>
 
-        <article class="testimonial-card">
-          <span class="material-symbols-outlined testimonial-mark" aria-hidden="true">format_quote</span>
-          <blockquote>“I found a serious, generous space to learn with others and contribute to a future I want to be
-            part of.”</blockquote>
-          <footer>Research Fellow <span>·</span> TMB Fellowship</footer>
-        </article>
+          <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
+            aria-label="3 of 3" hidden>
+            <figure class="testimonial-portrait">
+              <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
+            </figure>
+            <article class="testimonial-featured">
+              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
+              <p class="testimonial-featured-role">TMB Fellowship</p>
+              <h3>Research Fellow</h3>
+              <blockquote>“I found a serious, generous space to learn with others and contribute to a future I want to
+                be part of.”</blockquote>
+            </article>
+          </div>
+        </div>
+
+        <div class="testimonial-controls">
+          <button class="testimonial-arrow" type="button" data-testimonial-direction="-1"
+            aria-label="Previous testimonial" aria-controls="testimonialSlides">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+          </button>
+          <div class="testimonial-pagination" role="group" aria-label="Choose a testimonial">
+            <button class="testimonial-indicator is-active" type="button" data-testimonial-index="0"
+              aria-label="Show testimonial 1" aria-controls="testimonialSlides" aria-pressed="true"></button>
+            <button class="testimonial-indicator" type="button" data-testimonial-index="1"
+              aria-label="Show testimonial 2" aria-controls="testimonialSlides" aria-pressed="false"></button>
+            <button class="testimonial-indicator" type="button" data-testimonial-index="2"
+              aria-label="Show testimonial 3" aria-controls="testimonialSlides" aria-pressed="false"></button>
+          </div>
+          <button class="testimonial-arrow" type="button" data-testimonial-direction="1"
+            aria-label="Next testimonial" aria-controls="testimonialSlides">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
