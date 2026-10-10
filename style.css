@@ -578,7 +578,11 @@ html[data-theme="dark"] .site-header {
 }
 
 .hero-title .text-gold {
-  color: var(--color-accent);
+  background: linear-gradient(110deg, #A7C957 0%, #F2D27A 48%, #A7C957 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 #rotatingBharatWord {
@@ -795,7 +799,11 @@ html[data-theme="dark"] .site-header {
 .section-title {
   font-family: var(--font-serif);
   font-size: clamp(2.125rem, 4.5vw, 3.25rem);
-  color: var(--color-text);
+  background: linear-gradient(105deg, var(--color-primary) 0%, var(--color-text) 58%, var(--color-accent) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.015em;
@@ -2023,7 +2031,11 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   margin-top: 1rem;
   font-family: var(--font-serif);
   font-size: clamp(2.1rem, 4vw, 3.3rem);
-  color: var(--color-text);
+  background: linear-gradient(105deg, var(--color-primary) 0%, var(--color-text) 58%, var(--color-accent) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   line-height: 0.98;
   font-weight: 700;
 }
@@ -2586,7 +2598,11 @@ html[data-theme="dark"] .course-3d-card:hover .course-3d-icon-box {
   font-family: var(--font-serif);
   font-size: 1.55rem;
   line-height: 1.25;
-  color: var(--color-text);
+  background: linear-gradient(105deg, var(--color-primary) 0%, var(--color-text) 58%, var(--color-accent) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 0.85rem;
   font-weight: 600;
 }
