@@ -156,6 +156,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2200);
   }
 
+  const udyamCredentialButton = document.querySelector('.hero-credential');
+  const udyamCertModal = document.getElementById('udyamCertModal');
+  const closeCertificateButtons = document.querySelectorAll('[data-close-certificate]');
+
+  const toggleUdyamCert = (shouldOpen) => {
+    if (!udyamCertModal) return;
+    udyamCertModal.classList.toggle('is-open', shouldOpen);
+    udyamCertModal.setAttribute('aria-hidden', String(!shouldOpen));
+    document.body.style.overflow = shouldOpen ? 'hidden' : '';
+  };
+
+  if (udyamCredentialButton && udyamCertModal) {
+    udyamCredentialButton.addEventListener('click', () => toggleUdyamCert(true));
+    udyamCredentialButton.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleUdyamCert(true);
+      }
+    });
+  }
+
+  closeCertificateButtons.forEach((button) => {
+    button.addEventListener('click', () => toggleUdyamCert(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && udyamCertModal && udyamCertModal.classList.contains('is-open')) {
+      toggleUdyamCert(false);
+    }
+  });
+
   // Hover-driven reveal for the four pillar highlight cards.
   // Keep the continuum step and its matching pillar card active together.
   const continuumSteps = document.querySelectorAll('.continuum-step');
