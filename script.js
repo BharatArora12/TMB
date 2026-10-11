@@ -840,41 +840,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animated Statistics Counter
-  // Start counters once, when the impact section first enters the viewport.
-  const statsElements = document.querySelectorAll('.counter-val');
-  let statsCounted = false;
+  const impactCounters = Array.from(document.querySelectorAll('[data-count-up]'));
+  const formatCounter = (value, compact) => {
+    if (compact && value >= 1000) return `${Math.floor(value / 1000)}k`;
+    return Math.floor(value).toLocaleString();
+  };
 
-  const animateCounters = () => {
-    statsElements.forEach(el => {
-      const target = parseInt(el.getAttribute('data-target'), 10);
-      const suffix = el.getAttribute('data-suffix') || '';
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 40));
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          el.textContent = target.toLocaleString() + suffix;
-          clearInterval(interval);
+  const animateImpactCounters = () => {
+    const duration = 1600;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    impactCounters.forEach((counter) => {
+      const target = Number(counter.dataset.countUp);
+      const suffix = counter.dataset.countSuffix || '';
+      const compact = counter.dataset.countFormat === 'compact';
+
+      if (prefersReducedMotion) {
+        counter.textContent = `${formatCounter(target, compact)}${suffix}`;
+        return;
+      }
+
+      const startTime = performance.now();
+      const updateCounter = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 3;
+        const currentValue = Math.floor(target * easedProgress);
+        counter.textContent = `${formatCounter(currentValue, compact)}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
         } else {
-          el.textContent = current.toLocaleString() + suffix;
+          counter.textContent = `${formatCounter(target, compact)}${suffix}`;
         }
-      }, 30);
+      };
+
+      requestAnimationFrame(updateCounter);
     });
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !statsCounted) {
-        statsCounted = true;
-        animateCounters();
-      }
+  const impactMetrics = document.querySelector('.impact-metrics-section');
+  if (impactMetrics && impactCounters.length > 0) {
+    impactCounters.forEach((counter) => {
+      const compact = counter.dataset.countFormat === 'compact';
+      counter.textContent = `0${counter.dataset.countSuffix || ''}`;
+      if (compact) counter.textContent = '0';
     });
-  }, { threshold: 0.2 });
 
-  const statsSection = document.getElementById('impact-stats');
-  if (statsSection) {
-    observer.observe(statsSection);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      animateImpactCounters();
+    } else {
+      const impactObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          animateImpactCounters();
+        }
+      }, { threshold: 0.2 });
+
+      impactObserver.observe(impactMetrics);
+    }
   }
 
   // 3D Card Interactive Tilt Effect

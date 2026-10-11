@@ -102,7 +102,6 @@
 
       <!-- Vignette Gradient Overlays -->
       <div class="hero-vignette-linear"></div>
-      <div class="hero-vignette-radial"></div>
 
       <!-- Hero Main Content -->
       <div class="container hero-content">
@@ -114,7 +113,7 @@
 
         <!-- Main Creed Display Headline -->
         <h1 class="hero-title">
-          Honouring Our Roots.<br>
+          <span class="hero-title-first-line">Honouring Our Roots.</span><br>
           <span class="text-gold italic">Shaping Our Future.</span>
         </h1>
 
@@ -123,10 +122,17 @@
           rigor, and active nation-building across India.
         </p>
         
-        <button class="hero-credential" type="button" aria-label="Open Udyam verified certification" aria-haspopup="dialog">
-          <span class="material-symbols-outlined">verified</span>
-          <span>Udyam Verified</span>
-        </button>
+        <div class="hero-actions">
+          <button class="hero-credential" type="button" aria-label="Open Udyam verified certification" aria-haspopup="dialog">
+            <span class="material-symbols-outlined">verified</span>
+            <span>Udyam Verified</span>
+          </button>
+          <a class="hero-credential" href="https://linktr.ee/towardsmybharat" target="_blank"
+            rel="noopener noreferrer">
+            <span class="material-symbols-outlined" aria-hidden="true">group_add</span>
+            <span>Join Us</span>
+          </a>
+        </div>
 
         <div class="credential-modal" id="udyamCertModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="udyamCertTitle">
           <div class="credential-modal-backdrop" data-close-certificate="true"></div>
@@ -143,8 +149,6 @@
             >
           </div>
         </div>
-        <br>
-        
         <!-- Social Media Links -->
         <div class="hero-social-links" aria-label="Social media links">
           <a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank" rel="noopener noreferrer">
@@ -731,7 +735,7 @@
         <div class="impact-main">
           <p class="impact-kicker">A GROWING MOVEMENT</p>
           <div class="impact-number-wrap" aria-label="20 thousand young participants">
-            <span class="impact-total">20k</span>
+            <span class="impact-total" data-count-up="20000" data-count-format="compact">20k</span>
             <span class="impact-plus" aria-hidden="true">+</span>
           </div>
           <p class="impact-caption">young people shaping rooted leadership across <em>Bharat.</em></p>
@@ -740,15 +744,15 @@
         <div class="impact-stat-list" aria-label="Impact stats">
           <div class="impact-stat-row">
             <span class="impact-stat-label">STATES ENGAGED</span>
-            <span class="impact-stat-value">18</span>
+            <span class="impact-stat-value" data-count-up="18">18</span>
           </div>
           <div class="impact-stat-row">
             <span class="impact-stat-label">FIELD PROGRAMS</span>
-            <span class="impact-stat-value">35+</span>
+            <span class="impact-stat-value" data-count-up="35" data-count-suffix="+">35+</span>
           </div>
           <div class="impact-stat-row">
             <span class="impact-stat-label">STUDENT FELLOWS</span>
-            <span class="impact-stat-value">250+</span>
+            <span class="impact-stat-value" data-count-up="250" data-count-suffix="+">250+</span>
           </div>
         </div>
       </div>
@@ -770,45 +774,167 @@
         aria-label="Community testimonials">
         <div class="testimonial-slides" id="testimonialSlides" aria-live="polite">
           <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
-            aria-label="1 of 3">
-            <figure class="testimonial-portrait">
-              <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
-            </figure>
-            <article class="testimonial-featured">
-              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
-              <p class="testimonial-featured-role">Study Circles</p>
-              <h3>Student Fellow</h3>
-              <blockquote>“TMB gave me the confidence to ask better questions about my own community and the tools to
-                act on them.”</blockquote>
-            </article>
+            aria-label="1 of 4">
+            <div class="testimonial-grid">
+              <article class="testimonial-mini-card">
+                <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Study Circles</p>
+                  <h3>Student Fellow</h3>
+                  <blockquote>“TMB gave me the confidence to ask better questions about my own community and the tools to act on them.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Field Program</p>
+                  <h3>Community Partner</h3>
+                  <blockquote>“It turns heritage from something we inherit into something we carry forward.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">TMB Fellowship</p>
+                  <h3>Research Fellow</h3>
+                  <blockquote>“I found a serious, generous space to learn with others and contribute to a future I want to be part of.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/varanasi-ghats.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Learning in Practice</p>
+                  <h3>Field Partner</h3>
+                  <blockquote>“The movement helps young people move from reflection to action, rooted in place and guided by responsibility.”</blockquote>
+                </div>
+              </article>
+            </div>
           </div>
 
           <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
-            aria-label="2 of 3" hidden>
-            <figure class="testimonial-portrait">
-              <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
-            </figure>
-            <article class="testimonial-featured">
-              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
-              <p class="testimonial-featured-role">Field Program</p>
-              <h3>Community Partner</h3>
-              <blockquote>“The work is thoughtful, grounded, and practical. It turns heritage from something we inherit
-                into something we carry forward.”</blockquote>
-            </article>
+            aria-label="2 of 4" hidden>
+            <div class="testimonial-grid">
+              <article class="testimonial-mini-card">
+                <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Campus Circle</p>
+                  <h3>Student Mentor</h3>
+                  <blockquote>“The learning is practical, thoughtful, and deeply connected to how we live and lead.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Volunteer Action</p>
+                  <h3>Local Organiser</h3>
+                  <blockquote>“It makes culture visible in everyday leadership and community life.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Public Dialogue</p>
+                  <h3>Young Speaker</h3>
+                  <blockquote>“I learned how to speak with clarity, care, and conviction about the future we want.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/varanasi-ghats.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Field Witness</p>
+                  <h3>Community Learner</h3>
+                  <blockquote>“Every conversation pushed me toward action, not just awareness.”</blockquote>
+                </div>
+              </article>
+            </div>
           </div>
 
           <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
-            aria-label="3 of 3" hidden>
-            <figure class="testimonial-portrait">
-              <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
-            </figure>
-            <article class="testimonial-featured">
-              <span class="material-symbols-outlined testimonial-featured-mark" aria-hidden="true">format_quote</span>
-              <p class="testimonial-featured-role">TMB Fellowship</p>
-              <h3>Research Fellow</h3>
-              <blockquote>“I found a serious, generous space to learn with others and contribute to a future I want to
-                be part of.”</blockquote>
-            </article>
+            aria-label="3 of 4" hidden>
+            <div class="testimonial-grid">
+              <article class="testimonial-mini-card">
+                <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Study Circle</p>
+                  <h3>Young Leader</h3>
+                  <blockquote>“The support was generous and the confidence it gave me changed how I show up.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Partnership</p>
+                  <h3>Partner School</h3>
+                  <blockquote>“Their approach is rooted, practical, and full of long-term vision.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Research</p>
+                  <h3>Fellowship</h3>
+                  <blockquote>“The space invites deep thinking without losing touch with real communities.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/varanasi-ghats.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Living Practice</p>
+                  <h3>Participant</h3>
+                  <blockquote>“There is a clear path from learning to service, and it feels deeply human.”</blockquote>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="testimonial-showcase testimonial-slide" role="group" aria-roledescription="slide"
+            aria-label="4 of 4" hidden>
+            <div class="testimonial-grid">
+              <article class="testimonial-mini-card">
+                <img src="assets/images/community-workshop.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Storytelling</p>
+                  <h3>Creative Fellow</h3>
+                  <blockquote>“I learned to share ideas in ways that feel rooted, clear, and alive.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/youth-nation-building.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Field Action</p>
+                  <h3>Volunteer</h3>
+                  <blockquote>“The work gives me discipline and purpose without losing joy in the process.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/research-archive.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Learning Labs</p>
+                  <h3>Student</h3>
+                  <blockquote>“Every class made me think more seriously about where I belong and what I can build.”</blockquote>
+                </div>
+              </article>
+
+              <article class="testimonial-mini-card">
+                <img src="assets/images/varanasi-ghats.jpg" alt="" loading="lazy">
+                <div class="testimonial-mini-copy">
+                  <p class="testimonial-featured-role">Community Vision</p>
+                  <h3>New Member</h3>
+                  <blockquote>“It reminded me that responsibility can be joyful, generous, and deeply rooted.”</blockquote>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
 
@@ -824,6 +950,8 @@
               aria-label="Show testimonial 2" aria-controls="testimonialSlides" aria-pressed="false"></button>
             <button class="testimonial-indicator" type="button" data-testimonial-index="2"
               aria-label="Show testimonial 3" aria-controls="testimonialSlides" aria-pressed="false"></button>
+            <button class="testimonial-indicator" type="button" data-testimonial-index="3"
+              aria-label="Show testimonial 4" aria-controls="testimonialSlides" aria-pressed="false"></button>
           </div>
           <button class="testimonial-arrow" type="button" data-testimonial-direction="1"
             aria-label="Next testimonial" aria-controls="testimonialSlides">
