@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const testimonialCarousel = document.querySelector('.testimonial-carousel');
   if (testimonialCarousel) {
-    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-slide'));
-    const testimonialIndicators = Array.from(testimonialCarousel.querySelectorAll('.testimonial-indicator'));
+    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-mini-card'));
     const testimonialArrows = Array.from(testimonialCarousel.querySelectorAll('.testimonial-arrow'));
+    const testimonialCount = testimonialCarousel.querySelector('.testimonial-count');
     let activeTestimonial = testimonialSlides.findIndex((slide) => !slide.hidden);
 
-    if (testimonialSlides.length > 0 && testimonialIndicators.length === testimonialSlides.length) {
+    if (testimonialSlides.length > 0 && testimonialCount) {
       const showTestimonial = (index) => {
         activeTestimonial = (index + testimonialSlides.length) % testimonialSlides.length;
 
@@ -104,24 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const isActive = slideIndex === activeTestimonial;
           slide.hidden = !isActive;
           slide.setAttribute('aria-label', `${slideIndex + 1} of ${testimonialSlides.length}`);
+          slide.setAttribute('role', 'group');
+          slide.setAttribute('aria-roledescription', 'slide');
         });
 
-        testimonialIndicators.forEach((indicator, indicatorIndex) => {
-          const isActive = indicatorIndex === activeTestimonial;
-          indicator.classList.toggle('is-active', isActive);
-          indicator.setAttribute('aria-pressed', String(isActive));
-        });
+        testimonialCount.textContent = `${String(activeTestimonial + 1).padStart(2, '0')} / ${String(testimonialSlides.length).padStart(2, '0')}`;
       };
+
+      showTestimonial(activeTestimonial);
 
       testimonialArrows.forEach((arrow) => {
         arrow.addEventListener('click', () => {
           showTestimonial(activeTestimonial + Number(arrow.dataset.testimonialDirection));
-        });
-      });
-
-      testimonialIndicators.forEach((indicator) => {
-        indicator.addEventListener('click', () => {
-          showTestimonial(Number(indicator.dataset.testimonialIndex));
         });
       });
 
