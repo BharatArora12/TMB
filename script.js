@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const testimonialCarousel = document.querySelector('.testimonial-carousel');
   if (testimonialCarousel) {
-    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-slide'));
-    const testimonialIndicators = Array.from(testimonialCarousel.querySelectorAll('.testimonial-indicator'));
+    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-mini-card'));
     const testimonialArrows = Array.from(testimonialCarousel.querySelectorAll('.testimonial-arrow'));
+    const testimonialCount = testimonialCarousel.querySelector('.testimonial-count');
     let activeTestimonial = testimonialSlides.findIndex((slide) => !slide.hidden);
 
-    if (testimonialSlides.length > 0 && testimonialIndicators.length === testimonialSlides.length) {
+    if (testimonialSlides.length > 0 && testimonialCount) {
       const showTestimonial = (index) => {
         activeTestimonial = (index + testimonialSlides.length) % testimonialSlides.length;
 
@@ -104,24 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const isActive = slideIndex === activeTestimonial;
           slide.hidden = !isActive;
           slide.setAttribute('aria-label', `${slideIndex + 1} of ${testimonialSlides.length}`);
+          slide.setAttribute('role', 'group');
+          slide.setAttribute('aria-roledescription', 'slide');
         });
 
-        testimonialIndicators.forEach((indicator, indicatorIndex) => {
-          const isActive = indicatorIndex === activeTestimonial;
-          indicator.classList.toggle('is-active', isActive);
-          indicator.setAttribute('aria-pressed', String(isActive));
-        });
+        testimonialCount.textContent = `${String(activeTestimonial + 1).padStart(2, '0')} / ${String(testimonialSlides.length).padStart(2, '0')}`;
       };
+
+      showTestimonial(activeTestimonial);
 
       testimonialArrows.forEach((arrow) => {
         arrow.addEventListener('click', () => {
           showTestimonial(activeTestimonial + Number(arrow.dataset.testimonialDirection));
-        });
-      });
-
-      testimonialIndicators.forEach((indicator) => {
-        indicator.addEventListener('click', () => {
-          showTestimonial(Number(indicator.dataset.testimonialIndex));
         });
       });
 
@@ -900,40 +894,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3D Card Interactive Tilt Effect
-  const tiltCards = document.querySelectorAll('[data-tilt]');
-  tiltCards.forEach(card => {
-    let animationFrameId = null;
-
-    card.addEventListener('mousemove', (e) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) {
-        return;
-      }
-      
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Calculate rotation degree (max 8 degrees)
-      const rotateX = ((y - centerY) / centerY) * -7;
-      const rotateY = ((x - centerX) / centerX) * 7;
-      
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-
-      animationFrameId = requestAnimationFrame(() => {
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
-      });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
-  });
 });
