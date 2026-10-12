@@ -97,4 +97,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Footer Email Copy to Clipboard Interaction
+  const footerCopyButtons = document.querySelectorAll('.footer-copy-btn');
+  footerCopyButtons.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const email = btn.dataset.copy || 'info@towardsmybharat.in';
+      try {
+        await navigator.clipboard.writeText(email);
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          const original = icon.textContent;
+          icon.textContent = 'check';
+          btn.style.color = '#c5a059';
+          setTimeout(() => {
+            icon.textContent = original;
+            btn.style.color = '';
+          }, 1500);
+        }
+      } catch (err) {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  });
 });
+
