@@ -782,33 +782,233 @@
           Bharat.</p>
       </div>
 
-      <div class="testimonial-frame" aria-label="Community testimonials">
-        <article class="testimonial-feature-card">
-          <img src="assets/images/varanasi-ghats.jpg" alt="Varanasi ghats along the river" loading="lazy">
-          <div class="testimonial-feature-copy">
-            <p class="testimonial-featured-role">Community Vision</p>
-            <h3>New Member</h3>
-            <blockquote>“It reminded me that responsibility can be joyful, generous, and deeply rooted.”</blockquote>
+      <div class="testimonial-carousel-wrap">
+        <div class="testimonial-track" id="testimonialTrack" aria-label="Community testimonials carousel" tabindex="0">
+          
+          <!-- Slide 1: 2 testimonials in alternating format -->
+          <div class="testimonial-slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
+            <div class="testimonial-pairs">
+              <!-- Pair 1: Photo at left, comment at right with overlap -->
+              <article class="testimonial-pair-row testimonial-pair-normal">
+                <div class="testimonial-image-col">
+                  <img src="assets/images/varanasi-ghats.jpg" alt="Varanasi ghats along the sacred river" loading="lazy">
+                </div>
+                <div class="testimonial-card-col">
+                  <h3>New Member</h3>
+                  <p class="testimonial-featured-role">Community Vision</p>
+                  <blockquote>“It reminded me that responsibility can be joyful, generous, and deeply rooted.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
 
-            <div class="testimonial-socials" aria-label="Social links for this testimonial">
-              <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
-                </svg>
-              </a>
+              <!-- Pair 2: Comment at left with overlap, photo at right -->
+              <article class="testimonial-pair-row testimonial-pair-reverse">
+                <div class="testimonial-card-col">
+                  <h3>Educator</h3>
+                  <p class="testimonial-featured-role">School Leadership</p>
+                  <blockquote>“Our students felt more connected to culture, citizenship, and self-belief after the experience.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="testimonial-image-col">
+                  <img src="assets/images/community-workshop.jpg" alt="Educator and youth workshop in community" loading="lazy">
+                </div>
+              </article>
             </div>
           </div>
+
+          <!-- Slide 2: 2 testimonials in alternating format -->
+          <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
+            <div class="testimonial-pairs">
+              <!-- Pair 3: Photo at left, comment at right with overlap -->
+              <article class="testimonial-pair-row testimonial-pair-normal">
+                <div class="testimonial-image-col">
+                  <img src="assets/images/youth-nation-building.jpg" alt="Youth participating in nation building initiatives" loading="lazy">
+                </div>
+                <div class="testimonial-card-col">
+                  <h3>Student Mentor</h3>
+                  <p class="testimonial-featured-role">Campus Circle</p>
+                  <blockquote>“The learning is practical, thoughtful, and deeply connected to how we live and lead.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Pair 4: Comment at left with overlap, photo at right -->
+              <article class="testimonial-pair-row testimonial-pair-reverse">
+                <div class="testimonial-card-col">
+                  <h3>Local Organiser</h3>
+                  <p class="testimonial-featured-role">Volunteer Action</p>
+                  <blockquote>“It makes culture visible in everyday leadership and community life across villages.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="testimonial-image-col">
+                  <img src="assets/images/research-archive.jpg" alt="Research archive and manuscripts" loading="lazy">
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Slide 3: 2 testimonials in alternating format -->
+          <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
+            <div class="testimonial-pairs">
+              <!-- Pair 5: Photo at left, comment at right with overlap -->
+              <article class="testimonial-pair-row testimonial-pair-normal">
+                <div class="testimonial-image-col">
+                  <img src="assets/images/hero-courtyard.jpg" alt="Heritage courtyard and dialogue gathering" loading="lazy">
+                </div>
+                <div class="testimonial-card-col">
+                  <h3>Young Speaker</h3>
+                  <p class="testimonial-featured-role">Public Dialogue</p>
+                  <blockquote>“I learned how to speak with clarity, care, and conviction about the future we want.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Pair 6: Comment at left with overlap, photo at right -->
+              <article class="testimonial-pair-row testimonial-pair-reverse">
+                <div class="testimonial-card-col">
+                  <h3>Fellowship Scholar</h3>
+                  <p class="testimonial-featured-role">Civilizational Studies</p>
+                  <blockquote>“The space invites deep thinking without losing touch with our real grassroots communities.”</blockquote>
+                  <div class="testimonial-socials" aria-label="Social links for this testimonial">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="testimonial-image-col">
+                  <img src="assets/images/varanasi-ghats.jpg" alt="Evening reflections in Varanasi" loading="lazy">
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Navigation Controls matching reference screenshot -->
+        <div class="testimonial-carousel-controls" aria-label="Testimonial navigation">
+          <button class="testimonial-nav-btn testimonial-prev-btn" id="testimonialPrev" type="button" aria-label="Previous testimonials slide">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+          </button>
+          <div class="testimonial-indicators" role="tablist" aria-label="Testimonial slides">
+            <button class="testimonial-indicator is-active" type="button" role="tab" aria-selected="true" aria-label="Go to slide 1" data-slide-index="0"></button>
+            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide-index="1"></button>
+            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide-index="2"></button>
+          </div>
+          <button class="testimonial-nav-btn testimonial-next-btn" id="testimonialNext" type="button" aria-label="Next testimonials slide">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CONTACT / ENGAGEMENT SECTION
+       ========================================================================= -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-header">
+        <span class="section-badge">Contact Us</span>
+        <h2 id="contact-title" class="section-title">Let's make something</h2>
+      </div>
+
+      <div class="contact-cards-grid">
+        <!-- Card 1: For Brands -->
+        <article class="contact-card">
+          <div class="contact-card-body">
+            <h3>For Brands</h3>
+            <p>Sponsorships, branded films and integrated campaigns.</p>
+          </div>
+          <a href="mailto:contact@towardsmybharat.org?subject=Collaboration%20Inquiry%20-%20For%20Brands" class="contact-card-link">
+            <span>Pitch a collaboration</span>
+            <span class="contact-arrow" aria-hidden="true">→</span>
+          </a>
         </article>
 
-        <article class="testimonial-compact-card">
-          <p class="testimonial-featured-role">School Leadership</p>
-          <h3>Educator</h3>
-          <blockquote>“Our students felt more connected to culture, citizenship, and self-belief after the experience.”</blockquote>
+        <!-- Card 2: For Creators -->
+        <article class="contact-card">
+          <div class="contact-card-body">
+            <h3>For Creators</h3>
+            <p>Want to collaborate, guest on the podcast or join a shoot?</p>
+          </div>
+          <a href="mailto:contact@towardsmybharat.org?subject=Creator%20Collaboration" class="contact-card-link">
+            <span>Reach the team</span>
+            <span class="contact-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <!-- Card 3: Careers -->
+        <article class="contact-card">
+          <div class="contact-card-body">
+            <h3>Careers</h3>
+            <p>Editors, researchers, producers. We're always hiring curious people.</p>
+          </div>
+          <a href="mailto:careers@towardsmybharat.org?subject=Career%20Inquiry" class="contact-card-link">
+            <span>See open roles</span>
+            <span class="contact-arrow" aria-hidden="true">→</span>
+          </a>
         </article>
       </div>
     </div>
@@ -837,6 +1037,7 @@
           <a href="#who-we-are">About TMB</a>
           <a href="#initiatives">Events</a>
           <a href="blog.html">Blog</a>
+          <a href="#contact">Contact</a>
         </nav>
 
         <!-- Social Media Handles -->

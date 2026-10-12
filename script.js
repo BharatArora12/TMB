@@ -89,48 +89,89 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
-  const testimonialCarousel = document.querySelector('.testimonial-carousel');
-  if (testimonialCarousel) {
-    const testimonialSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-mini-card'));
-    const testimonialArrows = Array.from(testimonialCarousel.querySelectorAll('.testimonial-arrow'));
-    const testimonialCount = testimonialCarousel.querySelector('.testimonial-count');
-    let activeTestimonial = testimonialSlides.findIndex((slide) => !slide.hidden);
+  // Testimonials Side-Scroll Carousel
+  const testimonialTrack = document.getElementById('testimonialTrack');
+  const testimonialPrev = document.getElementById('testimonialPrev');
+  const testimonialNext = document.getElementById('testimonialNext');
+  const testimonialIndicators = Array.from(document.querySelectorAll('.testimonial-indicator'));
 
-    if (testimonialSlides.length > 0 && testimonialCount) {
-      const showTestimonial = (index) => {
-        activeTestimonial = (index + testimonialSlides.length) % testimonialSlides.length;
+  if (testimonialTrack && testimonialPrev && testimonialNext && testimonialIndicators.length > 0) {
+    const slides = Array.from(testimonialTrack.querySelectorAll('.testimonial-slide'));
+    let activeIndex = 0;
 
-        testimonialSlides.forEach((slide, slideIndex) => {
-          const isActive = slideIndex === activeTestimonial;
-          slide.hidden = !isActive;
-          slide.setAttribute('aria-label', `${slideIndex + 1} of ${testimonialSlides.length}`);
-          slide.setAttribute('role', 'group');
-          slide.setAttribute('aria-roledescription', 'slide');
-        });
-
-        testimonialCount.textContent = `${String(activeTestimonial + 1).padStart(2, '0')} / ${String(testimonialSlides.length).padStart(2, '0')}`;
-      };
-
-      showTestimonial(activeTestimonial);
-
-      testimonialArrows.forEach((arrow) => {
-        arrow.addEventListener('click', () => {
-          showTestimonial(activeTestimonial + Number(arrow.dataset.testimonialDirection));
-        });
+    const setIndicator = (index) => {
+      activeIndex = (index + slides.length) % slides.length;
+      testimonialIndicators.forEach((dot, dotIdx) => {
+        const isCurrent = dotIdx === activeIndex;
+        dot.classList.toggle('is-active', isCurrent);
+        dot.setAttribute('aria-selected', String(isCurrent));
       });
+      slides.forEach((slide, slideIdx) => {
+        slide.classList.toggle('is-active', slideIdx === activeIndex);
+      });
+    };
 
-      testimonialCarousel.addEventListener('keydown', (event) => {
-        if (event.altKey || event.ctrlKey || event.metaKey) return;
+    const scrollToSlide = (index) => {
+      const targetIndex = (index + slides.length) % slides.length;
+      const targetSlide = slides[targetIndex];
+      if (targetSlide) {
+        testimonialTrack.scrollTo({
+          left: targetSlide.offsetLeft,
+          behavior: 'smooth'
+        });
+        setIndicator(targetIndex);
+      }
+    };
 
-        if (event.key === 'ArrowLeft') {
-          event.preventDefault();
-          showTestimonial(activeTestimonial - 1);
-        } else if (event.key === 'ArrowRight') {
-          event.preventDefault();
-          showTestimonial(activeTestimonial + 1);
+    testimonialPrev.addEventListener('click', () => {
+      scrollToSlide(activeIndex - 1);
+    });
+
+    testimonialNext.addEventListener('click', () => {
+      scrollToSlide(activeIndex + 1);
+    });
+
+    testimonialIndicators.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const targetIndex = Number(dot.dataset.slideIndex);
+        if (!isNaN(targetIndex)) {
+          scrollToSlide(targetIndex);
         }
       });
-    }
+    });
+
+    // Sync indicators on native touch swipe / horizontal scroll
+    let scrollTimer;
+    testimonialTrack.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const currentScrollLeft = testimonialTrack.scrollLeft;
+        let nearestIndex = 0;
+        let minDiff = Infinity;
+        slides.forEach((slide, idx) => {
+          const diff = Math.abs(slide.offsetLeft - currentScrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            nearestIndex = idx;
+          }
+        });
+        if (nearestIndex !== activeIndex) {
+          setIndicator(nearestIndex);
+        }
+      }, 50);
+    }, { passive: true });
+
+    // Keyboard arrow navigation
+    testimonialTrack.addEventListener('keydown', (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        scrollToSlide(activeIndex - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        scrollToSlide(activeIndex + 1);
+      }
+    });
   }
 
   // Rotate the hero's identity word while keeping the layout width stable in CSS.
