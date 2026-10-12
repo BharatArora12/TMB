@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About Us | Towards My Bharat</title>
+  <meta name="description"
+    content="Discover Towards My Bharat: our origin story, visionary founder journey, and the four foundational pillars shaping India's sovereign youth renaissance.">
+  <link rel="icon" type="image/png" href="photos/TMB Logo.png">
+  
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet">
+
+  <!-- Scripts & Stylesheets -->
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body class="about-page">
+
+  <!-- =========================================================================
+       SITE HEADER NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <!-- Brand Logo & Title -->
+      <a class="nav-brand" href="index.html#hero">
+        <img alt="Towards My Bharat Logo" src="photos/TMB Logo.png">
+        <span class="nav-brand-text">Towards My Bharat</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html#hero" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="index.html#initiatives" class="nav-link">Work We Do</a>
+        <a href="blog.html" class="nav-link">Blogs</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode"
+          aria-pressed="false" title="Switch to dark mode">
+          <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+        </button>
+
+        <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+          rel="noopener noreferrer" class="nav-cta-btn">
+          Join Us
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNav" class="mobile-nav-drawer">
+      <ul class="mobile-nav-list">
+        <li><a class="mobile-nav-link" href="index.html#hero">Home</a></li>
+        <li><a class="mobile-nav-link" href="about.html">About</a></li>
+        <li><a class="mobile-nav-link" href="index.html#initiatives">Work We Do</a></li>
+        <li><a class="mobile-nav-link" href="blog.html">Blogs</a></li>
+        <li>
+          <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+            rel="noopener noreferrer" class="mobile-cta">
+            Join Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO INTRODUCTION
+       ========================================================================= -->
+  <section class="about-hero">
+    <div class="container about-hero-content">
+      <div class="about-hero-badge">
+        <span class="pill-dot"></span>
+        <span>THE SOVEREIGN MANIFESTO</span>
+      </div>
+      <h1 class="about-hero-title">
+        Rooted in Identity.<br>
+        <span class="text-gold italic">Driven by Purpose.</span>
+      </h1>
+      <p class="about-hero-description">
+        Explore our journey from a solitary grassroots conviction to a nationwide youth movement, anchored by four structural pillars architecting Bharat's cultural and intellectual resurgence.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       STICKY RAIL & OVERLAPPING STACKING CARDS EXPERIENCE
+       ========================================================================= -->
+  <section class="about-experience-section" id="origin-story">
+    <div class="container about-experience-grid">
+
+      <!-- STICKY LEFT RAIL -->
+      <aside class="about-rail" aria-label="Section selector">
+        <span class="rail-category-tag">ORIGIN STORY</span>
+        <nav class="rail-nav">
+          <!-- Item 01 -->
+          <button type="button" class="rail-item active" data-index="0" aria-label="Scroll to Section 01: About TMB">
+            <span class="rail-item-num">01</span>
+            <span class="rail-item-text">About TMB</span>
+            <span class="rail-item-underline"></span>
+          </button>
+
+          <!-- Item 02 -->
+          <button type="button" class="rail-item" data-index="1" aria-label="Scroll to Section 02: About Founder">
+            <span class="rail-item-num">02</span>
+            <span class="rail-item-text">About Founder</span>
+            <span class="rail-item-underline"></span>
+          </button>
+
+          <!-- Item 03 -->
+          <button type="button" class="rail-item" data-index="2" aria-label="Scroll to Section 03: Building Pillars">
+            <span class="rail-item-num">03</span>
+            <span class="rail-item-text">Building Pillars</span>
+            <span class="rail-item-underline"></span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- RIGHT STACKING CARDS (OVERLAPPING STREAM) -->
+      <div class="about-cards-stream">
+
+        <!-- =====================================================================
+             CARD 01: ABOUT TMB
+             ===================================================================== -->
+        <article class="story-card" id="section-tmb" data-index="0">
+          <div class="card-bg-image" style="background-image: url('assets/images/youth-nation-building.jpg');"></div>
+          <div class="card-bg-overlay"></div>
+
+          <div class="card-content-inner">
+            <!-- Pill Tag -->
+            <div class="card-pill">
+              <span class="pill-dot"></span>
+              <span>YOUTH VANGUARD</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="card-headline">
+              From ancient roots to a sovereign youth vanguard.
+            </h2>
+
+            <!-- Left-Bordered Story Paragraph -->
+            <div class="card-story-block">
+              <p class="card-story-paragraph">
+                Towards My Bharat is a sovereign youth movement creating a vital bridge between India's civilizational depth and tomorrow's limitless possibilities. We unite young thinkers, researchers, and creators through intellectual rigor, grassroots action, and cultural self-belief — building an awakened generation that leads with purpose and unapologetic pride.
+              </p>
+            </div>
+
+            <!-- Metric Stat Row -->
+            <div class="card-metric-row">
+              <div class="metric-big-num">50K+</div>
+              <div class="metric-caption">YOUTH MOBILIZED ACROSS INDIA</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================================
+             CARD 02: ABOUT FOUNDER (Overlaps Card 01 on scroll)
+             ===================================================================== -->
+        <article class="story-card" id="section-founder" data-index="1">
+          <div class="card-bg-image" style="background-image: url('assets/images/hero-courtyard.jpg');"></div>
+          <div class="card-bg-overlay"></div>
+
+          <div class="card-content-inner">
+            <!-- Pill Tag -->
+            <div class="card-pill">
+              <span class="pill-dot"></span>
+              <span>FOUNDER'S CONVICTION</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="card-headline">
+              From a single spark of conviction to a national movement.
+            </h2>
+
+            <!-- Left-Bordered Story Paragraph -->
+            <div class="card-story-block">
+              <p class="card-story-paragraph">
+                Witnessing a rising generation disconnected from their civilizational roots and conditioned by passive narratives, our founder stood up with a fierce resolve: to build an uncompromising platform where India's youth can reclaim their intellectual sovereignty. Starting with zero institutional backing, no commercial shortcuts, and sheer grassroots grit, Towards My Bharat turned raw passion into a thriving national movement empowering thousands across campuses and cities to lead with courage.
+              </p>
+            </div>
+
+            <!-- Metric Stat Row -->
+            <div class="card-metric-row">
+              <div class="metric-big-num">₹0</div>
+              <div class="metric-caption">STARTING CAPITAL • 100% GRASSROOTS RESOLVE</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================================
+             CARD 03: BUILDING PILLARS (Overlaps Card 02 on scroll)
+             ===================================================================== -->
+        <article class="story-card" id="section-pillars" data-index="2">
+          <div class="card-bg-image" style="background-image: url('assets/images/research-archive.jpg');"></div>
+          <div class="card-bg-overlay"></div>
+
+          <div class="card-content-inner">
+            <!-- Pill Tag -->
+            <div class="card-pill">
+              <span class="pill-dot"></span>
+              <span>4 FOUNDATIONAL PILLARS</span>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="card-headline">
+              The four structural cornerstones architecting resurgence.
+            </h2>
+
+            <!-- Left-Bordered Story Paragraph -->
+            <div class="card-story-block">
+              <p class="card-story-paragraph">
+                Every conclave, fellowship, research monograph, and cultural initiative at Towards My Bharat is anchored in four structural cornerstones designed to transform passive knowledge into active civilizational capability:
+              </p>
+            </div>
+
+            <!-- Pillars Mini Grid -->
+            <div class="pillars-mini-grid">
+              <!-- Pillar 01 -->
+              <div class="pillar-mini-card">
+                <div class="pillar-mini-header">
+                  <span class="pillar-mini-num">PILLAR 01</span>
+                  <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #c5a059;">fingerprint</span>
+                </div>
+                <h3 class="pillar-mini-title">Roots &amp; Identity</h3>
+                <p class="pillar-mini-desc">
+                  Grounding young minds in Bharat's timeless heritage, philosophy, sacred memory, and cultural self-respect.
+                </p>
+              </div>
+
+              <!-- Pillar 02 -->
+              <div class="pillar-mini-card">
+                <div class="pillar-mini-header">
+                  <span class="pillar-mini-num">PILLAR 02</span>
+                  <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #c5a059;">join_inner</span>
+                </div>
+                <h3 class="pillar-mini-title">Continuity &amp; Synthesis</h3>
+                <p class="pillar-mini-desc">
+                  Fusing classical Bharatiya wisdom with modern science, technology, economics, and statecraft.
+                </p>
+              </div>
+
+              <!-- Pillar 03 -->
+              <div class="pillar-mini-card">
+                <div class="pillar-mini-header">
+                  <span class="pillar-mini-num">PILLAR 03</span>
+                  <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #c5a059;">explore</span>
+                </div>
+                <h3 class="pillar-mini-title">Purpose-Driven Action</h3>
+                <p class="pillar-mini-desc">
+                  Mobilizing youth through field learning, storytelling, research fellowships, and leadership conclaves.
+                </p>
+              </div>
+
+              <!-- Pillar 04 -->
+              <div class="pillar-mini-card">
+                <div class="pillar-mini-header">
+                  <span class="pillar-mini-num">PILLAR 04</span>
+                  <span class="material-symbols-outlined" style="font-size: 1.1rem; color: #c5a059;">trending_up</span>
+                </div>
+                <h3 class="pillar-mini-title">Sovereign Impact</h3>
+                <p class="pillar-mini-desc">
+                  Nurturing courageous, ethical thinkers committed to India's self-reliance on the global stage.
+                </p>
+              </div>
+            </div>
+
+            <!-- Metric Stat Row -->
+            <div class="card-metric-row">
+              <div class="metric-big-num">4</div>
+              <div class="metric-caption">PILLARS • ONE SOVEREIGN BHARAT</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CALL TO ACTION BANNER
+       ========================================================================= -->
+  <section class="about-cta-banner">
+    <div class="container">
+      <div class="about-cta-box">
+        <h2 class="about-cta-title">Step into the Vanguard.</h2>
+        <p class="about-cta-text">
+          Join thousands of young thinkers, researchers, and creators actively shaping Bharat's cultural and intellectual renaissance.
+        </p>
+        <div class="about-cta-buttons">
+          <a href="https://linktr.ee/towardsmybharat" target="_blank" rel="noopener noreferrer" class="btn-gold-primary">
+            <span>Enlist with TMB</span>
+            <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+          </a>
+          <a href="blog.html" class="btn-outline-light">
+            <span>Read Dispatches</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a class="footer-brand-header" href="index.html#hero">
+            <img alt="Towards My Bharat Logo" class="footer-brand-logo" src="photos/TMB Logo.png">
+            <span class="footer-brand-name">Towards My Bharat</span>
+          </a>
+          <p class="footer-tagline">
+            Honouring Our Roots. Shaping Our Future.
+          </p>
+          <p class="footer-bio">
+            A national youth movement uniting young minds through civilizational depth, intellectual rigor, and active nation-building across India.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html#hero">Home</a>
+          <a href="about.html">About TMB</a>
+          <a href="index.html#initiatives">Work We Do</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://linktr.ee/towardsmybharat" target="_blank" rel="noopener noreferrer">Join Us</a>
+        </nav>
+
+        <!-- Col 3: Social Media Handles -->
+        <div class="social-links">
+          <a aria-label="Instagram" class="social-btn"
+            href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a aria-label="X (Twitter)" class="social-btn" href="https://x.com" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a aria-label="LinkedIn" class="social-btn" href="https://linkedin.com" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+            </svg>
+          </a>
+          <a aria-label="YouTube" class="social-btn" href="https://youtube.com" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+          <a aria-label="Facebook" class="social-btn" href="https://facebook.com" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <span>© TOWARDS MY BHARAT FOUNDATION. ALL RIGHTS RESERVED.</span>
+        <span class="footer-made-tag">Made for India</span>
+      </div>
+
+      <div class="footer-wordmark" aria-hidden="true">TowardsMyBharat</div>
+
+    </div>
+  </footer>
+
+  <!-- Page Interaction Script -->
+  <script src="about.js"></script>
+</body>
+
+</html>

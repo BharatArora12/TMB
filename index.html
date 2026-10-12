@@ -7,7 +7,8 @@
   <title>Towards My Bharat — Honouring Our Roots. Shaping Our Future.</title>
   <meta name="description"
     content="Towards My Bharat is a youth-led movement uniting young minds across India through intellectual rigor, civilizational depth, ethical leadership, and grassroots nation-building.">
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/fsr7ijfp/image/upload/f_auto/q_auto/ChatGPT_Image_Jul_22_2026_04_11_07_PM.png">
+  <link rel="icon" type="image/png"
+    href="https://res.cloudinary.com/fsr7ijfp/image/upload/f_auto/q_auto/ChatGPT_Image_Jul_22_2026_04_11_07_PM.png">
 
   <!-- Google Fonts & Material Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +42,7 @@
       <!-- Desktop Navigation Links -->
       <nav class="nav-links" aria-label="Main Navigation">
         <a href="#hero" class="nav-link active">Home</a>
-        <a href="#who-we-are" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="#initiatives" class="nav-link">Work We Do</a>
         <a href="#culture" class="nav-link">Life at TMB</a>
         <a href="blog.html" class="nav-link">Blogs</a>
@@ -71,7 +72,7 @@
     <div id="mobileNav" class="mobile-nav-drawer">
       <ul class="mobile-nav-list">
         <li><a class="mobile-nav-link" href="#hero">Home</a></li>
-        <li><a class="mobile-nav-link" href="#who-we-are">About</a></li>
+        <li><a class="mobile-nav-link" href="about.html">About</a></li>
         <li><a class="mobile-nav-link" href="#initiatives">Work We Do</a></li>
         <li><a class="mobile-nav-link" href="#voices">Programs</a></li>
         <li><a class="mobile-nav-link" href="#culture">Life at TMB</a></li>
@@ -123,59 +124,68 @@
           Towards My Bharat is a national youth movement uniting young minds through civilizational depth, intellectual
           rigor, and active nation-building across India.
         </p>
-        
+
         <div class="hero-actions">
-          <button class="hero-credential" type="button" aria-label="Open Udyam verified certification" aria-haspopup="dialog">
+          <button class="hero-credential" type="button" aria-label="Open Udyam verified certification"
+            aria-haspopup="dialog">
             <span class="material-symbols-outlined">verified</span>
             <span>Udyam Verified</span>
           </button>
-          <a class="hero-credential" href="https://linktr.ee/towardsmybharat" target="_blank"
-            rel="noopener noreferrer">
+          <a class="hero-credential" href="https://linktr.ee/towardsmybharat" target="_blank" rel="noopener noreferrer">
             <span class="material-symbols-outlined" aria-hidden="true">group_add</span>
             <span>Join Us</span>
           </a>
         </div>
 
-        <div class="credential-modal" id="udyamCertModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="udyamCertTitle">
+        <div class="credential-modal" id="udyamCertModal" aria-hidden="true" role="dialog" aria-modal="true"
+          aria-labelledby="udyamCertTitle">
           <div class="credential-modal-backdrop" data-close-certificate="true"></div>
           <div class="credential-modal-panel">
-            <button class="credential-modal-close" type="button" aria-label="Close Udyam certificate" data-close-certificate="true">
+            <button class="credential-modal-close" type="button" aria-label="Close Udyam certificate"
+              data-close-certificate="true">
               <span class="material-symbols-outlined">close</span>
             </button>
             <p class="credential-modal-label" id="udyamCertTitle">Udyam Registration Certificate</p>
-            <img
-              class="credential-modal-image"
-              src="assets/images/udyam-certificate.svg"
+            <img class="credential-modal-image" src="assets/images/udyam-certificate.svg"
               alt="Towards My Bharat Udyam registration certificate"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85';"
-            >
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85';">
           </div>
         </div>
         <!-- Social Media Links -->
         <div class="hero-social-links" aria-label="Social media links">
-          <a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank" rel="noopener noreferrer">
+          <a aria-label="Instagram" class="social-btn"
+            href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+            rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
             </svg>
           </a>
-          <a aria-label="LinkedIn" class="social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a aria-label="LinkedIn" class="social-btn" href="https://linkedin.com" target="_blank"
+            rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
             </svg>
           </a>
-          <a aria-label="YouTube" class="social-btn" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <a aria-label="YouTube" class="social-btn" href="https://youtube.com" target="_blank"
+            rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </svg>
           </a>
-          <a aria-label="Facebook" class="social-btn" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a aria-label="Facebook" class="social-btn" href="https://facebook.com" target="_blank"
+            rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
           </a>
           <a aria-label="X (Twitter)" class="social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
           </a>
         </div>
@@ -364,15 +374,17 @@
             <span class="section-badge">Practical Initiatives</span>
             <h2 class="section-title">What Work We Do</h2>
             <p class="work-subtext">
-              Translating civilizational knowledge into dynamic media, immersive learning cohorts, field action, and international representation.
+              Translating civilizational knowledge into dynamic media, immersive learning cohorts, field action, and
+              international representation.
             </p>
           </div>
 
-          
+
 
 
           <div class="work-slider-nav-top">
-            <button type="button" class="slider-arrow-btn prev-btn" id="workSliderPrev" aria-label="Previous Slide">
+            <button type="button" class="slider-arrow-btn prev-btn" id="workSliderPrev" aria-label="Previous Slide"
+              disabled>
               <span class="material-symbols-outlined">west</span>
             </button>
             <div class="slider-counter-badge" aria-live="polite">
@@ -385,41 +397,50 @@
             </button>
           </div>
         </div>
-         <!-- Interactive Slide Tabs & Pagination Bar -->
-          <div class="work-slider-tabs-container">
-            <div class="work-slider-tabs" id="workSliderTabs" role="tablist" aria-label="Work Initiatives Tabs">
-              <button type="button" class="work-slider-tab is-active" data-index="0" role="tab" aria-selected="true" aria-controls="slide-0">
-                <span class="tab-num">01</span>
-                <span class="tab-label">Short Videos</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="1" role="tab" aria-selected="false" aria-controls="slide-1">
-                <span class="tab-num">02</span>
-                <span class="tab-label">Online Courses</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="2" role="tab" aria-selected="false" aria-controls="slide-2">
-                <span class="tab-num">03</span>
-                <span class="tab-label">Workshops</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="3" role="tab" aria-selected="false" aria-controls="slide-3">
-                <span class="tab-num">04</span>
-                <span class="tab-label">NGO Partnerships</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="4" role="tab" aria-selected="false" aria-controls="slide-4">
-                <span class="tab-num">05</span>
-                <span class="tab-label">Global Voice</span>
-              </button>
-            </div>
+        <!-- Interactive Slide Tabs & Pagination Bar -->
+        <div class="work-slider-tabs-container">
+          <div class="work-slider-tabs" id="workSliderTabs" role="tablist" aria-label="Work Initiatives Tabs">
+            <button type="button" class="work-slider-tab is-active" data-index="0" role="tab" aria-selected="true"
+              aria-controls="slide-0">
+              <span class="tab-num">01</span>
+              <span class="tab-label">Short Videos</span>
+            </button>
+            <button type="button" class="work-slider-tab" data-index="1" role="tab" aria-selected="false"
+              aria-controls="slide-1">
+              <span class="tab-num">02</span>
+              <span class="tab-label">Online Courses</span>
+            </button>
+            <button type="button" class="work-slider-tab" data-index="2" role="tab" aria-selected="false"
+              aria-controls="slide-2">
+              <span class="tab-num">03</span>
+              <span class="tab-label">Workshops</span>
+            </button>
+            <button type="button" class="work-slider-tab" data-index="3" role="tab" aria-selected="false"
+              aria-controls="slide-3">
+              <span class="tab-num">04</span>
+              <span class="tab-label">NGO Partnerships</span>
+            </button>
+            <button type="button" class="work-slider-tab" data-index="4" role="tab" aria-selected="false"
+              aria-controls="slide-4">
+              <span class="tab-num">05</span>
+              <span class="tab-label">Global Voice</span>
+            </button>
           </div>
+        </div>
 
         <!-- 3D Slider Container -->
-        <div class="work-3d-slider-container" id="work3dSlider" role="region" aria-roledescription="carousel" aria-label="Our Works 3D Carousel">
+        <div class="work-3d-slider-container" id="work3dSlider" role="region" aria-roledescription="carousel"
+          aria-label="Our Works 3D Carousel">
           <div class="work-3d-stage">
 
 
             <!-- Slide 1: Short Form Videos -->
-            <div class="work-3d-card is-active" data-index="0" tabindex="0" role="group" aria-roledescription="slide" aria-label="1 of 5: Short Form Videos">
+            <div class="work-3d-card is-active" data-index="0" tabindex="0" role="group" aria-roledescription="slide"
+              aria-label="1 of 5: Short Form Videos">
               <div class="card-inner card-glass-image">
-                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU2jkST6NpQtfzrpQXeauyIdyWqSHonfxEyQOhYkuY0bN_kM0QQOYvIrlk8uKZZu2y0sayKCy73_xjVAwG7WGaNbOT21TU886kx_ZbkEHoPEriQ4Vb3EarkRbGsnXRYVVRcpHKmJ307y-7DdfpoU41X86NOU2ecRXs-iWCosfR5RdoNN1_wwc_FHE6oh7ElW8MsBRp_AYqewzDzrXVSMzjBGlJkK3e1hATfe3coCAvxHVbDDxQu9DK');"></div>
+                <div class="card-bg-image"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU2jkST6NpQtfzrpQXeauyIdyWqSHonfxEyQOhYkuY0bN_kM0QQOYvIrlk8uKZZu2y0sayKCy73_xjVAwG7WGaNbOT21TU886kx_ZbkEHoPEriQ4Vb3EarkRbGsnXRYVVRcpHKmJ307y-7DdfpoU41X86NOU2ecRXs-iWCosfR5RdoNN1_wwc_FHE6oh7ElW8MsBRp_AYqewzDzrXVSMzjBGlJkK3e1hATfe3coCAvxHVbDDxQu9DK');">
+                </div>
                 <div class="card-glass-overlay"></div>
 
                 <div class="card-top-bar">
@@ -437,12 +458,15 @@
               </div>
             </div>
 
-            
+
 
             <!-- Slide 2: Online Courses -->
-            <div class="work-3d-card" data-index="1" tabindex="0" role="group" aria-roledescription="slide" aria-label="2 of 5: Online Courses">
+            <div class="work-3d-card" data-index="1" tabindex="0" role="group" aria-roledescription="slide"
+              aria-label="2 of 5: Online Courses">
               <div class="card-inner card-glass-image">
-                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCORyPckMAGmZSh9rSuavHzI6zX6S2H8rfHs60fpP42Y6wKOGNu8NzrfeCwvT4tUlRpa1woxeTf4oDoZqNbvz0bxVNLdJeq4M4YSScWMABQYLVwf1Vzt7OYEslB3jSpsiMzC-xaqMIiB0Q42H1wQ150p6tWILMfKuhFfjGUx3xznZeFhMNyv5iGTjKWsavhWOAYM8h0kJCAAN64wPoBDdZWubwA6AOT0hRb3-7D1_o0lspK2GCwbTd8');"></div>
+                <div class="card-bg-image"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCORyPckMAGmZSh9rSuavHzI6zX6S2H8rfHs60fpP42Y6wKOGNu8NzrfeCwvT4tUlRpa1woxeTf4oDoZqNbvz0bxVNLdJeq4M4YSScWMABQYLVwf1Vzt7OYEslB3jSpsiMzC-xaqMIiB0Q42H1wQ150p6tWILMfKuhFfjGUx3xznZeFhMNyv5iGTjKWsavhWOAYM8h0kJCAAN64wPoBDdZWubwA6AOT0hRb3-7D1_o0lspK2GCwbTd8');">
+                </div>
                 <div class="card-glass-overlay"></div>
 
                 <div class="card-top-bar">
@@ -461,9 +485,12 @@
             </div>
 
             <!-- Slide 3: Offline Workshops -->
-            <div class="work-3d-card" data-index="2" tabindex="0" role="group" aria-roledescription="slide" aria-label="3 of 5: Offline Workshops">
+            <div class="work-3d-card" data-index="2" tabindex="0" role="group" aria-roledescription="slide"
+              aria-label="3 of 5: Offline Workshops">
               <div class="card-inner card-glass-image">
-                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZkB0P_QZxvdJad0hEy5BmdLK6mqTU6a4oapVQGwUKe_ccinpr_djlw4uCBiw9tI_1iJQXKgkUAsMqGgCc7XIwjC0wB5PebLuEG4n_8WRwH6jy0b41GqXJWKHiBwTFlTjgmJ4IUfJHbS2_lL7xh7CDraArGp5n_4qWS5LiVYHj5hKyUCqSDfkomzr25dJg2lvraYtrCqwniz2xV5U3QM2FrsxBTzArD0lPMacb7cspqM40MPmfg9');"></div>
+                <div class="card-bg-image"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZkB0P_QZxvdJad0hEy5BmdLK6mqTU6a4oapVQGwUKe_ccinpr_djlw4uCBiw9tI_1iJQXKgkUAsMqGgCc7XIwjC0wB5PebLuEG4n_8WRwH6jy0b41GqXJWKHiBwTFlTjgmJ4IUfJHbS2_lL7xh7CDraArGp5n_4qWS5LiVYHj5hKyUCqSDfkomzr25dJg2lvraYtrCqwniz2xV5U3QM2FrsxBTzArD0lPMacb7cspqM40MPmfg9');">
+                </div>
                 <div class="card-glass-overlay"></div>
 
                 <div class="card-top-bar">
@@ -471,7 +498,7 @@
 
                 <div class="card-content-bottom">
                   <h3 class="card-heading">Offline Workshops</h3>
-                  
+
                   <div class="card-footer-cta">
                     <span class="card-explore-hint">
                       <span>Click for Full Details</span>
@@ -483,9 +510,12 @@
             </div>
 
             <!-- Slide 4: Collaborations with NGOs -->
-            <div class="work-3d-card" data-index="3" tabindex="0" role="group" aria-roledescription="slide" aria-label="4 of 5: Collaborations with NGOs">
+            <div class="work-3d-card" data-index="3" tabindex="0" role="group" aria-roledescription="slide"
+              aria-label="4 of 5: Collaborations with NGOs">
               <div class="card-inner card-glass-image">
-                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPaUByhKzRTn3kRFAoxIf1_VDWG7cYpFMiRe5rJ41JPAPMEUPzAS0vv22dkaNtWtMV3sUuuDjmXLnLfTflYA8V0rtafJ-7_ww9JE-fbKIkpLUKOOrICYi8k9ulVzQ8lY2BSiSJl6nv3-n6Y-OQkaTREED-0QC22GUl3DC4Z-Nz-zASGBr3wYAnlnhy_zwddoaqtZifl0B4Tdq4_z7eqHNw8CEw_h4kWn_Tkqd2E6a9-L2GqU7lITf8');"></div>
+                <div class="card-bg-image"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPaUByhKzRTn3kRFAoxIf1_VDWG7cYpFMiRe5rJ41JPAPMEUPzAS0vv22dkaNtWtMV3sUuuDjmXLnLfTflYA8V0rtafJ-7_ww9JE-fbKIkpLUKOOrICYi8k9ulVzQ8lY2BSiSJl6nv3-n6Y-OQkaTREED-0QC22GUl3DC4Z-Nz-zASGBr3wYAnlnhy_zwddoaqtZifl0B4Tdq4_z7eqHNw8CEw_h4kWn_Tkqd2E6a9-L2GqU7lITf8');">
+                </div>
                 <div class="card-glass-overlay"></div>
 
                 <div class="card-top-bar">
@@ -493,7 +523,7 @@
 
                 <div class="card-content-bottom">
                   <h3 class="card-heading">Collaborations with NGOs</h3>
-                  
+
                   <div class="card-footer-cta">
                     <span class="card-explore-hint">
                       <span>Click for Full Details</span>
@@ -505,9 +535,12 @@
             </div>
 
             <!-- Slide 5: Representing India Globally -->
-            <div class="work-3d-card" data-index="4" tabindex="0" role="group" aria-roledescription="slide" aria-label="5 of 5: Representing India Globally">
+            <div class="work-3d-card" data-index="4" tabindex="0" role="group" aria-roledescription="slide"
+              aria-label="5 of 5: Representing India Globally">
               <div class="card-inner card-glass-image">
-                <div class="card-bg-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdWbGttBjAFB1JuIhNk5aG3J-hCHHVL_9rVaEPLLEWjWvfjDXjbNg0CqVxmZ9pI8VFV6UPOvwc7Bb-MetSUXESYQwTb76zi6Al49hgNR49gQkSbFJ6CUkPpyqoig-XbrVJV105VbviURPSb26qAqEuxYRAgb5FIOcuAHpNbEdGAWrIxjl3GBiwucPwHB9CeV49TXdYmZQexNBferYTKQC3isANIKKaIIdkaUgfC7haQ4Ap_vOdiCFj');"></div>
+                <div class="card-bg-image"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdWbGttBjAFB1JuIhNk5aG3J-hCHHVL_9rVaEPLLEWjWvfjDXjbNg0CqVxmZ9pI8VFV6UPOvwc7Bb-MetSUXESYQwTb76zi6Al49hgNR49gQkSbFJ6CUkPpyqoig-XbrVJV105VbviURPSb26qAqEuxYRAgb5FIOcuAHpNbEdGAWrIxjl3GBiwucPwHB9CeV49TXdYmZQexNBferYTKQC3isANIKKaIIdkaUgfC7haQ4Ap_vOdiCFj');">
+                </div>
                 <div class="card-glass-overlay"></div>
 
                 <div class="card-top-bar">
@@ -515,7 +548,7 @@
 
                 <div class="card-content-bottom">
                   <h3 class="card-heading">Representing India Globally</h3>
-                 
+
                   <div class="card-footer-cta">
                     <span class="card-explore-hint">
                       <span>Click for Full Details</span>
@@ -528,11 +561,12 @@
 
           </div>
 
-          
+
         </div>
 
         <!-- Initiative Details Popup Modal -->
-        <div class="work-detail-modal-backdrop" id="workDetailModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="workModalTitle">
+        <div class="work-detail-modal-backdrop" id="workDetailModal" aria-hidden="true" role="dialog" aria-modal="true"
+          aria-labelledby="workModalTitle">
           <div class="work-detail-modal-container">
             <button type="button" class="work-modal-close-btn" id="workModalClose" aria-label="Close details popup">
               <span class="material-symbols-outlined">close</span>
@@ -545,42 +579,42 @@
 
       </div>
     </section>
-     <!-- =========================================================================
+    <!-- =========================================================================
        FINAL ACHIEVEMENTS STRIP
        ========================================================================= -->
-  <section class="impact-metrics-section" aria-label="Impact metrics">
-    <div class="container impact-metrics-inner">
-      <div class="impact-heading-wrap">
-        <span class="section-badge">Our impact</span>
-      </div>
-
-      <div class="impact-showcase">
-        <div class="impact-main">
-          <p class="impact-kicker">A GROWING MOVEMENT</p>
-          <div class="impact-number-wrap" aria-label="20 thousand young participants">
-            <span class="impact-total" data-count-up="20000" data-count-format="compact">20k</span>
-            <span class="impact-plus" aria-hidden="true">+</span>
-          </div>
-          <p class="impact-caption">young people shaping rooted leadership across <em>Bharat.</em></p>
+    <section class="impact-metrics-section" aria-label="Impact metrics">
+      <div class="container impact-metrics-inner">
+        <div class="impact-heading-wrap">
+          <span class="section-badge">Our impact</span>
         </div>
 
-        <div class="impact-stat-list" aria-label="Impact stats">
-          <div class="impact-stat-row">
-            <span class="impact-stat-label">STATES ENGAGED</span>
-            <span class="impact-stat-value" data-count-up="18">18</span>
+        <div class="impact-showcase">
+          <div class="impact-main">
+            <p class="impact-kicker">A GROWING MOVEMENT</p>
+            <div class="impact-number-wrap" aria-label="20 thousand young participants">
+              <span class="impact-total" data-count-up="20000" data-count-format="compact">20k</span>
+              <span class="impact-plus" aria-hidden="true">+</span>
+            </div>
+            <p class="impact-caption">young people shaping rooted leadership across <em>Bharat.</em></p>
           </div>
-          <div class="impact-stat-row">
-            <span class="impact-stat-label">FIELD PROGRAMS</span>
-            <span class="impact-stat-value" data-count-up="35" data-count-suffix="+">35+</span>
-          </div>
-          <div class="impact-stat-row">
-            <span class="impact-stat-label">STUDENT FELLOWS</span>
-            <span class="impact-stat-value" data-count-up="250" data-count-suffix="+">250+</span>
+
+          <div class="impact-stat-list" aria-label="Impact stats">
+            <div class="impact-stat-row">
+              <span class="impact-stat-label">STATES ENGAGED</span>
+              <span class="impact-stat-value" data-count-up="18">18</span>
+            </div>
+            <div class="impact-stat-row">
+              <span class="impact-stat-label">FIELD PROGRAMS</span>
+              <span class="impact-stat-value" data-count-up="35" data-count-suffix="+">35+</span>
+            </div>
+            <div class="impact-stat-row">
+              <span class="impact-stat-label">STUDENT FELLOWS</span>
+              <span class="impact-stat-value" data-count-up="250" data-count-suffix="+">250+</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
 
@@ -596,7 +630,8 @@
             <h2 id="programs-title" class="section-title">Courses We Offer</h2>
           </div>
           <p class="courses-intro">
-            Structured civilizational learning pathways, transformative spiritual practices, and value-based education crafted for every stage of life.
+            Structured civilizational learning pathways, transformative spiritual practices, and value-based education
+            crafted for every stage of life.
           </p>
         </div>
 
@@ -623,15 +658,20 @@
               <div class="course-card-body">
                 <h3 class="course-card-title">Spiritual Development for Kids</h3>
                 <p class="course-card-desc">
-                  Interactive Vedic storytelling, daily shlokas, mindfulness, and timeless cultural values taught through joyful engagement.
+                  Interactive Vedic storytelling, daily shlokas, mindfulness, and timeless cultural values taught
+                  through joyful engagement.
                 </p>
 
                 <!-- Feature Chips -->
                 <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">auto_stories</span> Epics &amp; Stories</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">self_improvement</span> Mindful Breath</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">music_note</span> Shloka Chanting</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">diversity_3</span> Values &amp; Respect</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">auto_stories</span> Epics &amp;
+                    Stories</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">self_improvement</span> Mindful
+                    Breath</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">music_note</span> Shloka
+                    Chanting</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">diversity_3</span> Values &amp;
+                    Respect</span>
                 </div>
               </div>
 
@@ -641,7 +681,8 @@
                   <span class="meta-label">Format</span>
                   <span class="meta-val">Weekend Live Cohort</span>
                 </div>
-                <a href="mailto:info@towardsmybharat.in?subject=Enrollment%20Inquiry%20-%20Spiritual%20Development%20for%20Kids" class="course-action-btn btn-primary-3d">
+                <a href="mailto:hello@towardsmybharat.in?subject=Enrollment%20Inquiry%20-%20Spiritual%20Development%20for%20Kids"
+                  class="course-action-btn btn-primary-3d">
                   <span>Enroll Now</span>
                   <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
@@ -657,7 +698,7 @@
               <img class="course-card-image" src="assets/images/course-adults-dharma.jpg"
                 alt="Adults in meditation and philosophical discussion" loading="lazy">
               <div class="course-popular-tag">Upcoming Cohort</div>
-              
+
               <!-- Card Top Header -->
               <div class="course-card-top">
                 <div class="course-badge-wrap">
@@ -672,15 +713,20 @@
               <div class="course-card-body">
                 <h3 class="course-card-title">Spiritual Development for Adults</h3>
                 <p class="course-card-desc">
-                  A contemplative journey into practical Bhagavad Gita wisdom, meditation, emotional mastery, and conscious living.
+                  A contemplative journey into practical Bhagavad Gita wisdom, meditation, emotional mastery, and
+                  conscious living.
                 </p>
 
                 <!-- Feature Chips -->
                 <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">menu_book</span> Practical Gita</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">psychology</span> Mind &amp; Dhyana</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">military_tech</span> Ethical Leadership</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">balance</span> Darshana Wisdom</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">menu_book</span> Practical
+                    Gita</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">psychology</span> Mind &amp;
+                    Dhyana</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">military_tech</span> Ethical
+                    Leadership</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">balance</span> Darshana
+                    Wisdom</span>
                 </div>
               </div>
 
@@ -690,7 +736,8 @@
                   <span class="meta-label">Commencing</span>
                   <span class="meta-val">Starting Next Month</span>
                 </div>
-                <a href="mailto:info@towardsmybharat.in?subject=Registration%20Inquiry%20-%20Spiritual%20Development%20for%20Adults" class="course-action-btn btn-featured-3d">
+                <a href="mailto:hello@towardsmybharat.in?subject=Registration%20Inquiry%20-%20Spiritual%20Development%20for%20Adults"
+                  class="course-action-btn btn-featured-3d">
                   <span>Join Waitlist</span>
                   <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
@@ -725,9 +772,12 @@
 
                 <!-- Feature Chips -->
                 <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">calculate</span> Vedic Mathematics</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">temple_hindu</span> Sacred Architecture</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">psychology_alt</span> Bharatiya Psychology</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">calculate</span> Vedic
+                    Mathematics</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">temple_hindu</span> Sacred
+                    Architecture</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">psychology_alt</span> Bharatiya
+                    Psychology</span>
                   <span class="feature-chip"><span class="material-symbols-outlined">eco</span> Ecological Dharma</span>
                 </div>
               </div>
@@ -738,7 +788,8 @@
                   <span class="meta-label">Status</span>
                   <span class="meta-val">Curriculum in Progress</span>
                 </div>
-                <a href="mailto:info@towardsmybharat.in?subject=Course%20Suggestion%20or%20Waitlist" class="course-action-btn btn-primary-3d">
+                <a href="mailto:hello@towardsmybharat.in?subject=Course%20Suggestion%20or%20Waitlist"
+                  class="course-action-btn btn-primary-3d">
                   <span>Get Notified</span>
                   <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
@@ -758,119 +809,14 @@
               <p>We organize customized spiritual, cultural, and leadership cohorts for institutions across India.</p>
             </div>
           </div>
-          <a href="mailto:info@towardsmybharat.in?subject=Institutional%20Workshops%20Inquiry" class="btn btn-primary courses-banner-btn">
-            <span>Inquire for Institution</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
+          <a href="mailto:hello@towardsmybharat.in?subject=Institutional%20Workshops%20Inquiry"
+            class="btn btn-primary courses-banner-btn">
+            <span class="courses-banner-main">
+              <span>Inquire for Institution</span>
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </span>
+            <span class="courses-banner-email">hello@towardsmybharat.in</span>
           </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 5: LIFE AT TMB / ASYMMETRIC GALLERY
-         ========================================================================= -->
-    <section id="culture" class="gallery-section" aria-labelledby="gallery-title">
-      <div class="container">
-
-        <div class="gallery-header">
-          <div>
-            <span class="section-badge">Life At TMB • Sangha In Action</span>
-            <h2 id="gallery-title" class="section-title">What Our Journey Looks Like</h2>
-          </div>
-          <p class="gallery-intro">
-            A glimpse into the camaraderie, field journeys, cohort milestones, creative studio sessions, and collective purpose shaping our community across Bharat.
-          </p>
-        </div>
-
-        <div class="asymmetric-gallery-grid">
-          <!-- Row 1, Item 1: Tall Portrait (Snack breaks & reflections) -->
-          <figure class="gallery-item item-tall">
-            <div class="gallery-img-wrapper">
-              <img src="assets/images/gallery-chai-breaks.jpg" alt="Snack breaks and chai reflection sessions in the office" loading="lazy">
-              <div class="gallery-item-overlay"></div>
-              <figcaption class="gallery-caption">
-                <span class="gallery-caption-badge">Culture</span>
-                <span class="gallery-caption-text">Snack breaks in the office</span>
-              </figcaption>
-            </div>
-          </figure>
-
-          <!-- Row 1, Item 2: Tall Portrait (Cohort celebrations) -->
-          <figure class="gallery-item item-tall">
-            <div class="gallery-img-wrapper">
-              <img src="assets/images/gallery-celebrations.jpg" alt="Cohort milestones and team celebrations" loading="lazy">
-              <div class="gallery-item-overlay"></div>
-              <figcaption class="gallery-caption">
-                <span class="gallery-caption-badge">Milestone</span>
-                <span class="gallery-caption-text">Cohort milestones &amp; celebrations</span>
-              </figcaption>
-            </div>
-          </figure>
-
-          <!-- Row 1, Item 3: Tall Portrait (Sangha cafe / outdoor team) -->
-          <figure class="gallery-item item-tall">
-            <div class="gallery-img-wrapper">
-              <img src="assets/images/gallery-team-outdoor.jpg" alt="Fellows and volunteers gathering across cities" loading="lazy">
-              <div class="gallery-item-overlay"></div>
-              <figcaption class="gallery-caption">
-                <span class="gallery-caption-badge">Fellowship</span>
-                <span class="gallery-caption-text">Sangha meets across cities</span>
-              </figcaption>
-            </div>
-          </figure>
-
-          <!-- Row 1, Column 4: Stacked Two Cards -->
-          <div class="gallery-col-stack">
-            <!-- Stack Item 1: Merch / Team Spirit -->
-            <figure class="gallery-item item-stacked">
-              <div class="gallery-img-wrapper">
-                <img src="assets/images/gallery-merch-spirit.jpg" alt="Youth voice festival and team spirit" loading="lazy">
-                <div class="gallery-item-overlay"></div>
-                <figcaption class="gallery-caption">
-                  <span class="gallery-caption-badge">Initiatives</span>
-                  <span class="gallery-caption-text">Youth voice &amp; fellowship spirit</span>
-                </figcaption>
-              </div>
-            </figure>
-
-            <!-- Stack Item 2: Evening Rooftop Gathering -->
-            <figure class="gallery-item item-stacked">
-              <div class="gallery-img-wrapper">
-                <img src="assets/images/gallery-evening-meet.jpg" alt="Evening retreats and community dialogue" loading="lazy">
-                <div class="gallery-item-overlay"></div>
-                <figcaption class="gallery-caption">
-                  <span class="gallery-caption-badge">Retreat</span>
-                  <span class="gallery-caption-text">Evening reflections &amp; dialogues</span>
-                </figcaption>
-              </div>
-            </figure>
-          </div>
-
-          <!-- Row 2, Item 5: Wide Landscape (Studio podcast / filming) -->
-          <figure class="gallery-item item-wide">
-            <div class="gallery-img-wrapper">
-              <img src="assets/images/gallery-studio-podcast.jpg" alt="Studio dialogues and podcast filming" loading="lazy">
-              <div class="gallery-item-overlay"></div>
-              <figcaption class="gallery-caption">
-                <span class="gallery-caption-badge">Production</span>
-                <span class="gallery-caption-text">Civilizational dialogues &amp; podcasts</span>
-              </figcaption>
-            </div>
-          </figure>
-
-          <!-- Row 2, Item 6: Wide Landscape (Outdoor sports & brotherhood) -->
-          <figure class="gallery-item item-wide">
-            <div class="gallery-img-wrapper">
-              <img src="assets/images/gallery-outdoor-retreat.jpg" alt="Outdoor youth retreats and sports camaraderie" loading="lazy">
-              <div class="gallery-item-overlay"></div>
-              <figcaption class="gallery-caption">
-                <span class="gallery-caption-badge">Community</span>
-                <span class="gallery-caption-text">Nature retreats &amp; team energy</span>
-              </figcaption>
-            </div>
-          </figure>
-
         </div>
 
       </div>
@@ -892,28 +838,34 @@
 
       <div class="testimonial-carousel-wrap">
         <div class="testimonial-track" id="testimonialTrack" aria-label="Community testimonials carousel" tabindex="0">
-          
+
           <!-- Slide 1: 2 testimonials in alternating format -->
           <div class="testimonial-slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
             <div class="testimonial-pairs">
               <!-- Pair 1: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
-                  <img src="assets/images/varanasi-ghats.jpg" alt="Varanasi ghats along the sacred river" loading="lazy">
+                  <img src="assets/images/varanasi-ghats.jpg" alt="Varanasi ghats along the sacred river"
+                    loading="lazy">
                 </div>
                 <div class="testimonial-card-col">
                   <h3>New Member</h3>
                   <p class="testimonial-featured-role">Community Vision</p>
-                  <blockquote>“It reminded me that responsibility can be joyful, generous, and deeply rooted.”</blockquote>
+                  <blockquote>“It reminded me that responsibility can be joyful, generous, and deeply rooted.”
+                  </blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
@@ -925,22 +877,28 @@
                 <div class="testimonial-card-col">
                   <h3>Educator</h3>
                   <p class="testimonial-featured-role">School Leadership</p>
-                  <blockquote>“Our students felt more connected to culture, citizenship, and self-belief after the experience.”</blockquote>
+                  <blockquote>“Our students felt more connected to culture, citizenship, and self-belief after the
+                    experience.”</blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
                 </div>
                 <div class="testimonial-image-col">
-                  <img src="assets/images/community-workshop.jpg" alt="Educator and youth workshop in community" loading="lazy">
+                  <img src="assets/images/community-workshop.jpg" alt="Educator and youth workshop in community"
+                    loading="lazy">
                 </div>
               </article>
             </div>
@@ -952,21 +910,27 @@
               <!-- Pair 3: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
-                  <img src="assets/images/youth-nation-building.jpg" alt="Youth participating in nation building initiatives" loading="lazy">
+                  <img src="assets/images/youth-nation-building.jpg"
+                    alt="Youth participating in nation building initiatives" loading="lazy">
                 </div>
                 <div class="testimonial-card-col">
                   <h3>Student Mentor</h3>
                   <p class="testimonial-featured-role">Campus Circle</p>
-                  <blockquote>“The learning is practical, thoughtful, and deeply connected to how we live and lead.”</blockquote>
+                  <blockquote>“The learning is practical, thoughtful, and deeply connected to how we live and lead.”
+                  </blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
@@ -978,16 +942,21 @@
                 <div class="testimonial-card-col">
                   <h3>Local Organiser</h3>
                   <p class="testimonial-featured-role">Volunteer Action</p>
-                  <blockquote>“It makes culture visible in everyday leadership and community life across villages.”</blockquote>
+                  <blockquote>“It makes culture visible in everyday leadership and community life across villages.”
+                  </blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
@@ -1005,21 +974,27 @@
               <!-- Pair 5: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
-                  <img src="assets/images/hero-courtyard.jpg" alt="Heritage courtyard and dialogue gathering" loading="lazy">
+                  <img src="assets/images/hero-courtyard.jpg" alt="Heritage courtyard and dialogue gathering"
+                    loading="lazy">
                 </div>
                 <div class="testimonial-card-col">
                   <h3>Young Speaker</h3>
                   <p class="testimonial-featured-role">Public Dialogue</p>
-                  <blockquote>“I learned how to speak with clarity, care, and conviction about the future we want.”</blockquote>
+                  <blockquote>“I learned how to speak with clarity, care, and conviction about the future we want.”
+                  </blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
@@ -1031,16 +1006,21 @@
                 <div class="testimonial-card-col">
                   <h3>Fellowship Scholar</h3>
                   <p class="testimonial-featured-role">Civilizational Studies</p>
-                  <blockquote>“The space invites deep thinking without losing touch with our real grassroots communities.”</blockquote>
+                  <blockquote>“The space invites deep thinking without losing touch with our real grassroots
+                    communities.”</blockquote>
                   <div class="testimonial-socials" aria-label="Social links for this testimonial">
-                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="X profile" class="testimonial-social-btn" href="https://x.com" target="_blank"
+                      rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
-                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a aria-label="LinkedIn profile" class="testimonial-social-btn" href="https://linkedin.com"
+                      target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z" />
                       </svg>
                     </a>
                   </div>
@@ -1056,15 +1036,20 @@
 
         <!-- Carousel Navigation Controls matching reference screenshot -->
         <div class="testimonial-carousel-controls" aria-label="Testimonial navigation">
-          <button class="testimonial-nav-btn testimonial-prev-btn" id="testimonialPrev" type="button" aria-label="Previous testimonials slide">
+          <button class="testimonial-nav-btn testimonial-prev-btn" id="testimonialPrev" type="button"
+            aria-label="Previous testimonials slide">
             <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <div class="testimonial-indicators" role="tablist" aria-label="Testimonial slides">
-            <button class="testimonial-indicator is-active" type="button" role="tab" aria-selected="true" aria-label="Go to slide 1" data-slide-index="0"></button>
-            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide-index="1"></button>
-            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide-index="2"></button>
+            <button class="testimonial-indicator is-active" type="button" role="tab" aria-selected="true"
+              aria-label="Go to slide 1" data-slide-index="0"></button>
+            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false"
+              aria-label="Go to slide 2" data-slide-index="1"></button>
+            <button class="testimonial-indicator" type="button" role="tab" aria-selected="false"
+              aria-label="Go to slide 3" data-slide-index="2"></button>
           </div>
-          <button class="testimonial-nav-btn testimonial-next-btn" id="testimonialNext" type="button" aria-label="Next testimonials slide">
+          <button class="testimonial-nav-btn testimonial-next-btn" id="testimonialNext" type="button"
+            aria-label="Next testimonials slide">
             <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
         </div>
@@ -1089,7 +1074,8 @@
             <h3>For Brands</h3>
             <p>Sponsorships, branded films and integrated campaigns.</p>
           </div>
-          <a href="mailto:contact@towardsmybharat.org?subject=Collaboration%20Inquiry%20-%20For%20Brands" class="contact-card-link">
+          <a href="mailto:info@towardsmybharat.in?subject=Collaboration%20Inquiry%20-%20For%20Brands"
+            class="contact-card-link">
             <span>Pitch a collaboration</span>
             <span class="contact-arrow" aria-hidden="true">→</span>
           </a>
@@ -1101,7 +1087,7 @@
             <h3>For Creators</h3>
             <p>Want to collaborate, guest on the podcast or join a shoot?</p>
           </div>
-          <a href="mailto:contact@towardsmybharat.org?subject=Creator%20Collaboration" class="contact-card-link">
+          <a href="mailto:info@towardsmybharat.in?subject=Creator%20Collaboration" class="contact-card-link">
             <span>Reach the team</span>
             <span class="contact-arrow" aria-hidden="true">→</span>
           </a>
@@ -1113,7 +1099,7 @@
             <h3>Careers</h3>
             <p>Editors, researchers, producers. We're always hiring curious people.</p>
           </div>
-          <a href="mailto:careers@towardsmybharat.org?subject=Career%20Inquiry" class="contact-card-link">
+          <a href="mailto:info@towardsmybharat.in?subject=Career%20Inquiry" class="contact-card-link">
             <span>See open roles</span>
             <span class="contact-arrow" aria-hidden="true">→</span>
           </a>
@@ -1142,7 +1128,7 @@
         <!-- Navigation Links -->
         <nav class="footer-nav" aria-label="Footer Navigation">
           <a href="#hero">Home</a>
-          <a href="#who-we-are">About TMB</a>
+          <a href="about.html">About TMB</a>
           <a href="#initiatives">Events</a>
           <a href="blog.html">Blog</a>
           <a href="#contact">Contact</a>
@@ -1191,8 +1177,7 @@
 
       <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <span>© Towardsmybharat. All rights reserved.</span>
-        <span class="footer-made-tag">Made for India</span>
+        <span>© TOWARDSMYBHARAT. ALL RIGHTS RESERVED.</span>
       </div>
 
       <div class="footer-wordmark" aria-hidden="true">TowardsMyBharat</div>
