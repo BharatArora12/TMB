@@ -21,7 +21,7 @@
   <script src="theme.js"></script>
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 
 <body>
@@ -366,6 +366,8 @@
             </p>
           </div>
 
+          
+
 
           <div class="work-slider-nav-top">
             <button type="button" class="slider-arrow-btn prev-btn" id="workSliderPrev" aria-label="Previous Slide" disabled>
@@ -381,10 +383,36 @@
             </button>
           </div>
         </div>
+         <!-- Interactive Slide Tabs & Pagination Bar -->
+          <div class="work-slider-tabs-container">
+            <div class="work-slider-tabs" id="workSliderTabs" role="tablist" aria-label="Work Initiatives Tabs">
+              <button type="button" class="work-slider-tab is-active" data-index="0" role="tab" aria-selected="true" aria-controls="slide-0">
+                <span class="tab-num">01</span>
+                <span class="tab-label">Short Videos</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="1" role="tab" aria-selected="false" aria-controls="slide-1">
+                <span class="tab-num">02</span>
+                <span class="tab-label">Online Courses</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="2" role="tab" aria-selected="false" aria-controls="slide-2">
+                <span class="tab-num">03</span>
+                <span class="tab-label">Workshops</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="3" role="tab" aria-selected="false" aria-controls="slide-3">
+                <span class="tab-num">04</span>
+                <span class="tab-label">NGO Partnerships</span>
+              </button>
+              <button type="button" class="work-slider-tab" data-index="4" role="tab" aria-selected="false" aria-controls="slide-4">
+                <span class="tab-num">05</span>
+                <span class="tab-label">Global Voice</span>
+              </button>
+            </div>
+          </div>
 
         <!-- 3D Slider Container -->
         <div class="work-3d-slider-container" id="work3dSlider" role="region" aria-roledescription="carousel" aria-label="Our Works 3D Carousel">
           <div class="work-3d-stage">
+
 
             <!-- Slide 1: Short Form Videos -->
             <div class="work-3d-card is-active" data-index="0" tabindex="0" role="group" aria-roledescription="slide" aria-label="1 of 5: Short Form Videos">
@@ -406,6 +434,8 @@
                 </div>
               </div>
             </div>
+
+            
 
             <!-- Slide 2: Online Courses -->
             <div class="work-3d-card" data-index="1" tabindex="0" role="group" aria-roledescription="slide" aria-label="2 of 5: Online Courses">
@@ -496,31 +526,7 @@
 
           </div>
 
-          <!-- Interactive Slide Tabs & Pagination Bar -->
-          <div class="work-slider-tabs-container">
-            <div class="work-slider-tabs" id="workSliderTabs" role="tablist" aria-label="Work Initiatives Tabs">
-              <button type="button" class="work-slider-tab is-active" data-index="0" role="tab" aria-selected="true" aria-controls="slide-0">
-                <span class="tab-num">01</span>
-                <span class="tab-label">Short Videos</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="1" role="tab" aria-selected="false" aria-controls="slide-1">
-                <span class="tab-num">02</span>
-                <span class="tab-label">Online Courses</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="2" role="tab" aria-selected="false" aria-controls="slide-2">
-                <span class="tab-num">03</span>
-                <span class="tab-label">Workshops</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="3" role="tab" aria-selected="false" aria-controls="slide-3">
-                <span class="tab-num">04</span>
-                <span class="tab-label">NGO Partnerships</span>
-              </button>
-              <button type="button" class="work-slider-tab" data-index="4" role="tab" aria-selected="false" aria-controls="slide-4">
-                <span class="tab-num">05</span>
-                <span class="tab-label">Global Voice</span>
-              </button>
-            </div>
-          </div>
+          
         </div>
 
         <!-- Initiative Details Popup Modal -->
@@ -537,192 +543,7 @@
 
       </div>
     </section>
-
-
-
-
-    <!-- =========================================================================
-         SECTION 4: COURSES WE OFFER
-         ========================================================================= -->
-    <section id="voices" class="courses-section" aria-labelledby="programs-title">
-      <div class="container">
-
-        <div class="courses-header">
-          <div>
-            <span class="section-badge">Wisdom • Values • Growth</span>
-            <h2 id="programs-title" class="section-title">Courses We Offer</h2>
-          </div>
-          <p class="courses-intro">
-            Structured civilizational learning pathways, transformative spiritual practices, and value-based education crafted for every stage of life.
-          </p>
-        </div>
-
-        <div class="courses-3d-grid">
-
-          <!-- Course 1: Spiritual Development for Kids -->
-          <article class="course-3d-card" data-tilt>
-            <div class="course-card-glass">
-              <div class="course-card-glow"></div>
-              
-              <!-- Card Top Header -->
-              <div class="course-card-top">
-                <div class="course-badge-wrap">
-                  <span class="course-status-pill status-active">
-                    <span class="status-dot"></span> Active Batch
-                  </span>
-                  <span class="course-audience-tag">Ages 6–15 • Bal Sanskar</span>
-                </div>
-                <div class="course-3d-icon-box">
-                  <span class="material-symbols-outlined course-icon">child_care</span>
-                </div>
-              </div>
-
-              <!-- Course Info -->
-              <div class="course-card-body">
-                <span class="course-index-num">01</span>
-                <h3 class="course-card-title">Spiritual Development for Kids</h3>
-                <p class="course-card-desc">
-                  Nurturing young minds through interactive Vedic storytelling, daily shlokas, mindfulness habits, emotional resilience, and deep-rooted cultural values taught through joyful engagement.
-                </p>
-
-                <!-- Feature Chips -->
-                <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">auto_stories</span> Epics &amp; Moral Stories</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">self_improvement</span> Mindful Breath &amp; Yoga</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">music_note</span> Shloka Chanting &amp; Meaning</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">diversity_3</span> Character &amp; Respect</span>
-                </div>
-              </div>
-
-              <!-- Card Footer / CTA -->
-              <div class="course-card-footer">
-                <div class="course-meta-info">
-                  <span class="meta-label">Format</span>
-                  <span class="meta-val">Weekend Live Cohort</span>
-                </div>
-                <a href="mailto:hello@towardsmybharat.in?subject=Enrollment%20Inquiry%20-%20Spiritual%20Development%20for%20Kids" class="course-action-btn btn-primary-3d">
-                  <span>Enroll Now</span>
-                  <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
-              </div>
-
-            </div>
-          </article>
-
-          <!-- Course 2: Spiritual Development for Adults -->
-          <article class="course-3d-card course-featured-3d" data-tilt>
-            <div class="course-card-glass">
-              <div class="course-card-glow"></div>
-              <div class="course-popular-tag">Upcoming Cohort</div>
-              
-              <!-- Card Top Header -->
-              <div class="course-card-top">
-                <div class="course-badge-wrap">
-                  <span class="course-status-pill status-upcoming">
-                    <span class="status-dot"></span> Next Cohort
-                  </span>
-                  <span class="course-audience-tag">Youth &amp; Adults • Darshana</span>
-                </div>
-                <div class="course-3d-icon-box">
-                  <span class="material-symbols-outlined course-icon">self_improvement</span>
-                </div>
-              </div>
-
-              <!-- Course Info -->
-              <div class="course-card-body">
-                <span class="course-index-num">02</span>
-                <h3 class="course-card-title">Spiritual Development for Adults</h3>
-                <p class="course-card-desc">
-                  An intellectual and meditative journey into the core tenets of Bharatiya Darshana, Bhagavad Gita in practical life, conscious leadership, emotional mastery, and navigating modern life with clarity.
-                </p>
-
-                <!-- Feature Chips -->
-                <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">menu_book</span> Practical Bhagavad Gita</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">psychology</span> Mind Mastery &amp; Dhyana</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">military_tech</span> Ethical Leadership</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">balance</span> Civilizational Philosophy</span>
-                </div>
-              </div>
-
-              <!-- Card Footer / CTA -->
-              <div class="course-card-footer">
-                <div class="course-meta-info">
-                  <span class="meta-label">Commencing</span>
-                  <span class="meta-val">Starting Next Month</span>
-                </div>
-                <a href="mailto:hello@towardsmybharat.in?subject=Registration%20Inquiry%20-%20Spiritual%20Development%20for%20Adults" class="course-action-btn btn-featured-3d">
-                  <span>Join Waitlist</span>
-                  <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
-              </div>
-
-            </div>
-          </article>
-
-          <!-- Course 3: Many More to Come -->
-          <article class="course-3d-card" data-tilt>
-            <div class="course-card-glass">
-              <div class="course-card-glow"></div>
-              
-              <!-- Card Top Header -->
-              <div class="course-card-top">
-                <div class="course-badge-wrap">
-                  <span class="course-status-pill status-pipeline">
-                    <span class="status-dot"></span> In Curriculum Design
-                  </span>
-                  <span class="course-audience-tag">Expanding Horizons</span>
-                </div>
-                <div class="course-3d-icon-box">
-                  <span class="material-symbols-outlined course-icon">rocket_launch</span>
-                </div>
-              </div>
-
-              <!-- Course Info -->
-              <div class="course-card-body">
-                <span class="course-index-num">03</span>
-                <h3 class="course-card-title">Many More to Come</h3>
-                <p class="course-card-desc">
-                  Expanding our universe of knowledge with upcoming masterclasses in Vedic Sciences, Temple Architecture, Bharatiya Psychology, Environmental Dharma, and Grassroots Leadership.
-                </p>
-
-                <!-- Feature Chips -->
-                <div class="course-features-list">
-                  <span class="feature-chip"><span class="material-symbols-outlined">calculate</span> Vedic Mathematics</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">temple_hindu</span> Sacred Architecture</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">psychology_alt</span> Bharatiya Psychology</span>
-                  <span class="feature-chip"><span class="material-symbols-outlined">eco</span> Ecological Dharma</span>
-                </div>
-              </div>
-
-             
-
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Institutional Workshop Collaboration Banner -->
-        <div class="courses-contact-banner">
-          <div class="courses-contact-content">
-            <span class="material-symbols-outlined banner-icon">school</span>
-            <div>
-              <h4>Looking for tailored workshops for schools or organizations?</h4>
-              <p>We organize customized spiritual, cultural, and leadership cohorts for institutions across India.</p>
-            </div>
-          </div>
-          <a href="mailto:hello@towardsmybharat.in?subject=Institutional%20Workshops%20Inquiry" class="btn btn-primary courses-banner-btn">
-            <span>Inquire for Institution</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =========================================================================
+     <!-- =========================================================================
        FINAL ACHIEVEMENTS STRIP
        ========================================================================= -->
   <section class="impact-metrics-section" aria-label="Impact metrics">
@@ -758,6 +579,204 @@
       </div>
     </div>
   </section>
+
+
+
+    <!-- =========================================================================
+         SECTION 4: COURSES WE OFFER
+         ========================================================================= -->
+    <section id="voices" class="courses-section" aria-labelledby="programs-title">
+      <div class="container">
+
+        <div class="courses-header">
+          <div>
+            <span class="section-badge">Wisdom • Values • Growth</span>
+            <h2 id="programs-title" class="section-title">Courses We Offer</h2>
+          </div>
+          <p class="courses-intro">
+            Structured civilizational learning pathways, transformative spiritual practices, and value-based education crafted for every stage of life.
+          </p>
+        </div>
+
+        <div class="courses-3d-grid">
+
+          <!-- Course 1: Spiritual Development for Kids -->
+          <article class="course-3d-card">
+            <div class="course-card-glass">
+              <div class="course-card-glow"></div>
+              
+              <!-- Card Top Header -->
+              <div class="course-card-top">
+                <div class="course-badge-wrap">
+                  <span class="course-status-pill status-active">
+                    <span class="status-dot"></span> Active Batch
+                  </span>
+                  <span class="course-audience-tag">Ages 6–15 • Bal Sanskar</span>
+                </div>
+                
+              </div>
+
+              <!-- Course Image Container -->
+              <div class="course-card-image-wrap">
+                <img src="assets/images/course-kids-learning.jpg" alt="Spiritual Development for Kids" class="course-card-img" loading="lazy">
+              </div>
+
+              <!-- Course Info -->
+              <div class="course-card-body">
+                <h3 class="course-card-title">Spiritual Development for Kids</h3>
+                <p class="course-card-desc">
+                  Interactive Vedic storytelling, daily shlokas, mindfulness, and timeless cultural values taught through joyful engagement.
+                </p>
+
+                <!-- Feature Chips -->
+                <div class="course-features-list">
+                  <span class="feature-chip"><span class="material-symbols-outlined">auto_stories</span> Epics &amp; Stories</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">self_improvement</span> Mindful Breath</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">music_note</span> Shloka Chanting</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">diversity_3</span> Values &amp; Respect</span>
+                </div>
+              </div>
+
+              <!-- Card Footer / CTA -->
+              <div class="course-card-footer">
+                <div class="course-meta-info">
+                  <span class="meta-label">Format</span>
+                  <span class="meta-val">Weekend Live Cohort</span>
+                </div>
+                <a href="mailto:hello@towardsmybharat.in?subject=Enrollment%20Inquiry%20-%20Spiritual%20Development%20for%20Kids" class="course-action-btn btn-primary-3d">
+                  <span>Enroll Now</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Course 2: Spiritual Development for Adults -->
+          <article class="course-3d-card course-featured-3d">
+            <div class="course-card-glass">
+              <div class="course-card-glow"></div>
+              <div class="course-popular-tag">Upcoming Cohort</div>
+              
+              <!-- Card Top Header -->
+              <div class="course-card-top">
+                <div class="course-badge-wrap">
+                  <span class="course-status-pill status-upcoming">
+                    <span class="status-dot"></span> Next Cohort
+                  </span>
+                  <span class="course-audience-tag">Youth &amp; Adults • Darshana</span>
+                </div>
+              </div>
+
+              <!-- Course Image Container -->
+              <div class="course-card-image-wrap">
+                <img src="assets/images/course-adults-dharma.jpg" alt="Spiritual Development for Adults" class="course-card-img" loading="lazy">
+              </div>
+
+              <!-- Course Info -->
+              <div class="course-card-body">
+                <h3 class="course-card-title">Spiritual Development for Adults</h3>
+                <p class="course-card-desc">
+                  A contemplative journey into practical Bhagavad Gita wisdom, meditation, emotional mastery, and conscious living.
+                </p>
+
+                <!-- Feature Chips -->
+                <div class="course-features-list">
+                  <span class="feature-chip"><span class="material-symbols-outlined">menu_book</span> Practical Gita</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">psychology</span> Mind &amp; Dhyana</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">military_tech</span> Ethical Leadership</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">balance</span> Darshana Wisdom</span>
+                </div>
+              </div>
+
+              <!-- Card Footer / CTA -->
+              <div class="course-card-footer">
+                <div class="course-meta-info">
+                  <span class="meta-label">Commencing</span>
+                  <span class="meta-val">Starting Next Month</span>
+                </div>
+                <a href="mailto:hello@towardsmybharat.in?subject=Registration%20Inquiry%20-%20Spiritual%20Development%20for%20Adults" class="course-action-btn btn-featured-3d">
+                  <span>Join Waitlist</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Course 3: Many More to Come -->
+          <article class="course-3d-card">
+            <div class="course-card-glass">
+              <div class="course-card-glow"></div>
+              
+              <!-- Card Top Header -->
+              <div class="course-card-top">
+                <div class="course-badge-wrap">
+                  <span class="course-status-pill status-pipeline">
+                    <span class="status-dot"></span> In Curriculum Design
+                  </span>
+                  <span class="course-audience-tag">Expanding Horizons</span>
+                </div>
+              </div>
+
+              <!-- Course Image Container -->
+              <div class="course-card-image-wrap">
+                <img src="assets/images/course-vedic-sciences.jpg" alt="Many More to Come" class="course-card-img" loading="lazy">
+              </div>
+
+              <!-- Course Info -->
+              <div class="course-card-body">
+                <h3 class="course-card-title">Many More to Come</h3>
+                <p class="course-card-desc">
+                  Upcoming masterclasses in Vedic sciences, sacred geometry, temple architecture, and ecological dharma.
+                </p>
+
+                <!-- Feature Chips -->
+                <div class="course-features-list">
+                  <span class="feature-chip"><span class="material-symbols-outlined">calculate</span> Vedic Mathematics</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">temple_hindu</span> Sacred Architecture</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">psychology_alt</span> Bharatiya Psychology</span>
+                  <span class="feature-chip"><span class="material-symbols-outlined">eco</span> Ecological Dharma</span>
+                </div>
+              </div>
+
+              <!-- Card Footer / CTA -->
+              <div class="course-card-footer">
+                <div class="course-meta-info">
+                  <span class="meta-label">Status</span>
+                  <span class="meta-val">Curriculum in Progress</span>
+                </div>
+                <a href="mailto:hello@towardsmybharat.in?subject=Course%20Suggestion%20or%20Waitlist" class="course-action-btn btn-primary-3d">
+                  <span>Get Notified</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Institutional Workshop Collaboration Banner -->
+        <div class="courses-contact-banner">
+          <div class="courses-contact-content">
+            <span class="material-symbols-outlined banner-icon">school</span>
+            <div>
+              <h4>Looking for tailored workshops for schools or organizations?</h4>
+              <p>We organize customized spiritual, cultural, and leadership cohorts for institutions across India.</p>
+            </div>
+          </div>
+          <a href="mailto:hello@towardsmybharat.in?subject=Institutional%20Workshops%20Inquiry" class="btn btn-primary courses-banner-btn">
+            <span>Inquire for Institution</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
 
   <section class="testimonials-section" aria-labelledby="testimonials-title">
     <div class="container">

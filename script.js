@@ -504,6 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clamp index between 0 and totalCards - 1 (stops at ends, no abrupt jump)
       currentIndex = Math.max(0, Math.min(totalCards - 1, index));
       const isMobile = window.innerWidth < 640;
+      const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
 
       cards.forEach((card, cardIndex) => {
         const diff = cardIndex - currentIndex;
@@ -521,58 +522,86 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '46%' : 'min(58%, 270px)';
-          const rotY = isMobile ? -18 : -24;
-          const tz = isMobile ? '-85px' : '-130px';
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(0.86) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.75';
-          card.style.filter = 'blur(0.3px)';
-          card.style.zIndex = '5';
+          const tx = isMobile ? '52%' : isTablet ? 'min(95%, 280px)' : 'min(115%, 340px)';
+          const rotY = isMobile ? -15 : -16;
+          const tz = isMobile ? '-70px' : '-75px';
+          const scale = isMobile ? 0.86 : 0.88;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = '0.88';
+          card.style.filter = 'none';
+          card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-46%' : 'max(-58%, -270px)';
-          const rotY = isMobile ? 18 : 24;
-          const tz = isMobile ? '-85px' : '-130px';
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(0.86) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.75';
-          card.style.filter = 'blur(0.3px)';
-          card.style.zIndex = '5';
+          const tx = isMobile ? '-52%' : isTablet ? 'max(-95%, -280px)' : 'max(-115%, -340px)';
+          const rotY = isMobile ? 15 : 16;
+          const tz = isMobile ? '-70px' : '-75px';
+          const scale = isMobile ? 0.86 : 0.88;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = '0.88';
+          card.style.filter = 'none';
+          card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '84%' : 'min(105%, 480px)';
-          const rotY = isMobile ? -32 : -40;
-          const tz = isMobile ? '-160px' : '-250px';
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(0.72) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.35';
-          card.style.filter = 'blur(1px)';
-          card.style.zIndex = '2';
+          const tx = isMobile ? '92%' : isTablet ? 'min(170%, 500px)' : 'min(215%, 640px)';
+          const rotY = isMobile ? -24 : -28;
+          const tz = isMobile ? '-130px' : '-150px';
+          const scale = isMobile ? 0.72 : 0.76;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = '0.68';
+          card.style.filter = 'blur(0.3px)';
+          card.style.zIndex = '4';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-84%' : 'max(-105%, -480px)';
-          const rotY = isMobile ? 32 : 40;
-          const tz = isMobile ? '-160px' : '-250px';
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(0.72) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.35';
-          card.style.filter = 'blur(1px)';
-          card.style.zIndex = '2';
+          const tx = isMobile ? '-92%' : isTablet ? 'max(-170%, -500px)' : 'max(-215%, -640px)';
+          const rotY = isMobile ? 24 : 28;
+          const tz = isMobile ? '-130px' : '-150px';
+          const scale = isMobile ? 0.72 : 0.76;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = '0.68';
+          card.style.filter = 'blur(0.3px)';
+          card.style.zIndex = '4';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
-        } else if (diff > 2) {
+        } else if (diff === 3) {
+          // Outer Right (fans out on wider screens)
+          const tx = isMobile ? '125%' : isTablet ? 'min(235%, 680px)' : 'min(310%, 910px)';
+          const rotY = isMobile ? -32 : -36;
+          const tz = isMobile ? '-170px' : '-210px';
+          const scale = isMobile ? 0.62 : 0.64;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = isMobile ? '0' : '0.45';
+          card.style.filter = 'blur(0.6px)';
+          card.style.zIndex = '2';
+          card.style.pointerEvents = isMobile ? 'none' : 'auto';
+          card.setAttribute('aria-hidden', 'true');
+        } else if (diff === -3) {
+          // Outer Left (fans out on wider screens)
+          const tx = isMobile ? '-125%' : isTablet ? 'max(-235%, -680px)' : 'max(-310%, -910px)';
+          const rotY = isMobile ? 32 : 36;
+          const tz = isMobile ? '-170px' : '-210px';
+          const scale = isMobile ? 0.62 : 0.64;
+          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.opacity = isMobile ? '0' : '0.45';
+          card.style.filter = 'blur(0.6px)';
+          card.style.zIndex = '2';
+          card.style.pointerEvents = isMobile ? 'none' : 'auto';
+          card.setAttribute('aria-hidden', 'true');
+        } else if (diff > 3) {
           // Beyond right
-          card.style.transform = 'translateX(130%) translateZ(-320px) scale(0.6) rotateY(-50deg)';
+          card.style.transform = 'translateX(140%) translateZ(-300px) scale(0.55) rotateY(-45deg)';
           card.style.opacity = '0';
           card.style.zIndex = '0';
           card.style.pointerEvents = 'none';
           card.setAttribute('aria-hidden', 'true');
         } else {
           // Beyond left
-          card.style.transform = 'translateX(-130%) translateZ(-320px) scale(0.6) rotateY(50deg)';
+          card.style.transform = 'translateX(-140%) translateZ(-300px) scale(0.55) rotateY(45deg)';
           card.style.opacity = '0';
           card.style.zIndex = '0';
           card.style.pointerEvents = 'none';
@@ -900,40 +929,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3D Card Interactive Tilt Effect
-  const tiltCards = document.querySelectorAll('[data-tilt]');
-  tiltCards.forEach(card => {
-    let animationFrameId = null;
-
-    card.addEventListener('mousemove', (e) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) {
-        return;
-      }
-      
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      // Calculate rotation degree (max 8 degrees)
-      const rotateX = ((y - centerY) / centerY) * -7;
-      const rotateY = ((x - centerX) / centerX) * 7;
-      
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-
-      animationFrameId = requestAnimationFrame(() => {
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
-      });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
-  });
 });
