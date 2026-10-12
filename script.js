@@ -536,8 +536,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const updateSlider = (index) => {
-      // Clamp index between 0 and totalCards - 1 (stops at ends, no abrupt jump)
-      currentIndex = Math.max(0, Math.min(totalCards - 1, index));
+      // Wrap index so cards loop continuously (0 -> 1 -> 2 -> 3 -> 4 -> 0 ...)
+      currentIndex = ((index % totalCards) + totalCards) % totalCards;
       const isMobile = window.innerWidth < 640;
       const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
 
@@ -644,12 +644,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Update Navigation Buttons (Disable when at ends)
+      // Update Navigation Buttons (Always enabled in looping carousel)
       if (prevBtn) {
-        prevBtn.disabled = (currentIndex === 0);
+        prevBtn.disabled = false;
       }
       if (nextBtn) {
-        nextBtn.disabled = (currentIndex === totalCards - 1);
+        nextBtn.disabled = false;
       }
 
       // Update Counter Badge
@@ -719,26 +719,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Arrow button controls (Bounded)
+    // Arrow button controls (Continuous Loop)
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (currentIndex > 0) {
-          slideDirection = -1;
-          updateSlider(currentIndex - 1);
-          restartAutoplay();
-        }
+        slideDirection = -1;
+        updateSlider(currentIndex - 1);
+        restartAutoplay();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (currentIndex < totalCards - 1) {
-          slideDirection = 1;
-          updateSlider(currentIndex + 1);
-          restartAutoplay();
-        }
+        slideDirection = 1;
+        updateSlider(currentIndex + 1);
+        restartAutoplay();
       });
     }
 
@@ -746,18 +742,14 @@ document.addEventListener('DOMContentLoaded', () => {
     workSlider.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        if (currentIndex > 0) {
-          slideDirection = -1;
-          updateSlider(currentIndex - 1);
-          restartAutoplay();
-        }
+        slideDirection = -1;
+        updateSlider(currentIndex - 1);
+        restartAutoplay();
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
-        if (currentIndex < totalCards - 1) {
-          slideDirection = 1;
-          updateSlider(currentIndex + 1);
-          restartAutoplay();
-        }
+        slideDirection = 1;
+        updateSlider(currentIndex + 1);
+        restartAutoplay();
       }
     });
 
@@ -774,10 +766,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const endX = e.changedTouches[0].clientX;
       const diffX = endX - startX;
       if (Math.abs(diffX) > 40) {
-        if (diffX > 0 && currentIndex > 0) {
+        if (diffX > 0) {
           slideDirection = -1;
           updateSlider(currentIndex - 1);
-        } else if (diffX < 0 && currentIndex < totalCards - 1) {
+        } else if (diffX < 0) {
           slideDirection = 1;
           updateSlider(currentIndex + 1);
         }
@@ -798,10 +790,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const endX = e.clientX;
       const diffX = endX - startX;
       if (Math.abs(diffX) > 50) {
-        if (diffX > 0 && currentIndex > 0) {
+        if (diffX > 0) {
           slideDirection = -1;
           updateSlider(currentIndex - 1);
-        } else if (diffX < 0 && currentIndex < totalCards - 1) {
+        } else if (diffX < 0) {
           slideDirection = 1;
           updateSlider(currentIndex + 1);
         }
@@ -809,18 +801,15 @@ document.addEventListener('DOMContentLoaded', () => {
       restartAutoplay();
     });
 
-    // Autoplay with Bounce-Back (Stops at end and slides backward only)
+    // Autoplay: Automatically advances to next card every 3.5 seconds (3 to 4 seconds)
+    const AUTOPLAY_INTERVAL = 3500;
+
     const startAutoplay = () => {
       if (autoplayTimer) clearInterval(autoplayTimer);
       autoplayTimer = setInterval(() => {
-        // Reverse direction when reaching bounds
-        if (currentIndex >= totalCards - 1) {
-          slideDirection = -1; // Bounce backward
-        } else if (currentIndex <= 0) {
-          slideDirection = 1;  // Forward
-        }
-        updateSlider(currentIndex + slideDirection);
-      }, 4500);
+        slideDirection = 1;
+        updateSlider(currentIndex + 1);
+      }, AUTOPLAY_INTERVAL);
     };
 
     const stopAutoplay = () => {
@@ -835,20 +824,51 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoplay();
     };
 
-    // Pause on hover over slider or tabs
-    workSlider.addEventListener('mouseenter', stopAutoplay);
-    workSlider.addEventListener('mouseleave', startAutoplay);
-    workSlider.addEventListener('focusin', stopAutoplay);
-    workSlider.addEventListener('focusout', startAutoplay);
+    // Pause autoplay on mouse hover over the active cards stage or tabs
+    const workStage = workSlider.querySelector('.work-3d-stage');
+    if (workStage) {
+      workStage.addEventListener('mouseenter', stopAutoplay);
+      workStage.addEventListener('mouseleave', () => {
+        if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
+          startAutoplay();
+        }
+      });
+    }
+
+    const tabsContainer = document.getElementById('workSliderTabs');
+    if (tabsContainer) {
+      tabsContainer.addEventListener('mouseenter', stopAutoplay);
+      tabsContainer.addEventListener('mouseleave', () => {
+        if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
+          startAutoplay();
+        }
+      });
+    }
 
     // Responsive update on window resize
     window.addEventListener('resize', () => {
       updateSlider(currentIndex);
     });
 
-    // Initial render & start autoplay
+    // Initial render
     updateSlider(0);
-    startAutoplay();
+
+    // Smart viewport observer: only run autoplay when initiatives section is in view
+    const initiativesSection = document.getElementById('initiatives');
+    if (initiativesSection && 'IntersectionObserver' in window) {
+      const sliderObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAutoplay();
+          } else {
+            stopAutoplay();
+          }
+        });
+      }, { threshold: 0.2 });
+      sliderObserver.observe(initiativesSection);
+    } else {
+      startAutoplay();
+    }
   }
 
   // Automatic Hero Background Slideshow (Transitions every 2.5s)

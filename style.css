@@ -2941,38 +2941,227 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
 .courses-banner-btn {
   flex-shrink: 0;
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.85rem;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   9B. ASYMMETRIC LIFE AT TMB GALLERY SECTION
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  width: 100%;
+  background: var(--color-background);
+  padding: 5.5rem 0;
+  border-top: 1px solid var(--border-gold-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+@media (min-width: 768px) {
+  .gallery-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.gallery-intro {
+  max-width: 32rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Asymmetric Grid Layout */
+.asymmetric-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .asymmetric-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .asymmetric-gallery-grid .item-tall {
+    height: 380px;
+  }
+
+  .asymmetric-gallery-grid .gallery-col-stack {
+    height: 380px;
+  }
+
+  .asymmetric-gallery-grid .item-wide {
+    grid-column: span 2;
+    height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .asymmetric-gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .asymmetric-gallery-grid .item-tall {
+    height: 470px;
+  }
+
+  .asymmetric-gallery-grid .gallery-col-stack {
+    height: 470px;
+  }
+
+  .asymmetric-gallery-grid .item-wide {
+    grid-column: span 2;
+    height: 320px;
+  }
+}
+
+/* Gallery Items Architecture */
+.gallery-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 201, 87, 0.45);
+  box-shadow: var(--shadow-card-hover), 0 0 20px rgba(167, 201, 87, 0.12);
+}
+
+.gallery-col-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.gallery-col-stack .item-stacked {
+  flex: 1;
+  min-height: 0;
+  height: calc(50% - 0.625rem);
+}
+
+/* Image Wrappers */
+.gallery-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.gallery-item:hover .gallery-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Card Gradient Overlay */
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 18, 13, 0.88) 0%,
+    rgba(10, 18, 13, 0.42) 38%,
+    rgba(10, 18, 13, 0.08) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 0.95;
+}
+
+/* Captions */
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.15rem 1.25rem;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 17.5rem;
-  padding: 1.25rem 1.5rem;
-  text-align: left;
+  gap: 0.35rem;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.courses-banner-main {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 0.75rem;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.courses-banner-email {
+.gallery-caption-badge {
   display: inline-block;
-  font-size: 0.82rem;
-  letter-spacing: 0.05em;
-  text-transform: lowercase;
-  color: rgba(21, 38, 27, 0.85);
-  word-break: break-word;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  background: rgba(167, 201, 87, 0.16);
+  border: 1px solid rgba(167, 201, 87, 0.3);
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-html[data-theme="dark"] .courses-banner-email {
-  color: rgba(255, 255, 255, 0.82);
+.gallery-caption-text {
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.35;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition: transform var(--transition-smooth), color var(--transition-smooth);
+}
+
+.gallery-item:hover .gallery-caption-text {
+  transform: translateX(2px);
+}
+
+/* Mobile specific styling */
+@media (max-width: 639px) {
+  .asymmetric-gallery-grid .item-tall {
+    height: 320px;
+  }
+
+  .asymmetric-gallery-grid .gallery-col-stack {
+    height: auto;
+  }
+
+  .asymmetric-gallery-grid .item-stacked {
+    height: 240px;
+  }
+
+  .asymmetric-gallery-grid .item-wide {
+    height: 250px;
+  }
 }
 
 /* --------------------------------------------------------------------------
