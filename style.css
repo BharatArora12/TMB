@@ -3888,17 +3888,18 @@ html[data-theme="dark"] .contact-card:hover .contact-card-link {
    -------------------------------------------------------------------------- */
 .site-footer {
   width: 100%;
-  background-color: var(--color-background);
-  border-top: 1px solid var(--border-gold-subtle);
+  background-color: #111A14; /* Dark mode background across both modes */
+  border-top: 1px solid rgba(167, 201, 87, 0.25);
   padding-top: 4.5rem;
   padding-bottom: 2rem;
   overflow: hidden;
-  color: var(--color-text);
+  color: #E7EFE5;
   position: relative;
 }
 
-html[data-theme="dark"] .site-footer {
-  background-color: var(--color-background);
+html[data-theme="dark"] .site-footer,
+html[data-theme="light"] .site-footer {
+  background-color: #111A14;
   border-top-color: rgba(167, 201, 87, 0.25);
   color: #E7EFE5;
 }
@@ -3908,7 +3909,7 @@ html[data-theme="dark"] .site-footer {
   grid-template-columns: 1fr;
   gap: 3rem;
   padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 768px) {
@@ -3943,7 +3944,7 @@ html[data-theme="dark"] .site-footer {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1.65;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
   max-width: 22rem;
   margin-bottom: 1.75rem;
 }
@@ -3961,16 +3962,12 @@ html[data-theme="dark"] .site-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 50%;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
   background: transparent;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
-}
-
-html[data-theme="dark"] .footer-social-icon {
-  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .footer-social-icon svg {
@@ -3981,9 +3978,9 @@ html[data-theme="dark"] .footer-social-icon {
 }
 
 .footer-social-icon:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  background: rgba(167, 201, 87, 0.1);
+  color: #A7C957;
+  border-color: #A7C957;
+  background: rgba(167, 201, 87, 0.12);
   transform: translateY(-2px);
 }
 
@@ -3999,12 +3996,8 @@ html[data-theme="dark"] .footer-social-icon {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--color-accent);
+  color: #A7C957;
   margin-bottom: 1.5rem;
-}
-
-html[data-theme="light"] .footer-heading {
-  color: var(--color-primary);
 }
 
 /* Column 2: Vertical Pages Navigation */
@@ -4018,19 +4011,15 @@ html[data-theme="light"] .footer-heading {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   width: fit-content;
 }
 
 .footer-vertical-links a:hover {
-  color: var(--color-accent);
+  color: #A7C957;
   transform: translateX(4px);
-}
-
-html[data-theme="light"] .footer-vertical-links a:hover {
-  color: var(--color-primary);
 }
 
 /* Column 3: Contacts & Emails */
@@ -4054,7 +4043,7 @@ html[data-theme="light"] .footer-vertical-links a:hover {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
 }
 
 .footer-email-row {
@@ -4067,22 +4056,14 @@ html[data-theme="light"] .footer-vertical-links a:hover {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.2s ease;
   word-break: break-all;
 }
 
-html[data-theme="dark"] .footer-email-link {
-  color: #FFFFFF;
-}
-
 .footer-email-link:hover {
-  color: var(--color-accent);
-}
-
-html[data-theme="light"] .footer-email-link:hover {
-  color: var(--color-primary);
+  color: #A7C957;
 }
 
 .footer-copy-btn {
@@ -4090,7 +4071,7 @@ html[data-theme="light"] .footer-email-link:hover {
   border: none;
   padding: 0.25rem;
   cursor: pointer;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4103,7 +4084,7 @@ html[data-theme="light"] .footer-email-link:hover {
 }
 
 .footer-copy-btn:hover {
-  color: var(--color-accent);
+  color: #A7C957;
   transform: scale(1.15);
 }
 
@@ -4114,15 +4095,11 @@ html[data-theme="light"] .footer-email-link:hover {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.2s ease;
   margin-top: 0.15rem;
   width: fit-content;
-}
-
-html[data-theme="dark"] .footer-careers-link {
-  color: #FFFFFF;
 }
 
 .footer-careers-link .careers-arrow {
@@ -4131,7 +4108,7 @@ html[data-theme="dark"] .footer-careers-link {
 }
 
 .footer-careers-link:hover {
-  color: var(--color-accent);
+  color: #A7C957;
 }
 
 .footer-careers-link:hover .careers-arrow {
@@ -4147,7 +4124,7 @@ html[data-theme="dark"] .footer-careers-link {
   gap: 0.75rem;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
-  color: var(--color-text-muted);
+  color: #B1C2B0;
 }
 
 @media (min-width: 640px) {
@@ -4157,32 +4134,34 @@ html[data-theme="dark"] .footer-careers-link {
   }
 }
 
-/* Giant Gradient Brand Wordmark at the Bottom (Matches reference gradient) */
+/* Giant Gradient Brand Wordmark at the Bottom */
 .footer-wordmark {
   width: 100%;
-  margin-top: 2.75rem;
-  margin-bottom: -0.5rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0;
+  padding: 0.75rem 0.5rem;
   overflow: hidden;
   font-family: var(--font-sans);
-  font-size: clamp(2.5rem, 11vw, 10.5rem);
+  font-size: clamp(1.85rem, 6.4vw, 5.5rem);
   font-weight: 700;
-  letter-spacing: -0.075em;
-  line-height: 1;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
   text-align: center;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
-  background: linear-gradient(100deg, #A7C957 5%, #E1F0B5 48%, #6F9E45 95%);
+  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  box-sizing: border-box;
 }
 
+html[data-theme="dark"] .footer-wordmark,
 html[data-theme="light"] .footer-wordmark {
-  background: linear-gradient(100deg, #2E5D3A 5%, #598F48 48%, #2E5D3A 95%);
+  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
