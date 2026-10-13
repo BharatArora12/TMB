@@ -1,25 +1,57 @@
 /* ==========================================================================
-   ABOUT PAGE — Cinematic Overlapping Cards & Sticky Rail
-   Inspired by Apple & High-End Storytelling Stacking Experience
+   ABOUT PAGE STYLESHEET — CINEMATIC STACKING CARDS & STICKY LEFT RAIL
+   Towards My Bharat (TMB) Web Platform
+   ==========================================================================
+   
+   ARCHITECTURAL ROLE:
+   - Houses specialized layout physics and visual presentation for `about.html`.
+   - Cooperates directly with `about.js` to deliver an Apple-inspired narrative
+     card-stacking experience where story chapters overlap sequentially as the user scrolls.
+
+   RELATIONSHIP TO OTHER SYSTEM COMPONENTS:
+   - Markup (`about.html`):
+     - `.about-experience-grid`: 2-column parent layout (Sticky Left Rail + Story Cards Stream).
+     - `.about-rail`: Left-hand navigation sidebar pinned via `position: sticky`.
+     - `.rail-item`: Individual timeline milestone buttons.
+     - `.story-card`: Full-height chapter cards pinned at `top: 110px`.
+   - Controller (`about.js`):
+     - Dynamically adds `.active` to `.rail-item` as corresponding cards scroll into view.
+     - Applies `.is-covered` to cards scrolled beneath newer cards.
+   - Global Styles (`style.css`):
+     - Inherits typography tokens (`--font-serif`, `--font-sans`) and brand colors (`--color-accent`).
+   - Theme Engine (`theme.js`):
+     - Supports both Dark Mode (default luxury slate `#06090e`) and Light Mode (`html[data-theme="light"]`).
+
+   KEY CONCEPTS & TERMINOLOGY FOR ONBOARDING DEVELOPERS:
+   - Sticky Stacking: Combining `position: sticky; top: 110px;` with ascending `z-index`
+     values (10, 20, 30...) and large bottom margins (`margin-bottom: 45vh`) causes
+     each subsequent card to slide over and pin on top of the previous one.
+   - Stacking Context: The CSS 3D layer hierarchy formed by relative/sticky elements and z-index.
+   - will-change: Hint to browser GPU compositor (`will-change: transform, opacity`)
+     to optimize scroll rendering and prevent frame drops.
+   - Clamp Typography: Fluid responsive font sizing using CSS `clamp(min, preferred, max)`
+     to eliminate jagged breakpoint jumps.
    ========================================================================== */
 
-/* Page Background & Base */
+/* --------------------------------------------------------------------------
+   1. PAGE ROOT & THEME BACKGROUND BASES
+   -------------------------------------------------------------------------- */
 .about-page {
-  background-color: #06090e;
+  background-color: #06090e; /* Deep obsidian luxury dark background */
   color: #e2e8f0;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Light mode adaptation if toggled */
+/* Light Mode Overrides (Triggered when html has data-theme="light") */
 html[data-theme="light"] .about-page {
-  background-color: #f3f6f1;
+  background-color: #f3f6f1; /* Soft warm ivory / parchment tone */
   color: #1e293b;
 }
 
-/* ==========================================================================
-   PAGE HERO HEADER
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   2. PAGE HERO HEADER SECTION
+   -------------------------------------------------------------------------- */
 .about-hero {
   padding: 8rem 0 3.5rem;
   position: relative;
@@ -39,6 +71,7 @@ html[data-theme="light"] .about-hero {
   text-align: center;
 }
 
+/* Category pill badge atop the hero headline */
 .about-hero-badge {
   display: inline-flex;
   align-items: center;
@@ -47,7 +80,7 @@ html[data-theme="light"] .about-hero {
   border-radius: 999px;
   background: rgba(197, 160, 89, 0.1);
   border: 1px solid rgba(197, 160, 89, 0.35);
-  color: #c5a059;
+  color: #c5a059; /* Brand warm gold */
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -61,6 +94,7 @@ html[data-theme="light"] .about-hero-badge {
   color: #2e5d3a;
 }
 
+/* Hero primary narrative title */
 .about-hero-title {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 5.5vw, 4.2rem);
@@ -95,9 +129,9 @@ html[data-theme="light"] .about-hero-description {
   color: #475569;
 }
 
-/* ==========================================================================
-   EXPERIENCE SECTION LAYOUT (Sticky Rail + Stacking Cards)
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   3. EXPERIENCE SECTION GRID (Sticky Left Rail + Stacking Cards Stream)
+   -------------------------------------------------------------------------- */
 .about-experience-section {
   position: relative;
   padding: 3rem 0 6rem;
@@ -108,6 +142,7 @@ html[data-theme="light"] .about-experience-section {
   background-color: #f3f6f1;
 }
 
+/* Two-column layout on desktop: 280px sticky rail + fluid cards stream */
 .about-experience-grid {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -233,8 +268,20 @@ html[data-theme="light"] .rail-item:hover .rail-item-text {
 }
 
 /* ==========================================================================
-   RIGHT STACKING CARDS STREAM (OVERLAPPING EFFECT)
+   4. RIGHT STACKING CARDS STREAM (CINEMATIC OVERLAPPING PHYSICS)
    ========================================================================== */
+/**
+ * THE STACKING MECHANISM EXPLAINED:
+ * 1. Each `.story-card` has `position: sticky; top: 110px;`.
+ * 2. When the user scrolls down, a card moves upward until its top reaches 110px,
+ *    where it locks/pins into place.
+ * 3. `margin-bottom: 45vh` creates physical scrolling travel distance before the next
+ *    card arrives.
+ * 4. Ascending `z-index` (10, 20, 30...) ensures each subsequent card naturally
+ *    slides over and covers the previous card.
+ * 5. `about.js` detects when a card is obscured and applies `.is-covered`, which slightly
+ *    scales down (0.975), shifts up (-10px), dims opacity (0.45), and blurs (1.5px).
+ */
 .about-cards-stream {
   position: relative;
   display: flex;
@@ -281,10 +328,10 @@ html[data-theme="light"] .story-card {
 
 .story-card:nth-child(3) {
   z-index: 30;
-  margin-bottom: 0; /* Last card doesn't need trailing margin */
+  margin-bottom: 0; /* Final card does not need trailing space */
 }
 
-/* Subtle dimming effect when covered by next card */
+/* Depth-of-Field Dimming Effect (Controlled by about.js) */
 .story-card.is-covered {
   transform: scale(0.975) translateY(-10px);
   opacity: 0.45;

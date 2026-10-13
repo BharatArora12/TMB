@@ -1,20 +1,66 @@
 
+/**
+ * ==============================================================================
+ * TOWARDS MY BHARAT (TMB) — MASTER DESIGN SYSTEM & COMPONENT STYLESHEET
+ * ==============================================================================
+ *
+ * ARCHITECTURAL ROLE:
+ * - Serves as the central CSS design system for the entire web platform.
+ * - Powers `index.html`, `blog.html`, `all-blogs.html`, and provides shared base
+ *   tokens consumed by `about.css`.
+ *
+ * DESIGN SYSTEM FOUNDATIONS:
+ * 1. Semantic Color Tokens:
+ *    - All colors are declared as CSS Custom Properties (variables) in `:root`.
+ *    - Primary Palette: Earthy Indian forest greens (`#2E5D3A`), soft herbal sage
+ *      accents (`#A7C957`), and calming organic light canvases (`#F6FAF4`).
+ * 2. Theme Modes (Light & Dark):
+ *    - Light Mode (Default `:root`): Clean, high-legibility parchment green aesthetic.
+ *    - Dark Mode (`html[data-theme="dark"]`): Deep luxury forest obsidian (`#111A14`),
+ *      soft luminescence, and muted green borders (`#344B38`).
+ * 3. Typography Hierarchy:
+ *    - Serif: 'Cormorant Garamond' (Classical, civilizational, literary elegance).
+ *    - Sans-Serif: 'Manrope' (Contemporary, crisp, highly legible editorial body).
+ * 4. Motion Curves:
+ *    - Standardized cubic-bezier easing `cubic-bezier(0.16, 1, 0.3, 1)` provides
+ *      deliberate, high-end deceleration (similar to Apple iOS / macOS physics).
+ *
+ * RELATIONSHIP TO OTHER SYSTEM COMPONENTS:
+ * - `theme.js`: Dynamically switches between `:root` (light) and `html[data-theme="dark"]`.
+ * - `script.js`: Applies interactive states (`.is-active`, `.is-open`, transforms).
+ * - `about.css`: Inherits typography and brand color tokens while layering dedicated
+ *   sticky story card stacking rules.
+ *
+ * KEY CONCEPTS & TERMINOLOGY FOR ONBOARDING DEVELOPERS:
+ * - Design Tokens: Reusable key-value pairs (`--color-primary`, `--space-md`) that enforce
+ *   visual consistency across all pages and components.
+ * - Backwards-Compatibility Aliases: Legacy variable names (e.g. `--bg-obsidian`, `--primary-gold`)
+ *   mapped directly to semantic tokens to avoid breaking legacy templates.
+ * - Smooth Scrolling: `scroll-behavior: smooth` provides animated scrolling for anchor jumps.
+ * ==============================================================================
+ */
+
 :root {
+  /* --------------------------------------------------------------------------
+     1. LIGHT MODE COLOR TOKENS (Default Theme)
+     -------------------------------------------------------------------------- */
   color-scheme: light;
-  --color-background: #F6FAF4;
-  --color-background-soft: #DDEBD6;
-  --color-surface: #F6FAF4;
-  --color-card: #DDEBD6;
-  --color-primary: #2E5D3A;
-  --color-text: #2E5D3A;
-  --color-text-muted: #5B705D;
-  --color-text-on-accent: #2E5D3A;
-  --color-accent: #A7C957;
-  --color-border: #DDEBD6;
+  --color-background: #F6FAF4;        /* Primary page canvas */
+  --color-background-soft: #DDEBD6;   /* Subtle container / section background */
+  --color-surface: #F6FAF4;           /* Card & modal foreground surface */
+  --color-card: #DDEBD6;              /* Elevated card background */
+  --color-primary: #2E5D3A;           /* Deep Forest Green (Brand Primary) */
+  --color-text: #2E5D3A;              /* Primary reading text color */
+  --color-text-muted: #5B705D;        /* Secondary supporting text */
+  --color-text-on-accent: #2E5D3A;    /* Contrast text on accent backgrounds */
+  --color-accent: #A7C957;            /* Vibrant Herbal Sage (Brand Accent) */
+  --color-border: #DDEBD6;            /* Structural hairline border */
   --shadow-card: 0 4px 14px rgba(46, 93, 58, 0.12);
   --shadow-card-hover: 0 10px 28px rgba(46, 93, 58, 0.18);
 
-  /* Backwards-compatible names used by existing component styles. */
+  /* --------------------------------------------------------------------------
+     2. BACKWARDS-COMPATIBILITY TOKEN ALIASES (Used by legacy component rules)
+     -------------------------------------------------------------------------- */
   --bg-obsidian: var(--color-background);
   --bg-canvas: var(--color-background);
   --bg-surface-low: var(--color-card);
@@ -46,11 +92,15 @@
   --border-gold-bright: rgba(46, 93, 58, 0.42);
   --border-muted: var(--color-border);
 
-  /* Typography */
+  /* --------------------------------------------------------------------------
+     3. TYPOGRAPHY TOKENS
+     -------------------------------------------------------------------------- */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Spacing */
+  /* --------------------------------------------------------------------------
+     4. SPACING SCALES
+     -------------------------------------------------------------------------- */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -58,24 +108,29 @@
   --space-xl: 3.5rem;
   --space-xxl: 5.5rem;
 
-  /* Layout */
+  /* --------------------------------------------------------------------------
+     5. LAYOUT & TRANSITIONS
+     -------------------------------------------------------------------------- */
   --max-width: 1280px;
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ----------------------------------------------------------------------------
+   6. DARK MODE THEME OVERRIDES (Activated by theme.js via html[data-theme="dark"])
+   ---------------------------------------------------------------------------- */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --color-background: #111A14;
-  --color-background-soft: #18271D;
-  --color-surface: #1D2C22;
-  --color-card: #223629;
-  --color-primary: #A7C957;
-  --color-text: #E7EFE5;
-  --color-text-muted: #B1C2B0;
-  --color-text-on-accent: #18271D;
-  --color-accent: #A7C957;
-  --color-border: #344B38;
+  --color-background: #111A14;        /* Deep Obsidian Forest */
+  --color-background-soft: #18271D;   /* Dark moss background */
+  --color-surface: #1D2C22;           /* Elevated surface tone */
+  --color-card: #223629;              /* Deep card surface */
+  --color-primary: #A7C957;           /* Vibrant Sage Accent as primary text */
+  --color-text: #E7EFE5;              /* High-legibility off-white text */
+  --color-text-muted: #B1C2B0;        /* Muted sage-grey subtitle text */
+  --color-text-on-accent: #18271D;    /* Dark text on light accent pills */
+  --color-accent: #A7C957;            /* Bright sage highlights */
+  --color-border: #344B38;            /* Low-contrast organic border */
   --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.18);
   --shadow-card-hover: 0 10px 28px rgba(0, 0, 0, 0.28);
 

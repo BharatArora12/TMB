@@ -1,9 +1,56 @@
 /**
- * TOWARDS MY BHARAT PLATFORM — Interactive Core
- * Synchronized with Google Stitch Design Theme
+ * ==============================================================================
+ * TOWARDS MY BHARAT (TMB) PLATFORM — INTERACTIVE CLIENT CORE
+ * Synchronized with Google Stitch Design System & Modern Web Standards
+ * ==============================================================================
+ *
+ * ARCHITECTURAL OVERVIEW:
+ * - This file serves as the primary JavaScript controller for the TMB web application
+ *   (primarily `index.html`, `blog.html`, and `all-blogs.html`).
+ * - Encapsulates all DOM manipulation, 3D math transformations, carousels, modals,
+ *   touch/keyboard interactions, and scroll-triggered animations.
+ *
+ * RELATIONSHIP TO OTHER SYSTEM COMPONENTS:
+ * - HTML Pages:
+ *   - `index.html`: Consumes the 3D Work initiatives slider, testimonials carousel,
+ *     hero identity text cycler, impact count-up stats, credential modal, and latest blogs.
+ *   - `all-blogs.html` & `blog.html`: Consumes dynamic blog card rendering (`#allBlogs`, `#latestBlogs`).
+ * - CSS (`style.css`):
+ *   - Relies on CSS variables (tokens) such as `--font-serif`, `--font-sans`, `--color-accent`.
+ *   - Applies state classes like `.is-active`, `.is-open`, `.open` to trigger CSS transitions.
+ *   - Sets dynamic inline `transform`, `opacity`, and `filter` styles for 3D physics.
+ * - Theme Engine (`theme.js`):
+ *   - Runs independently in the document `<head>` to maintain light/dark mode persistence.
+ *   - `script.js` respects current CSS variable scopes regardless of active theme.
+ *
+ * KEY CONCEPTS & TERMINOLOGY FOR ONBOARDING DEVELOPERS:
+ * - 3D Perspective & Transforms: Utilizing `translateX`, `translateZ`, `rotateY` to achieve
+ *   hardware-accelerated depth effects without external 3D libraries (Three.js).
+ * - IntersectionObserver: Modern browser API to observe when elements enter or exit the viewport,
+ *   used here to conserve CPU/battery by pausing animations when off-screen.
+ * - Passive Event Listeners: `{ passive: true }` prevents scroll-blocking, guaranteeing 60fps responsiveness.
+ * - ARIA Accessibility: Dynamic updating of `aria-expanded`, `aria-hidden`, and `aria-selected`
+ *   to ensure full compliance for keyboard navigation and screen readers.
+ * - RequestAnimationFrame (rAF): Synchronizes animations with the browser's refresh rate for silky smooth count-ups.
+ * ==============================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ============================================================================
+  // MODULE 1: EDITORIAL BLOG ARCHIVE & DYNAMIC RENDERER
+  // ============================================================================
+  /**
+   * Static dataset representing curated essays, dispatches, and journal entries.
+   * In a future CMS / API integration, this array can be populated via fetch().
+   *
+   * Field definitions:
+   * - image: Relative filename inside `assets/images/`
+   * - alt: Screen-reader accessible image description
+   * - category: Editorial topic label (e.g., Heritage, Leadership, Research)
+   * - readTime: Estimated reader duration
+   * - title: Article headline
+   * - description: Condensed thematic abstract
+   */
   const blogs = [
     {
       image: 'hero-courtyard.jpg',
@@ -55,6 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  /**
+   * Renders a given collection of blog post objects into a specified DOM container.
+   * Automatically styles the first item as a highlighted 'featured-blog'.
+   *
+   * @param {HTMLElement} container - The destination element (e.g. #latestBlogs or #allBlogs)
+   * @param {Array<Object>} posts - Slice or complete array of blog objects
+   */
   const renderBlogs = (container, posts) => {
     container.innerHTML = posts.map((post, index) => `
       <article class="blog-card${index === 0 ? ' featured-blog' : ''}">
@@ -72,12 +126,21 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   };
 
+  // Mount blogs dynamically depending on which page is currently loaded:
+  // - index.html mounts the top 4 articles into #latestBlogs
+  // - all-blogs.html mounts the full article array into #allBlogs
   const latestBlogs = document.getElementById('latestBlogs');
   const allBlogs = document.getElementById('allBlogs');
   if (latestBlogs) renderBlogs(latestBlogs, blogs.slice(0, 4));
   if (allBlogs) renderBlogs(allBlogs, blogs);
 
-  // Cycle through editorial blog images only when the page contains slideshow slides.
+  // ============================================================================
+  // MODULE 2: BLOG EDITORIAL SLIDESHOW (Cross-fade)
+  // ============================================================================
+  /**
+   * Cycles through featured editorial imagery on pages containing `.blog-slide`.
+   * Automatically swaps active class every 2.5 seconds.
+   */
   const blogSlides = document.querySelectorAll('.blog-slide');
   let blogSlideIndex = 0;
 
@@ -89,7 +152,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
   }
 
-  // Testimonials Side-Scroll Carousel
+  // ============================================================================
+  // MODULE 3: TESTIMONIALS SIDE-SCROLL CAROUSEL
+  // ============================================================================
+  /**
+   * High-performance horizontal scrollable carousel for community and mentor reviews.
+   * Coordinates:
+   * - Previous / Next arrow navigation buttons (#testimonialPrev, #testimonialNext)
+   * - Dot pagination indicators (.testimonial-indicator)
+   * - Native horizontal swipe / track scrolling with debounced indicator snapping
+   * - Accessible keyboard navigation (ArrowLeft and ArrowRight)
+   */
   const testimonialTrack = document.getElementById('testimonialTrack');
   const testimonialPrev = document.getElementById('testimonialPrev');
   const testimonialNext = document.getElementById('testimonialNext');
@@ -99,6 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(testimonialTrack.querySelectorAll('.testimonial-slide'));
     let activeIndex = 0;
 
+    /**
+     * Synchronizes pagination dot active states and slide `.is-active` classes.
+     * @param {number} index - Index of slide to mark active
+     */
     const setIndicator = (index) => {
       activeIndex = (index + slides.length) % slides.length;
       testimonialIndicators.forEach((dot, dotIdx) => {
@@ -111,6 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
+    /**
+     * Smoothly scrolls the carousel track to align with the target slide.
+     * @param {number} index - Target slide index
+     */
     const scrollToSlide = (index) => {
       const targetIndex = (index + slides.length) % slides.length;
       const targetSlide = slides[targetIndex];
@@ -123,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    // Navigation arrow click bindings
     testimonialPrev.addEventListener('click', () => {
       scrollToSlide(activeIndex - 1);
     });
@@ -131,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollToSlide(activeIndex + 1);
     });
 
+    // Pagination indicator dot clicks
     testimonialIndicators.forEach((dot) => {
       dot.addEventListener('click', () => {
         const targetIndex = Number(dot.dataset.slideIndex);
@@ -140,7 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Sync indicators on native touch swipe / horizontal scroll
+    // Native touch swipe & scroll synchronization:
+    // Uses a 50ms debounce timer to detect the slide closest to current scroll offset
     let scrollTimer;
     testimonialTrack.addEventListener('scroll', () => {
       clearTimeout(scrollTimer);
@@ -161,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 50);
     }, { passive: true });
 
-    // Keyboard arrow navigation
+    // Keyboard accessibility: Left / Right arrow navigation when track has focus
     testimonialTrack.addEventListener('keydown', (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       if (event.key === 'ArrowLeft') {
@@ -174,7 +258,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Rotate the hero's identity word while keeping the layout width stable in CSS.
+  // ============================================================================
+  // MODULE 4: ROTATING HERO IDENTITY WORD (Multilingual Cycler)
+  // ============================================================================
+  /**
+   * Periodically alternates the hero headline identity between:
+   * 'Bharat', 'India', and 'भारत'.
+   *
+   * Mechanism:
+   * 1. Fades opacity to 0.
+   * 2. Swaps textContent after 250ms (during invisible midpoint).
+   * 3. Fades opacity back to 1.
+   * Runs every 2.2 seconds.
+   */
   const rotatingBharatWord = document.getElementById('rotatingBharatWord');
   const bharatNames = ['Bharat', 'India', 'भारत'];
   let currentBharatName = 0;
@@ -191,10 +287,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2200);
   }
 
+  // ============================================================================
+  // MODULE 5: UDYAM CREDENTIAL CERTIFICATE MODAL
+  // ============================================================================
+  /**
+   * Accessible modal dialog showing TMB's official MSME / Udyam registration certificate.
+   *
+   * Features:
+   * - Triggered by clicking the credential pill (`.hero-credential`) or pressing Enter/Space.
+   * - Traps and prevents background page scrolling (`document.body.style.overflow = 'hidden'`).
+   * - Closes via explicit close buttons (`[data-close-certificate]`), clicking backdrop,
+   *   or pressing the Escape key.
+   * - Manages `aria-hidden` attribute for assistive technology.
+   */
   const udyamCredentialButton = document.querySelector('.hero-credential');
   const udyamCertModal = document.getElementById('udyamCertModal');
   const closeCertificateButtons = document.querySelectorAll('[data-close-certificate]');
 
+  /**
+   * Toggles the modal's open state and toggles body scroll locking.
+   * @param {boolean} shouldOpen - Whether to show or hide the dialog
+   */
   const toggleUdyamCert = (shouldOpen) => {
     if (!udyamCertModal) return;
     udyamCertModal.classList.toggle('is-open', shouldOpen);
@@ -204,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (udyamCredentialButton && udyamCertModal) {
     udyamCredentialButton.addEventListener('click', () => toggleUdyamCert(true));
+    // Keyboard activation (Enter or Space)
     udyamCredentialButton.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -212,18 +326,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Bind all elements with [data-close-certificate] attribute (e.g. close icons, backdrop)
   closeCertificateButtons.forEach((button) => {
     button.addEventListener('click', () => toggleUdyamCert(false));
   });
 
+  // Global ESC key listener to dismiss modal
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && udyamCertModal && udyamCertModal.classList.contains('is-open')) {
       toggleUdyamCert(false);
     }
   });
 
-  // Hover-driven reveal for the four pillar highlight cards.
-  // Keep the continuum step and its matching pillar card active together.
+  // ============================================================================
+  // MODULE 6: FOUR PILLARS CONTINUUM HOVER SYNCHRONIZATION
+  // ============================================================================
+  /**
+   * Synchronizes the interactive timeline continuum steps with their matching
+   * pillar cards on the homepage (Section: Core Foundation / Pillars).
+   *
+   * Interaction:
+   * - Hovering or focusing a `.continuum-step` activates both that step and the
+   *   corresponding `.pillar-card` at matching index.
+   * - Supports keyboard focus/blur for full accessibility compliance.
+   */
   const continuumSteps = document.querySelectorAll('.continuum-step');
   const pillarCards = document.querySelectorAll('.pillar-card');
   const resetPillarState = () => {
@@ -233,12 +359,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (continuumSteps.length > 0 && pillarCards.length > 0) {
     continuumSteps.forEach((step, index) => {
+      // Mouse interaction
       step.addEventListener('mouseenter', () => {
         resetPillarState();
         step.classList.add('active');
         pillarCards[index].classList.add('is-active');
       });
 
+      // Keyboard tab navigation support
       step.addEventListener('focus', () => {
         resetPillarState();
         step.classList.add('active');
@@ -256,14 +384,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3D SLIDER & POPUP MODAL CONTROLLER (WHAT WORK WE DO)
+  // MODULE 7: 3D SLIDER & POPUP MODAL CONTROLLER ("WHAT WORK WE DO")
   // =========================================================================
+  /**
+   * ARCHITECTURE OF THE 3D INITIATIVES SHOWCASE:
+   * -------------------------------------------------------------------------
+   * Powers the signature interactive 3D carousel on the homepage (#initiatives).
+   * Renders cards in pseudo-3D space using hardware-accelerated CSS transforms
+   * (translateX, translateZ, rotateY, and scale).
+   *
+   * KEY DOM REFERENCES:
+   * - `#work3dSlider`: Outer 3D perspective viewport container.
+   * - `#workDetailModal`: Accessible pop-up dialog showing full initiative details.
+   * - `#workModalClose`: Modal close button.
+   * - `#workModalContent`: Dynamic inner container injected with initiative data.
+   */
   const workSlider = document.getElementById('work3dSlider');
   const workDetailModal = document.getElementById('workDetailModal');
   const workModalClose = document.getElementById('workModalClose');
   const workModalContent = document.getElementById('workModalContent');
 
-  // Comprehensive Detailed Data for Each Initiative
+  // Comprehensive Detailed Data Schema for Each Initiative (Injected into Modal)
   const initiativesData = [
     {
       index: '01',
@@ -438,6 +579,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   if (workSlider) {
+    // -------------------------------------------------------------------------
+    // 1. CAROUSEL DOM CACHE & STATE REPOSITORY
+    // -------------------------------------------------------------------------
     const cards = Array.from(workSlider.querySelectorAll('.work-3d-card'));
     const tabs = Array.from(document.querySelectorAll('#workSliderTabs .work-slider-tab'));
     const prevBtn = document.getElementById('workSliderPrev');
@@ -446,15 +590,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const totalCards = cards.length;
     let autoplayTimer = null;
-    let slideDirection = 1; // 1 = forward, -1 = backward (bounce-back mode)
+    let slideDirection = 1; // 1 = forward (right), -1 = backward (left)
 
-    // Open Detail Modal
+    /**
+     * Injects detailed initiative data into #workDetailModal and reveals it.
+     * Prevents page scroll behind modal and temporarily halts autoplay timer.
+     *
+     * @param {number} index - 0-indexed position corresponding to initiativesData
+     */
     const openDetailModal = (index) => {
       const data = initiativesData[index];
       if (!data || !workDetailModal || !workModalContent) return;
 
+      // Stop automated transitions while user reads initiative details
       stopAutoplay();
 
+      // Dynamically compile markup using data from initiativesData
       workModalContent.innerHTML = `
         <div class="modal-header-meta">
           <span class="modal-num-badge">${data.index}</span>
@@ -492,23 +643,27 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
+      // Display modal and lock body scrolling
       workDetailModal.classList.add('is-open');
       workDetailModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
-      // Inner close button
+      // Inner close button within injected markup
       const innerClose = document.getElementById('workModalInnerClose');
       if (innerClose) {
         innerClose.addEventListener('click', closeDetailModal);
       }
 
+      // Close modal if user clicks CTA link to navigate to another section
       const ctaBtn = workModalContent.querySelector('.work-modal-cta-btn');
       if (ctaBtn) {
         ctaBtn.addEventListener('click', closeDetailModal);
       }
     };
 
-    // Close Detail Modal
+    /**
+     * Hides the detail modal dialog, restores page scrolling, and resumes autoplay.
+     */
     const closeDetailModal = () => {
       if (!workDetailModal) return;
       workDetailModal.classList.remove('is-open');
@@ -517,10 +672,12 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoplay();
     };
 
+    // Modal close button in header
     if (workModalClose) {
       workModalClose.addEventListener('click', closeDetailModal);
     }
 
+    // Backdrop click dismisses modal
     if (workDetailModal) {
       workDetailModal.addEventListener('click', (e) => {
         if (e.target === workDetailModal) {
@@ -529,12 +686,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Keyboard ESC dismisses modal
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && workDetailModal && workDetailModal.classList.contains('is-open')) {
         closeDetailModal();
       }
     });
 
+    /**
+     * 2. 3D PROJECTION & PERSPECTIVE MATH TRANSFORM ENGINE
+     * -----------------------------------------------------------------------
+     * Calculates perspective 3D matrix offsets for each card relative to currentIndex.
+     * Uses modulo arithmetic `((index % totalCards) + totalCards) % totalCards`
+     * to ensure cards loop continuously without any hard stops or dead ends.
+     *
+     * Breakpoints accounted for:
+     * - Mobile (<640px)
+     * - Tablet (640px - 1023px)
+     * - Desktop (>=1024px)
+     *
+     * @param {number} index - Desired active card index
+     */
     const updateSlider = (index) => {
       // Wrap index so cards loop continuously (0 -> 1 -> 2 -> 3 -> 4 -> 0 ...)
       currentIndex = ((index % totalCards) + totalCards) % totalCards;
@@ -871,12 +1043,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Automatic Hero Background Slideshow (Transitions every 2.5s)
-  // The CSS establishes the hero layers; JavaScript only advances the active background.
+  // ============================================================================
+  // MODULE 8: AUTOMATIC HERO BACKGROUND SLIDESHOW (Cross-Fade Transitions)
+  // ============================================================================
+  /**
+   * Manages cinematic background photograph transitions in the hero section.
+   *
+   * Working Mechanism:
+   * - Each `.hero-slide` is stacked absolutely covering the hero viewport.
+   * - Transitions between slides every 2.5 seconds by alternating opacity (0 <-> 1),
+   *   z-index, and subtle scale zoom (1.0 <-> 1.05) to give a subtle Ken Burns effect.
+   */
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
 
   if (slides.length > 0) {
+    // Initialize base styles on all slides
     slides.forEach((slide, idx) => {
       slide.style.position = 'absolute';
       slide.style.inset = '0';
@@ -898,15 +1080,24 @@ document.addEventListener('DOMContentLoaded', () => {
       prevSlide.style.zIndex = '1';
       prevSlide.style.transform = 'scale(1)';
 
-      // Fade in next slide
+      // Fade in and zoom next slide
       nextSlide.style.opacity = '1';
       nextSlide.style.zIndex = '2';
       nextSlide.style.transform = 'scale(1.05)';
     }, 2500);
   }
 
-  // Mobile Navigation Toggle
-  // Mirror the drawer state in aria-expanded for keyboard and assistive-technology users.
+  // ============================================================================
+  // MODULE 9: RESPONSIVE MOBILE NAVIGATION DRAWER
+  // ============================================================================
+  /**
+   * Controls the mobile slide-out navigation overlay menu.
+   *
+   * Responsibilities:
+   * - Toggles the `.open` class on `#mobileNav`.
+   * - Maintains accessible ARIA state (`aria-expanded`) on `#mobileToggle`.
+   * - Automatically collapses drawer when any internal navigation link is tapped.
+   */
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileNav = document.getElementById('mobileNav');
   
@@ -917,6 +1108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileToggle.setAttribute('aria-expanded', isExpanded);
     });
 
+    // Auto-close menu when link is clicked so user lands cleanly on target section
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
@@ -924,12 +1116,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ============================================================================
+  // MODULE 10: ANIMATED IMPACT COUNTERS (Scroll-Triggered Eased Numbers)
+  // ============================================================================
+  /**
+   * Numbers roll up smoothly from 0 to their target values when scrolled into view.
+   *
+   * Key Features:
+   * - HTML data attributes:
+   *   - `data-count-up`: The integer target value (e.g., 25000, 50, etc.).
+   *   - `data-count-suffix`: Optional character appended (e.g., '+', '%').
+   *   - `data-count-format`: 'compact' converts thousands into 'k' (e.g., 25k+).
+   * - Animation Mathematics:
+   *   Uses a Cubic Ease-Out formula: `easedProgress = 1 - (1 - progress)^3`
+   *   ensuring rapid start with an elegant, gentle deceleration at the end.
+   * - Accessibility & Battery Optimization:
+   *   Checks `prefers-reduced-motion` to immediately display static targets for users
+   *   who have reduced motion enabled in their operating system settings.
+   *   Employs `IntersectionObserver` so counters only start when visible in the viewport.
+   */
   const impactCounters = Array.from(document.querySelectorAll('[data-count-up]'));
+  
+  /**
+   * Formats raw numeric values into human-readable compact or localized strings.
+   * @param {number} value - Current counter value
+   * @param {boolean} compact - Whether to convert 1000+ to 'k'
+   * @returns {string} Formatted number
+   */
   const formatCounter = (value, compact) => {
     if (compact && value >= 1000) return `${Math.floor(value / 1000)}k`;
     return Math.floor(value).toLocaleString();
   };
 
+  /**
+   * Runs requestAnimationFrame loop to smoothly increment all counters over 1600ms.
+   */
   const animateImpactCounters = () => {
     const duration = 1600;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -939,6 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const suffix = counter.dataset.countSuffix || '';
       const compact = counter.dataset.countFormat === 'compact';
 
+      // Bypass animation if user requested reduced motion
       if (prefersReducedMotion) {
         counter.textContent = `${formatCounter(target, compact)}${suffix}`;
         return;
@@ -947,6 +1169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const startTime = performance.now();
       const updateCounter = (currentTime) => {
         const progress = Math.min((currentTime - startTime) / duration, 1);
+        // Cubic ease-out calculation: fast initial surge, smooth settling
         const easedProgress = 1 - (1 - progress) ** 3;
         const currentValue = Math.floor(target * easedProgress);
         counter.textContent = `${formatCounter(currentValue, compact)}${suffix}`;
@@ -964,6 +1187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const impactMetrics = document.querySelector('.impact-metrics-section');
   if (impactMetrics && impactCounters.length > 0) {
+    // Set initial placeholder text to 0
     impactCounters.forEach((counter) => {
       const compact = counter.dataset.countFormat === 'compact';
       counter.textContent = `0${counter.dataset.countSuffix || ''}`;
@@ -973,9 +1197,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
       animateImpactCounters();
     } else {
+      // Trigger counter animation only once when section reaches 20% viewport visibility
       const impactObserver = new IntersectionObserver((entries, observer) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          observer.disconnect();
+          observer.disconnect(); // Unobserve after triggering once
           animateImpactCounters();
         }
       }, { threshold: 0.2 });
@@ -984,7 +1209,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Footer Email Copy to Clipboard Interaction
+  // ============================================================================
+  // MODULE 11: FOOTER EMAIL CLIPBOARD UTILITY
+  // ============================================================================
+  /**
+   * One-click copy interaction on footer contact email buttons (.footer-copy-btn).
+   *
+   * Flow:
+   * 1. Copies target email (from `data-copy` or default) to navigator.clipboard.
+   * 2. Temporarily replaces icon with a checkmark and tints button with theme accent color.
+   * 3. Reverts back after 1500ms.
+   * 4. Gracefully degrades to native mailto: link on insecure contexts or older browsers.
+   */
   const footerCopyButtons = document.querySelectorAll('.footer-copy-btn');
   footerCopyButtons.forEach((btn) => {
     btn.addEventListener('click', async () => {
@@ -1002,11 +1238,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 1500);
         }
       } catch (err) {
-        // Fallback for older browsers
+        // Fallback for older browsers or non-HTTPS development
         window.location.href = `mailto:${email}`;
       }
     });
   });
 
 });
+
 

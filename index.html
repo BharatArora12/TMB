@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+  ==============================================================================
+  TOWARDS MY BHARAT (TMB) — PRIMARY LANDING PAGE
+  ==============================================================================
+
+  ARCHITECTURAL OVERVIEW:
+  - Serves as the central homepage portal for Towards My Bharat.
+  - Structure follows an editorial, high-trust narrative progression:
+    1. Header & Navigation (Branding, primary routes, theme toggle, mobile drawer).
+    2. Hero Section (Slideshow imagery, identity text rotator, MSME credential pill).
+    3. Continuum & Pillars (Interactive 4-stage nation-building progression).
+    4. What Work We Do (Interactive 3D carousel showcase of 6 flagship initiatives).
+    5. Impact Metrics (Eased animated counter stats for youth reach and projects).
+    6. Community Voices (Horizontally scrolling testimonial quotes).
+    7. Editorial Journal (Dynamic cards rendered from script.js dataset).
+    8. Footer (Navigation columns, clipboard-enabled contact emails, brand watermark).
+
+  FILE RELATIONSHIPS:
+  - theme.js: Executed synchronously in <head> to set data-theme before first paint.
+  - style.css: Global design system tokens, layout grids, and component classes.
+  - script.js: Deferred interactive controller powering 3D transforms, counters, and modals.
+
+  DATA-ATTRIBUTES REFERENCE FOR DEVELOPERS:
+  - data-count-up="<number>": Marks element for smooth cubic-eased count-up animation.
+  - data-count-suffix="<char>": String appended after the number (e.g., '+', '%').
+  - data-count-format="compact": Formats thousands using 'k' notation (e.g., 25k+).
+  - data-copy="<email>": Click handler in script.js copies this email address.
+  - data-index="<int>": 0-based index linking slider tabs directly to 3D carousel cards.
+  - data-close-certificate: Designates backdrop or button that dismisses the Udyam modal.
+  ==============================================================================
+-->
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -10,7 +42,7 @@
   <link rel="icon" type="image/png"
     href="photos/TMB Logo.png">
 
-  <!-- Google Fonts & Material Icons -->
+  <!-- Google Fonts (Cormorant Garamond + Manrope) & Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -19,17 +51,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     rel="stylesheet">
 
+  <!-- Early Theme Bootstrap (Prevents Flash of Unstyled Content / FOUC) -->
   <script src="theme.js"></script>
 
-  <!-- Core Stylesheet -->
+  <!-- Core Master Stylesheet -->
   <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
 
 
-  <!-- HEADER NAVIGATION -->
-
+  <!-- =========================================================================
+       HEADER NAVIGATION BAR (Branding, Desktop Nav, Theme Toggle, Mobile Drawer)
+       ========================================================================= -->
   <header class="site-header">
     <div class="container nav-container">
 
