@@ -1117,91 +1117,159 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================================
-  // MODULE 10: ANIMATED IMPACT COUNTERS (Scroll-Triggered Eased Numbers)
+  // MODULE 10: SIMPLE IMPACT COUNTERS & ROOTED TREE GROWTH ANIMATION
   // ============================================================================
   /**
-   * Numbers roll up smoothly from 0 to their target values when scrolled into view.
-   *
-   * Key Features:
-   * - HTML data attributes:
-   *   - `data-count-up`: The integer target value (e.g., 25000, 50, etc.).
-   *   - `data-count-suffix`: Optional character appended (e.g., '+', '%').
-   *   - `data-count-format`: 'compact' converts thousands into 'k' (e.g., 25k+).
-   * - Animation Mathematics:
-   *   Uses a Cubic Ease-Out formula: `easedProgress = 1 - (1 - progress)^3`
-   *   ensuring rapid start with an elegant, gentle deceleration at the end.
-   * - Accessibility & Battery Optimization:
-   *   Checks `prefers-reduced-motion` to immediately display static targets for users
-   *   who have reduced motion enabled in their operating system settings.
-   *   Employs `IntersectionObserver` so counters only start when visible in the viewport.
+   * Orchestrates the simple 3-column impact showcase:
+   * 1. Eased numeric count-ups: 20k+, 18, 35+, 250+.
+   * 2. Synchronized botanical tree growth ("Rooted Leadership"):
+   *    - As the numbers increase, the deep root network draws downwards into the soil
+   *      and the canopy leaves flourish, mirroring the growth of the youth movement.
+   * 3. Interactive click-to-replay on the counter or tree.
    */
-  const impactCounters = Array.from(document.querySelectorAll('[data-count-up]'));
-  
-  /**
-   * Formats raw numeric values into human-readable compact or localized strings.
-   * @param {number} value - Current counter value
-   * @param {boolean} compact - Whether to convert 1000+ to 'k'
-   * @returns {string} Formatted number
-   */
+  const impactMetrics = document.querySelector('.impact-metrics-section');
+  const impactCounters = Array.from(document.querySelectorAll('.impact-metrics-section [data-count-up]'));
+  const impactTreeWrapper = document.getElementById('impactTreeWrapper');
+  const impactMainCounterWrap = document.getElementById('impactMainCounterWrap');
+  const treeRootsGroup = document.querySelector('.tree-roots');
+  const treeLeavesGroup = document.querySelector('.tree-leaves');
+
+  // Format counter values (compact 'k' or localized string)
   const formatCounter = (value, compact) => {
     if (compact && value >= 1000) return `${Math.floor(value / 1000)}k`;
     return Math.floor(value).toLocaleString();
   };
 
+  let isImpactAnimating = false;
+
+  // Initialize root stroke lengths for growth draw effect
+  const rootPaths = treeRootsGroup ? Array.from(treeRootsGroup.querySelectorAll('path')) : [];
+  rootPaths.forEach((path) => {
+    try {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = `${len} ${len}`;
+      path.style.strokeDashoffset = `${len}`;
+    } catch (_) {
+      // SVG path fallback
+    }
+  });
+
+  const leafEllipses = treeLeavesGroup ? Array.from(treeLeavesGroup.querySelectorAll('ellipse')) : [];
+
   /**
-   * Runs requestAnimationFrame loop to smoothly increment all counters over 1600ms.
+   * Updates tree visual state in sync with counter progress (0.0 -> 1.0)
    */
-  const animateImpactCounters = () => {
-    const duration = 1600;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const updateTreeGrowth = (progress) => {
+    // 1. Roots grow down into the earth
+    rootPaths.forEach((path) => {
+      try {
+        const len = parseFloat(path.style.strokeDasharray) || path.getTotalLength();
+        const offset = len * (1 - progress);
+        path.style.strokeDashoffset = `${offset}`;
+      } catch (_) {}
+    });
 
-    impactCounters.forEach((counter) => {
-      const target = Number(counter.dataset.countUp);
-      const suffix = counter.dataset.countSuffix || '';
-      const compact = counter.dataset.countFormat === 'compact';
-
-      // Bypass animation if user requested reduced motion
-      if (prefersReducedMotion) {
-        counter.textContent = `${formatCounter(target, compact)}${suffix}`;
-        return;
+    // 2. Canopy leaves bloom and flourish
+    leafEllipses.forEach((leaf, idx) => {
+      const staggerThreshold = (idx / leafEllipses.length) * 0.85;
+      if (progress >= staggerThreshold) {
+        const leafProg = Math.min(1, (progress - staggerThreshold) / 0.15);
+        leaf.style.opacity = (0.2 + leafProg * 0.75).toFixed(2);
+      } else {
+        leaf.style.opacity = '0.15';
       }
-
-      const startTime = performance.now();
-      const updateCounter = (currentTime) => {
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        // Cubic ease-out calculation: fast initial surge, smooth settling
-        const easedProgress = 1 - (1 - progress) ** 3;
-        const currentValue = Math.floor(target * easedProgress);
-        counter.textContent = `${formatCounter(currentValue, compact)}${suffix}`;
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = `${formatCounter(target, compact)}${suffix}`;
-        }
-      };
-
-      requestAnimationFrame(updateCounter);
     });
   };
 
-  const impactMetrics = document.querySelector('.impact-metrics-section');
-  if (impactMetrics && impactCounters.length > 0) {
-    // Set initial placeholder text to 0
-    impactCounters.forEach((counter) => {
-      const compact = counter.dataset.countFormat === 'compact';
-      counter.textContent = `0${counter.dataset.countSuffix || ''}`;
-      if (compact) counter.textContent = '0';
+  /**
+   * Runs the eased counter and tree animation
+   */
+  const animateSimpleImpact = () => {
+    if (isImpactAnimating) return;
+    isImpactAnimating = true;
+
+    const duration = 2000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      impactCounters.forEach((c) => {
+        const target = Number(c.dataset.countUp);
+        const suffix = c.dataset.countSuffix || '';
+        const compact = c.dataset.countFormat === 'compact';
+        c.textContent = `${formatCounter(target, compact)}${suffix}`;
+      });
+      updateTreeGrowth(1);
+      isImpactAnimating = false;
+      return;
+    }
+
+    // Reset counters to 0 initially
+    impactCounters.forEach((c) => {
+      const compact = c.dataset.countFormat === 'compact';
+      c.textContent = compact ? '0' : `0${c.dataset.countSuffix || ''}`;
     });
 
+    updateTreeGrowth(0);
+    const startTime = performance.now();
+
+    const stepAnimation = (now) => {
+      const rawProgress = Math.min((now - startTime) / duration, 1);
+      // Cubic ease-out calculation for smooth settling
+      const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
+
+      // Update counters
+      impactCounters.forEach((counter) => {
+        const target = Number(counter.dataset.countUp);
+        const suffix = counter.dataset.countSuffix || '';
+        const compact = counter.dataset.countFormat === 'compact';
+        const currentVal = Math.floor(target * easedProgress);
+        counter.textContent = `${formatCounter(currentVal, compact)}${suffix}`;
+      });
+
+      // Update rooted tree growth
+      updateTreeGrowth(easedProgress);
+
+      if (rawProgress < 1) {
+        requestAnimationFrame(stepAnimation);
+      } else {
+        // Finalize values cleanly
+        impactCounters.forEach((counter) => {
+          const target = Number(counter.dataset.countUp);
+          const suffix = counter.dataset.countSuffix || '';
+          const compact = counter.dataset.countFormat === 'compact';
+          counter.textContent = `${formatCounter(target, compact)}${suffix}`;
+        });
+        updateTreeGrowth(1);
+        isImpactAnimating = false;
+      }
+    };
+
+    requestAnimationFrame(stepAnimation);
+  };
+
+  // Initialize
+  if (impactMetrics) {
+    // Replay on click
+    if (impactMainCounterWrap) {
+      impactMainCounterWrap.addEventListener('click', () => {
+        animateSimpleImpact();
+      });
+    }
+
+    if (impactTreeWrapper) {
+      impactTreeWrapper.addEventListener('click', () => {
+        animateSimpleImpact();
+      });
+    }
+
+    // Scroll trigger with IntersectionObserver
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-      animateImpactCounters();
+      animateSimpleImpact();
     } else {
-      // Trigger counter animation only once when section reaches 20% viewport visibility
       const impactObserver = new IntersectionObserver((entries, observer) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          observer.disconnect(); // Unobserve after triggering once
-          animateImpactCounters();
+          observer.disconnect();
+          animateSimpleImpact();
         }
       }, { threshold: 0.2 });
 

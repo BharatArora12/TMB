@@ -7,8 +7,7 @@
   <title>Towards My Bharat — Honouring Our Roots. Shaping Our Future.</title>
   <meta name="description"
     content="Towards My Bharat is a youth-led movement uniting young minds across India through intellectual rigor, civilizational depth, ethical leadership, and grassroots nation-building.">
-  <link rel="icon" type="image/png"
-    href="photos/TMB Logo.png">
+  <link rel="icon" type="image/png" href="photos/TMB Logo.png">
 
   <!-- Google Fonts & Material Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -581,37 +580,246 @@
     <!-- =========================================================================
        FINAL ACHIEVEMENTS STRIP
        ========================================================================= -->
-    <section class="impact-metrics-section" aria-label="Impact metrics">
+    <!-- =========================================================================
+       SECTION: OUR IMPACT — SIMPLE & ROOTED SHOWCASE
+       ========================================================================= -->
+    <section class="impact-metrics-section" id="impact" aria-label="Our Impact and Living Movement">
       <div class="container impact-metrics-inner">
-        <div class="impact-heading-wrap">
-          <span class="section-badge">Our impact</span>
+
+        <!-- Top Badge with Extending Line -->
+        <div class="impact-badge-header">
+          <span class="impact-badge">OUR IMPACT</span>
+          <span class="impact-badge-line" aria-hidden="true"></span>
         </div>
 
-        <div class="impact-showcase">
-          <div class="impact-main">
+        <!-- Main 3-Column Layout: Left (20k+) | Center (Rooted Tree) | Right (Stats) -->
+        <div class="impact-simple-grid">
+
+          <!-- COLUMN 1: Movement & Big 20k+ Counter -->
+          <div class="impact-col-left">
             <p class="impact-kicker">A GROWING MOVEMENT</p>
-            <div class="impact-number-wrap" aria-label="20 thousand young participants">
-              <span class="impact-total" data-count-up="20000" data-count-format="compact">20k</span>
+
+            <div class="impact-number-wrap" aria-label="20 thousand young participants" id="impactMainCounterWrap">
+              <span class="impact-total" data-count-up="20000" data-count-format="compact">0</span>
               <span class="impact-plus" aria-hidden="true">+</span>
             </div>
-            <p class="impact-caption">young people shaping rooted leadership across <em>Bharat.</em></p>
+
+            <p class="impact-caption">
+              young people shaping <span class="caption-serif-italic">rooted leadership</span> across <span
+                class="caption-bharat">Bharat.</span>
+            </p>
           </div>
 
-          <div class="impact-stat-list" aria-label="Impact stats">
-            <div class="impact-stat-row">
-              <span class="impact-stat-label">STATES ENGAGED</span>
-              <span class="impact-stat-value" data-count-up="18">18</span>
-            </div>
-            <div class="impact-stat-row">
-              <span class="impact-stat-label">FIELD PROGRAMS</span>
-              <span class="impact-stat-value" data-count-up="35" data-count-suffix="+">35+</span>
-            </div>
-            <div class="impact-stat-row">
-              <span class="impact-stat-label">STUDENT FELLOWS</span>
-              <span class="impact-stat-value" data-count-up="250" data-count-suffix="+">250+</span>
+          <!-- COLUMN 2: Botanical Rooted Tree Illustration ("Rooted Leadership") -->
+          <div class="impact-col-center">
+            <div class="impact-tree-wrapper" id="impactTreeWrapper" role="img"
+              aria-label="Botanical illustration of a flourishing tree with deep spreading roots, symbolizing rooted youth leadership across Bharat">
+              <svg class="impact-tree-svg" viewBox="0 0 320 340" fill="none" stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Group with smooth breathing pulse and growth animation -->
+                <g class="impact-tree-group">
+
+                  <!-- Central Trunk -->
+                  <path d="M 152,175 C 154,155 156,138 158,122 C 159,115 161,115 162,122 C 164,138 166,155 168,175 Z"
+                    fill="currentColor" stroke="currentColor" stroke-width="0.8" />
+                  <!-- Trunk core grain lines -->
+                  <path d="M 160,175 L 160,122" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                  <path d="M 157,175 C 158,155 159,138 159.5,125" stroke="currentColor" stroke-width="0.7"
+                    opacity="0.6" />
+                  <path d="M 163,175 C 162,155 161,138 160.5,125" stroke="currentColor" stroke-width="0.7"
+                    opacity="0.6" />
+
+                  <!-- ================= CANOPY BRANCHES (Above y=175) ================= -->
+                  <g class="tree-canopy-branches" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Central Crown Branch -->
+                    <path d="M 160,122 L 160,55" stroke-width="2.2" />
+                    <path d="M 160,85 L 152,65" stroke-width="1.4" />
+                    <path d="M 160,85 L 168,65" stroke-width="1.4" />
+                    <path d="M 160,65 L 155,45" stroke-width="1.2" />
+                    <path d="M 160,65 L 165,45" stroke-width="1.2" />
+
+                    <!-- Primary Left Branch -->
+                    <path d="M 159,122 C 152,105 138,90 118,78 C 102,68 85,72 72,82" stroke-width="2.2" />
+                    <path d="M 142,98 C 132,82 120,68 108,52" stroke-width="1.6" />
+                    <path d="M 125,85 C 112,75 98,62 88,48" stroke-width="1.3" />
+                    <path d="M 108,52 L 95,40" stroke-width="1.1" />
+                    <path d="M 108,52 L 118,38" stroke-width="1.1" />
+                    <path d="M 105,73 C 92,72 78,76 68,88" stroke-width="1.3" />
+                    <path d="M 85,75 L 75,65" stroke-width="1.1" />
+                    <path d="M 130,90 C 122,102 110,112 95,120" stroke-width="1.5" />
+                    <path d="M 112,108 L 100,125" stroke-width="1.1" />
+                    <path d="M 148,110 C 138,122 125,130 110,138" stroke-width="1.5" />
+                    <path d="M 128,125 L 118,142" stroke-width="1.1" />
+
+                    <!-- Primary Right Branch -->
+                    <path d="M 161,122 C 168,105 182,90 202,78 C 218,68 235,72 248,82" stroke-width="2.2" />
+                    <path d="M 178,98 C 188,82 200,68 212,52" stroke-width="1.6" />
+                    <path d="M 195,85 C 208,75 222,62 232,48" stroke-width="1.3" />
+                    <path d="M 212,52 L 225,40" stroke-width="1.1" />
+                    <path d="M 212,52 L 202,38" stroke-width="1.1" />
+                    <path d="M 215,73 C 228,72 242,76 252,88" stroke-width="1.3" />
+                    <path d="M 235,75 L 245,65" stroke-width="1.1" />
+                    <path d="M 190,90 C 198,102 210,112 225,120" stroke-width="1.5" />
+                    <path d="M 208,108 L 220,125" stroke-width="1.1" />
+                    <path d="M 172,110 C 182,122 195,130 210,138" stroke-width="1.5" />
+                    <path d="M 192,125 L 202,142" stroke-width="1.1" />
+
+                    <!-- Sub-twigs balancing crown -->
+                    <path d="M 152,75 L 140,62" stroke-width="1.2" />
+                    <path d="M 168,75 L 180,62" stroke-width="1.2" />
+                    <path d="M 145,55 L 132,45" stroke-width="1.0" />
+                    <path d="M 175,55 L 188,45" stroke-width="1.0" />
+                  </g>
+
+                  <!-- ================= BOTANICAL LEAF CLUSTERS ================= -->
+                  <g class="tree-leaves" fill="currentColor" opacity="0.88">
+                    <!-- Center top leaves -->
+                    <ellipse cx="160" cy="35" rx="4" ry="7" />
+                    <ellipse cx="154" cy="42" rx="3.5" ry="6" transform="rotate(-25 154 42)" />
+                    <ellipse cx="166" cy="42" rx="3.5" ry="6" transform="rotate(25 166 42)" />
+                    <ellipse cx="160" cy="50" rx="3.8" ry="6.5" />
+                    <ellipse cx="148" cy="58" rx="3.5" ry="6" transform="rotate(-35 148 58)" />
+                    <ellipse cx="172" cy="58" rx="3.5" ry="6" transform="rotate(35 172 58)" />
+
+                    <!-- Left upper leaves -->
+                    <ellipse cx="132" cy="38" rx="3.5" ry="6.5" transform="rotate(-20 132 38)" />
+                    <ellipse cx="120" cy="32" rx="3.5" ry="6.5" transform="rotate(-15 120 32)" />
+                    <ellipse cx="108" cy="35" rx="3.5" ry="6" transform="rotate(-35 108 35)" />
+                    <ellipse cx="94" cy="36" rx="3.5" ry="6" transform="rotate(-40 94 36)" />
+                    <ellipse cx="86" cy="44" rx="3.5" ry="6" transform="rotate(-50 86 44)" />
+                    <ellipse cx="76" cy="58" rx="3.5" ry="6" transform="rotate(-60 76 58)" />
+                    <ellipse cx="68" cy="74" rx="3.5" ry="6" transform="rotate(-70 68 74)" />
+                    <ellipse cx="62" cy="88" rx="3.5" ry="6.5" transform="rotate(-75 62 88)" />
+
+                    <!-- Left middle leaves -->
+                    <ellipse cx="95" cy="52" rx="3.5" ry="6" transform="rotate(-30 95 52)" />
+                    <ellipse cx="118" cy="48" rx="3.5" ry="6" transform="rotate(-15 118 48)" />
+                    <ellipse cx="104" cy="65" rx="3.5" ry="6" transform="rotate(-45 104 65)" />
+                    <ellipse cx="88" cy="72" rx="3.5" ry="6" transform="rotate(-55 88 72)" />
+                    <ellipse cx="76" cy="92" rx="3.5" ry="6" transform="rotate(-65 76 92)" />
+                    <ellipse cx="85" cy="105" rx="3.5" ry="6" transform="rotate(-50 85 105)" />
+                    <ellipse cx="98" cy="118" rx="3.5" ry="6.5" transform="rotate(-40 98 118)" />
+                    <ellipse cx="115" cy="138" rx="3.5" ry="6.5" transform="rotate(-35 115 138)" />
+
+                    <!-- Right upper leaves -->
+                    <ellipse cx="188" cy="38" rx="3.5" ry="6.5" transform="rotate(20 188 38)" />
+                    <ellipse cx="200" cy="32" rx="3.5" ry="6.5" transform="rotate(15 200 32)" />
+                    <ellipse cx="212" cy="35" rx="3.5" ry="6" transform="rotate(35 212 35)" />
+                    <ellipse cx="226" cy="36" rx="3.5" ry="6" transform="rotate(40 226 36)" />
+                    <ellipse cx="234" cy="44" rx="3.5" ry="6" transform="rotate(50 234 44)" />
+                    <ellipse cx="244" cy="58" rx="3.5" ry="6" transform="rotate(60 244 58)" />
+                    <ellipse cx="252" cy="74" rx="3.5" ry="6" transform="rotate(70 252 74)" />
+                    <ellipse cx="258" cy="88" rx="3.5" ry="6.5" transform="rotate(75 258 88)" />
+
+                    <!-- Right middle leaves -->
+                    <ellipse cx="225" cy="52" rx="3.5" ry="6" transform="rotate(30 225 52)" />
+                    <ellipse cx="202" cy="48" rx="3.5" ry="6" transform="rotate(15 202 48)" />
+                    <ellipse cx="216" cy="65" rx="3.5" ry="6" transform="rotate(45 216 65)" />
+                    <ellipse cx="232" cy="72" rx="3.5" ry="6" transform="rotate(55 232 72)" />
+                    <ellipse cx="244" cy="92" rx="3.5" ry="6" transform="rotate(65 244 92)" />
+                    <ellipse cx="235" cy="105" rx="3.5" ry="6" transform="rotate(50 235 105)" />
+                    <ellipse cx="222" cy="118" rx="3.5" ry="6.5" transform="rotate(40 222 118)" />
+                    <ellipse cx="205" cy="138" rx="3.5" ry="6.5" transform="rotate(35 205 138)" />
+
+                    <!-- Inner foliage depth leaves -->
+                    <ellipse cx="140" cy="72" rx="3.2" ry="5.8" transform="rotate(-15 140 72)" />
+                    <ellipse cx="180" cy="72" rx="3.2" ry="5.8" transform="rotate(15 180 72)" />
+                    <ellipse cx="150" cy="88" rx="3.2" ry="5.8" transform="rotate(-20 150 88)" />
+                    <ellipse cx="170" cy="88" rx="3.2" ry="5.8" transform="rotate(20 170 88)" />
+                    <ellipse cx="135" cy="105" rx="3.2" ry="5.8" transform="rotate(-30 135 105)" />
+                    <ellipse cx="185" cy="105" rx="3.2" ry="5.8" transform="rotate(30 185 105)" />
+                  </g>
+
+                  <!-- ================= INTRICATE ROOTS SYSTEM (Below y=175) ================= -->
+                  <g class="tree-roots" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Central Deep Taproots -->
+                    <path d="M 160,175 C 160,205 158,235 160,265 C 161,285 159,305 160,325" stroke-width="2.2" />
+                    <path d="M 160,225 L 154,255 C 152,275 155,295 153,315" stroke-width="1.3" />
+                    <path d="M 160,225 L 166,255 C 168,275 165,295 167,315" stroke-width="1.3" />
+                    <path d="M 160,265 L 163,295" stroke-width="1.1" />
+                    <path d="M 160,265 L 157,295" stroke-width="1.1" />
+
+                    <!-- Left Primary Taproots & Branching Rootlets -->
+                    <path d="M 155,175 C 145,198 132,220 115,245 C 98,268 80,292 65,315" stroke-width="2.1" />
+                    <path d="M 140,205 C 128,228 112,250 95,275 C 85,290 75,305 68,320" stroke-width="1.4" />
+                    <path d="M 125,225 C 115,245 102,265 88,285" stroke-width="1.2" />
+                    <path d="M 108,252 L 95,275" stroke-width="1.0" />
+                    <path d="M 95,275 L 82,300" stroke-width="0.9" />
+                    <path d="M 130,215 C 120,230 108,242 92,255" stroke-width="1.2" />
+                    <path d="M 115,235 L 105,255" stroke-width="0.9" />
+
+                    <!-- Wide Left Surface / Lateral Roots -->
+                    <path d="M 152,176 C 132,185 105,195 78,210 C 58,222 45,238 35,255" stroke-width="1.8" />
+                    <path d="M 118,192 C 98,205 78,220 62,238 C 52,250 45,265 40,280" stroke-width="1.2" />
+                    <path d="M 88,208 L 72,228" stroke-width="1.0" />
+                    <path d="M 72,228 L 58,250" stroke-width="0.9" />
+                    <path d="M 62,238 L 48,262" stroke-width="0.8" />
+                    <path d="M 98,205 L 88,225" stroke-width="0.9" />
+                    <path d="M 138,185 C 125,198 110,210 98,222" stroke-width="1.2" />
+                    <path d="M 125,195 L 115,215" stroke-width="0.9" />
+
+                    <!-- Right Primary Taproots & Branching Rootlets -->
+                    <path d="M 165,175 C 175,198 188,220 205,245 C 222,268 240,292 255,315" stroke-width="2.1" />
+                    <path d="M 180,205 C 192,228 208,250 225,275 C 235,290 245,305 252,320" stroke-width="1.4" />
+                    <path d="M 195,225 C 205,245 218,265 232,285" stroke-width="1.2" />
+                    <path d="M 212,252 L 225,275" stroke-width="1.0" />
+                    <path d="M 225,275 L 238,300" stroke-width="0.9" />
+                    <path d="M 190,215 C 200,230 212,242 228,255" stroke-width="1.2" />
+                    <path d="M 205,235 L 215,255" stroke-width="0.9" />
+
+                    <!-- Wide Right Surface / Lateral Roots -->
+                    <path d="M 168,176 C 188,185 215,195 242,210 C 262,222 275,238 285,255" stroke-width="1.8" />
+                    <path d="M 202,192 C 222,205 242,220 258,238 C 268,250 275,265 280,280" stroke-width="1.2" />
+                    <path d="M 232,208 L 248,228" stroke-width="1.0" />
+                    <path d="M 248,228 L 262,250" stroke-width="0.9" />
+                    <path d="M 258,238 L 272,262" stroke-width="0.8" />
+                    <path d="M 222,205 L 232,225" stroke-width="0.9" />
+                    <path d="M 182,185 C 195,198 210,210 222,222" stroke-width="1.2" />
+                    <path d="M 195,195 L 205,215" stroke-width="0.9" />
+
+                    <!-- Fine capillary hair roots spreading into earth -->
+                    <path d="M 50,300 L 42,315" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 62,310 L 55,325" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 80,312 L 72,328" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 145,315 L 140,330" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 175,315 L 180,330" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 240,312 L 248,328" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 258,310 L 265,325" stroke-width="0.7" opacity="0.7" />
+                    <path d="M 270,300 L 278,315" stroke-width="0.7" opacity="0.7" />
+                  </g>
+
+                </g>
+              </svg>
             </div>
           </div>
+
+          <!-- COLUMN 3: Vertical Divider & 3 Clean Stats Rows -->
+          <div class="impact-col-right">
+            <div class="impact-stats-table" aria-label="Impact key statistics">
+
+              <!-- Row 1: States Engaged -->
+              <div class="impact-stat-line">
+                <span class="impact-stat-name">STATES ENGAGED</span>
+                <span class="impact-stat-number" data-count-up="18">0</span>
+              </div>
+
+              <!-- Row 2: Field Programs -->
+              <div class="impact-stat-line">
+                <span class="impact-stat-name">FIELD PROGRAMS</span>
+                <span class="impact-stat-number" data-count-up="35" data-count-suffix="+">0</span>
+              </div>
+
+              <!-- Row 3: Student Fellows -->
+              <div class="impact-stat-line">
+                <span class="impact-stat-name">STUDENT FELLOWS</span>
+                <span class="impact-stat-number" data-count-up="250" data-count-suffix="+">0</span>
+              </div>
+
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
@@ -814,7 +1022,6 @@
               <span>Inquire for Institution</span>
               <span class="material-symbols-outlined">arrow_forward</span>
             </span>
-            <span class="courses-banner-email">hello@towardsmybharat.in</span>
           </a>
         </div>
 
