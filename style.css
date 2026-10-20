@@ -4969,37 +4969,199 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
-/* Bottom Bar: Copyright & Made in India */
-.footer-meta-bar {
+/* --------------------------------------------------------------------------
+   ARTISTIC SHADOW BRIDGE (The Civilisational Bridge across Time)
+   Bridging the Ancient Roots and Modern Generation of Bharat
+   -------------------------------------------------------------------------- */
+.footer-bridge-section {
+  width: 100%;
+  margin-top: 2.5rem;
   padding-top: 1.75rem;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 0.75rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  color: #B1C2B0;
+  align-items: center;
+  border-top: 1px solid rgba(167, 201, 87, 0.16);
 }
 
-@media (min-width: 640px) {
-  .footer-meta-bar {
-    flex-direction: row;
-    align-items: center;
+/* Atmospheric Ambient Glow behind Bridge */
+.footer-bridge-section::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 85%;
+  max-width: 950px;
+  height: 180px;
+  background: radial-gradient(ellipse at center, rgba(167, 201, 87, 0.14) 0%, rgba(224, 159, 62, 0.07) 45%, rgba(17, 26, 20, 0) 75%);
+  pointer-events: none;
+  filter: blur(28px);
+  z-index: 0;
+}
+
+/* Narrative Emotion Header: Ancient Roots <-> Living Bridge <-> Modern Generation */
+.footer-bridge-meta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.bridge-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.bridge-badge-ancient {
+  color: #F4D06F;
+  background: rgba(224, 159, 62, 0.12);
+  border: 1px solid rgba(224, 159, 62, 0.32);
+}
+
+.bridge-badge-ancient .bridge-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E09F3E;
+  box-shadow: 0 0 8px #F4D06F;
+}
+
+.bridge-badge-modern {
+  color: #A7C957;
+  background: rgba(167, 201, 87, 0.12);
+  border: 1px solid rgba(167, 201, 87, 0.32);
+}
+
+.bridge-badge-modern .bridge-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #38BDF8;
+  box-shadow: 0 0 8px #38BDF8;
+}
+
+.bridge-meta-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #EAF5C7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.bridge-meta-icon {
+  color: #A7C957;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.bridge-meta-phrase {
+  opacity: 0.92;
+  letter-spacing: 0.08em;
+}
+
+/* Artwork Wrapper */
+.footer-bridge-art-wrap {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.footer-bridge-svg-img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.footer-bridge-section:hover .footer-bridge-svg-img {
+  filter: drop-shadow(0 4px 26px rgba(167, 201, 87, 0.18)) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
+}
+
+/* Subtle Narrative Caption Under Bridge */
+.footer-bridge-caption {
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 0.96rem;
+  font-style: italic;
+  color: #B1C2B0;
+  text-align: center;
+  letter-spacing: 0.02em;
+  opacity: 0.88;
+}
+
+/* Mobile & Tablet adjustments */
+@media (max-width: 900px) {
+  .footer-bridge-meta {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .bridge-meta-center {
+    font-size: 0.72rem;
   }
 }
 
-/* Giant Gradient Brand Wordmark at the Bottom */
+@media (max-width: 640px) {
+  .footer-bridge-section {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+  }
+  .bridge-meta-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
+  }
+  .bridge-meta-phrase {
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+  .footer-bridge-svg-img {
+    max-height: 180px;
+  }
+  .footer-bridge-caption {
+    font-size: 0.85rem;
+  }
+}
+
+/* Giant Gradient Brand Wordmark at the Bottom - anchored right below the bridge */
 .footer-wordmark {
   width: 100%;
-  margin-top: 2.25rem;
-  margin-bottom: 0;
-  padding: 0.75rem 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.5rem 0;
   overflow: hidden;
   font-family: var(--font-sans);
   font-size: clamp(2.4rem, 9vw, 9rem);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1.1;
+  line-height: 1.05;
   text-align: center;
   white-space: nowrap;
   user-select: none;
@@ -5022,4 +5184,26 @@ html[data-theme="light"] .footer-wordmark {
   color: transparent;
   opacity: 1;
 }
+
+/* Bottom Bar: Copyright & Made in India placed cleanly at base */
+.footer-meta-bar {
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #B1C2B0;
+}
+
+@media (min-width: 640px) {
+  .footer-meta-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 

@@ -1,0 +1,518 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <defs>
+    <!-- Background atmospheric glowing auras -->
+    <radialGradient id="ancientHeritageAura" cx="20%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#E09F3E" stop-opacity="0.22" />
+      <stop offset="60%" stop-color="#A7C957" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#111A14" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="modernGenerationAura" cx="82%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.18" />
+      <stop offset="45%" stop-color="#A7C957" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#111A14" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bridgeCentralAura" cx="50%" cy="40%" r="35%">
+      <stop offset="0%" stop-color="#A7C957" stop-opacity="0.18" />
+      <stop offset="50%" stop-color="#EAF5C7" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#111A14" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Water fade gradient -->
+    <linearGradient id="waterSurfaceFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#142419" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#111A14" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#111A14" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Bridge deck road gradient -->
+    <linearGradient id="bridgeRoadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E09F3E" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#A7C957" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#A7C957" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Cable gradient -->
+    <linearGradient id="cableGradWest" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A7C957" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#A7C957" stop-opacity="0.15" />
+    </linearGradient>
+
+    <linearGradient id="cableGradEast" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A7C957" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.18" />
+    </linearGradient>
+
+    <!-- Glow filters for lights -->
+    <filter id="softGlowAmber" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlowGreen" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- ========================================================================
+       LAYER 1: ATMOSPHERIC AURAS & CELESTIAL ELEMENTS
+       ======================================================================== -->
+  <rect x="0" y="0" width="600" height="240" fill="url(#ancientHeritageAura)" />
+  <rect x="840" y="0" width="600" height="240" fill="url(#modernGenerationAura)" />
+  <circle cx="720" cy="115" r="280" fill="url(#bridgeCentralAura)" />
+
+  <!-- Celestial Constellation Stars -->
+  <g class="bridge-stars" fill="#EAF5C7">
+    <circle cx="85" cy="42" r="1.2" opacity="0.65" />
+    <circle cx="140" cy="28" r="1.5" opacity="0.8" />
+    <circle cx="210" cy="18" r="1" opacity="0.5" />
+    <circle cx="310" cy="45" r="1.3" opacity="0.7" />
+    <circle cx="385" cy="22" r="1" opacity="0.6" />
+    <circle cx="490" cy="35" r="1.4" opacity="0.75" />
+    <circle cx="645" cy="25" r="1" opacity="0.55" />
+    <circle cx="795" cy="22" r="1.5" opacity="0.8" />
+    <circle cx="930" cy="38" r="1.2" opacity="0.65" />
+    <circle cx="1065" cy="20" r="1.4" opacity="0.75" />
+    <circle cx="1190" cy="32" r="1" opacity="0.5" />
+    <circle cx="1285" cy="18" r="1.5" opacity="0.8" />
+    <circle cx="1370" cy="40" r="1.2" opacity="0.6" />
+    <circle cx="720" cy="32" r="1.8" opacity="0.9" fill="#FFF" />
+  </g>
+
+  <!-- Sacred Ashoka Dharma Chakra (Wisdom Watermark in Twilight Sky) -->
+  <g class="bridge-dharma-chakra" transform="translate(720, 85)" opacity="0.22">
+    <circle cx="0" cy="0" r="34" stroke="#A7C957" stroke-width="1.2" fill="none" />
+    <circle cx="0" cy="0" r="31" stroke="#A7C957" stroke-width="0.75" stroke-dasharray="1.5 2.5" fill="none" />
+    <circle cx="0" cy="0" r="6" stroke="#A7C957" stroke-width="1.2" fill="rgba(167, 201, 87, 0.15)" />
+    <!-- 24 Spokes of Dharma -->
+    <path d="M0,0 L0,-31 M0,0 L0,31 M0,0 L-31,0 M0,0 L31,0
+             M0,0 L-21.9,-21.9 M0,0 L21.9,21.9 M0,0 L-21.9,21.9 M0,0 L21.9,-21.9
+             M0,0 L-11.8,-28.6 M0,0 L11.8,28.6 M0,0 L-28.6,-11.8 M0,0 L28.6,11.8
+             M0,0 L-28.6,11.8 M0,0 L28.6,-11.8 M0,0 L-11.8,28.6 M0,0 L11.8,-28.6
+             M0,0 L-21.9,-11.8 M0,0 L21.9,11.8 M0,0 L-11.8,-21.9 M0,0 L11.8,21.9
+             M0,0 L-21.9,11.8 M0,0 L21.9,-11.8 M0,0 L-11.8,21.9 M0,0 L11.8,-21.9"
+          stroke="#A7C957" stroke-width="0.7" />
+  </g>
+
+  <!-- ========================================================================
+       LAYER 2: ANCIENT ROOTS OF BHARAT (LEFT WING SILHOUETTE)
+       ======================================================================== -->
+  <g class="ancient-roots-silhouette" fill="#0C150F">
+    <!-- Base River Ghat Steps & Foundation -->
+    <path d="M0,225 L450,225 L450,218 L420,218 L420,212 L380,212 L380,207 L330,207 L330,202 L280,202 L280,198 L200,198 L200,195 L0,195 Z" />
+
+    <!-- Distant Heritage Stupas & Shikhara Ridge -->
+    <path d="M10,195 L10,165 Q18,150 26,165 L26,195 Z" fill="#0E1A12" opacity="0.7" />
+    <path d="M30,195 L30,152 Q40,140 50,152 L50,195 Z" fill="#0E1A12" opacity="0.6" />
+
+    <!-- Sarnath Ashoka Pillar (Lion Capital of India) -->
+    <!-- Column Shaft -->
+    <rect x="58" y="105" width="8" height="95" fill="#0A110D" />
+    <!-- Inverted Lotus Bell Capital -->
+    <path d="M55,105 C55,96 69,96 69,105 Z" fill="#0F1F15" />
+    <!-- Abacus drum -->
+    <rect x="53" y="93" width="18" height="4" rx="1" fill="#13261A" />
+    <!-- Sarnath Four Lions Silhouette -->
+    <path d="M54,93 C53,82 58,76 62,76 C66,76 71,82 70,93 Z" fill="#0A110D" />
+    <!-- Crowning Ashoka Chakra finial -->
+    <circle cx="62" cy="70" r="5" stroke="#E09F3E" stroke-width="1.2" fill="none" />
+    <circle cx="62" cy="70" r="1.5" fill="#E09F3E" />
+
+    <!-- Sanchi Great Stupa & Torana Gateway (X: 85 to 140) -->
+    <!-- Torana Pillars -->
+    <rect x="92" y="130" width="5.5" height="70" fill="#0B140E" />
+    <rect x="126" y="130" width="5.5" height="70" fill="#0B140E" />
+    <!-- Three Curved Crossbeams (Architraves) with spirals -->
+    <path d="M84,128 Q112,125 140,128" stroke="#0B140E" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M86,120 Q112,117 138,120" stroke="#0B140E" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M88,112 Q112,109 136,112" stroke="#0B140E" stroke-width="3" stroke-linecap="round" fill="none" />
+    <!-- Gateway finial -->
+    <path d="M110,109 L112,101 L114,109 Z" fill="#E09F3E" opacity="0.8" />
+
+    <!-- Stupa Dome behind gateway -->
+    <path d="M96,155 C96,132 128,132 128,155 Z" fill="#0E1B13" opacity="0.8" />
+    <rect x="109" y="128" width="6" height="4" fill="#0E1B13" />
+    <line x1="112" y1="128" x2="112" y2="120" stroke="#0E1B13" stroke-width="1.5" />
+
+    <!-- Grand Nagara Temple Complex (Konark / Khajuraho / Brihadisvara Inspired) -->
+    <!-- Ardha-Mandapa (Pillared Entry Hall) X: 145 to 180 -->
+    <rect x="148" y="165" width="4" height="35" fill="#0B140E" />
+    <rect x="158" y="165" width="4" height="35" fill="#0B140E" />
+    <rect x="168" y="165" width="4" height="35" fill="#0B140E" />
+    <path d="M144,165 L178,165 L172,158 L150,158 Z" fill="#0B140E" />
+
+    <!-- Mandapa Pyramidal Tiered Roof (Phamsana style) X: 155 to 195 -->
+    <path d="M152,158 L196,158 L192,150 L156,150 Z" fill="#0C1710" />
+    <path d="M156,150 L192,150 L188,142 L160,142 Z" fill="#0C1710" />
+    <path d="M160,142 L188,142 L184,134 L164,134 Z" fill="#0C1710" />
+    <path d="M164,134 L184,134 L180,126 L168,126 Z" fill="#0C1710" />
+    <path d="M168,126 L180,126 L174,118 Z" fill="#0C1710" />
+    <!-- Mandapa Kalasha -->
+    <path d="M174,118 L174,110" stroke="#E09F3E" stroke-width="1.5" />
+    <circle cx="174" cy="110" r="2" fill="#E09F3E" />
+
+    <!-- Subsidiary Urushringa (Left Spire) X: 190 to 215 -->
+    <path d="M190,195 L190,145 Q193,105 204,92 Q215,105 218,145 L218,195 Z" fill="#0E1B13" />
+    <!-- Left Amalaka & Kalasha -->
+    <ellipse cx="204" cy="91" rx="5.5" ry="2.2" fill="#13261A" />
+    <path d="M204,89 L204,81" stroke="#E09F3E" stroke-width="1.5" />
+    <circle cx="204" cy="80" r="1.8" fill="#E09F3E" />
+
+    <!-- MAJESTIC CENTRAL TEMPLE SHIKHARA (X: 205 to 270, Apex Y: 28) -->
+    <!-- Sanctum (Garbhagriha) Wall Base -->
+    <rect x="210" y="145" width="56" height="55" fill="#09100B" />
+    <path d="M208,145 L268,145 L266,138 L210,138 Z" fill="#0C1710" />
+
+    <!-- Curvilinear Tower Body with Horizontal Ratha Bands -->
+    <path d="M210,138 Q214,75 238,44 Q262,75 266,138 Z" fill="#080E0A" />
+
+    <!-- Architectural Relief Lines on Shikhara (Rathas & Chaitya Niches) -->
+    <path d="M216,128 Q220,85 238,58 Q256,85 260,128 Z" fill="#0D1911" opacity="0.6" />
+    <path d="M222,118 Q226,90 238,68 Q250,90 254,118 Z" fill="#112216" opacity="0.5" />
+
+    <!-- Massive Amalaka (Stone Sun-Disc Crown) -->
+    <ellipse cx="238" cy="43" rx="10.5" ry="4" fill="#14261B" />
+    <ellipse cx="238" cy="40" rx="8" ry="3" fill="#1C3526" />
+
+    <!-- Golden Kalasha Finial -->
+    <path d="M235,39 C234,33 234,30 238,24 C242,30 242,33 241,39 Z" fill="#E09F3E" />
+    <circle cx="238" cy="24" r="2" fill="#F4D06F" />
+
+    <!-- Fluttering Temple Flag (Sacred Dhwaja) -->
+    <path d="M238,24 L238,15 L254,19.5 L238,24 Z" fill="#E09F3E" opacity="0.9" />
+
+    <!-- Subsidiary Urushringa (Right Spire) X: 260 to 285 -->
+    <path d="M258,195 L258,145 Q261,105 272,92 Q283,105 286,145 L286,195 Z" fill="#0E1B13" />
+    <ellipse cx="272" cy="91" rx="5.5" ry="2.2" fill="#13261A" />
+    <path d="M272,89 L272,81" stroke="#E09F3E" stroke-width="1.5" />
+    <circle cx="272" cy="80" r="1.8" fill="#E09F3E" />
+
+    <!-- Riverside Heritage Chhatri Pavilion (X: 315 to 355) -->
+    <!-- Chhatri Plinth & Slender Pillars -->
+    <rect x="318" y="198" width="34" height="6" fill="#0A110D" />
+    <rect x="321" y="162" width="3.5" height="36" fill="#0A110D" />
+    <rect x="331" y="162" width="3.5" height="36" fill="#0A110D" />
+    <rect x="341" y="162" width="3.5" height="36" fill="#0A110D" />
+    <rect x="349" y="162" width="3.5" height="36" fill="#0A110D" />
+    <!-- Cusped Arches -->
+    <path d="M321,162 Q326,155 331,162 Q336,155 341,162 Q345,155 349,162" stroke="#0A110D" stroke-width="2.5" fill="none" />
+    <!-- Overhanging Chhajja (Eaves) -->
+    <path d="M315,155 L355,155 L351,150 L319,150 Z" fill="#0C1710" />
+    <!-- Ribbed Dome of Chhatri -->
+    <path d="M320,150 C320,132 350,132 350,150 Z" fill="#0A110D" />
+    <path d="M335,133 L335,124" stroke="#E09F3E" stroke-width="1.5" />
+    <circle cx="335" cy="123" r="2" fill="#E09F3E" />
+
+    <!-- SACRED BANYAN TREE & VEDIC ROOTS (X: 370 to 445) -->
+    <!-- Sprawling Roots Intertwining with Foundation Stones -->
+    <path d="M412,198 C415,208 418,218 424,225" stroke="#0A110D" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <path d="M405,198 C402,208 395,216 388,222" stroke="#0A110D" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    <path d="M418,198 C424,206 435,214 445,220" stroke="#0A110D" stroke-width="3" stroke-linecap="round" fill="none" />
+    <!-- Aerial Prop Roots Hanging Down -->
+    <path d="M380,165 Q383,188 385,210" stroke="#0B140E" stroke-width="1.8" fill="none" />
+    <path d="M392,160 Q394,185 396,206" stroke="#0B140E" stroke-width="1.6" fill="none" />
+    <path d="M428,162 Q426,186 425,208" stroke="#0B140E" stroke-width="1.8" fill="none" />
+    <path d="M440,168 Q437,188 435,212" stroke="#0B140E" stroke-width="1.5" fill="none" />
+    <!-- Gnarled Trunk & Main Branches -->
+    <path d="M404,198 C405,178 400,165 392,152 C402,154 414,148 418,138 C420,150 428,158 438,164 C425,172 418,185 416,198 Z" fill="#080E0A" />
+    <!-- Lush Sacred Foliage Canopy -->
+    <path d="M368,152 C362,138 375,124 390,128 C394,115 412,112 422,122 C434,114 452,125 448,138 C458,148 450,165 436,166 C428,172 412,168 406,162 C395,168 378,165 368,152 Z" fill="#0C1710" />
+  </g>
+
+  <!-- Glowing Heritage Oil Lamps (Floating Diyas along the Ghats) -->
+  <g class="ancient-diyas" filter="url(#softGlowAmber)">
+    <circle cx="295" cy="216" r="2.5" fill="#F4D06F" />
+    <ellipse cx="295" cy="217" rx="6" ry="1.2" fill="#E09F3E" opacity="0.6" />
+    <circle cx="348" cy="219" r="2.2" fill="#F4D06F" />
+    <ellipse cx="348" cy="220" rx="5" ry="1.2" fill="#E09F3E" opacity="0.6" />
+    <circle cx="410" cy="222" r="2.5" fill="#F4D06F" />
+    <ellipse cx="410" cy="223" rx="6" ry="1.2" fill="#E09F3E" opacity="0.6" />
+  </g>
+
+  <!-- ========================================================================
+       LAYER 3: THE GREAT BRIDGE (CONNECTING ANCIENT ROOTS TO MODERN GENERATION)
+       ======================================================================== -->
+  <!-- Left Bridge Pier (Ancient Masonry Transition Abutment) -->
+  <g class="bridge-west-abutment" fill="#0A110D">
+    <rect x="425" y="194" width="36" height="32" rx="2" />
+    <!-- Carved classical arch in pier -->
+    <path d="M435,226 L435,212 Q443,205 451,212 L451,226 Z" fill="#111A14" />
+    <rect x="422" y="192" width="42" height="4" fill="#14261B" />
+  </g>
+
+  <!-- Right Bridge Pier (Modern Engineered Transition Abutment) -->
+  <g class="bridge-east-abutment" fill="#0A110D">
+    <polygon points="985,194 1025,194 1020,226 988,226" />
+    <rect x="982" y="192" width="46" height="4" fill="#1D382B" />
+  </g>
+
+  <!-- TOWER 1 (WEST PYLON - CABLE-STAYED MAST, X: 585) -->
+  <g class="bridge-pylon-west">
+    <!-- Pylon Pier Foundation in Water -->
+    <polygon points="578,226 594,226 592,198 580,198" fill="#080E0A" />
+    <!-- Dual Sculptural Pylon Legs Rising & Converging -->
+    <polygon points="580,198 584,198 588,110 584,110" fill="#0A130E" />
+    <polygon points="592,198 588,198 584,110 588,110" fill="#14261B" />
+    <!-- Consolidated Upper Pylon Mast -->
+    <polygon points="583,110 589,110 587,48 585,48" fill="#1A3324" />
+    <!-- Architectural Cross-strut / Bracing -->
+    <rect x="581" y="138" width="10" height="3" fill="#1C3827" />
+    <!-- Pylon Top Beacon (Warm Golden Sage) -->
+    <circle cx="586" cy="46" r="3.5" fill="#A7C957" filter="url(#softGlowGreen)" />
+    <circle cx="586" cy="46" r="1.5" fill="#FFF" />
+
+    <!-- Stay Cables West Pylon (Radiating to Deck) -->
+    <g stroke="url(#cableGradWest)" stroke-width="0.9" opacity="0.85">
+      <line x1="586" y1="68" x2="465" y2="195" />
+      <line x1="586" y1="73" x2="492" y2="193" />
+      <line x1="586" y1="78" x2="520" y2="191" />
+      <line x1="586" y1="83" x2="548" y2="189" />
+      <line x1="586" y1="88" x2="572" y2="188" />
+      <!-- Forward Stay Cables -->
+      <line x1="586" y1="88" x2="600" y2="188" />
+      <line x1="586" y1="83" x2="624" y2="187" />
+      <line x1="586" y1="78" x2="652" y2="186" />
+      <line x1="586" y1="73" x2="682" y2="185" />
+      <line x1="586" y1="68" x2="714" y2="185" />
+    </g>
+  </g>
+
+  <!-- TOWER 2 (EAST PYLON - CABLE-STAYED MAST, X: 855) -->
+  <g class="bridge-pylon-east">
+    <!-- Pylon Pier Foundation in Water -->
+    <polygon points="848,226 864,226 862,198 850,198" fill="#080E0A" />
+    <!-- Dual Sculptural Pylon Legs -->
+    <polygon points="850,198 854,198 858,110 854,110" fill="#0A130E" />
+    <polygon points="862,198 858,198 854,110 858,110" fill="#14261B" />
+    <!-- Consolidated Upper Pylon Mast -->
+    <polygon points="853,110 859,110 857,48 855,48" fill="#1A3324" />
+    <!-- Architectural Cross-strut -->
+    <rect x="851" y="138" width="10" height="3" fill="#1C3827" />
+    <!-- Pylon Top Beacon (Modern Emerald Cyan) -->
+    <circle cx="856" cy="46" r="3.5" fill="#38BDF8" filter="url(#softGlowGreen)" />
+    <circle cx="856" cy="46" r="1.5" fill="#FFF" />
+
+    <!-- Stay Cables East Pylon (Radiating to Deck) -->
+    <g stroke="url(#cableGradEast)" stroke-width="0.9" opacity="0.85">
+      <!-- Back Stay Cables toward center -->
+      <line x1="856" y1="68" x2="726" y2="185" />
+      <line x1="856" y1="73" x2="758" y2="185" />
+      <line x1="856" y1="78" x2="788" y2="186" />
+      <line x1="856" y1="83" x2="816" y2="187" />
+      <line x1="856" y1="88" x2="842" y2="188" />
+      <!-- Forward Stay Cables toward modern bank -->
+      <line x1="856" y1="88" x2="870" y2="188" />
+      <line x1="856" y1="83" x2="896" y2="189" />
+      <line x1="856" y1="78" x2="924" y2="191" />
+      <line x1="856" y1="73" x2="952" y2="193" />
+      <line x1="856" y1="68" x2="980" y2="195" />
+    </g>
+  </g>
+
+  <!-- Central Suspension Arch Cables (Harmonious Dual Catenary Curves) -->
+  <path d="M425,195 Q586,70 720,135 Q856,70 1020,195" stroke="#A7C957" stroke-width="1.2" opacity="0.45" fill="none" />
+  <path d="M586,70 Q720,150 856,70" stroke="#EAF5C7" stroke-width="1" opacity="0.3" fill="none" />
+
+  <!-- THE BRIDGE ROADWAY & DECK STRUCTURE -->
+  <!-- Underdeck Steel Box Girder & Lattice Truss -->
+  <path d="M422,195 Q720,183 1022,195 L1022,201 Q720,189 422,201 Z" fill="#0A110D" />
+  <!-- Illuminated Highway Surface Ribbon -->
+  <path d="M422,195 Q720,183 1022,195" stroke="url(#bridgeRoadGrad)" stroke-width="2.5" fill="none" />
+
+  <!-- Glowing Deck Lights / Pearl Necklace of Illumination across Bharat -->
+  <g class="bridge-deck-lights">
+    <!-- Ancient Side (Amber/Gold Lights) -->
+    <circle cx="445" cy="195" r="1.6" fill="#F4D06F" />
+    <circle cx="475" cy="193.5" r="1.6" fill="#F4D06F" />
+    <circle cx="505" cy="192" r="1.6" fill="#F4D06F" />
+    <circle cx="535" cy="190.5" r="1.6" fill="#F4D06F" />
+    <circle cx="565" cy="189.5" r="1.6" fill="#F4D06F" />
+    <!-- Transition Zone (Warm Golden Sage) -->
+    <circle cx="595" cy="188.5" r="1.8" fill="#EAF5C7" />
+    <circle cx="625" cy="187.5" r="1.8" fill="#A7C957" />
+    <circle cx="655" cy="186.5" r="1.8" fill="#A7C957" />
+    <circle cx="685" cy="186" r="2" fill="#FFF" filter="url(#softGlowGreen)" />
+    <!-- Midpoint Crossing (Pure White / Accent Green Apex) -->
+    <circle cx="720" cy="185.5" r="2.2" fill="#FFF" filter="url(#softGlowGreen)" />
+    <!-- Contemporary Zone (Vibrant Sage & Modern Cyan) -->
+    <circle cx="755" cy="186" r="2" fill="#FFF" filter="url(#softGlowGreen)" />
+    <circle cx="785" cy="186.5" r="1.8" fill="#A7C957" />
+    <circle cx="815" cy="187.5" r="1.8" fill="#A7C957" />
+    <circle cx="845" cy="188.5" r="1.8" fill="#A7C957" />
+    <circle cx="875" cy="189.5" r="1.6" fill="#38BDF8" />
+    <circle cx="905" cy="190.5" r="1.6" fill="#38BDF8" />
+    <circle cx="935" cy="192" r="1.6" fill="#38BDF8" />
+    <circle cx="965" cy="193.5" r="1.6" fill="#38BDF8" />
+    <circle cx="995" cy="195" r="1.6" fill="#38BDF8" />
+  </g>
+
+  <!-- SILHOUETTED YOUTH ON THE BRIDGE: "ACTING AS THE LIVING BRIDGE" -->
+  <g class="bridge-travelers-youth" fill="#080E0A">
+    <!-- Traveler 1 (X: 638): Young Scholar looking back respectfully at the roots while walking forward -->
+    <circle cx="640" cy="177" r="2" />
+    <path d="M638,179 L642,179 L644,187 L637,187 Z" />
+    <line x1="639" y1="187" x2="638" y2="193" stroke="#080E0A" stroke-width="1.3" />
+    <line x1="642" y1="187" x2="643" y2="193" stroke="#080E0A" stroke-width="1.3" />
+    <!-- Manuscript / Book of Heritage in hand -->
+    <rect x="635" y="181" width="2.5" height="4" fill="#E09F3E" />
+
+    <!-- Traveler 2 & 3 (X: 708 - 728): Pair of Changemakers at the Bridge Center -->
+    <!-- Innovator pointing forward toward modern horizon -->
+    <circle cx="712" cy="175" r="2.2" />
+    <path d="M710,177 L715,177 L716,186 L709,186 Z" />
+    <line x1="711" y1="186" x2="709" y2="192" stroke="#080E0A" stroke-width="1.4" />
+    <line x1="714" y1="186" x2="716" y2="192" stroke="#080E0A" stroke-width="1.4" />
+    <!-- Extended arm pointing forward into the future -->
+    <line x1="714" y1="179" x2="722" y2="175" stroke="#080E0A" stroke-width="1.2" stroke-linecap="round" />
+
+    <!-- Visionary Leader with Torch / Lantern of Knowledge -->
+    <circle cx="725" cy="174" r="2.2" />
+    <path d="M723,176 L728,176 L729,185 L722,185 Z" />
+    <line x1="724" y1="185" x2="723" y2="191" stroke="#080E0A" stroke-width="1.4" />
+    <line x1="727" y1="185" x2="729" y2="191" stroke="#080E0A" stroke-width="1.4" />
+    <!-- The Torch of Enlightenment shining bright -->
+    <line x1="728" y1="178" x2="731" y2="170" stroke="#080E0A" stroke-width="1.2" />
+    <circle cx="732" cy="168" r="2.5" fill="#FFF" filter="url(#softGlowGreen)" />
+    <circle cx="732" cy="168" r="1.2" fill="#EAF5C7" />
+
+    <!-- Traveler 4 (X: 785): Modern Tech Creator / Thinker marching boldly into Tomorrow -->
+    <circle cx="788" cy="176" r="2.1" />
+    <path d="M786,178 L791,178 L792,186 L785,186 Z" />
+    <!-- Creative Tool / Laptop pack on back -->
+    <rect x="783" y="179" width="3" height="4.5" rx="0.5" fill="#1A3324" />
+    <line x1="787" y1="186" x2="785" y2="192" stroke="#080E0A" stroke-width="1.4" />
+    <line x1="790" y1="186" x2="793" y2="192" stroke="#080E0A" stroke-width="1.4" />
+  </g>
+
+  <!-- ========================================================================
+       LAYER 4: MODERN GENERATION OF BHARAT (RIGHT WING SILHOUETTE)
+       ======================================================================== -->
+  <g class="modern-generation-silhouette" fill="#0C150F">
+    <!-- Modern Shoreline & Highway Foundation -->
+    <path d="M1000,225 L1440,225 L1440,195 L1080,195 L1080,198 L1030,198 L1030,202 L1000,202 Z" />
+
+    <!-- Elevated Highway Viaduct & Metro Flyover (X: 995 to 1070) -->
+    <path d="M1000,198 Q1035,197 1075,190 L1075,194 Q1035,201 1000,202 Z" fill="#14261B" />
+    <!-- Elevated Metro Pillar -->
+    <rect x="1038" y="200" width="5" height="24" fill="#0A110D" />
+    <!-- Metro Train Silhouette cruising into city -->
+    <rect x="1042" y="185" width="28" height="5" rx="1.5" fill="#1C3827" />
+    <circle cx="1070" cy="187.5" r="1.2" fill="#38BDF8" />
+
+    <!-- SKYSCRAPER 1: Innovation Hub & Angular Tower (X: 1035 to 1085) -->
+    <polygon points="1040,195 1040,105 1075,70 1075,195" fill="#080E0A" />
+    <!-- Facet Shadow -->
+    <polygon points="1058,195 1058,87 1075,70 1075,195" fill="#122419" />
+    <!-- Illuminated Glass Matrix -->
+    <g fill="#A7C957" opacity="0.6">
+      <rect x="1045" y="112" width="4" height="2" />
+      <rect x="1045" y="120" width="4" height="2" />
+      <rect x="1045" y="128" width="4" height="2" />
+      <rect x="1045" y="136" width="4" height="2" />
+      <rect x="1045" y="144" width="4" height="2" />
+      <rect x="1045" y="152" width="4" height="2" />
+      <!-- Facet 2 matrix -->
+      <rect x="1064" y="98" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+      <rect x="1064" y="106" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+      <rect x="1064" y="114" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+      <rect x="1064" y="122" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+      <rect x="1064" y="130" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+      <rect x="1064" y="138" width="4" height="2" fill="#38BDF8" opacity="0.7" />
+    </g>
+
+    <!-- SKYSCRAPER 2: Biophilic Twisted Eco-Tower (X: 1090 to 1150) -->
+    <path d="M1092,195 C1094,150 1102,105 1118,52 L1134,52 C1144,105 1146,150 1148,195 Z" fill="#0A130E" />
+    <!-- Sky-Garden Cutouts (Cascading Green Terraces) -->
+    <rect x="1102" y="85" width="22" height="3" fill="#A7C957" opacity="0.8" />
+    <rect x="1108" y="118" width="24" height="3" fill="#A7C957" opacity="0.8" />
+    <rect x="1114" y="152" width="26" height="3" fill="#A7C957" opacity="0.8" />
+    <!-- Rooftop Solar Crown -->
+    <polygon points="1115,52 1137,52 1126,44" fill="#1D3C28" />
+
+    <!-- SKYSCRAPER 3: THE VANGUARD MEGATOWER (X: 1155 to 1235, Apex Y: 22) -->
+    <!-- Tiered Setbacks & Spires -->
+    <rect x="1160" y="135" width="68" height="60" fill="#080E0A" />
+    <rect x="1168" y="85" width="52" height="50" fill="#0A130E" />
+    <rect x="1178" y="48" width="32" height="37" fill="#0E1B13" />
+    <!-- Crown Pyramid & Antenna Spire -->
+    <polygon points="1182,48 1206,48 1194,32" fill="#14261B" />
+    <line x1="1194" y1="32" x2="1194" y2="16" stroke="#1D3C28" stroke-width="2" />
+    <!-- High-Altitude Aviation Beacon (Pulsing Red/Green) -->
+    <circle cx="1194" cy="15" r="2.5" fill="#38BDF8" filter="url(#softGlowGreen)" />
+    <circle cx="1194" cy="15" r="1.2" fill="#FFF" />
+    <!-- Vertical Lighting Strips -->
+    <line x1="1194" y1="48" x2="1194" y2="135" stroke="#A7C957" stroke-width="1.2" opacity="0.75" />
+
+    <!-- MODERN VENUE: Geodesic Innovation Dome & Planetarium (X: 1240 to 1295) -->
+    <!-- Tiered Circular Base -->
+    <rect x="1242" y="172" width="52" height="23" rx="2" fill="#09110C" />
+    <!-- Geodesic Dome -->
+    <path d="M1244,172 C1244,142 1292,142 1292,172 Z" fill="#0F1F15" />
+    <!-- Dome Lattice Lines -->
+    <path d="M1248,172 Q1268,145 1288,172" stroke="#A7C957" stroke-width="0.8" opacity="0.6" fill="none" />
+    <path d="M1256,172 Q1268,143 1280,172" stroke="#A7C957" stroke-width="0.8" opacity="0.6" fill="none" />
+    <line x1="1268" y1="142" x2="1268" y2="172" stroke="#A7C957" stroke-width="0.8" opacity="0.6" />
+
+    <!-- SKYSCRAPER 4: Tech & FinTech Twin Towers with Aerial Sky-Bridge (X: 1300 to 1370) -->
+    <!-- Tower A -->
+    <rect x="1305" y="55" width="24" height="140" fill="#080E0A" />
+    <!-- Tower B -->
+    <rect x="1339" y="65" width="24" height="130" fill="#0A130E" />
+    <!-- Suspended Aerial Sky-Bridge connecting the twin towers -->
+    <rect x="1328" y="96" width="12" height="6" fill="#1C3827" />
+    <line x1="1328" y1="99" x2="1340" y2="99" stroke="#38BDF8" stroke-width="1.2" opacity="0.8" />
+    <!-- Rooftop Helipad / Terrace -->
+    <rect x="1308" y="52" width="18" height="3" fill="#A7C957" opacity="0.7" />
+
+    <!-- DEEP TECH & SPACE RESEARCH SPIRE (X: 1378 to 1425, Apex Y: 18) -->
+    <!-- Slender Communication Mast -->
+    <polygon points="1388,195 1392,195 1391,35 1389,35" fill="#0A110D" />
+    <line x1="1390" y1="35" x2="1390" y2="18" stroke="#A7C957" stroke-width="1.5" />
+    <!-- Pulsing Satellite Beacon -->
+    <circle cx="1390" cy="18" r="2.5" fill="#38BDF8" filter="url(#softGlowGreen)" />
+    <circle cx="1390" cy="18" r="1.2" fill="#FFF" />
+    <!-- Satellite Parabolic Dish Silhouette -->
+    <path d="M1382,60 Q1388,68 1396,62" stroke="#1C3827" stroke-width="2.2" fill="none" />
+    <!-- Secondary City Block Silhouettes -->
+    <rect x="1400" y="110" width="35" height="85" fill="#080E0A" />
+    <polygon points="1402,110 1432,110 1417,90" fill="#0C1710" />
+  </g>
+
+  <!-- ========================================================================
+       LAYER 5: WATER SURFACE REFLECTIONS & RIPPLES (Y: 200 TO 280)
+       ======================================================================== -->
+  <!-- Base River Depth Fill -->
+  <rect x="0" y="210" width="1440" height="70" fill="url(#waterSurfaceFade)" />
+
+  <!-- Shimmering Light Reflections mirroring the civilisational bridge -->
+  <g class="bridge-water-reflections" stroke-linecap="round">
+    <!-- Amber Temple Reflections (Ancient Bank) -->
+    <line x1="195" y1="230" x2="275" y2="230" stroke="#E09F3E" stroke-width="1.5" opacity="0.35" />
+    <line x1="215" y1="238" x2="255" y2="238" stroke="#E09F3E" stroke-width="1.2" opacity="0.25" />
+    <line x1="225" y1="246" x2="245" y2="246" stroke="#E09F3E" stroke-width="1" opacity="0.18" />
+
+    <!-- Tower 1 Pylon & Cable Glow Reflections in Water -->
+    <line x1="565" y1="232" x2="605" y2="232" stroke="#A7C957" stroke-width="2" opacity="0.4" />
+    <line x1="575" y1="242" x2="595" y2="242" stroke="#A7C957" stroke-width="1.5" opacity="0.28" />
+    <line x1="580" y1="252" x2="592" y2="252" stroke="#A7C957" stroke-width="1" opacity="0.18" />
+
+    <!-- Bridge Central Highway Reflection -->
+    <path d="M640,235 Q720,237 800,235" stroke="#A7C957" stroke-width="1.4" opacity="0.35" fill="none" />
+    <path d="M670,245 Q720,247 770,245" stroke="#EAF5C7" stroke-width="1.1" opacity="0.22" fill="none" />
+    <path d="M695,255 Q720,256 745,255" stroke="#FFF" stroke-width="0.9" opacity="0.18" fill="none" />
+
+    <!-- Tower 2 Pylon Reflections in Water -->
+    <line x1="838" y1="232" x2="876" y2="232" stroke="#38BDF8" stroke-width="2" opacity="0.4" />
+    <line x1="846" y1="242" x2="866" y2="242" stroke="#38BDF8" stroke-width="1.5" opacity="0.28" />
+    <line x1="850" y1="252" x2="862" y2="252" stroke="#38BDF8" stroke-width="1" opacity="0.18" />
+
+    <!-- Modern Metropolis Sky Reflection (Right Bank) -->
+    <line x1="1040" y1="230" x2="1140" y2="230" stroke="#38BDF8" stroke-width="1.5" opacity="0.3" />
+    <line x1="1170" y1="234" x2="1225" y2="234" stroke="#A7C957" stroke-width="1.5" opacity="0.32" />
+    <line x1="1310" y1="232" x2="1360" y2="232" stroke="#38BDF8" stroke-width="1.2" opacity="0.25" />
+    <line x1="1180" y1="244" x2="1215" y2="244" stroke="#A7C957" stroke-width="1" opacity="0.2" />
+  </g>
+</svg>
