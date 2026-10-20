@@ -1117,22 +1117,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================================
-  // MODULE 10: SIMPLE IMPACT COUNTERS & ROOTED TREE GROWTH ANIMATION
+  // MODULE 10: SIMPLE IMPACT COUNTERS & CINEMATIC ANIMATED ARCH
   // ============================================================================
   /**
    * Orchestrates the simple 3-column impact showcase:
    * 1. Eased numeric count-ups: 20k+, 18, 35+, 250+.
-   * 2. Synchronized botanical tree growth ("Rooted Leadership"):
-   *    - As the numbers increase, the deep root network draws downwards into the soil
-   *      and the canopy leaves flourish, mirroring the growth of the youth movement.
-   * 3. Interactive click-to-replay on the counter or tree.
+   * 2. Synchronized cinematic editorial video playback inside the elegant arch frame:
+   *    - As the numbers increase, the video seamlessly journeys forward toward the golden sun.
+   * 3. Interactive click-to-replay on the counter or arch video.
    */
   const impactMetrics = document.querySelector('.impact-metrics-section');
   const impactCounters = Array.from(document.querySelectorAll('.impact-metrics-section [data-count-up]'));
-  const impactTreeWrapper = document.getElementById('impactTreeWrapper');
+  const impactCinematicArch = document.getElementById('impactCinematicArch');
+  const impactArchVideo = document.getElementById('impactArchVideo');
   const impactMainCounterWrap = document.getElementById('impactMainCounterWrap');
-  const treeRootsGroup = document.querySelector('.tree-roots');
-  const treeLeavesGroup = document.querySelector('.tree-leaves');
 
   // Format counter values (compact 'k' or localized string)
   const formatCounter = (value, compact) => {
@@ -1142,53 +1140,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let isImpactAnimating = false;
 
-  // Initialize root stroke lengths for growth draw effect
-  const rootPaths = treeRootsGroup ? Array.from(treeRootsGroup.querySelectorAll('path')) : [];
-  rootPaths.forEach((path) => {
-    try {
-      const len = path.getTotalLength();
-      path.style.strokeDasharray = `${len} ${len}`;
-      path.style.strokeDashoffset = `${len}`;
-    } catch (_) {
-      // SVG path fallback
-    }
-  });
-
-  const leafEllipses = treeLeavesGroup ? Array.from(treeLeavesGroup.querySelectorAll('ellipse')) : [];
-
   /**
-   * Updates tree visual state in sync with counter progress (0.0 -> 1.0)
-   */
-  const updateTreeGrowth = (progress) => {
-    // 1. Roots grow down into the earth
-    rootPaths.forEach((path) => {
-      try {
-        const len = parseFloat(path.style.strokeDasharray) || path.getTotalLength();
-        const offset = len * (1 - progress);
-        path.style.strokeDashoffset = `${offset}`;
-      } catch (_) {}
-    });
-
-    // 2. Canopy leaves bloom and flourish
-    leafEllipses.forEach((leaf, idx) => {
-      const staggerThreshold = (idx / leafEllipses.length) * 0.85;
-      if (progress >= staggerThreshold) {
-        const leafProg = Math.min(1, (progress - staggerThreshold) / 0.15);
-        leaf.style.opacity = (0.2 + leafProg * 0.75).toFixed(2);
-      } else {
-        leaf.style.opacity = '0.15';
-      }
-    });
-  };
-
-  /**
-   * Runs the eased counter and tree animation
+   * Runs the eased counter and cinematic arch synchronization
    */
   const animateSimpleImpact = () => {
     if (isImpactAnimating) return;
     isImpactAnimating = true;
 
-    const duration = 2000;
+    // Restart and play video smoothly
+    if (impactArchVideo) {
+      try {
+        impactArchVideo.currentTime = 0;
+        const playPromise = impactArchVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Autoplay policy fallback: video remains muted & loop
+          });
+        }
+      } catch (_) {}
+    }
+
+    const duration = 2200;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
@@ -1198,7 +1170,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const compact = c.dataset.countFormat === 'compact';
         c.textContent = `${formatCounter(target, compact)}${suffix}`;
       });
-      updateTreeGrowth(1);
       isImpactAnimating = false;
       return;
     }
@@ -1209,12 +1180,11 @@ document.addEventListener('DOMContentLoaded', () => {
       c.textContent = compact ? '0' : `0${c.dataset.countSuffix || ''}`;
     });
 
-    updateTreeGrowth(0);
     const startTime = performance.now();
 
     const stepAnimation = (now) => {
       const rawProgress = Math.min((now - startTime) / duration, 1);
-      // Cubic ease-out calculation for smooth settling
+      // Smooth cubic ease-out for settling
       const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
 
       // Update counters
@@ -1226,9 +1196,6 @@ document.addEventListener('DOMContentLoaded', () => {
         counter.textContent = `${formatCounter(currentVal, compact)}${suffix}`;
       });
 
-      // Update rooted tree growth
-      updateTreeGrowth(easedProgress);
-
       if (rawProgress < 1) {
         requestAnimationFrame(stepAnimation);
       } else {
@@ -1239,7 +1206,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const compact = counter.dataset.countFormat === 'compact';
           counter.textContent = `${formatCounter(target, compact)}${suffix}`;
         });
-        updateTreeGrowth(1);
         isImpactAnimating = false;
       }
     };
@@ -1256,8 +1222,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    if (impactTreeWrapper) {
-      impactTreeWrapper.addEventListener('click', () => {
+    if (impactCinematicArch) {
+      impactCinematicArch.addEventListener('click', () => {
         animateSimpleImpact();
       });
     }
@@ -1271,7 +1237,7 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.disconnect();
           animateSimpleImpact();
         }
-      }, { threshold: 0.2 });
+      }, { threshold: 0.15 });
 
       impactObserver.observe(impactMetrics);
     }
