@@ -74,6 +74,14 @@
   --contact-flourish: rgba(46, 93, 58, 0.45);   /* Delicate forest green decorative line */
   --contact-foliage-stroke: var(--color-primary); /* #2E5D3A */
 
+  /* Testimonials Corner Artwork Tokens (Temple Gopuram & Celestial Sun) */
+  --temple-sun: #D97736;                     /* Terracotta/Ochre Sun in Light Theme */
+  --temple-sun-glow: rgba(217, 119, 54, 0.25);
+  --temple-stroke: var(--color-primary);     /* #2E5D3A Deep Forest Green line-art */
+  --temple-stroke-subtle: rgba(46, 93, 58, 0.35);
+  --temple-accent-bar: var(--color-primary); /* #2E5D3A */
+  --temple-wash-start: rgba(221, 235, 214, 0.55);
+
   /* --------------------------------------------------------------------------
      2. BACKWARDS-COMPATIBILITY TOKEN ALIASES (Used by legacy component rules)
      -------------------------------------------------------------------------- */
@@ -170,6 +178,14 @@ html[data-theme="dark"] {
   --text-subtle: #9AAF99;
   --border-gold-subtle: rgba(52, 75, 56, 0.78);
   --border-gold-bright: rgba(167, 201, 87, 0.5);
+
+  /* Dark Mode Testimonials Corner Artwork Tokens */
+  --temple-sun: #E09F3E;                     /* Radiant Amber Ochre in Dark Theme */
+  --temple-sun-glow: rgba(224, 159, 62, 0.35);
+  --temple-stroke: #E7EFE5;                  /* Crisp off-white & sage line-art */
+  --temple-stroke-subtle: rgba(167, 201, 87, 0.35);
+  --temple-accent-bar: #A7C957;              /* Vibrant sage bar */
+  --temple-wash-start: rgba(24, 39, 29, 0.65);
 }
 
 *, *::before, *::after {
@@ -3670,6 +3686,72 @@ html[data-theme="dark"] .impact-stat-number {
   background: var(--bg-surface-low);
   border-top: 1px solid var(--border-gold-subtle);
   padding: 3.75rem 0 4.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Left Corner Architectural Artwork (Dravidian Temple Gopuram & Celestial Sun)
+   Matches reference sketch format with brand colors
+   -------------------------------------------------------------------------- */
+.testimonials-corner-artwork {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: clamp(90px, 11vw, 155px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.94;
+  transition: opacity 0.35s ease;
+}
+
+.temple-gopuram-svg {
+  width: 100%;
+  height: 92%;
+  max-height: 540px;
+  display: block;
+}
+
+.temple-art-bar {
+  fill: var(--temple-accent-bar);
+  transition: fill 0.3s ease;
+}
+
+.temple-art-sun {
+  fill: var(--temple-sun);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, filter 0.3s ease;
+  transform-origin: 72px 132px;
+}
+
+.testimonials-section:hover .temple-art-sun {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 16px var(--temple-sun-glow));
+}
+
+.temple-art-stroke {
+  stroke: var(--temple-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-corner-artwork {
+    width: clamp(70px, 9vw, 110px);
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-corner-artwork {
+    width: 60px;
+    opacity: 0.4;
+  }
 }
 
 .testimonials-header {

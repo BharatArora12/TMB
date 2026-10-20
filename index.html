@@ -21,7 +21,7 @@
   <script src="theme.js"></script>
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 
 <body class="home-page">
@@ -1032,6 +1032,188 @@
 
 
   <section class="testimonials-section" aria-labelledby="testimonials-title">
+    <!-- Left Corner Architectural Art Element (Temple Gopuram with Celestial Sun) -->
+    <aside class="testimonials-corner-artwork" aria-hidden="true">
+      <svg class="temple-gopuram-svg" viewBox="0 0 170 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Subtle atmospheric panel wash gradient -->
+          <linearGradient id="templeCornerWash" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--temple-wash-start)" stop-opacity="0.6" />
+            <stop offset="65%" stop-color="var(--temple-wash-start)" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="var(--temple-wash-start)" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- 1. Left Edge Architectural Margin Bar (matching reference sketch) -->
+        <rect x="0" y="0" width="5.5" height="540" class="temple-art-bar" />
+
+        <!-- 2. Soft Background Wash Panel -->
+        <rect x="5.5" y="0" width="164.5" height="540" fill="url(#templeCornerWash)" />
+
+        <!-- 3. Celestial Terracotta / Amber Sun Disk (Behind the upper spire, fully visible) -->
+        <circle cx="72" cy="132" r="38" class="temple-art-sun" />
+
+        <!-- 4. Architectural Drafting Guide Lines -->
+        <!-- Line through left secondary peak down to base -->
+        <line x1="48" y1="45" x2="48" y2="465" stroke="var(--temple-stroke-subtle)" stroke-width="0.85" />
+        <!-- Center datum line through pinnacle -->
+        <line x1="88" y1="30" x2="88" y2="510" stroke="var(--temple-stroke-subtle)" stroke-width="0.8" stroke-dasharray="3 3" />
+        <!-- Secondary right drafting line -->
+        <line x1="126" y1="340" x2="126" y2="520" stroke="var(--temple-stroke-subtle)" stroke-width="0.85" />
+        <!-- Ground baseline continuation -->
+        <line x1="12" y1="465" x2="158" y2="465" stroke="var(--temple-stroke-subtle)" stroke-width="0.75" />
+
+        <!-- 5. Left Secondary Spire (Behind main gopuram, matching reference) -->
+        <g class="temple-art-stroke" stroke-width="1.15">
+          <!-- Kalasha -->
+          <path d="M47,95 L49,95 L48,88 Z" />
+          <circle cx="48" cy="87" r="1.2" fill="var(--temple-stroke)" />
+          <!-- Tiered secondary spire profiles -->
+          <path d="M42,110 L54,110 L51,100 L45,100 Z" />
+          <path d="M38,130 L58,130 L55,115 L41,115 Z" />
+          <path d="M35,155 L61,155 L58,135 L38,135 Z" />
+          <path d="M32,185 L64,185 L61,160 L35,160 Z" />
+          <path d="M30,220 L66,220 L64,190 L32,190 Z" />
+        </g>
+
+        <!-- 6. Main Dravidian Temple Gopuram (Tapered Stepped Architectural Line Art) -->
+        <g class="temple-art-stroke" stroke-width="1.25">
+          <!-- CROWNING KALASHAS (Finials on Ridge) -->
+          <!-- Center Main Kalasha -->
+          <path d="M87,58 L89,58 L89,48 L88,42 L87,48 Z" />
+          <circle cx="88" cy="41" r="1.5" fill="var(--temple-stroke)" />
+          <!-- Left Finial -->
+          <path d="M80,62 L82,62 L81,53 Z" />
+          <circle cx="81" cy="52" r="1.2" fill="var(--temple-stroke)" />
+          <!-- Right Finial -->
+          <path d="M94,62 L96,62 L95,53 Z" />
+          <circle cx="95" cy="52" r="1.2" fill="var(--temple-stroke)" />
+
+          <!-- SHALA BARREL ROOF CREST (Vault Ridge) -->
+          <path d="M76,82 Q88,72 100,82" stroke-width="1.5" />
+          <path d="M74,86 L102,86" stroke-width="1.2" />
+          <!-- Crest Chaitya Medallion -->
+          <circle cx="88" cy="79" r="3.2" stroke-width="1" />
+          <circle cx="88" cy="79" r="1" fill="var(--temple-stroke)" />
+
+          <!-- STOREY 7 (Upper Tala, Y: 86 - 116) -->
+          <rect x="77" y="86" width="22" height="30" stroke-width="1.1" />
+          <!-- Central Arch Niche -->
+          <path d="M85,116 L85,98 Q88,93 91,98 L91,116" stroke-width="1.1" />
+          <line x1="80" y1="94" x2="80" y2="116" stroke-width="0.9" />
+          <line x1="96" y1="94" x2="96" y2="116" stroke-width="0.9" />
+
+          <!-- CORNICE EAVES 7 -->
+          <path d="M72,120 L104,120" stroke-width="1.5" />
+          <path d="M74,123 L102,123" stroke-width="1.1" />
+
+          <!-- STOREY 6 (Tala 6, Y: 123 - 162) -->
+          <polygon points="73,123 103,123 105,162 71,162" stroke-width="1.15" />
+          <!-- Center Arch Niche -->
+          <path d="M84,162 L84,138 Q88,131 92,138 L92,162" stroke-width="1.15" />
+          <!-- Left & Right Miniature Niches -->
+          <path d="M75,162 L75,145 Q78,141 81,145 L81,162" stroke-width="0.95" />
+          <path d="M95,162 L95,145 Q98,141 101,145 L101,162" stroke-width="0.95" />
+          <!-- Architectural Division Line -->
+          <line x1="72" y1="135" x2="104" y2="135" stroke-width="0.8" />
+
+          <!-- CORNICE EAVES 6 (Projecting Kapota) -->
+          <path d="M66,166 L110,166" stroke-width="1.6" />
+          <path d="M68,170 L108,170" stroke-width="1.1" />
+
+          <!-- STOREY 5 (Tala 5, Y: 170 - 215) -->
+          <polygon points="67,170 109,170 112,215 64,215" stroke-width="1.2" />
+          <!-- Triple Arch Niches -->
+          <path d="M83,215 L83,184 Q88,176 93,184 L93,215" stroke-width="1.2" />
+          <path d="M71,215 L71,190 Q75,185 79,190 L79,215" stroke-width="1" />
+          <path d="M97,215 L97,190 Q101,185 105,190 L105,215" stroke-width="1" />
+          <!-- Pilasters -->
+          <line x1="68" y1="180" x2="68" y2="215" stroke-width="0.9" />
+          <line x1="108" y1="180" x2="108" y2="215" stroke-width="0.9" />
+
+          <!-- CORNICE EAVES 5 -->
+          <path d="M59,219 L117,219" stroke-width="1.7" />
+          <path d="M61,223 L115,223" stroke-width="1.1" />
+
+          <!-- STOREY 4 (Tala 4, Y: 223 - 275) -->
+          <polygon points="60,223 116,223 120,275 56,275" stroke-width="1.25" />
+          <!-- Grand Center Bay -->
+          <path d="M82,275 L82,238 Q88,229 94,238 L94,275" stroke-width="1.25" />
+          <!-- Flanking Niche Bays -->
+          <path d="M68,275 L68,244 Q73,238 78,244 L78,275" stroke-width="1.05" />
+          <path d="M98,275 L98,244 Q103,238 108,244 L108,275" stroke-width="1.05" />
+          <!-- Frieze Band with dentils -->
+          <line x1="59" y1="233" x2="117" y2="233" stroke-width="0.9" />
+          <line x1="63" y1="229" x2="63" y2="233" stroke-width="0.8" />
+          <line x1="71" y1="229" x2="71" y2="233" stroke-width="0.8" />
+          <line x1="88" y1="229" x2="88" y2="233" stroke-width="0.8" />
+          <line x1="105" y1="229" x2="105" y2="233" stroke-width="0.8" />
+          <line x1="113" y1="229" x2="113" y2="233" stroke-width="0.8" />
+
+          <!-- CORNICE EAVES 4 -->
+          <path d="M51,279 L125,279" stroke-width="1.8" />
+          <path d="M53,284 L123,284" stroke-width="1.15" />
+
+          <!-- STOREY 3 (Tala 3, Y: 284 - 340) -->
+          <polygon points="52,284 124,284 128,340 48,340" stroke-width="1.3" />
+          <!-- Center Bay -->
+          <path d="M81,340 L81,295 Q88,286 95,295 L95,340" stroke-width="1.3" />
+          <!-- Left & Right Bays -->
+          <path d="M64,340 L64,302 Q71,294 78,302 L78,340" stroke-width="1.1" />
+          <path d="M98,340 L98,302 Q105,294 112,302 L112,340" stroke-width="1.1" />
+          <!-- Outer pilasters -->
+          <line x1="56" y1="294" x2="56" y2="340" stroke-width="0.95" />
+          <line x1="120" y1="294" x2="120" y2="340" stroke-width="0.95" />
+
+          <!-- CORNICE EAVES 3 -->
+          <path d="M43,344 L133,344" stroke-width="1.9" />
+          <path d="M45,349 L131,349" stroke-width="1.2" />
+
+          <!-- STOREY 2 (Tala 2, Y: 349 - 410) -->
+          <polygon points="44,349 132,349 136,410 40,410" stroke-width="1.3" />
+          <!-- Center Grand Niche -->
+          <path d="M80,410 L80,362 Q88,351 96,362 L96,410" stroke-width="1.3" />
+          <path d="M60,410 L60,370 Q68,361 76,370 L76,410" stroke-width="1.1" />
+          <path d="M100,410 L100,370 Q108,361 116,370 L116,410" stroke-width="1.1" />
+          <!-- Carved pilaster pairs -->
+          <line x1="48" y1="360" x2="48" y2="410" stroke-width="1" />
+          <line x1="128" y1="360" x2="128" y2="410" stroke-width="1" />
+
+          <!-- CORNICE EAVES 2 -->
+          <path d="M34,414 L142,414" stroke-width="2" />
+          <path d="M36,419 L140,419" stroke-width="1.2" />
+
+          <!-- STOREY 1 / GROUND MANDAPA & TEMPLE PORTAL (Y: 419 - 465) -->
+          <rect x="35" y="419" width="106" height="46" stroke-width="1.35" />
+          
+          <!-- SACRED GOPURA ENTRANCE (Main Gateway Portal) -->
+          <path d="M78,465 L78,426 Q88,414 98,426 L98,465" stroke-width="1.6" />
+          <!-- Inner Frame Doorway -->
+          <path d="M81,465 L81,431 Q88,422 95,431 L95,465" stroke-width="1.1" />
+          
+          <!-- Flanking Monumental Pillars (Dvarapala Stambhas) -->
+          <!-- Left Pillars -->
+          <line x1="44" y1="424" x2="44" y2="465" stroke-width="1.3" />
+          <line x1="51" y1="424" x2="51" y2="465" stroke-width="1.3" />
+          <rect x="42" y="421" width="11" height="4" stroke-width="1" />
+          <line x1="63" y1="426" x2="63" y2="465" stroke-width="1.2" />
+          <line x1="69" y1="426" x2="69" y2="465" stroke-width="1.2" />
+          <!-- Right Pillars -->
+          <line x1="107" y1="426" x2="107" y2="465" stroke-width="1.2" />
+          <line x1="113" y1="426" x2="113" y2="465" stroke-width="1.2" />
+          <line x1="125" y1="424" x2="125" y2="465" stroke-width="1.3" />
+          <line x1="132" y1="424" x2="132" y2="465" stroke-width="1.3" />
+          <rect x="123" y="421" width="11" height="4" stroke-width="1" />
+
+          <!-- STEPPED ADHISHTHANA PLINTH (Base Platform) -->
+          <line x1="26" y1="465" x2="150" y2="465" stroke-width="2.2" />
+          <line x1="32" y1="472" x2="144" y2="472" stroke-width="1.5" />
+          <line x1="40" y1="479" x2="136" y2="479" stroke-width="1.2" />
+          <line x1="50" y1="486" x2="126" y2="486" stroke-width="0.9" />
+        </g>
+      </svg>
+    </aside>
+
     <div class="container">
       <div class="testimonials-header">
         <div>
