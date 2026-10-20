@@ -22,10 +22,10 @@
   <script src="theme.js"></script>
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 
-<body>
+<body class="home-page">
 
 
   <!-- HEADER NAVIGATION -->
@@ -45,6 +45,7 @@
         <a href="about.html" class="nav-link">About</a>
         <a href="#initiatives" class="nav-link">Work We Do</a>
         <a href="blog.html" class="nav-link">Blogs</a>
+        
       </nav>
 
       <!-- Header Actions -->
@@ -74,6 +75,7 @@
         <li><a class="mobile-nav-link" href="about.html">About</a></li>
         <li><a class="mobile-nav-link" href="#initiatives">Work We Do</a></li>
         <li><a class="mobile-nav-link" href="blog.html">Blogs</a></li>
+        <li><a class="mobile-nav-link" href="#contact">Contact</a></li>
         <li>
           <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
             rel="noopener noreferrer" class="mobile-cta">
@@ -836,10 +838,9 @@
       <div class="testimonial-carousel-wrap">
         <div class="testimonial-track" id="testimonialTrack" aria-label="Community testimonials carousel" tabindex="0">
 
-          <!-- Slide 1: 2 testimonials in alternating format -->
+          <!-- Slide 1: 2 testimonials in one line -->
           <div class="testimonial-slide is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
             <div class="testimonial-pairs">
-              <!-- Pair 1: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
                   <img src="assets/images/varanasi-ghats.jpg" alt="Varanasi ghats along the sacred river"
@@ -869,7 +870,7 @@
                 </div>
               </article>
 
-              <!-- Pair 2: Comment at left with overlap, photo at right -->
+              <!-- Testimonial 2: Card left, photo overlapping right -->
               <article class="testimonial-pair-row testimonial-pair-reverse">
                 <div class="testimonial-card-col">
                   <h3>Educator</h3>
@@ -901,10 +902,9 @@
             </div>
           </div>
 
-          <!-- Slide 2: 2 testimonials in alternating format -->
+          <!-- Slide 2: 2 testimonials in one line -->
           <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
             <div class="testimonial-pairs">
-              <!-- Pair 3: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
                   <img src="assets/images/youth-nation-building.jpg"
@@ -934,7 +934,7 @@
                 </div>
               </article>
 
-              <!-- Pair 4: Comment at left with overlap, photo at right -->
+              <!-- Testimonial 4: Card left, photo overlapping right -->
               <article class="testimonial-pair-row testimonial-pair-reverse">
                 <div class="testimonial-card-col">
                   <h3>Local Organiser</h3>
@@ -965,10 +965,9 @@
             </div>
           </div>
 
-          <!-- Slide 3: 2 testimonials in alternating format -->
+          <!-- Slide 3: 2 testimonials in one line -->
           <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
             <div class="testimonial-pairs">
-              <!-- Pair 5: Photo at left, comment at right with overlap -->
               <article class="testimonial-pair-row testimonial-pair-normal">
                 <div class="testimonial-image-col">
                   <img src="assets/images/hero-courtyard.jpg" alt="Heritage courtyard and dialogue gathering"
@@ -998,7 +997,7 @@
                 </div>
               </article>
 
-              <!-- Pair 6: Comment at left with overlap, photo at right -->
+              <!-- Testimonial 6: Card left, photo overlapping right -->
               <article class="testimonial-pair-row testimonial-pair-reverse">
                 <div class="testimonial-card-col">
                   <h3>Fellowship Scholar</h3>
@@ -1057,51 +1056,285 @@
   <!-- =========================================================================
        CONTACT / ENGAGEMENT SECTION
        ========================================================================= -->
-  <section class="contact-section" id="contact" aria-labelledby="contact-title">
-    <div class="container">
-      <div class="contact-header">
-        <span class="section-badge">Contact Us</span>
-        <h2 id="contact-title" class="section-title">Let's make something</h2>
+  <!-- =========================================================================
+       CONTACT / ENGAGEMENT SECTION (Styled to match design mockup)
+       ========================================================================= -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="contact-frame-container">
+      
+      <!-- Top Brand Tag -->
+      <div class="contact-brand-row">
+        <div class="contact-brand-tag">
+          <span class="contact-brand-logo">TMB</span>
+          <span class="contact-brand-divider" aria-hidden="true"></span>
+          <span class="contact-brand-tagline">Towards My Bharat</span>
+        </div>
       </div>
 
-      <div class="contact-cards-grid">
-        <!-- Card 1: For Brands -->
-        <article class="contact-card">
-          <div class="contact-card-body">
-            <h3>For Brands</h3>
-            <p>Sponsorships, branded films and integrated campaigns.</p>
-          </div>
-          <a href="mailto:info@towardsmybharat.in?subject=Collaboration%20Inquiry%20-%20For%20Brands"
-            class="contact-card-link">
-            <span>Pitch a collaboration</span>
-            <span class="contact-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
+      <!-- Main Layout: Left Intro + Right 3 Cards -->
+      <div class="contact-main-grid">
+        
+        <!-- Left Intro Column -->
+        <div class="contact-intro-col">
+          <div class="contact-pill-badge">Contact Us</div>
+          <h2 id="contact-heading" class="contact-display-title">
+            <span class="contact-title-lead">Let's make</span>
+            <span class="contact-title-accent">something</span>
+          </h2>
+          <div class="contact-accent-dash" aria-hidden="true"></div>
+          <p class="contact-intro-desc">
+            Together, we can build meaningful experiences, strong communities and a brighter tomorrow.
+          </p>
+        </div>
 
-        <!-- Card 2: For Creators -->
-        <article class="contact-card">
-          <div class="contact-card-body">
-            <h3>For Creators</h3>
-            <p>Want to collaborate, guest on the podcast or join a shoot?</p>
-          </div>
-          <a href="mailto:info@towardsmybharat.in?subject=Creator%20Collaboration" class="contact-card-link">
-            <span>Reach the team</span>
-            <span class="contact-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
+        <!-- Right Cards Column -->
+        <div class="contact-cards-col">
+          
+          <!-- Card 01: For Brands -->
+          <article class="contact-card">
+            <div class="contact-card-top">
+              <span class="contact-card-step">01 <span class="step-dash">—</span></span>
+            </div>
+            
+            <div class="contact-card-art" aria-hidden="true">
+              <svg class="contact-card-illustration" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft warm circular halo -->
+                <circle cx="70" cy="50" r="32" class="art-sun" />
+                
+                <!-- Film reels on top -->
+                <g class="art-stroke">
+                  <circle cx="86" cy="30" r="14" stroke-width="1.4" />
+                  <circle cx="86" cy="30" r="4.5" stroke-width="1.2" />
+                  <circle cx="86" cy="22" r="1.5" fill="currentColor" />
+                  <circle cx="86" cy="38" r="1.5" fill="currentColor" />
+                  <circle cx="78" cy="30" r="1.5" fill="currentColor" />
+                  <circle cx="94" cy="30" r="1.5" fill="currentColor" />
 
-        <!-- Card 3: Careers -->
-        <article class="contact-card">
-          <div class="contact-card-body">
-            <h3>Careers</h3>
-            <p>Editors, researchers, producers. We're always hiring curious people.</p>
-          </div>
-          <a href="mailto:info@towardsmybharat.in?subject=Career%20Inquiry" class="contact-card-link">
-            <span>See open roles</span>
-            <span class="contact-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
+                  <circle cx="68" cy="28" r="15" stroke-width="1.5" />
+                  <circle cx="68" cy="28" r="5" stroke-width="1.3" />
+                  <circle cx="68" cy="19" r="1.5" fill="currentColor" />
+                  <circle cx="68" cy="37" r="1.5" fill="currentColor" />
+                  <circle cx="59" cy="28" r="1.5" fill="currentColor" />
+                  <circle cx="77" cy="28" r="1.5" fill="currentColor" />
+                  
+                  <path d="M60 42 L94 42" stroke-width="1.5" />
+
+                  <!-- Camera body -->
+                  <rect x="52" y="42" width="42" height="26" rx="2" stroke-width="1.5" />
+                  <rect x="76" y="38" width="18" height="4" rx="1" stroke-width="1.3" />
+                  <circle cx="66" cy="55" r="4" stroke-width="1.2" />
+                  <circle cx="80" cy="55" r="3" stroke-width="1.2" />
+                  
+                  <!-- Hand crank -->
+                  <path d="M94 54 L102 54 L102 48" stroke-width="1.3" />
+                  <circle cx="102" cy="47" r="1.5" fill="currentColor" />
+
+                  <!-- Lens bellows and matte box -->
+                  <path d="M52 48 L40 50 L40 60 L52 62" stroke-width="1.4" />
+                  <polygon points="40,49 26,45 26,65 40,61" stroke-width="1.4" />
+                  <line x1="46" y1="49" x2="46" y2="61" stroke-width="1.2" />
+
+                  <!-- Tripod head -->
+                  <rect x="67" y="68" width="12" height="5" rx="1" stroke-width="1.4" />
+                  <polygon points="65,73 81,73 78,78 68,78" stroke-width="1.3" />
+
+                  <!-- Tripod legs -->
+                  <line x1="73" y1="78" x2="73" y2="124" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="69" y1="78" x2="46" y2="124" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="77" y1="78" x2="100" y2="124" stroke-width="1.5" stroke-linecap="round" />
+
+                  <!-- Tripod struts & spreaders -->
+                  <line x1="56" y1="102" x2="90" y2="102" stroke-width="1.2" />
+                  <rect x="53" y="99" width="6" height="5" stroke-width="1" />
+                  <rect x="87" y="99" width="6" height="5" stroke-width="1" />
+                  <rect x="70" y="99" width="6" height="5" stroke-width="1" />
+
+                  <!-- Subtle ground baseline -->
+                  <line x1="32" y1="124" x2="114" y2="124" stroke-width="1" stroke-dasharray="2 3" opacity="0.6" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="contact-card-content">
+              <h3 class="contact-card-heading">For <em>Brands</em></h3>
+              <p class="contact-card-summary">Sponsorships, branded films and integrated campaigns.</p>
+            </div>
+
+            <a href="mailto:info@towardsmybharat.in?subject=Collaboration%20Inquiry%20-%20For%20Brands"
+              class="contact-card-action">
+              <span>Pitch a collaboration</span>
+              <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Card 02: For Creators -->
+          <article class="contact-card">
+            <div class="contact-card-top">
+              <span class="contact-card-step">02 <span class="step-dash">—</span></span>
+            </div>
+
+            <div class="contact-card-art" aria-hidden="true">
+              <svg class="contact-card-illustration" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft warm circular halo -->
+                <circle cx="80" cy="50" r="32" class="art-sun" />
+
+                <!-- Radiating light rays -->
+                <g class="art-stroke" stroke-linecap="round" opacity="0.85">
+                  <line x1="80" y1="10" x2="80" y2="20" stroke-width="1.3" />
+                  <line x1="61" y1="16" x2="67" y2="24" stroke-width="1.3" />
+                  <line x1="46" y1="31" x2="54" y2="38" stroke-width="1.3" />
+                  <line x1="40" y1="52" x2="49" y2="54" stroke-width="1.3" />
+                  <line x1="44" y1="72" x2="52" y2="70" stroke-width="1.3" />
+                  <line x1="99" y1="16" x2="93" y2="24" stroke-width="1.3" />
+                  <line x1="114" y1="31" x2="106" y2="38" stroke-width="1.3" />
+                  <line x1="120" y1="52" x2="111" y2="54" stroke-width="1.3" />
+                  <line x1="116" y1="72" x2="108" y2="70" stroke-width="1.3" />
+                </g>
+
+                <g class="art-stroke">
+                  <!-- Lightbulb glass -->
+                  <path d="M72 74 C66 70 60 58 60 48 C60 37 69 28 80 28 C91 28 100 37 100 48 C100 58 94 70 88 74 Z" stroke-width="1.5" />
+                  <path d="M75 58 L77 44 C77 40 80 40 80 44 C80 40 83 40 83 44 L85 58" stroke-width="1.2" stroke-linecap="round" />
+                  <circle cx="80" cy="41" r="1.2" fill="currentColor" />
+
+                  <!-- Threads & base -->
+                  <path d="M73 76 Q80 79 87 76" stroke-width="1.3" />
+                  <path d="M73 80 Q80 83 87 80" stroke-width="1.3" />
+                  <path d="M74 84 Q80 87 86 84" stroke-width="1.3" />
+                  <path d="M75 87 Q80 90 85 87" stroke-width="1.4" />
+
+                  <!-- Open Book -->
+                  <line x1="80" y1="92" x2="80" y2="118" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M80 93 C65 87 48 89 28 94" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M80 93 C95 87 112 89 132 94" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="28" y1="94" x2="28" y2="114" stroke-width="1.4" stroke-linecap="round" />
+                  <line x1="132" y1="94" x2="132" y2="114" stroke-width="1.4" stroke-linecap="round" />
+                  <path d="M28 114 C48 109 65 107 80 118" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M132 114 C112 109 95 107 80 118" stroke-width="1.5" stroke-linecap="round" />
+                  
+                  <path d="M30 117 C48 112 65 110 80 120" stroke-width="1" opacity="0.6" stroke-linecap="round" />
+                  <path d="M130 117 C112 112 95 110 80 120" stroke-width="1" opacity="0.6" stroke-linecap="round" />
+                  <path d="M32 120 C50 115 66 113 80 122" stroke-width="0.9" opacity="0.4" stroke-linecap="round" />
+                  <path d="M128 120 C110 115 94 113 80 122" stroke-width="0.9" opacity="0.4" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="contact-card-content">
+              <h3 class="contact-card-heading">For <em>Creators</em></h3>
+              <p class="contact-card-summary">Want to collaborate, guest on the podcast or join a shoot?</p>
+            </div>
+
+            <a href="mailto:info@towardsmybharat.in?subject=Creator%20Collaboration"
+              class="contact-card-action">
+              <span>Reach the team</span>
+              <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Card 03: Careers -->
+          <article class="contact-card">
+            <div class="contact-card-top">
+              <span class="contact-card-step">03 <span class="step-dash">—</span></span>
+            </div>
+
+            <div class="contact-card-art" aria-hidden="true">
+              <svg class="contact-card-illustration" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft warm circular halo -->
+                <circle cx="70" cy="46" r="30" class="art-sun" />
+
+                <!-- Clouds in sky -->
+                <g class="art-stroke" stroke-linecap="round" opacity="0.75">
+                  <path d="M28 50 Q36 47 46 50 Q54 48 60 52" stroke-width="1.1" />
+                  <path d="M106 40 Q116 37 124 41 Q132 39 138 43" stroke-width="1.1" />
+                  <path d="M116 58 Q124 55 130 58" stroke-width="1" />
+                </g>
+
+                <g class="art-stroke">
+                  <!-- Mountain Ridges -->
+                  <path d="M26 122 L52 82 L70 94 L88 36 L112 84 L126 76 L144 122" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+
+                  <!-- Summit Flagpole & Flag -->
+                  <line x1="88" y1="36" x2="88" y2="18" stroke-width="1.5" stroke-linecap="round" />
+                  <circle cx="88" cy="17" r="1.2" fill="currentColor" />
+                  <polygon points="88,20 102,25 88,30" stroke-width="1.3" fill="var(--contact-sun)" stroke-linejoin="round" />
+
+                  <!-- Central Ridge Line -->
+                  <path d="M88 36 Q84 66 82 122" stroke-width="1.4" stroke-linecap="round" />
+                  
+                  <!-- Lithograph mountain shading -->
+                  <line x1="84" y1="46" x2="74" y2="56" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+                  <line x1="83" y1="56" x2="68" y2="70" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+                  <line x1="82" y1="68" x2="64" y2="82" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+                  <line x1="82" y1="80" x2="60" y2="98" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+                  <line x1="82" y1="94" x2="52" y2="114" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+
+                  <path d="M52 82 L42 122" stroke-width="1.2" opacity="0.7" />
+                  <path d="M126 76 L120 122" stroke-width="1.2" opacity="0.7" />
+
+                  <!-- Base line -->
+                  <line x1="20" y1="122" x2="148" y2="122" stroke-width="1.2" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="contact-card-content">
+              <h3 class="contact-card-heading"><em>Careers</em></h3>
+              <p class="contact-card-summary">Editors, researchers, producers. We're always hiring curious people.</p>
+            </div>
+
+            <a href="mailto:info@towardsmybharat.in?subject=Career%20Inquiry"
+              class="contact-card-action">
+              <span>See open roles</span>
+              <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+        </div>
       </div>
+
+      <!-- Bottom Decorative Line, Sparkle Star & Botanical Foliage -->
+      <div class="contact-decor-footer" aria-hidden="true">
+        <div class="contact-decor-sparkle">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path d="M12 0 L14.2 9.8 L24 12 L14.2 14.2 L12 24 L9.8 14.2 L0 12 L9.8 9.8 Z" fill="currentColor" />
+          </svg>
+        </div>
+        
+        <div class="contact-decor-line-wrap">
+          <svg viewBox="0 0 1000 24" preserveAspectRatio="none" class="contact-decor-line-svg">
+            <path d="M0 12 L780 12 Q810 12 825 8 L850 4 Q860 2 875 2 L940 2" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="946" cy="2" r="3" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div class="contact-decor-foliage">
+          <svg class="contact-foliage-svg" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M160 140 C130 130 95 105 75 55" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+            
+            <path d="M135 125 C118 122 108 134 112 142 C122 138 130 132 135 125 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+            <path d="M122 112 C128 94 142 96 144 108 C136 110 128 111 122 112 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+
+            <path d="M110 98 C92 90 84 102 90 112 C98 108 106 102 110 98 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+            <path d="M100 82 C106 64 122 66 124 78 C116 80 108 81 100 82 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+
+            <path d="M88 68 C72 58 66 70 72 80 C80 76 86 72 88 68 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+            <path d="M82 52 C88 34 104 36 104 48 C98 50 90 51 82 52 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+
+            <path d="M75 55 C70 35 55 40 62 54 C66 54 70 55 75 55 Z" stroke="currentColor" stroke-width="1.2" fill="var(--contact-sun)" fill-opacity="0.25" />
+          </svg>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1110,7 +1343,6 @@
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container">
-
       <!-- Top Columns Grid -->
       <div class="footer-main-grid">
 
@@ -1170,6 +1402,7 @@
             <a href="about.html">About</a>
             <a href="index.html#initiatives">Work We Do</a>
             <a href="blog.html">Blogs</a>
+            <a href="contact.html">Contact Us</a>
           </nav>
         </div>
 
