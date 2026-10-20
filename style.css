@@ -4897,12 +4897,12 @@ html[data-theme="dark"] .form-success-banner {
 }
 
 /* --------------------------------------------------------------------------
-   12. FOOTER (Inspired by reference photo, customized to TMB color theme)
+   12. FOOTER (Exact Match with Reference Photo)
    -------------------------------------------------------------------------- */
 .site-footer {
   width: 100%;
   background-color: #111A14; /* Dark mode background across both modes */
-  border-top: 1px solid rgba(167, 201, 87, 0.25);
+  border-top: 1px solid rgba(167, 201, 87, 0.22);
   padding-top: 4.5rem;
   padding-bottom: 2rem;
   overflow: hidden;
@@ -4913,21 +4913,27 @@ html[data-theme="dark"] .form-success-banner {
 html[data-theme="dark"] .site-footer,
 html[data-theme="light"] .site-footer {
   background-color: #111A14;
-  border-top-color: rgba(167, 201, 87, 0.25);
+  border-top-color: rgba(167, 201, 87, 0.22);
   color: #E7EFE5;
 }
 
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main 3-Column Grid without bottom divider line */
 .footer-main-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  padding-bottom: 3.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 2.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: none;
 }
 
 @media (min-width: 768px) {
   .footer-main-grid {
-    grid-template-columns: 1.4fr 1fr 1.3fr;
+    grid-template-columns: 1.45fr 1fr 1.35fr;
     gap: 3.5rem;
   }
 }
@@ -4942,13 +4948,12 @@ html[data-theme="light"] .site-footer {
 .footer-brand-logo-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
   margin-bottom: 1.25rem;
+  text-decoration: none;
 }
 
 .footer-brand-logo-img {
-  height: 52px;
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
@@ -4956,9 +4961,9 @@ html[data-theme="light"] .site-footer {
 .footer-brand-tagline {
   font-family: var(--font-sans);
   font-size: 0.95rem;
-  line-height: 1.65;
-  color: #B1C2B0;
-  max-width: 22rem;
+  line-height: 1.55;
+  color: #A0B2A0;
+  max-width: 21rem;
   margin-bottom: 1.75rem;
 }
 
@@ -4970,54 +4975,48 @@ html[data-theme="light"] .site-footer {
 }
 
 .footer-social-icon {
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
-  border: 1px solid rgba(167, 201, 87, 0.45);
+  border: 1px solid rgba(167, 201, 87, 0.35);
   border-radius: 50%;
   color: #A7C957;
-  background: rgba(167, 201, 87, 0.08);
-  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(167, 201, 87, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
 .footer-social-icon:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid #A7C957;
   outline-offset: 3px;
 }
 
 .footer-social-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   fill: currentColor;
   transition: transform 0.2s ease;
 }
 
 .footer-social-icon:hover {
-  color: #18271D;
+  color: #111A14;
   border-color: #A7C957;
   background: #A7C957;
-  box-shadow: 0 0 0 3px rgba(167, 201, 87, 0.18);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .footer-social-icon:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* Headings for Column 2 and 3 */
 .footer-heading {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -5029,14 +5028,14 @@ html[data-theme="light"] .site-footer {
 .footer-vertical-links {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.95rem;
 }
 
 .footer-vertical-links a {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
-  color: #B1C2B0;
+  color: #E2E8DF;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   width: fit-content;
@@ -5067,20 +5066,20 @@ html[data-theme="light"] .site-footer {
 .footer-contact-label {
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #B1C2B0;
+  font-weight: 500;
+  color: #8C9E8C;
 }
 
 .footer-email-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .footer-email-link {
   font-family: var(--font-sans);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #FFFFFF;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -5094,7 +5093,7 @@ html[data-theme="light"] .site-footer {
 .footer-copy-btn {
   background: none;
   border: none;
-  padding: 0.25rem;
+  padding: 0.2rem;
   cursor: pointer;
   color: #B1C2B0;
   display: inline-flex;
@@ -5105,7 +5104,7 @@ html[data-theme="light"] .site-footer {
 }
 
 .footer-copy-btn .material-symbols-outlined {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .footer-copy-btn:hover {
@@ -5119,7 +5118,7 @@ html[data-theme="light"] .site-footer {
   gap: 0.4rem;
   font-family: var(--font-sans);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #FFFFFF;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -5141,233 +5140,81 @@ html[data-theme="light"] .site-footer {
 }
 
 /* --------------------------------------------------------------------------
-   ARTISTIC SHADOW BRIDGE (The Civilisational Bridge across Time)
-   Bridging the Ancient Roots and Modern Generation of Bharat
+   CENTERPIECE ARCHITECTURAL SUSPENSION BRIDGE & TOWARDSMYBHARAT WORDMARK
    -------------------------------------------------------------------------- */
-.footer-bridge-section {
+.footer-hero-brand-wrap {
   width: 100%;
-  margin-top: 2.5rem;
-  padding-top: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgba(167, 201, 87, 0.16);
+  overflow: visible;
 }
 
-/* Atmospheric Ambient Glow behind Bridge */
-.footer-bridge-section::before {
-  content: "";
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -20%);
-  width: 85%;
-  max-width: 950px;
-  height: 180px;
-  background: radial-gradient(ellipse at center, rgba(167, 201, 87, 0.14) 0%, rgba(224, 159, 62, 0.07) 45%, rgba(17, 26, 20, 0) 75%);
+.footer-bridge-illustration {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   pointer-events: none;
-  filter: blur(28px);
-  z-index: 0;
-}
-
-/* Narrative Emotion Header: Ancient Roots <-> Living Bridge <-> Modern Generation */
-.footer-bridge-meta {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.9rem;
-  position: relative;
-  z-index: 1;
-}
-
-.bridge-meta-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  user-select: none;
-}
-
-.bridge-badge-ancient {
-  color: #F4D06F;
-  background: rgba(224, 159, 62, 0.12);
-  border: 1px solid rgba(224, 159, 62, 0.32);
-}
-
-.bridge-badge-ancient .bridge-badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #E09F3E;
-  box-shadow: 0 0 8px #F4D06F;
-}
-
-.bridge-badge-modern {
-  color: #A7C957;
-  background: rgba(167, 201, 87, 0.12);
-  border: 1px solid rgba(167, 201, 87, 0.32);
-}
-
-.bridge-badge-modern .bridge-badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #38BDF8;
-  box-shadow: 0 0 8px #38BDF8;
-}
-
-.bridge-meta-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #EAF5C7;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.bridge-meta-icon {
-  color: #A7C957;
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.bridge-meta-phrase {
-  opacity: 0.92;
-  letter-spacing: 0.08em;
-}
-
-/* Artwork Wrapper */
-.footer-bridge-art-wrap {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .footer-bridge-svg-img {
   width: 100%;
   height: auto;
-  max-height: 250px;
+  max-height: 260px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.45));
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.footer-bridge-section:hover .footer-bridge-svg-img {
-  filter: drop-shadow(0 4px 26px rgba(167, 201, 87, 0.18)) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
-}
-
-/* Subtle Narrative Caption Under Bridge */
-.footer-bridge-caption {
-  margin-top: 0.5rem;
-  font-family: var(--font-serif);
-  font-size: 0.96rem;
-  font-style: italic;
-  color: #B1C2B0;
-  text-align: center;
-  letter-spacing: 0.02em;
   opacity: 0.88;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+  transition: opacity 0.3s ease;
 }
 
-/* Mobile & Tablet adjustments */
-@media (max-width: 900px) {
-  .footer-bridge-meta {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .bridge-meta-center {
-    font-size: 0.72rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .footer-bridge-section {
-    margin-top: 1.75rem;
-    padding-top: 1.25rem;
-  }
-  .bridge-meta-badge {
-    font-size: 0.65rem;
-    padding: 0.25rem 0.65rem;
-  }
-  .bridge-meta-phrase {
-    font-size: 0.68rem;
-    line-height: 1.4;
-  }
-  .footer-bridge-svg-img {
-    max-height: 180px;
-  }
-  .footer-bridge-caption {
-    font-size: 0.85rem;
-  }
-}
-
-/* Giant Gradient Brand Wordmark at the Bottom - anchored right below the bridge */
+/* Giant Bold TowardsMyBharat Brand Wordmark Overlapping Bridge Deck */
 .footer-wordmark {
   width: 100%;
-  margin-top: 0.75rem;
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-4.8rem, -6.5vw, -2.4rem);
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0.5rem 0;
-  overflow: hidden;
+  padding: 0;
   font-family: var(--font-sans);
-  font-size: clamp(2.4rem, 9vw, 9rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.05;
+  font-size: clamp(3.2rem, 11.2vw, 11rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
   text-align: center;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
-  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  opacity: 1;
+  color: #CCE69F;
   box-sizing: border-box;
 }
 
 html[data-theme="dark"] .footer-wordmark,
 html[data-theme="light"] .footer-wordmark {
-  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  opacity: 1;
+  color: #CCE69F;
 }
 
-/* Bottom Bar: Copyright & Made in India placed cleanly at base */
+/* Bottom Bar: Copyright & Made for India placed cleanly without border line */
 .footer-meta-bar {
-  padding-top: 1.5rem;
-  margin-top: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+  margin-top: 0.25rem;
+  border-top: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 0.75rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  color: #B1C2B0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: #7A8E7A;
 }
 
 @media (min-width: 640px) {
@@ -5376,5 +5223,3 @@ html[data-theme="light"] .footer-wordmark {
     align-items: center;
   }
 }
-
-
