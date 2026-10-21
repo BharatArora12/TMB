@@ -5140,22 +5140,24 @@ html[data-theme="light"] .site-footer {
 }
 
 /* --------------------------------------------------------------------------
-   CENTERPIECE ARCHITECTURAL SUSPENSION BRIDGE & TOWARDSMYBHARAT WORDMARK
+   CENTERPIECE ARCHITECTURAL SUSPENSION BRIDGE & BRAND WORDMARK
    -------------------------------------------------------------------------- */
 .footer-hero-brand-wrap {
   width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 0.25rem;
+  max-width: 1200px;
+  margin: 2.25rem auto 0;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: visible;
+  box-sizing: border-box;
 }
 
 .footer-bridge-illustration {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1120px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -5163,37 +5165,41 @@ html[data-theme="light"] .site-footer {
   justify-content: center;
   align-items: flex-end;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .footer-bridge-svg-img {
   width: 100%;
   height: auto;
-  max-height: 260px;
+  max-height: 240px;
   display: block;
   object-fit: contain;
-  opacity: 0.88;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.45));
   transition: opacity 0.3s ease;
 }
 
-/* Giant Bold TowardsMyBharat Brand Wordmark Overlapping Bridge Deck */
+/* Giant Bold Towards My Bharat Brand Wordmark Harmoniously Anchored to Bridge Deck */
 .footer-wordmark {
   width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
-  margin-top: clamp(-4.8rem, -6.5vw, -2.4rem);
-  margin-bottom: 0.5rem;
-  padding: 0;
+  margin-top: clamp(-3.4rem, -4.5vw, -1.6rem);
+  margin-bottom: 0.25rem;
+  padding: 0 0.5rem;
   font-family: var(--font-sans);
-  font-size: clamp(3.2rem, 11.2vw, 11rem);
+  font-size: clamp(1.4rem, 6.6vw, 6.6rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.88;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
   text-align: center;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
   color: #CCE69F;
+  text-shadow: 0 2px 20px rgba(17, 26, 20, 0.9), 0 1px 4px rgba(17, 26, 20, 0.95);
   box-sizing: border-box;
 }
 
@@ -5202,11 +5208,13 @@ html[data-theme="light"] .footer-wordmark {
   color: #CCE69F;
 }
 
-/* Bottom Bar: Copyright & Made for India placed cleanly without border line */
+/* Bottom Bar: Copyright & Made for India aligned to match bridge width */
 .footer-meta-bar {
+  width: 100%;
+  max-width: 1120px;
+  margin: 1.25rem auto 0;
   padding-top: 1.25rem;
-  margin-top: 0.25rem;
-  border-top: none;
+  border-top: 1px solid rgba(167, 201, 87, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -5215,6 +5223,7 @@ html[data-theme="light"] .footer-wordmark {
   font-size: 0.85rem;
   letter-spacing: 0.03em;
   color: #7A8E7A;
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -5223,3 +5232,4 @@ html[data-theme="light"] .footer-wordmark {
     align-items: center;
   }
 }
+
