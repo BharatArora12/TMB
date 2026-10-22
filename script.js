@@ -1117,177 +1117,129 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================================================
   // MODULE 10: SYNCHRONIZED IMPACT STATS & LIVING MOVEMENT ARCH
   // ============================================================================
+  // ============================================================================
+  // MODULE 10: CENTRALIZED IMPACT COUNTERS & SCENERY TIMELINE
+  // ============================================================================
   /**
-   * Orchestrates the synchronized living movement showcase:
-   * 1. Synchronized growth: As young leaders step onto and advance along the sunlit
-   *    winding path, numbers (20k+, 18, 35+, 250+) increase in direct correlation.
-   * 2. Auto-repeating cycle: Every 5 to 7 seconds (6.0s total cycle), the stats
-   *    increase in sync with the added people, hold gracefully for reading, and repeat.
-   * 3. Performance & accessibility: Automatically pauses off-screen, respects reduced-motion.
+   * Refactored Centralized Counter & Scenery Controller:
+   * - Uses ONE shared requestAnimationFrame elapsed-time animation loop across ALL counters.
+   * - Begins at zero and smoothly eases to exact target values (e.g. 20k+, 18, 35+, 250+).
+   * - Respects `prefers-reduced-motion` (instant target values, no animation loop).
+   * - Coordinates with central scenery video playback start & duration.
+   * - Supports replay on user click.
+   * - Cleans up listeners, observer, and RAF loop on unmount.
    */
   const impactMetrics = document.querySelector('.impact-metrics-section');
   const impactCounters = Array.from(document.querySelectorAll('.impact-metrics-section [data-count-up]'));
   const impactCinematicArch = document.getElementById('impactCinematicArch');
   const impactArchVideo = document.getElementById('impactArchVideo');
   const impactMainCounterWrap = document.getElementById('impactMainCounterWrap');
-  const peopleMovementGroup = document.getElementById('peopleMovementGroup');
 
-  // Format counter values (compact 'k' or localized string)
-  const formatCounter = (value, compact) => {
-    if (compact && value >= 1000) return `${Math.floor(value / 1000)}k`;
-    return Math.floor(value).toLocaleString();
-  };
+  // Parse counters configuration
+  const counterItems = impactCounters.map((el) => {
+    const target = Number(el.dataset.countUp) || 0;
+    const suffix = el.dataset.countSuffix || '';
+    const compact = el.dataset.countFormat === 'compact';
+    return { el, target, suffix, compact };
+  });
 
-  // 14 carefully calibrated waypoints following the white road from the entrance on the right up to the sunrise
-  const PEOPLE_DATA = [
-    // 1. Entering at the bottom right where the road begins
-    { x: 630, y: 1345, scale: 1.15, type: 'figureLeader', threshold: 0.05, phase: 0 },
-    // 2. Stepping inward along lower right road
-    { x: 550, y: 1315, scale: 1.05, type: 'figureStudent', threshold: 0.12, phase: 1.2 },
-    // 3. Walking along lower curve
-    { x: 470, y: 1280, scale: 0.96, type: 'figureYouth', threshold: 0.19, phase: 2.5 },
-    // 4. Rounding the lower left bend
-    { x: 385, y: 1240, scale: 0.90, type: 'figureLeader', threshold: 0.26, phase: 0.8 },
-    // 5. On the lower left curve
-    { x: 295, y: 1205, scale: 0.85, type: 'figureStudent', threshold: 0.33, phase: 3.1 },
-    // 6. Turning upward on the left curve
-    { x: 270, y: 1165, scale: 0.80, type: 'figureYouth', threshold: 0.40, phase: 1.7 },
-    // 7. Heading rightward and upward
-    { x: 315, y: 1130, scale: 0.76, type: 'figureLeader', threshold: 0.47, phase: 4.2 },
-    // 8. Moving through middle stretch
-    { x: 385, y: 1100, scale: 0.72, type: 'figureStudent', threshold: 0.54, phase: 2.1 },
-    // 9. In the middle path
-    { x: 455, y: 1070, scale: 0.68, type: 'figureYouth', threshold: 0.61, phase: 0.5 },
-    // 10. Middle right curve
-    { x: 530, y: 1040, scale: 0.64, type: 'figureLeader', threshold: 0.68, phase: 3.7 },
-    // 11. Upper curve winding left
-    { x: 440, y: 1000, scale: 0.58, type: 'figureStudent', threshold: 0.75, phase: 1.9 },
-    // 12. Upper curve heading toward sunrise
-    { x: 415, y: 960, scale: 0.52, type: 'figureYouth', threshold: 0.82, phase: 4.6 },
-    // 13. Ascending towards the mountain pass
-    { x: 490, y: 925, scale: 0.46, type: 'figureLeader', threshold: 0.89, phase: 2.8 },
-    // 14. Approaching the radiant sunrise
-    { x: 450, y: 885, scale: 0.40, type: 'figureYouth', threshold: 0.95, phase: 5.1 }
-  ];
-
-  const peopleElements = [];
-
-  if (peopleMovementGroup) {
-    PEOPLE_DATA.forEach((p, index) => {
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('class', 'movement-person');
-      g.setAttribute('data-index', index);
-      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      use.setAttribute('href', `#${p.type}`);
-      g.appendChild(use);
-      g.style.opacity = '0';
-      peopleMovementGroup.appendChild(g);
-      peopleElements.push({ element: g, data: p });
-    });
-  }
-
-  // Slower, majestic cadence: 6.8s count-up + 2.4s hold = 9.2s total cycle
-  const COUNT_DURATION = 6800; // 6.8 seconds slow, smooth count-up and adding people
-  const HOLD_DURATION = 2400;  // 2.4 seconds reading hold at 100% stats
-  const CYCLE_DURATION = COUNT_DURATION + HOLD_DURATION; // 9200ms total cycle
-
-  let isImpactActive = false;
-  let impactAnimFrameId = null;
-  let cycleStartTime = null;
-  let lastCycleIndex = -1;
-
-  const updateImpactFrame = (now) => {
-    if (!isImpactActive) return;
-
-    if (!cycleStartTime) cycleStartTime = now;
-    const elapsed = now - cycleStartTime;
-    const currentCycleIndex = Math.floor(elapsed / CYCLE_DURATION);
-    const cycleTime = elapsed % CYCLE_DURATION;
-
-    // Detect new cycle iteration: seamlessly restart video and prepare next wave
-    if (currentCycleIndex !== lastCycleIndex) {
-      lastCycleIndex = currentCycleIndex;
-      if (impactArchVideo) {
-        try {
-          impactArchVideo.currentTime = 0;
-          const playPromise = impactArchVideo.play();
-          if (playPromise !== undefined) playPromise.catch(() => {});
-        } catch (_) {}
-      }
-    }
-
-    let progress = 0;
-    let isHoldingPeak = false;
-
-    if (cycleTime < COUNT_DURATION) {
-      // Phase 1: Numbers steadily increase in sync with people stepping onto the path
-      const rawProgress = cycleTime / COUNT_DURATION;
-      // Gentle sine ease gives a calm, natural cadence
-      progress = Math.sin((rawProgress * Math.PI) / 2);
+  // Value formatting function
+  const formatCounterValue = (value, compact, suffix) => {
+    let formatted = '';
+    if (compact && value >= 1000) {
+      formatted = `${Math.floor(value / 1000)}k`;
     } else {
-      // Phase 2: Completed Stats hold (for clear comfortable reading)
-      progress = 1.0;
-      isHoldingPeak = true;
+      formatted = Math.floor(value).toLocaleString();
     }
-
-    // Gentle 300ms fade transition right before cycle restart for seamless repeat
-    let cycleFade = 1.0;
-    if (cycleTime > CYCLE_DURATION - 300) {
-      cycleFade = Math.max(0, (CYCLE_DURATION - cycleTime) / 300);
-    }
-
-    // 1. Update Numbers
-    impactCounters.forEach((counter) => {
-      const target = Number(counter.dataset.countUp);
-      const suffix = counter.dataset.countSuffix || '';
-      const compact = counter.dataset.countFormat === 'compact';
-      const currentVal = Math.floor(target * progress);
-      counter.textContent = `${formatCounter(currentVal, compact)}${suffix}`;
-
-      if (isHoldingPeak && cycleFade > 0.5) {
-        counter.classList.add('is-peak');
-      } else {
-        counter.classList.remove('is-peak');
-      }
-    });
-
-    // 2. Synchronize People along Pathway from bottom-right road start
-    peopleElements.forEach(({ element, data }) => {
-      const { x, y, scale, threshold, phase } = data;
-      // Natural walking cadence bobbing
-      const bob = Math.sin(now * 0.004 + phase) * (1.8 * scale);
-      const currentY = y + bob;
-
-      if (progress >= threshold) {
-        // Person fades in and strides onto path from the road entrance
-        const personProg = Math.min(1, (progress - threshold) / 0.10);
-        element.style.opacity = (personProg * cycleFade).toFixed(2);
-        const forwardStepX = (1 - personProg) * 16 * scale;
-        const forwardStepY = (1 - personProg) * 12 * scale;
-        element.setAttribute('transform', `translate(${x + forwardStepX}, ${currentY + forwardStepY}) scale(${scale})`);
-      } else {
-        element.style.opacity = '0';
-        element.setAttribute('transform', `translate(${x}, ${currentY}) scale(${scale})`);
-      }
-    });
-
-    impactAnimFrameId = requestAnimationFrame(updateImpactFrame);
+    return `${formatted}${suffix}`;
   };
 
-  const startImpactCycle = () => {
-    if (!isImpactActive) {
-      isImpactActive = true;
-      cycleStartTime = performance.now();
-      lastCycleIndex = -1;
-      impactAnimFrameId = requestAnimationFrame(updateImpactFrame);
+  // Shared Animation Constants
+  const ANIMATION_DURATION = 2000; // 2.0s smooth editorial easing
+  let sharedRafId = null;
+  let sharedStartTime = null;
+
+  // Single shared requestAnimationFrame loop for all counters
+  const animateSharedCounters = (now) => {
+    if (!sharedStartTime) sharedStartTime = now;
+    const elapsed = now - sharedStartTime;
+    const rawProgress = Math.min(1, elapsed / ANIMATION_DURATION);
+
+    // High-end cubic ease-out deceleration: 1 - (1 - t)^3
+    const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
+
+    // Update all counters in a single synchronous pass
+    counterItems.forEach(({ el, target, suffix, compact }) => {
+      const currentVal = Math.floor(target * easedProgress);
+      el.textContent = formatCounterValue(currentVal, compact, suffix);
+    });
+
+    if (rawProgress < 1) {
+      sharedRafId = requestAnimationFrame(animateSharedCounters);
+    } else {
+      // Reached exact target values cleanly
+      counterItems.forEach(({ el, target, suffix, compact }) => {
+        el.textContent = formatCounterValue(target, compact, suffix);
+        el.classList.add('is-peak');
+      });
+      sharedRafId = null;
     }
   };
 
-  const stopImpactCycle = () => {
-    isImpactActive = false;
-    if (impactAnimFrameId) {
-      cancelAnimationFrame(impactAnimFrameId);
-      impactAnimFrameId = null;
+  // Coordinate counter playback with scenery playback
+  const triggerImpactShowcase = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Respect reduced motion
+    if (prefersReducedMotion) {
+      counterItems.forEach(({ el, target, suffix, compact }) => {
+        el.textContent = formatCounterValue(target, compact, suffix);
+        el.classList.add('is-peak');
+      });
+      if (impactArchVideo) {
+        impactArchVideo.pause();
+      }
+      return;
+    }
+
+    // Cancel any active frame before restarting
+    if (sharedRafId) {
+      cancelAnimationFrame(sharedRafId);
+      sharedRafId = null;
+    }
+
+    // Reset counters to zero
+    counterItems.forEach(({ el, suffix, compact }) => {
+      el.classList.remove('is-peak');
+      el.textContent = formatCounterValue(0, compact, suffix);
+    });
+
+    // Start scenery video playback in coordinate with counter timeline
+    if (impactArchVideo) {
+      try {
+        impactArchVideo.currentTime = 0;
+        const playPromise = impactArchVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      } catch (_) {}
+    }
+
+    // Launch shared animation loop
+    sharedStartTime = null;
+    sharedRafId = requestAnimationFrame(animateSharedCounters);
+  };
+
+  // Cleanup handler on page navigation or unmount
+  let impactObserver = null;
+  const cleanupImpact = () => {
+    if (sharedRafId) {
+      cancelAnimationFrame(sharedRafId);
+      sharedRafId = null;
+    }
+    if (impactObserver) {
+      impactObserver.disconnect();
+      impactObserver = null;
     }
     if (impactArchVideo && !impactArchVideo.paused) {
       try {
@@ -1296,40 +1248,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const restartImpactCycle = () => {
-    cycleStartTime = performance.now();
-    lastCycleIndex = -1;
-    if (!isImpactActive) {
-      startImpactCycle();
-    }
-  };
+  window.addEventListener('beforeunload', cleanupImpact);
+  window.addEventListener('pagehide', cleanupImpact);
 
   // Initialize
-  if (impactMetrics) {
-    // Replay on click
+  if (impactMetrics && counterItems.length > 0) {
+    // Set initial 0 values
+    counterItems.forEach(({ el, suffix, compact }) => {
+      el.textContent = formatCounterValue(0, compact, suffix);
+    });
+
+    // User replay interactions
     if (impactMainCounterWrap) {
-      impactMainCounterWrap.addEventListener('click', restartImpactCycle);
+      impactMainCounterWrap.addEventListener('click', triggerImpactShowcase);
     }
-
     if (impactCinematicArch) {
-      impactCinematicArch.addEventListener('click', restartImpactCycle);
+      impactCinematicArch.addEventListener('click', triggerImpactShowcase);
     }
 
-    // Scroll trigger with IntersectionObserver (continuous looping while visible)
+    // Scroll trigger with IntersectionObserver
     if ('IntersectionObserver' in window) {
-      const impactObserver = new IntersectionObserver((entries) => {
+      impactObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            startImpactCycle();
+            triggerImpactShowcase();
           } else {
-            stopImpactCycle();
+            // Pause video off-screen to preserve resources
+            if (impactArchVideo && !impactArchVideo.paused) {
+              try {
+                impactArchVideo.pause();
+              } catch (_) {}
+            }
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.2 });
 
       impactObserver.observe(impactMetrics);
     } else {
-      startImpactCycle();
+      triggerImpactShowcase();
     }
   }
 
