@@ -1063,11 +1063,10 @@ document.addEventListener('DOMContentLoaded', () => {
       slide.style.position = 'absolute';
       slide.style.inset = '0';
       slide.style.backgroundSize = 'cover';
-      slide.style.backgroundPosition = 'center';
-      slide.style.transition = 'opacity 1s ease-in-out, transform 3.5s ease-out';
+      slide.style.backgroundPosition = slide.dataset.position || 'center';
+      slide.style.transition = 'opacity 1.2s ease-in-out';
       slide.style.opacity = idx === 0 ? '1' : '0';
       slide.style.zIndex = idx === 0 ? '2' : '1';
-      slide.style.transform = idx === 0 ? 'scale(1.05)' : 'scale(1)';
     });
 
     setInterval(() => {
@@ -1075,16 +1074,14 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSlide = (currentSlide + 1) % slides.length;
       const nextSlide = slides[currentSlide];
 
-      // Fade out previous slide
+      // Fade out previous slide (no zoom scale)
       prevSlide.style.opacity = '0';
       prevSlide.style.zIndex = '1';
-      prevSlide.style.transform = 'scale(1)';
 
-      // Fade in and zoom next slide
+      // Fade in next slide (no zoom scale)
       nextSlide.style.opacity = '1';
       nextSlide.style.zIndex = '2';
-      nextSlide.style.transform = 'scale(1.05)';
-    }, 2500);
+    }, 3800);
   }
 
   // ============================================================================
