@@ -117,22 +117,125 @@
   </header>
 
   <!-- =========================================================================
-       HERO INTRODUCTION
+       SECTION: ABOUT TOWARDS MY BHARAT — THE MANIFESTO & GENERATIONAL JOURNEY
        ========================================================================= -->
-  <section class="about-hero">
-    <div class="container about-hero-content">
-      <div class="about-hero-badge">
-        <span class="pill-dot"></span>
-        <span>THE SOVEREIGN MANIFESTO</span>
+  <section class="tmb-manifesto-section" id="towards-my-bharat" aria-label="About Towards My Bharat">
+    <div class="container tmb-manifesto-container">
+
+      <!-- 1. Editorial Heading & Hierarchy -->
+      <div class="tmb-manifesto-header">
+        <span class="tmb-manifesto-label">
+          <span class="tmb-label-dot"></span>
+          ABOUT
+        </span>
+        <h1 class="tmb-manifesto-title">TowardsMyBharat</h1>
+        <p class="tmb-manifesto-tagline">“Honouring Our Roots. Shaping Our Future.”</p>
+        <p class="tmb-manifesto-lead">
+          A generational bridge connecting the vibrant aspirations, curiosity, and technological energy of today's youth
+          with the timeless civilisational depth, values, and purposeful resurgence of Bharat.
+        </p>
       </div>
-      <h1 class="about-hero-title">
-        Rooted in Identity.<br>
-        <span class="text-gold italic">Driven by Purpose.</span>
-      </h1>
-      <p class="about-hero-description">
-        Explore our journey from a solitary grassroots conviction to a nationwide youth movement, anchored by four
-        structural pillars architecting Bharat's cultural and intellectual resurgence.
-      </p>
+
+      <!-- 2. Main Creative Visual — Gen Z to Bharat Montage -->
+      <div class="tmb-montage-stage" role="region" aria-label="Visual journey: Modern Gen Z towards Bharat">
+
+        <!-- Left Figure: Modern Gen Z -->
+        <article class="tmb-figure-card tmb-figure-genz">
+          <div class="tmb-figure-media">
+            <img src="photos/Neon Gen Z PUBG Gaming Haven.png"
+              alt="Contemporary Indian Gen Z individual in modern tailored attire representing youth curiosity, technology, and global aspirations"
+              class="tmb-figure-img" loading="eager" width="768" height="1024" />
+            <div class="tmb-figure-overlay">
+              <span class="tmb-figure-pill">
+                <span class="tmb-figure-dot"></span>
+                01 / Modern Identity
+              </span>
+              <div class="tmb-figure-meta">
+                <h2 class="tmb-figure-name">Modern Gen Z</h2>
+                <p class="tmb-figure-desc">Curiosity · Innovation · Global Vision</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Center: Animated Directional Bridge (Towards Bharat) -->
+        <div class="tmb-bridge-connector" aria-hidden="true">
+          <div class="tmb-bridge-caption">
+            <span class="tmb-bridge-kicker">The Journey</span>
+            <span class="tmb-bridge-brand">Towards Bharat</span>
+          </div>
+
+          <!-- Animated SVG Vector Arrow -->
+          <div class="tmb-arrow-wrapper">
+            <svg class="tmb-vector-arrow" viewBox="0 0 310 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Arrow Gradient from Gen Z to Bharat -->
+                <linearGradient id="tmbArrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--tmb-arrow-start)" stop-opacity="0.35" />
+                  <stop offset="55%" stop-color="var(--tmb-arrow-mid)" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="var(--tmb-arrow-end)" stop-opacity="1" />
+                </linearGradient>
+
+                <!-- Filter for Travelling Photon Glow -->
+                <filter id="tmbPhotonGlow" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Guide Track Line -->
+              <line class="tmb-arrow-track" x1="28" y1="30" x2="278" y2="30" />
+
+              <!-- Origin Pulse Node at Left (Gen Z Anchor) -->
+              <circle class="tmb-origin-pulse" cx="28" cy="30" r="10" />
+              <circle class="tmb-origin-core" cx="28" cy="30" r="3.5" />
+
+              <!-- Animated Progressive Drawing Path -->
+              <path class="tmb-arrow-path" d="M 28 30 L 278 30" />
+
+              <!-- Directional Chevron Arrowhead (Firmly pointing Right towards Bharat) -->
+              <path class="tmb-arrow-chevron" d="M 270 23 L 282 30 L 270 37" />
+
+              <!-- Destination Target Node at Right (Bharat Anchor) -->
+              <circle class="tmb-target-core" cx="282" cy="30" r="3.5" />
+              <circle class="tmb-target-glow" cx="282" cy="30" r="8" />
+
+              <!-- Travelling Luminous Particle (Photon Beam) -->
+              <circle class="tmb-travelling-photon" cx="28" cy="30" r="3.5" filter="url(#tmbPhotonGlow)" />
+            </svg>
+          </div>
+
+          <div class="tmb-bridge-subtext">
+            <span class="tmb-bridge-step">Aspirations</span>
+            <span class="tmb-bridge-symbol">→</span>
+            <span class="tmb-bridge-step">Roots &amp; Values</span>
+          </div>
+        </div>
+
+        <!-- Right Figure: Bharat's Roots and Future -->
+        <article class="tmb-figure-card tmb-figure-bharat">
+          <div class="tmb-figure-media">
+            <img src="photos/Roots of Bharat, Future of India.png"
+              alt="Poised Indian young adult in understated khadi Nehru jacket and cream kurta representing Bharat's civilisational wisdom and purposeful leadership"
+              class="tmb-figure-img" loading="eager" width="768" height="1024" />
+            <div class="tmb-figure-overlay">
+              <span class="tmb-figure-pill tmb-figure-pill-roots">
+                <span class="tmb-figure-dot"></span>
+                02 / Bharat's Roots
+              </span>
+              <div class="tmb-figure-meta">
+                <h2 class="tmb-figure-name">Bharat's Roots &amp; Future</h2>
+                <p class="tmb-figure-desc">Civilisational Depth · Values · Purpose</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
     </div>
   </section>
 
@@ -475,7 +578,8 @@
       <!-- Centerpiece Architectural Suspension Bridge & Giant Brand Wordmark -->
       <div class="footer-hero-brand-wrap">
         <div class="footer-bridge-illustration" aria-hidden="true">
-          <img src="assets/bridge-silhouette.svg" alt="" class="footer-bridge-svg-img" loading="lazy" width="1200" height="280">
+          <img src="assets/bridge-silhouette.svg" alt="" class="footer-bridge-svg-img" loading="lazy" width="1200"
+            height="280">
         </div>
         <div class="footer-wordmark" aria-label="Towards My Bharat">Towards My Bharat</div>
       </div>
