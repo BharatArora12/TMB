@@ -21,7 +21,7 @@
   <script src="theme.js"></script>
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body class="home-page">
@@ -623,6 +623,46 @@
                     alt="A peaceful winding pathway through layered mountains toward a large glowing golden-orange sun"
                     class="impact-arch-fallback-img" loading="lazy">
                 </video>
+                <!-- Synchronized Animated People Movement SVG Layer -->
+                <svg class="impact-arch-people-svg" id="impactPeopleSvg" viewBox="0 0 768 1376"
+                  preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="peopleShadowGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#1c241e" stop-opacity="0.45" />
+                      <stop offset="60%" stop-color="#2a382d" stop-opacity="0.22" />
+                      <stop offset="100%" stop-color="#2a382d" stop-opacity="0" />
+                    </radialGradient>
+                    <!-- Human Silhouette Definitions -->
+                    <!-- Variant A: Leading Tall Walker -->
+                    <g id="figureLeader">
+                      <ellipse cx="-12" cy="18" rx="22" ry="7" transform="rotate(-18 -12 18)"
+                        fill="url(#peopleShadowGrad)" />
+                      <circle cx="0" cy="-38" r="6.2" fill="#18221B" />
+                      <path d="M-6.5,-30 C-7.5,-22 -9.5,-2 -7.5,14 L7.5,14 C9.5,-2 7.5,-22 6.5,-30 Z" fill="#1A241D" />
+                      <path d="M-4,14 L-6,34 M4,14 L7,32" stroke="#18221B" stroke-width="3" stroke-linecap="round" />
+                    </g>
+                    <!-- Variant B: Walking Student Companion with satchel -->
+                    <g id="figureStudent">
+                      <ellipse cx="-10" cy="15" rx="18" ry="6" transform="rotate(-16 -10 15)"
+                        fill="url(#peopleShadowGrad)" />
+                      <circle cx="0" cy="-32" r="5.5" fill="#18221B" />
+                      <path d="M-5.5,-25 C-6.5,-18 -7.5,-2 -6,11 L6,11 C7.5,-2 6.5,-18 5.5,-25 Z" fill="#1A241D" />
+                      <ellipse cx="-5" cy="-16" rx="3.5" ry="6" fill="#243328" />
+                      <path d="M-3,11 L-5,28 M3,11 L5,26" stroke="#18221B" stroke-width="2.8" stroke-linecap="round" />
+                    </g>
+                    <!-- Variant C: Graceful Walking Youth with shawl -->
+                    <g id="figureYouth">
+                      <ellipse cx="-9" cy="14" rx="17" ry="5.5" transform="rotate(-15 -9 14)"
+                        fill="url(#peopleShadowGrad)" />
+                      <circle cx="0" cy="-30" r="5.2" fill="#18221B" />
+                      <path d="M-5,-24 C-7,-14 -6.5,2 -5,10 L5,10 C6.5,2 7,-14 5,-24 Z" fill="#19231C" />
+                      <path d="M-2.5,10 L-4,25 M2.5,10 L4.5,24" stroke="#18221B" stroke-width="2.6"
+                        stroke-linecap="round" />
+                    </g>
+                  </defs>
+                  <!-- Group containing dynamically controlled walking figures -->
+                  <g id="peopleMovementGroup"></g>
+                </svg>
                 <!-- Subtle Paper Texture, Mist & Soft Horizon Aura Overlays -->
                 <div class="impact-arch-grain-overlay" aria-hidden="true"></div>
                 <div class="impact-arch-mist-drift" aria-hidden="true"></div>
@@ -1670,6 +1710,7 @@
         </div>
 
       </div>
+
 
 
       <!-- Bottom Bar: Copyright & Made in India -->

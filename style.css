@@ -3556,43 +3556,44 @@ html[data-theme="dark"] .caption-bharat {
   width: 100%;
   max-width: clamp(230px, 22vw, 290px);
   aspect-ratio: 9 / 16;
-  border-radius: 145px 145px 12px 12px;
-  background: #FAF6F0;
-  border: 1px solid rgba(200, 150, 102, 0.38);
-  box-shadow: 
-    0 20px 48px -12px rgba(46, 93, 58, 0.18),
-    0 6px 18px -4px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.55s ease, border-color 0.4s ease;
+  cursor: default;
+  transition: opacity 0.4s ease;
   user-select: none;
+  -webkit-mask-image: radial-gradient(ellipse 86% 88% at 50% 50%, black 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 86% 88% at 50% 50%, black 52%, transparent 100%);
 }
 
 .impact-cinematic-arch:hover {
-  transform: translateY(-5px) scale(1.018);
-  box-shadow: 
-    0 26px 56px -12px rgba(46, 93, 58, 0.24),
-    0 10px 24px -4px rgba(200, 90, 50, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
-  border-color: rgba(200, 90, 50, 0.6);
+  transform: none;
+  box-shadow: none;
+  border: none;
 }
 
 html[data-theme="dark"] .impact-cinematic-arch {
-  background: #1B241C;
-  border-color: rgba(167, 201, 87, 0.35);
-  box-shadow: 
-    0 20px 48px -12px rgba(0, 0, 0, 0.65),
-    0 0 28px rgba(226, 110, 56, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .impact-cinematic-arch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 52%, transparent 40%, rgba(17, 26, 20, 0.48) 75%, rgba(17, 26, 20, 0.96) 100%);
+  pointer-events: none;
+  z-index: 3;
 }
 
 html[data-theme="dark"] .impact-cinematic-arch:hover {
-  border-color: rgba(167, 201, 87, 0.65);
-  box-shadow: 
-    0 26px 56px -12px rgba(0, 0, 0, 0.75),
-    0 0 36px rgba(226, 110, 56, 0.28),
-    inset 0 0 0 1px rgba(167, 201, 87, 0.25);
+  transform: none;
+  box-shadow: none;
+  border: none;
 }
 
 .impact-arch-inner {
@@ -3601,7 +3602,7 @@ html[data-theme="dark"] .impact-cinematic-arch:hover {
   height: 100%;
   border-radius: inherit;
   overflow: hidden;
-  background: #FAF6F0;
+  background: transparent;
 }
 
 .impact-arch-video {
@@ -3620,6 +3621,43 @@ html[data-theme="dark"] .impact-cinematic-arch:hover {
   object-fit: cover;
   display: block;
   border-radius: inherit;
+}
+
+/* Synchronized People Movement SVG Layer */
+.impact-arch-people-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 1px 2px rgba(24, 34, 27, 0.18));
+}
+
+.movement-person {
+  will-change: transform, opacity;
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Subtle glow / highlight state when numbers reach completed peak */
+.impact-total.is-peak {
+  text-shadow: 0 0 28px rgba(46, 93, 58, 0.28);
+  transition: text-shadow 0.4s ease;
+}
+
+html[data-theme="dark"] .impact-total.is-peak {
+  text-shadow: 0 0 32px rgba(167, 201, 87, 0.45);
+}
+
+.impact-stat-number.is-peak {
+  color: var(--color-primary);
+  text-shadow: 0 0 16px rgba(46, 93, 58, 0.18);
+  transition: text-shadow 0.4s ease;
+}
+
+html[data-theme="dark"] .impact-stat-number.is-peak {
+  color: #FFFFFF;
+  text-shadow: 0 0 18px rgba(167, 201, 87, 0.3);
 }
 
 /* Subtle editorial paper vignette overlay */
@@ -3654,15 +3692,9 @@ html[data-theme="dark"] .impact-cinematic-arch:hover {
   animation: archMistFloat 9s ease-in-out infinite;
 }
 
-/* Elegant gold/brass inner rim line */
+/* Elegant gold/brass inner rim line (disabled for seamless canvas merge) */
 .impact-arch-border-accent {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  box-shadow: 
-    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
-    inset 0 1px 16px rgba(200, 90, 50, 0.12);
+  display: none;
 }
 
 @keyframes archSunGlow {
