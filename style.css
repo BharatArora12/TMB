@@ -633,7 +633,7 @@ html[data-theme="dark"] .hero-section {
   .hero-slideshow {
     left: auto;
     right: 0;
-    width: 50%;
+    width: 60%;
     z-index: 1;
   }
 }
@@ -658,16 +658,26 @@ html[data-theme="dark"] .hero-vignette-linear {
   position: absolute;
   inset: 0;
   z-index: 5;
-  background: linear-gradient(
-    to right,
-    #111A14 0%,
-    #111A14 55%,
-    rgba(17, 26, 20, 0.96) 62%,
-    rgba(17, 26, 20, 0.85) 68%,
-    rgba(17, 26, 20, 0.45) 78%,
-    transparent 90%
-  ),
-  linear-gradient(to bottom, #111A14 0%, transparent 6%, transparent 92%, #111A14 100%) !important;
+  background:
+    radial-gradient(
+      ellipse 65% 60% at 18% 45%,
+      rgba(38, 62, 46, 0.35) 0%,
+      rgba(17, 26, 20, 0.16) 55%,
+      transparent 80%
+    ),
+    linear-gradient(
+      to right,
+      #060B08 0%,
+      #080E0A 20%,
+      #0D1610 35%,
+      #111A14 var(--hero-d-end, 46vw),
+      rgba(17, 26, 20, 0.94) var(--hero-a-end, 51.5vw),
+      rgba(17, 26, 20, 0.72) calc(var(--hero-a-end, 51.5vw) + 40px),
+      rgba(17, 26, 20, 0.38) calc(var(--hero-a-end, 51.5vw) + 95px),
+      rgba(17, 26, 20, 0.12) calc(var(--hero-a-end, 51.5vw) + 150px),
+      transparent calc(var(--hero-a-end, 51.5vw) + 200px)
+    ),
+    linear-gradient(to bottom, #060B08 0%, transparent 8%, transparent 92%, #060B08 100%) !important;
   pointer-events: none;
 }
 
@@ -708,12 +718,12 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 @media (min-width: 900px) {
   .hero-content {
-    width: 48%;
-    max-width: 580px;
+    width: clamp(580px, 60vw, 900px);
+    max-width: 900px;
     margin-right: auto;
-    margin-left: max(calc((100vw - var(--max-width)) / 2), 0px);
-    padding-left: clamp(0.5rem, 1.2vw, 1rem);
-    padding-right: 0.5rem;
+    margin-left: clamp(1.5rem, 4vw, 4rem);
+    padding-left: 0;
+    padding-right: 1rem;
     box-sizing: border-box;
   }
 
@@ -723,14 +733,19 @@ html[data-theme="dark"] .hero-vignette-linear {
     max-width: 100%;
     width: 100%;
   }
+
+  .hero-phrase-modern {
+    white-space: nowrap;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 899px) {
   .hero-content {
-    width: 90%;
-    max-width: 620px;
-    margin: 0 auto;
-    padding: 1.5rem;
+    width: 94%;
+    max-width: 780px;
+    margin-left: clamp(1.25rem, 3vw, 2.5rem);
+    margin-right: auto;
+    padding: 1.5rem 1rem 1.5rem 0;
   }
 }
 
@@ -776,7 +791,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Line 1: "Connecting Modern India" - bold, high-contrast, regal serif */
 .hero-phrase-modern {
   display: block;
-  font-size: clamp(3.15rem, 5.6vw, 5.25rem);
+  font-size: clamp(2.85rem, 4.6vw, 5.25rem);
   font-weight: 700;
   color: #FFFFFF !important;
   letter-spacing: -0.025em;
@@ -826,6 +841,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   .hero-phrase-modern {
     font-size: clamp(2.35rem, 9.2vw, 3.4rem);
     line-height: 1.1;
+    white-space: normal;
   }
 
   .hero-word-bridge {

@@ -288,6 +288,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================================
+  // MODULE 4B: PRECISE HERO GRADIENT ANCHORING
+  // ============================================================================
+  /**
+   * Dynamically tracks letter 'd' and letter 'a' of "India" in the hero headline,
+   * keeping the solid black background anchored precisely to 'd' and shading
+   * smoothly across 'i' to finish at 'a'.
+   */
+  const letterD = document.querySelector('.hero-letter-d');
+  const letterA = document.querySelector('.hero-letter-a');
+  const updateHeroGradientAnchors = () => {
+    if (!letterD || !letterA) return;
+    const dRect = letterD.getBoundingClientRect();
+    const aRect = letterA.getBoundingClientRect();
+    if (dRect.right > 0 && aRect.right > dRect.right) {
+      document.documentElement.style.setProperty('--hero-d-end', `${Math.round(dRect.right)}px`);
+      document.documentElement.style.setProperty('--hero-a-end', `${Math.round(aRect.right)}px`);
+    }
+  };
+
+  updateHeroGradientAnchors();
+  window.addEventListener('resize', updateHeroGradientAnchors, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateHeroGradientAnchors);
+  }
+
+  // ============================================================================
   // MODULE 5: UDYAM CREDENTIAL CERTIFICATE MODAL
   // ============================================================================
   /**
