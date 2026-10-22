@@ -1144,21 +1144,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // MODULE 10: SYNCHRONIZED IMPACT STATS & LIVING MOVEMENT ARCH
   // ============================================================================
   // ============================================================================
-  // MODULE 10: CENTRALIZED IMPACT COUNTERS & SCENERY TIMELINE
+  // MODULE 10: LIVING SACRED TREE & SYNCHRONIZED IMPACT COUNTERS
   // ============================================================================
   /**
-   * Refactored Centralized Counter & Scenery Controller:
-   * - Uses ONE shared requestAnimationFrame elapsed-time animation loop across ALL counters.
-   * - Begins at zero and smoothly eases to exact target values (e.g. 20k+, 18, 35+, 250+).
-   * - Respects `prefers-reduced-motion` (instant target values, no animation loop).
-   * - Coordinates with central scenery video playback start & duration.
-   * - Supports replay on user click.
-   * - Cleans up listeners, observer, and RAF loop on unmount.
+   * Synchronized Movement & Growing Tree Controller:
+   * - Leaves on the sacred tree sprout and multiply in exact 1:1 synchronization
+   *   with the numbers increasing (same speed, shared RAF elapsed-time timeline).
+   * - Bare wood trunk and deep anchoring roots swell with vital sap.
+   * - Golden morning sun aura intensifies as the crown reaches full bloom.
+   * - Smooth cycle loop with comfortable reading hold at 100% peak (20k+, 18, 35+, 250+).
+   * - Respects `prefers-reduced-motion` and automatically pauses off-screen.
    */
   const impactMetrics = document.querySelector('.impact-metrics-section');
   const impactCounters = Array.from(document.querySelectorAll('.impact-metrics-section [data-count-up]'));
-  const impactCinematicArch = document.getElementById('impactCinematicArch');
-  const impactArchVideo = document.getElementById('impactArchVideo');
+  const impactTreeFrame = document.getElementById('impactTreeFrame');
+  const treeSunAura = document.getElementById('treeSunAura');
+  const treeWoodwork = document.getElementById('treeWoodwork');
+  const treeLeavesLayer = document.getElementById('treeLeavesLayer');
   const impactMainCounterWrap = document.getElementById('impactMainCounterWrap');
 
   // Parse counters configuration
@@ -1180,97 +1182,204 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${formatted}${suffix}`;
   };
 
-  // Shared Animation Constants
-  const ANIMATION_DURATION = 2000; // 2.0s smooth editorial easing
-  let sharedRafId = null;
-  let sharedStartTime = null;
+  // Build 120 leaves procedurally across 9 branch canopy clusters
+  const FOLIAGE_PALETTE = [
+    { fill: '#1E4829', stroke: '#14331C' }, // Deep Forest Green
+    { fill: '#2A683B', stroke: '#1E4829' }, // Emerald
+    { fill: '#3E8A54', stroke: '#2A683B' }, // Rich Neem Green
+    { fill: '#5AA872', stroke: '#3E8A54' }, // Fresh Leaf Green
+    { fill: '#7BC493', stroke: '#5AA872' }, // Tender Sage
+    { fill: '#D97724', stroke: '#B25B15' }, // Sacred Saffron Shoot
+    { fill: '#EAA036', stroke: '#D97724' }, // Golden Sunlight Leaf
+  ];
 
-  // Single shared requestAnimationFrame loop for all counters
-  const animateSharedCounters = (now) => {
-    if (!sharedStartTime) sharedStartTime = now;
-    const elapsed = now - sharedStartTime;
-    const rawProgress = Math.min(1, elapsed / ANIMATION_DURATION);
+  const CANOPY_CLUSTERS = [
+    { cx: 85, cy: 92, rx: 28, ry: 22, count: 14, minT: 0.16 },
+    { cx: 125, cy: 70, rx: 28, ry: 22, count: 16, minT: 0.08 },
+    { cx: 165, cy: 50, rx: 26, ry: 20, count: 16, minT: 0.04 },
+    { cx: 205, cy: 40, rx: 25, ry: 18, count: 16, minT: 0.01 },
+    { cx: 230, cy: 38, rx: 24, ry: 16, count: 18, minT: 0.01 },
+    { cx: 255, cy: 40, rx: 25, ry: 18, count: 16, minT: 0.01 },
+    { cx: 295, cy: 50, rx: 26, ry: 20, count: 16, minT: 0.04 },
+    { cx: 335, cy: 70, rx: 28, ry: 22, count: 16, minT: 0.08 },
+    { cx: 375, cy: 92, rx: 28, ry: 22, count: 14, minT: 0.16 },
+  ];
 
-    // High-end cubic ease-out deceleration: 1 - (1 - t)^3
-    const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
-
-    // Update all counters in a single synchronous pass
-    counterItems.forEach(({ el, target, suffix, compact }) => {
-      const currentVal = Math.floor(target * easedProgress);
-      el.textContent = formatCounterValue(currentVal, compact, suffix);
-    });
-
-    if (rawProgress < 1) {
-      sharedRafId = requestAnimationFrame(animateSharedCounters);
-    } else {
-      // Reached exact target values cleanly
-      counterItems.forEach(({ el, target, suffix, compact }) => {
-        el.textContent = formatCounterValue(target, compact, suffix);
-        el.classList.add('is-peak');
-      });
-      sharedRafId = null;
-    }
+  const pseudoRnd = (seed) => {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
   };
 
-  // Coordinate counter playback with scenery playback
-  const triggerImpactShowcase = () => {
+  let rndSeed = 1947;
+  const LEAVES_CONFIG = [];
+
+  CANOPY_CLUSTERS.forEach((c) => {
+    for (let i = 0; i < c.count; i++) {
+      const angle = pseudoRnd(rndSeed++) * Math.PI * 2;
+      const dist = Math.sqrt(pseudoRnd(rndSeed++));
+      const x = Math.round(c.cx + Math.cos(angle) * c.rx * dist);
+      const y = Math.round(c.cy + Math.sin(angle) * c.ry * dist);
+
+      // Staggered threshold from 0.01 to 0.98
+      const thresh = Math.min(0.98, Math.max(0.01, c.minT + (pseudoRnd(rndSeed++) * 0.78)));
+      const rot = Math.round((pseudoRnd(rndSeed++) - 0.5) * 150); // -75 to +75 deg
+      const scale = 0.95 + pseudoRnd(rndSeed++) * 0.45;
+      const col = FOLIAGE_PALETTE[Math.floor(pseudoRnd(rndSeed++) * FOLIAGE_PALETTE.length)];
+      const template = (pseudoRnd(rndSeed++) > 0.45) ? 'treeLeafA' : ((pseudoRnd(rndSeed++) > 0.3) ? 'treeLeafB' : 'treeLeafC');
+      const swayPhase = pseudoRnd(rndSeed++) * Math.PI * 2;
+
+      LEAVES_CONFIG.push({ x, y, thresh, rot, scale, col, template, swayPhase });
+    }
+  });
+
+  // Sort leaves by threshold so leaf count increases at the EXACT SAME SPEED as the number
+  LEAVES_CONFIG.sort((a, b) => a.thresh - b.thresh);
+
+  const leafNodes = [];
+  if (treeLeavesLayer) {
+    LEAVES_CONFIG.forEach((leaf) => {
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('class', 'tree-dynamic-leaf');
+      g.style.fill = leaf.col.fill;
+      g.style.color = leaf.col.stroke;
+      g.style.opacity = '0';
+
+      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      use.setAttribute('href', `#${leaf.template}`);
+      g.appendChild(use);
+      treeLeavesLayer.appendChild(g);
+
+      leafNodes.push({ el: g, data: leaf });
+    });
+  }
+
+  // Animation Timeline Constants
+  const COUNT_DURATION = 4600; // 4.6s slow, smooth count up & foliage bloom
+  const HOLD_DURATION = 2400;  // 2.4s comfortable reading hold at peak (20k+, 18, 35+, 250+)
+  const FADE_DURATION = 400;   // 0.4s gentle fade before repeating
+  const TOTAL_CYCLE = COUNT_DURATION + HOLD_DURATION + FADE_DURATION;
+
+  let sharedRafId = null;
+  let cycleStartTime = null;
+  let isLoopActive = false;
+
+  // Single shared requestAnimationFrame loop for BOTH numbers and tree leaves
+  const renderImpactFrame = (now) => {
+    if (!isLoopActive) return;
+
+    if (!cycleStartTime) cycleStartTime = now;
+    const elapsed = now - cycleStartTime;
+    const cycleTime = elapsed % TOTAL_CYCLE;
+
+    let progress = 0;
+    let fade = 1.0;
+    let isPeak = false;
+
+    if (cycleTime < COUNT_DURATION) {
+      // Natural cubic deceleration
+      const t = cycleTime / COUNT_DURATION;
+      progress = 1 - Math.pow(1 - t, 2.6);
+    } else if (cycleTime < COUNT_DURATION + HOLD_DURATION) {
+      progress = 1.0;
+      isPeak = true;
+    } else {
+      progress = 1.0;
+      isPeak = true;
+      const fTime = cycleTime - (COUNT_DURATION + HOLD_DURATION);
+      fade = Math.max(0, 1 - fTime / FADE_DURATION);
+    }
+
+    // 1. Update Numbers
+    counterItems.forEach(({ el, target, suffix, compact }) => {
+      const currentVal = Math.floor(target * progress);
+      el.textContent = formatCounterValue(currentVal, compact, suffix);
+
+      if (isPeak && fade > 0.6) {
+        el.classList.add('is-peak');
+      } else {
+        el.classList.remove('is-peak');
+      }
+    });
+
+    // 2. Update Tree Leaves (Increases at the EXACT SAME SPEED as the number)
+    leafNodes.forEach(({ el, data }) => {
+      const { x, y, thresh, rot, scale, swayPhase } = data;
+      const sway = Math.sin((now * 0.003) + swayPhase) * 3.5;
+      const curRot = rot + sway;
+
+      if (progress >= thresh) {
+        // Sprouting & spring unfurl
+        const growth = Math.min(1, (progress - thresh) / 0.04);
+        const pop = growth < 0.7 
+          ? (growth / 0.7) * 1.15 
+          : 1.15 - ((growth - 0.7) / 0.3) * 0.15;
+        const finalScale = scale * pop;
+
+        el.style.opacity = (Math.min(1, growth * 1.8) * fade).toFixed(3);
+        el.setAttribute('transform', `translate(${x}, ${y}) rotate(${curRot}) scale(${finalScale})`);
+      } else {
+        el.style.opacity = '0';
+        el.setAttribute('transform', `translate(${x}, ${y}) rotate(${curRot}) scale(0)`);
+      }
+    });
+
+    // 3. Tree Trunk Vital Growth & Sun Aura
+    if (treeWoodwork) {
+      const trunkScale = 0.94 + progress * 0.06;
+      treeWoodwork.setAttribute('transform', `translate(230, 270) scale(${trunkScale}) translate(-230, -270)`);
+    }
+
+    if (treeSunAura) {
+      treeSunAura.style.opacity = ((0.2 + progress * 0.8) * fade).toFixed(2);
+      treeSunAura.style.transform = `translate(-50%, 0) scale(${0.85 + progress * 0.25})`;
+    }
+
+    sharedRafId = requestAnimationFrame(renderImpactFrame);
+  };
+
+  const startShowcase = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Respect reduced motion
     if (prefersReducedMotion) {
       counterItems.forEach(({ el, target, suffix, compact }) => {
         el.textContent = formatCounterValue(target, compact, suffix);
         el.classList.add('is-peak');
       });
-      if (impactArchVideo) {
-        impactArchVideo.pause();
+      leafNodes.forEach(({ el, data }) => {
+        el.style.opacity = '1';
+        el.setAttribute('transform', `translate(${data.x}, ${data.y}) rotate(${data.rot}) scale(${data.scale})`);
+      });
+      if (treeSunAura) {
+        treeSunAura.style.opacity = '1';
       }
       return;
     }
 
-    // Cancel any active frame before restarting
     if (sharedRafId) {
       cancelAnimationFrame(sharedRafId);
       sharedRafId = null;
     }
 
-    // Reset counters to zero
-    counterItems.forEach(({ el, suffix, compact }) => {
-      el.classList.remove('is-peak');
-      el.textContent = formatCounterValue(0, compact, suffix);
-    });
+    cycleStartTime = performance.now();
+    isLoopActive = true;
+    sharedRafId = requestAnimationFrame(renderImpactFrame);
+  };
 
-    // Start scenery video playback in coordinate with counter timeline
-    if (impactArchVideo) {
-      try {
-        impactArchVideo.currentTime = 0;
-        const playPromise = impactArchVideo.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {});
-        }
-      } catch (_) {}
+  const stopShowcase = () => {
+    isLoopActive = false;
+    if (sharedRafId) {
+      cancelAnimationFrame(sharedRafId);
+      sharedRafId = null;
     }
-
-    // Launch shared animation loop
-    sharedStartTime = null;
-    sharedRafId = requestAnimationFrame(animateSharedCounters);
   };
 
   // Cleanup handler on page navigation or unmount
   let impactObserver = null;
   const cleanupImpact = () => {
-    if (sharedRafId) {
-      cancelAnimationFrame(sharedRafId);
-      sharedRafId = null;
-    }
+    stopShowcase();
     if (impactObserver) {
       impactObserver.disconnect();
       impactObserver = null;
-    }
-    if (impactArchVideo && !impactArchVideo.paused) {
-      try {
-        impactArchVideo.pause();
-      } catch (_) {}
     }
   };
 
@@ -1286,10 +1395,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // User replay interactions
     if (impactMainCounterWrap) {
-      impactMainCounterWrap.addEventListener('click', triggerImpactShowcase);
+      impactMainCounterWrap.addEventListener('click', () => {
+        cycleStartTime = performance.now();
+        if (!isLoopActive) startShowcase();
+      });
     }
-    if (impactCinematicArch) {
-      impactCinematicArch.addEventListener('click', triggerImpactShowcase);
+    if (impactTreeFrame) {
+      impactTreeFrame.addEventListener('click', () => {
+        cycleStartTime = performance.now();
+        if (!isLoopActive) startShowcase();
+      });
     }
 
     // Scroll trigger with IntersectionObserver
@@ -1297,21 +1412,16 @@ document.addEventListener('DOMContentLoaded', () => {
       impactObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            triggerImpactShowcase();
+            startShowcase();
           } else {
-            // Pause video off-screen to preserve resources
-            if (impactArchVideo && !impactArchVideo.paused) {
-              try {
-                impactArchVideo.pause();
-              } catch (_) {}
-            }
+            stopShowcase();
           }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.15 });
 
       impactObserver.observe(impactMetrics);
     } else {
-      triggerImpactShowcase();
+      startShowcase();
     }
   }
 

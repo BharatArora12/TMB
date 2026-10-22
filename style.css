@@ -3623,76 +3623,95 @@ html[data-theme="dark"] .caption-bharat {
   padding: 0.25rem 0;
 }
 
-.impact-cinematic-arch {
+.impact-tree-frame {
   position: relative;
   width: 100%;
   max-width: clamp(280px, 26vw, 360px);
   aspect-ratio: 16 / 10;
-  border-radius: 12px;
-  background: #FAF6F0;
-  border: 1px solid rgba(46, 93, 58, 0.14);
-  box-shadow: 0 4px 20px -4px rgba(46, 93, 58, 0.08);
-  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
   cursor: pointer;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  transition: transform 0.35s ease;
   user-select: none;
 }
 
-.impact-cinematic-arch:hover {
-  border-color: rgba(200, 90, 50, 0.45);
-  box-shadow: 0 8px 24px -4px rgba(46, 93, 58, 0.14), 0 0 20px rgba(200, 90, 50, 0.1);
+.impact-tree-frame:hover {
   transform: translateY(-2px);
 }
 
-html[data-theme="dark"] .impact-cinematic-arch {
-  background: #18271D;
-  border-color: rgba(167, 201, 87, 0.22);
-  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(167, 201, 87, 0.06);
+html[data-theme="dark"] .impact-tree-frame {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-html[data-theme="dark"] .impact-cinematic-arch::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 45%, rgba(17, 26, 20, 0.42) 78%, rgba(17, 26, 20, 0.88) 100%);
-  pointer-events: none;
-  z-index: 3;
-}
-
-html[data-theme="dark"] .impact-cinematic-arch:hover {
-  border-color: rgba(167, 201, 87, 0.55);
-  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.65), 0 0 28px rgba(167, 201, 87, 0.16);
+html[data-theme="dark"] .impact-tree-frame:hover {
+  border: none;
+  box-shadow: none;
   transform: translateY(-2px);
 }
 
-.impact-arch-inner {
+.impact-tree-canvas {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: inherit;
-  overflow: hidden;
-  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  background: transparent;
 }
 
-.impact-arch-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 54%;
-  display: block;
-  border-radius: inherit;
+/* Warm golden sunrise aura behind the tree crown */
+.impact-tree-sun-aura {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, 0) scale(0.9);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 180, 60, 0.32) 0%, rgba(226, 110, 56, 0.14) 45%, transparent 72%);
   pointer-events: none;
-  filter: contrast(1.02) saturate(1.03);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1;
 }
 
-.impact-arch-fallback-img {
+html[data-theme="dark"] .impact-tree-sun-aura {
+  background: radial-gradient(circle, rgba(212, 163, 115, 0.30) 0%, rgba(167, 201, 87, 0.14) 45%, transparent 72%);
+}
+
+.impact-tree-svg {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 54%;
   display: block;
-  border-radius: inherit;
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Tree Woodwork & Roots Palette for Light & Dark mode */
+#treeWoodwork,
+.tree-roots path {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+html[data-theme="dark"] #treeWoodwork {
+  fill: #E8DCC8;
+  stroke: #E8DCC8;
+}
+
+html[data-theme="dark"] .tree-roots {
+  stroke: #E8DCC8;
+}
+
+/* Dynamic Foliage Leaf Element */
+.tree-dynamic-leaf {
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 /* Subtle glow / highlight state when numbers reach completed peak */
@@ -3714,64 +3733,6 @@ html[data-theme="dark"] .impact-total.is-peak {
 html[data-theme="dark"] .impact-stat-number.is-peak {
   color: #FFFFFF;
   text-shadow: 0 0 16px rgba(167, 201, 87, 0.28);
-}
-
-/* Subtle editorial paper vignette overlay */
-.impact-arch-grain-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background: radial-gradient(ellipse at 50% 50%, transparent 62%, rgba(44, 34, 25, 0.10) 100%);
-  mix-blend-mode: multiply;
-  opacity: 0.65;
-}
-
-/* Radiant morning sun soft pulsing glow */
-.impact-arch-sun-pulse {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background: radial-gradient(circle at 69% 39%, rgba(226, 110, 56, 0.22) 0%, rgba(255, 175, 45, 0.09) 32%, transparent 62%);
-  animation: archSunGlow 9s ease-in-out infinite;
-  mix-blend-mode: screen;
-}
-
-/* Drifting atmospheric mountain mist */
-.impact-arch-mist-drift {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background: linear-gradient(180deg, transparent 40%, rgba(246, 250, 244, 0.18) 60%, transparent 80%);
-  animation: archMistFloat 9s ease-in-out infinite;
-}
-
-.impact-arch-border-accent {
-  display: none;
-}
-
-@keyframes archSunGlow {
-  0%, 100% {
-    opacity: 0.65;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes archMistFloat {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translateY(-5px);
-    opacity: 0.85;
-  }
 }
 
 /* COLUMN 3: Vertical Divider & Compact Stats Table */
