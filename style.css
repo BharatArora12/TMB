@@ -2592,10 +2592,77 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .programs-section {
   width: 100%;
   background: var(--bg-canvas);
-  padding: 5.5rem 0;
+  padding: clamp(2.85rem, 4vw, 3.85rem) 0;
   border-top: 1px solid var(--border-gold-subtle);
   position: relative;
   overflow: hidden;
+}
+
+.courses-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Civilizational Side Artworks (Jnana Stambha on Left, Bodhi Tree on Right) */
+.courses-side-artwork {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(75px, 9vw, 135px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.88;
+  transition: opacity 0.35s ease;
+}
+
+.courses-side-artwork.courses-art-left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.courses-side-artwork.courses-art-right {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.courses-side-svg {
+  width: 100%;
+  height: 90%;
+  max-height: 520px;
+  display: block;
+}
+
+.courses-art-sun {
+  fill: var(--temple-sun);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, filter 0.3s ease;
+}
+
+.courses-section:hover .courses-art-sun {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 14px var(--temple-sun-glow));
+}
+
+.courses-art-stroke {
+  stroke: var(--temple-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .courses-side-artwork {
+    width: clamp(55px, 7vw, 95px);
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 860px) {
+  .courses-side-artwork {
+    display: none;
+  }
 }
 
 .courses-header,
@@ -2603,8 +2670,8 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.25rem;
-  margin-bottom: 3.25rem;
+  gap: 1rem;
+  margin-bottom: clamp(1.4rem, 2vw, 2rem);
 }
 
 @media (min-width: 768px) {
@@ -2619,8 +2686,8 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .programs-intro {
   max-width: 32rem;
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 /* Course and program grids */
@@ -2628,7 +2695,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .programs-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .programs-grid {
@@ -2639,12 +2706,12 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 @media (min-width: 768px) {
   .courses-3d-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .course-3d-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
-    width: calc((100% - 1.5rem) / 2);
+    width: calc((100% - 1.25rem) / 2);
     justify-self: center;
   }
 }
@@ -2652,7 +2719,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 @media (min-width: 1024px) {
   .courses-3d-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 1.15rem;
   }
 
   .course-3d-card:last-child:nth-child(odd) {
@@ -2680,10 +2747,10 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   justify-content: space-between;
   background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: 1.5rem;
-  padding: 1.5rem 1.4rem 1.4rem;
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.25rem 1.2rem;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -2715,8 +2782,6 @@ html[data-theme="dark"] .course-card-glass {
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
-
-
 
 /* Featured / Highlighted Card */
 .course-featured-3d .course-card-glass {
@@ -2752,21 +2817,22 @@ html[data-theme="dark"] .course-featured-3d .course-card-glass {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.15rem;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 /* Course Image Container */
 .course-card-image-wrap {
   width: 100%;
-  height: 180px;
-  border-radius: 1rem;
+  height: 165px;
+  border-radius: 0.95rem;
   overflow: hidden;
   position: relative;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   border: 1px solid rgba(46, 93, 58, 0.12);
   background: var(--color-background-soft);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
 }
 
 html[data-theme="dark"] .course-card-image-wrap {
@@ -2782,11 +2848,14 @@ html[data-theme="dark"] .course-card-image-wrap {
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.course-card-glass:hover .course-card-image {
+  transform: scale(1.05);
+}
 
 .course-badge-wrap {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .course-status-pill {
@@ -2797,7 +2866,7 @@ html[data-theme="dark"] .course-card-image-wrap {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.25rem 0.7rem;
+  padding: 0.22rem 0.65rem;
   width: fit-content;
 }
 
@@ -2882,14 +2951,13 @@ html[data-theme="dark"] .course-3d-icon-box {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-
 .course-icon {
   font-size: 1.65rem;
 }
 
 /* Course Card Body */
 .course-card-body {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .course-index-num {
@@ -2905,38 +2973,65 @@ html[data-theme="dark"] .course-3d-icon-box {
 
 .course-card-title {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
-  line-height: 1.25;
+  font-size: 1.35rem;
+  line-height: 1.22;
   background: linear-gradient(105deg, var(--color-primary) 0%, var(--color-text) 58%, var(--color-accent) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.35rem;
   font-weight: 600;
 }
 
+/* Civilizational Sanskrit Motto */
+.course-sanskrit-tag {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-primary);
+  opacity: 0.88;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  letter-spacing: 0.02em;
+}
+
+html[data-theme="dark"] .course-sanskrit-tag {
+  color: var(--color-accent);
+  opacity: 0.95;
+}
+
+.course-sanskrit-tag .sanskrit-char {
+  color: var(--temple-sun);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
 .course-card-desc {
-  font-size: 0.865rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  line-height: 1.55;
-  margin-bottom: 1.15rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
 }
 
 /* Feature Chips */
 .course-features-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .feature-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
+  gap: 0.32rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.3rem 0.6rem;
+  padding: 0.25rem 0.55rem;
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(46, 93, 58, 0.15);
   color: var(--color-text);
@@ -2951,7 +3046,7 @@ html[data-theme="dark"] .feature-chip {
 }
 
 .feature-chip .material-symbols-outlined {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--color-primary);
 }
 
@@ -2975,7 +3070,7 @@ html[data-theme="dark"] .feature-chip:hover {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding-top: 1.15rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-gold-subtle);
   margin-top: auto;
 }
@@ -3003,10 +3098,10 @@ html[data-theme="dark"] .feature-chip:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.65rem 1.15rem;
-  font-size: 0.76rem;
+  padding: 0.6rem 1.05rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3094,16 +3189,19 @@ html[data-theme="dark"] .btn-outline-3d:hover {
 
 /* Institutional Collaboration Banner */
 .courses-contact-banner {
-  margin-top: 3.5rem;
-  padding: 2.25rem 2.5rem;
+  margin-top: clamp(1.75rem, 2.5vw, 2.25rem);
+  padding: 1.4rem 1.85rem;
   background: linear-gradient(135deg, var(--color-background-soft) 0%, var(--color-card) 100%);
   border: 1px solid var(--color-border);
+  border-radius: 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   justify-content: space-between;
   align-items: flex-start;
   box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -3118,14 +3216,34 @@ html[data-theme="dark"] .courses-contact-banner {
   border-color: #344B38;
 }
 
+/* Banner Artistic Watermark */
+.courses-banner-watermark {
+  position: absolute;
+  left: -15px;
+  bottom: -20px;
+  width: 140px;
+  height: 100px;
+  pointer-events: none;
+  color: var(--color-primary);
+  opacity: 0.12;
+  transition: opacity 0.3s ease;
+}
+
+html[data-theme="dark"] .courses-banner-watermark {
+  color: var(--color-accent);
+  opacity: 0.15;
+}
+
 .courses-contact-content {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
+  position: relative;
+  z-index: 2;
 }
 
 .courses-contact-content .banner-icon {
-  font-size: 2.5rem;
+  font-size: 2.15rem;
   color: var(--color-primary);
   flex-shrink: 0;
 }
@@ -3136,13 +3254,13 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
 
 .courses-contact-content h4 {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.22rem;
   color: var(--color-text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .courses-contact-content p {
-  font-size: 0.885rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
@@ -3152,16 +3270,18 @@ html[data-theme="dark"] .courses-contact-content .banner-icon {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 1rem 1.65rem;
-  font-size: 0.92rem;
+  padding: 0.85rem 1.45rem;
+  font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  position: relative;
+  z-index: 2;
 }
 
 .courses-banner-btn .material-symbols-outlined {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   transition: transform 0.25s ease;
 }
 
@@ -3482,7 +3602,7 @@ html[data-theme="dark"] .impact-metrics-section {
 }
 
 .impact-badge {
-  border: 1px solid rgba(200, 90, 50, 0.45);
+  border: 1px solid rgba(46, 93, 58, 0.4);
   padding: 0.36rem 0.95rem;
   border-radius: 2px;
   font-family: var(--font-sans);
@@ -3490,25 +3610,38 @@ html[data-theme="dark"] .impact-metrics-section {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #B2532A;
+  color: var(--color-primary);
   background: transparent;
   display: inline-block;
   line-height: 1.2;
+  transition: all 0.25s ease;
+}
+
+.impact-badge:hover {
+  border-color: var(--color-primary);
+  background: rgba(167, 201, 87, 0.1);
 }
 
 html[data-theme="dark"] .impact-badge {
-  border-color: rgba(167, 201, 87, 0.5);
+  border-color: rgba(167, 201, 87, 0.45);
   color: var(--color-accent);
+  background: transparent;
+}
+
+html[data-theme="dark"] .impact-badge:hover {
+  border-color: var(--color-accent);
+  background: rgba(167, 201, 87, 0.1);
 }
 
 .impact-badge-line {
   height: 1px;
   width: clamp(80px, 14vw, 180px);
-  background: rgba(200, 90, 50, 0.35);
+  background: linear-gradient(to right, rgba(46, 93, 58, 0.35), rgba(46, 93, 58, 0.05));
+  transition: background 0.25s ease;
 }
 
 html[data-theme="dark"] .impact-badge-line {
-  background: rgba(167, 201, 87, 0.35);
+  background: linear-gradient(to right, rgba(167, 201, 87, 0.4), rgba(167, 201, 87, 0.05));
 }
 
 /* --------------------------------------------------------------------------
@@ -3766,7 +3899,11 @@ html[data-theme="dark"] .impact-stat-line {
 }
 
 .impact-stat-line:hover {
-  border-bottom-color: rgba(200, 90, 50, 0.5);
+  border-bottom-color: var(--color-primary);
+}
+
+html[data-theme="dark"] .impact-stat-line:hover {
+  border-bottom-color: var(--color-accent);
 }
 
 .impact-stat-name {
@@ -5323,14 +5460,18 @@ html[data-theme="light"] .site-footer {
 /* Giant Gradient Brand Wordmark at the Bottom */
 .footer-wordmark {
   width: 100%;
+  max-width: 100%;
   margin-top: clamp(0.75rem, 1.5vw, 1.15rem);
   margin-bottom: 0;
-  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 0.5rem clamp(0.75rem, 1.5vw, 1.5rem);
   overflow: visible;
-  font-family: var(--font-sans);
-  font-size: clamp(2.4rem, 8.85vw, 8.85rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-family: 'Inter', var(--font-sans);
+  font-size: clamp(1.75rem, 7.2vw, 7.35rem);
+  font-weight: 900;
+  font-variation-settings: 'wght' 900;
+  letter-spacing: -0.05em;
   line-height: 0.95;
   text-align: center;
   white-space: nowrap;
@@ -5341,6 +5482,10 @@ html[data-theme="light"] .site-footer {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7))
+          drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85))
+          drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9))
+          drop-shadow(0 0 35px rgba(167, 201, 87, 0.22));
   opacity: 1;
   box-sizing: border-box;
 }
@@ -5352,6 +5497,10 @@ html[data-theme="light"] .footer-wordmark {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7))
+          drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85))
+          drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9))
+          drop-shadow(0 0 35px rgba(167, 201, 87, 0.22));
   opacity: 1;
 }
 
