@@ -2716,22 +2716,7 @@ html[data-theme="dark"] .course-card-glass {
   pointer-events: none;
 }
 
-/* Simple Smooth Hover Effect */
-.course-3d-card:hover .course-card-glass {
-  transform: translateY(-6px);
-  border-color: var(--color-primary);
-  box-shadow: 0 16px 36px -10px rgba(46, 93, 58, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
-}
 
-html[data-theme="dark"] .course-3d-card:hover .course-card-glass {
-  transform: translateY(-6px);
-  border-color: var(--color-accent);
-  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 0 20px rgba(167, 201, 87, 0.12);
-}
-
-.course-3d-card:hover .course-card-glow {
-  opacity: 1;
-}
 
 /* Featured / Highlighted Card */
 .course-featured-3d .course-card-glass {
@@ -2797,10 +2782,6 @@ html[data-theme="dark"] .course-card-image-wrap {
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.course-3d-card:hover .course-card-img,
-.course-3d-card:hover .course-card-image {
-  transform: scale(1.04);
-}
 
 .course-badge-wrap {
   display: flex;
@@ -2901,18 +2882,6 @@ html[data-theme="dark"] .course-3d-icon-box {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-.course-3d-card:hover .course-3d-icon-box {
-  transform: scale(1.06);
-  background: var(--color-primary);
-  color: #F6FAF4;
-  border-color: var(--color-primary);
-}
-
-html[data-theme="dark"] .course-3d-card:hover .course-3d-icon-box {
-  background: var(--color-accent);
-  color: #111A14;
-  border-color: var(--color-accent);
-}
 
 .course-icon {
   font-size: 1.65rem;
