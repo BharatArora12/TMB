@@ -259,18 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================================
-  // MODULE 4: ROTATING HERO IDENTITY WORD (Multilingual Cycler)
+  // MODULE 4: ROTATING HERO IDENTITY WORD (Multilingual Cycler) [COMMENTED OUT FOR NOW]
   // ============================================================================
-  /**
-   * Periodically alternates the hero headline identity between:
-   * 'Bharat', 'India', and 'भारत'.
-   *
-   * Mechanism:
-   * 1. Fades opacity to 0.
-   * 2. Swaps textContent after 250ms (during invisible midpoint).
-   * 3. Fades opacity back to 1.
-   * Runs every 2.2 seconds.
-   */
+  /*
   const rotatingBharatWord = document.getElementById('rotatingBharatWord');
   const bharatNames = ['Bharat', 'India', 'भारत'];
   let currentBharatName = 0;
@@ -286,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 250);
     }, 2200);
   }
+  */
 
   // ============================================================================
   // MODULE 4B: PRECISE HERO GRADIENT ANCHORING
@@ -1174,8 +1166,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Value formatting function
   const formatCounterValue = (value, compact, suffix) => {
     let formatted = '';
-    if (compact && value >= 1000) {
-      formatted = `${Math.floor(value / 1000)}k`;
+    if (compact) {
+      const kVal = Math.floor(value / 1000);
+      formatted = kVal >= 1 ? `${kVal}k` : '0';
     } else {
       formatted = Math.floor(value).toLocaleString();
     }
@@ -1254,14 +1247,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Animation Timeline Constants
-  const COUNT_DURATION = 4600; // 4.6s slow, smooth count up & foliage bloom
-  const HOLD_DURATION = 2400;  // 2.4s comfortable reading hold at peak (20k+, 18, 35+, 250+)
-  const FADE_DURATION = 400;   // 0.4s gentle fade before repeating
-  const TOTAL_CYCLE = COUNT_DURATION + HOLD_DURATION + FADE_DURATION;
+  const COUNT_DURATION = 2800; // 2.8s brisk, smooth count up & foliage bloom until original numbers appear
 
   let sharedRafId = null;
   let cycleStartTime = null;
   let isLoopActive = false;
+  let hasCompletedOnce = false;
 
   // Single shared requestAnimationFrame loop for BOTH numbers and tree leaves
   const renderImpactFrame = (now) => {
@@ -1269,53 +1260,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!cycleStartTime) cycleStartTime = now;
     const elapsed = now - cycleStartTime;
-    const cycleTime = elapsed % TOTAL_CYCLE;
 
     let progress = 0;
-    let fade = 1.0;
     let isPeak = false;
 
-    if (cycleTime < COUNT_DURATION) {
-      // Natural cubic deceleration
-      const t = cycleTime / COUNT_DURATION;
-      progress = 1 - Math.pow(1 - t, 2.6);
-    } else if (cycleTime < COUNT_DURATION + HOLD_DURATION) {
-      progress = 1.0;
-      isPeak = true;
+    if (elapsed < COUNT_DURATION) {
+      // Natural smooth deceleration as leaves sprout and numbers rise
+      const t = elapsed / COUNT_DURATION;
+      progress = 1 - Math.pow(1 - t, 2.1);
     } else {
+      // Reached original numbers - keep full bloom and don't reset
       progress = 1.0;
       isPeak = true;
-      const fTime = cycleTime - (COUNT_DURATION + HOLD_DURATION);
-      fade = Math.max(0, 1 - fTime / FADE_DURATION);
+      hasCompletedOnce = true;
     }
 
     // 1. Update Numbers
     counterItems.forEach(({ el, target, suffix, compact }) => {
-      const currentVal = Math.floor(target * progress);
-      el.textContent = formatCounterValue(currentVal, compact, suffix);
-
-      if (isPeak && fade > 0.6) {
+      if (isPeak) {
+        el.textContent = formatCounterValue(target, compact, suffix);
         el.classList.add('is-peak');
       } else {
+        const currentVal = Math.floor(target * progress);
+        el.textContent = formatCounterValue(currentVal, compact, suffix);
         el.classList.remove('is-peak');
       }
     });
 
-    // 2. Update Tree Leaves (Increases at the EXACT SAME SPEED as the number)
+    // 2. Update Tree Leaves (Increases until original numbers appear)
     leafNodes.forEach(({ el, data }) => {
       const { x, y, thresh, rot, scale, swayPhase } = data;
       const sway = Math.sin((now * 0.003) + swayPhase) * 3.5;
       const curRot = rot + sway;
 
       if (progress >= thresh) {
-        // Sprouting & spring unfurl
-        const growth = Math.min(1, (progress - thresh) / 0.04);
-        const pop = growth < 0.7 
-          ? (growth / 0.7) * 1.15 
-          : 1.15 - ((growth - 0.7) / 0.3) * 0.15;
-        const finalScale = scale * pop;
+        let finalScale = scale;
+        let opacity = 1;
 
-        el.style.opacity = (Math.min(1, growth * 1.8) * fade).toFixed(3);
+        if (progress < 1.0) {
+          // Sprouting & spring unfurl until original numbers appear
+          const growth = Math.min(1, (progress - thresh) / 0.04);
+          const pop = growth < 0.7 
+            ? (growth / 0.7) * 1.15 
+            : 1.15 - ((growth - 0.7) / 0.3) * 0.15;
+          finalScale = scale * pop;
+          opacity = Math.min(1, growth * 1.8);
+        }
+
+        el.style.opacity = opacity.toFixed(3);
         el.setAttribute('transform', `translate(${x}, ${y}) rotate(${curRot}) scale(${finalScale})`);
       } else {
         el.style.opacity = '0';
@@ -1330,14 +1322,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (treeSunAura) {
-      treeSunAura.style.opacity = ((0.2 + progress * 0.8) * fade).toFixed(2);
+      treeSunAura.style.opacity = (0.2 + progress * 0.8).toFixed(2);
       treeSunAura.style.transform = `translate(-50%, 0) scale(${0.85 + progress * 0.25})`;
     }
 
     sharedRafId = requestAnimationFrame(renderImpactFrame);
   };
 
-  const startShowcase = () => {
+  const startShowcase = (forceReplay = false) => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
@@ -1352,6 +1344,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (treeSunAura) {
         treeSunAura.style.opacity = '1';
       }
+      return;
+    }
+
+    if (hasCompletedOnce && !forceReplay) {
+      isLoopActive = true;
+      if (!sharedRafId) sharedRafId = requestAnimationFrame(renderImpactFrame);
       return;
     }
 
@@ -1396,14 +1394,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // User replay interactions
     if (impactMainCounterWrap) {
       impactMainCounterWrap.addEventListener('click', () => {
-        cycleStartTime = performance.now();
-        if (!isLoopActive) startShowcase();
+        hasCompletedOnce = false;
+        startShowcase(true);
       });
     }
     if (impactTreeFrame) {
       impactTreeFrame.addEventListener('click', () => {
-        cycleStartTime = performance.now();
-        if (!isLoopActive) startShowcase();
+        hasCompletedOnce = false;
+        startShowcase(true);
       });
     }
 
