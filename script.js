@@ -1167,10 +1167,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const formatCounterValue = (value, compact, suffix) => {
     let formatted = '';
     if (compact) {
-      const kVal = Math.floor(value / 1000);
-      formatted = kVal >= 1 ? `${kVal}k` : '0';
+      const thousands = Math.round(value / 1000);
+      formatted = thousands >= 1 ? `${thousands}k` : '0';
     } else {
-      formatted = Math.floor(value).toLocaleString();
+      formatted = Math.round(value).toLocaleString();
     }
     return `${formatted}${suffix}`;
   };
@@ -1225,8 +1225,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Sort leaves by threshold so leaf count increases at the EXACT SAME SPEED as the number
+  // Sort leaves by threshold and evenly distribute bloom timing across progress range (0.02 to 0.96)
+  // so leaf sprouting progresses in direct 1:1 unison with the count-up
   LEAVES_CONFIG.sort((a, b) => a.thresh - b.thresh);
+  const totalLeaves = LEAVES_CONFIG.length;
+  LEAVES_CONFIG.forEach((leaf, idx) => {
+    leaf.thresh = 0.02 + (idx / (totalLeaves - 1)) * 0.94;
+  });
 
   const leafNodes = [];
   if (treeLeavesLayer) {
@@ -1267,7 +1272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elapsed < COUNT_DURATION) {
       // Natural smooth deceleration as leaves sprout and numbers rise
       const t = elapsed / COUNT_DURATION;
-      progress = 1 - Math.pow(1 - t, 2.1);
+      progress = 1 - Math.pow(1 - t, 1.85);
     } else {
       // Reached original numbers - keep full bloom and don't reset
       progress = 1.0;
@@ -1275,13 +1280,13 @@ document.addEventListener('DOMContentLoaded', () => {
       hasCompletedOnce = true;
     }
 
-    // 1. Update Numbers
+    // 1. Update Numbers (synchronized with leaf growth)
     counterItems.forEach(({ el, target, suffix, compact }) => {
       if (isPeak) {
         el.textContent = formatCounterValue(target, compact, suffix);
         el.classList.add('is-peak');
       } else {
-        const currentVal = Math.floor(target * progress);
+        const currentVal = Math.min(target, Math.round(target * progress));
         el.textContent = formatCounterValue(currentVal, compact, suffix);
         el.classList.remove('is-peak');
       }

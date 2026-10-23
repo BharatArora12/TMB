@@ -5063,7 +5063,7 @@ html[data-theme="dark"] .form-success-banner {
   background-color: #111A14; /* Dark mode background across both modes */
   border-top: 1px solid rgba(167, 201, 87, 0.22);
   padding-top: 4.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
   overflow: hidden;
   color: #E7EFE5;
   position: relative;
@@ -5323,15 +5323,15 @@ html[data-theme="light"] .site-footer {
 /* Giant Gradient Brand Wordmark at the Bottom */
 .footer-wordmark {
   width: 100%;
-  margin-top: 2.25rem;
+  margin-top: clamp(0.75rem, 1.5vw, 1.15rem);
   margin-bottom: 0;
-  padding: 0.75rem 0.5rem;
-  overflow: hidden;
+  padding: 0;
+  overflow: visible;
   font-family: var(--font-sans);
-  font-size: clamp(2rem, 7.8vw, 7.2rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 8.85vw, 8.85rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   text-align: center;
   white-space: nowrap;
   user-select: none;
