@@ -37,7 +37,8 @@
    1. PAGE ROOT & THEME BACKGROUND BASES
    -------------------------------------------------------------------------- */
 .about-page {
-  background-color: #06090e; /* Deep obsidian luxury dark background */
+  background-color: #06090e;
+  /* Deep obsidian luxury dark background */
   color: #e2e8f0;
   min-height: 100vh;
   overflow-x: hidden;
@@ -45,7 +46,8 @@
 
 /* Light Mode Overrides (Triggered when html has data-theme="light") */
 html[data-theme="light"] .about-page {
-  background-color: #f3f6f1; /* Soft warm ivory / parchment tone */
+  background-color: #f3f6f1;
+  /* Soft warm ivory / parchment tone */
   color: #1e293b;
 }
 
@@ -81,6 +83,7 @@ html[data-theme="light"] .about-hero-section {
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
+  margin-top: -120px;
 }
 
 /* Small "About" text */
@@ -354,10 +357,10 @@ html[data-theme="light"] .rail-item:hover .rail-item-text {
   flex-direction: column;
   justify-content: space-between;
   padding: 4rem 4.5rem;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              opacity 0.4s ease, 
-              filter 0.4s ease,
-              box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease,
+    filter 0.4s ease,
+    box-shadow 0.4s ease;
   will-change: transform, opacity;
 }
 
@@ -378,7 +381,8 @@ html[data-theme="light"] .story-card {
 
 .story-card:nth-child(3) {
   z-index: 30;
-  margin-bottom: 0; /* Final card does not need trailing space */
+  margin-bottom: 0;
+  /* Final card does not need trailing space */
 }
 
 /* Depth-of-Field Dimming Effect (Controlled by about.js) */
@@ -408,15 +412,15 @@ html[data-theme="light"] .story-card.is-covered {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.1) 0%, transparent 60%),
-              linear-gradient(to right, #0a0f18 35%, rgba(10, 15, 24, 0.88) 100%),
-              linear-gradient(to bottom, rgba(10, 15, 24, 0.3) 0%, #0a0f18 100%);
+    linear-gradient(to right, #0a0f18 35%, rgba(10, 15, 24, 0.88) 100%),
+    linear-gradient(to bottom, rgba(10, 15, 24, 0.3) 0%, #0a0f18 100%);
   pointer-events: none;
 }
 
 html[data-theme="light"] .card-bg-overlay {
   background: radial-gradient(circle at 80% 20%, rgba(167, 201, 87, 0.15) 0%, transparent 60%),
-              linear-gradient(to right, #ffffff 45%, rgba(255, 255, 255, 0.85) 100%),
-              linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, #ffffff 100%);
+    linear-gradient(to right, #ffffff 45%, rgba(255, 255, 255, 0.85) 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, #ffffff 100%);
 }
 
 .card-content-inner {
@@ -781,7 +785,8 @@ html[data-theme="light"] .btn-outline-light:hover {
   }
 
   .rail-category-tag {
-    display: none; /* Hide category label to save vertical space on mobile */
+    display: none;
+    /* Hide category label to save vertical space on mobile */
   }
 
   .rail-nav {
@@ -795,7 +800,8 @@ html[data-theme="light"] .btn-outline-light:hover {
   }
 
   .rail-item-num {
-    display: none; /* Compact presentation */
+    display: none;
+    /* Compact presentation */
   }
 
   .rail-item-text {
