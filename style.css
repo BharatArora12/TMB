@@ -1651,7 +1651,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   overflow: hidden;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
   transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
-  background-color: #111A14;
+  background-color: #223629;
 }
 
 
@@ -1670,15 +1670,15 @@ html[data-theme="dark"] .hero-vignette-linear {
   transform: scale(1.08);
 }
 
-/* Glassmorphic Dark Tint Overlay - Semi-Transparent */
+/* Glassmorphic Tint Overlay - Lighter Shade */
 .work-3d-card .card-glass-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(17, 26, 20, 0.52) 0%,
-    rgba(17, 26, 20, 0.68) 42%,
-    rgba(17, 26, 20, 0.94) 100%
+    rgba(34, 54, 41, 0.22) 0%,
+    rgba(28, 46, 34, 0.45) 42%,
+    rgba(20, 34, 25, 0.78) 100%
   );
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
@@ -1689,9 +1689,9 @@ html[data-theme="dark"] .hero-vignette-linear {
 .work-3d-card.is-active .card-glass-overlay {
   background: linear-gradient(
     180deg,
-    rgba(17, 26, 20, 0.38) 0%,
-    rgba(17, 26, 20, 0.6) 45%,
-    rgba(17, 26, 20, 0.92) 100%
+    rgba(34, 54, 41, 0.14) 0%,
+    rgba(28, 46, 34, 0.36) 45%,
+    rgba(20, 34, 25, 0.70) 100%
   );
 }
 
@@ -4188,7 +4188,7 @@ html[data-theme="dark"] .testimonial-image-col {
   padding: 1.55rem 1.65rem 1.45rem;
   border: 1px solid rgba(167, 201, 87, 0.22);
   border-radius: 1.25rem;
-  background: #223629;
+  background: #284232;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35), 0 0 20px rgba(167, 201, 87, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -4344,7 +4344,7 @@ html[data-theme="dark"] .testimonial-image-col {
    Dark Mode Overrides for Testimonial Cards & Carousel Controls
    -------------------------------------------------------------------------- */
 html[data-theme="dark"] .testimonial-card-col {
-  background: #223629;
+  background: #284232;
   border-color: rgba(167, 201, 87, 0.25);
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55), 0 0 20px rgba(167, 201, 87, 0.08);
 }
