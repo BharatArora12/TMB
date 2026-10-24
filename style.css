@@ -5250,6 +5250,7 @@ html[data-theme="light"] .site-footer {
 }
 
 .site-footer .nav-brand,
+.footer-brand,
 .footer-brand-logo-link {
   display: inline-flex;
   align-items: center;
@@ -5259,19 +5260,25 @@ html[data-theme="light"] .site-footer {
 }
 
 .site-footer .nav-brand img,
+.footer-brand img,
+.footer-brand-img,
 .footer-brand-logo-img {
-  height: 30px;
+  height: 28px;
   width: auto;
-  max-width: 32px;
+  max-width: 30px;
   object-fit: contain;
   transition: transform 0.25s ease;
 }
 
-.site-footer .nav-brand:hover img {
+.site-footer .nav-brand:hover img,
+.footer-brand:hover img,
+.footer-brand-logo-link:hover img {
   transform: scale(1.06);
 }
 
-.site-footer .nav-brand-text {
+.site-footer .nav-brand-text,
+.footer-brand-name,
+.footer-brand .nav-brand-text {
   font-family: var(--font-sans);
   font-size: 0.84rem;
   font-weight: 700;
@@ -5281,7 +5288,10 @@ html[data-theme="light"] .site-footer {
   transition: color 0.2s ease;
 }
 
-.site-footer .nav-brand:hover .nav-brand-text {
+.site-footer .nav-brand:hover .nav-brand-text,
+.footer-brand:hover .footer-brand-name,
+.footer-brand:hover .nav-brand-text,
+.footer-brand-logo-link:hover .footer-brand-name {
   color: var(--color-accent) !important;
 }
 
@@ -5466,73 +5476,6 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
-/* Column 3 Artistic Motive Badge */
-.footer-motive-badge {
-  margin-top: 1.35rem;
-  padding: 0.95rem 1.15rem;
-  background: rgba(167, 201, 87, 0.04);
-  border: 1px solid rgba(167, 201, 87, 0.16);
-  border-left: 3px solid var(--color-accent);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-motive-badge:hover {
-  background: rgba(167, 201, 87, 0.07);
-  border-color: rgba(167, 201, 87, 0.3);
-  border-left-color: #D5EDB0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(167, 201, 87, 0.08);
-}
-
-.motive-badge-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.motive-emblem-svg {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-
-.motive-text-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.motive-sanskrit {
-  font-family: var(--font-serif);
-  font-size: 0.78rem;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--color-accent);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-}
-
-.motive-title {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.motive-description {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  line-height: 1.45;
-  color: #B1C2B0;
-  margin: 0;
-}
 
 /* --------------------------------------------------------------------------
    FOOTER BOTTOM BAR & GIANT BRAND WORDMARK
