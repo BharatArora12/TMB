@@ -2742,6 +2742,74 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   }
 }
 
+/* Courses Header */
+.courses-header,
+.programs-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1.4rem, 2vw, 2.25rem);
+}
+
+@media (min-width: 768px) {
+  .courses-header,
+  .programs-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.courses-intro,
+.programs-intro {
+  max-width: 32rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* Course and program grids - 3 IN A ROW */
+.courses-3d-grid,
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  .courses-3d-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .course-3d-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 901px) {
+  .courses-3d-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .course-3d-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+}
+
+/* Course Card Architecture */
+.course-3d-card,
+.program-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
 .course-card-glass {
   position: relative;
   width: 100%;
