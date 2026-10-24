@@ -5487,7 +5487,7 @@ html[data-theme="light"] .site-footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 260px;
+  max-width: 295px;
   position: relative;
   transition: opacity 0.25s ease;
 }
@@ -5502,7 +5502,7 @@ html[data-theme="light"] .site-footer {
 .footer-bridge-svg {
   width: 100%;
   height: auto;
-  max-height: 110px;
+  max-height: 120px;
   display: block;
   transition: filter 0.3s ease;
 }
