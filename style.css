@@ -912,7 +912,8 @@ html[data-theme="dark"] .hero-vignette-linear {
   font-size: 1.1em;
   line-height: 0.88;
   display: inline-block;
-  margin-right: 0.14em;
+  vertical-align: baseline;
+  margin-right: 0.12em;
   text-transform: none;
   font-feature-settings: 'liga' 1, 'swsh' 1;
 }
