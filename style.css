@@ -2636,20 +2636,24 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .courses-art-sun {
-  fill: var(--temple-sun);
+  fill: var(--color-accent);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, filter 0.3s ease;
 }
 
 .courses-section:hover .courses-art-sun {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 14px var(--temple-sun-glow));
+  filter: drop-shadow(0 0 16px rgba(167, 201, 87, 0.45));
 }
 
 .courses-art-stroke {
-  stroke: var(--temple-stroke);
+  stroke: var(--color-primary);
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: stroke 0.3s ease;
+}
+
+html[data-theme="dark"] .courses-art-stroke {
+  stroke: #E7EFE5;
 }
 
 @media (max-width: 1200px) {
@@ -3005,10 +3009,14 @@ html[data-theme="dark"] .course-sanskrit-tag {
 }
 
 .course-sanskrit-tag .sanskrit-char {
-  color: var(--temple-sun);
+  color: var(--color-primary);
   font-style: normal;
   font-weight: 700;
   font-size: 0.8rem;
+}
+
+html[data-theme="dark"] .course-sanskrit-tag .sanskrit-char {
+  color: var(--color-accent);
 }
 
 .course-card-desc {
@@ -5241,17 +5249,40 @@ html[data-theme="light"] .site-footer {
   align-items: flex-start;
 }
 
+.site-footer .nav-brand,
 .footer-brand-logo-link {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 1.25rem;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
   text-decoration: none;
 }
 
+.site-footer .nav-brand img,
 .footer-brand-logo-img {
-  height: 48px;
+  height: 30px;
   width: auto;
+  max-width: 32px;
   object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.site-footer .nav-brand:hover img {
+  transform: scale(1.06);
+}
+
+.site-footer .nav-brand-text {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFFFFF !important;
+  transition: color 0.2s ease;
+}
+
+.site-footer .nav-brand:hover .nav-brand-text {
+  color: var(--color-accent) !important;
 }
 
 .footer-brand-tagline {
@@ -5435,6 +5466,74 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
+/* Column 3 Artistic Motive Badge */
+.footer-motive-badge {
+  margin-top: 1.35rem;
+  padding: 0.95rem 1.15rem;
+  background: rgba(167, 201, 87, 0.04);
+  border: 1px solid rgba(167, 201, 87, 0.16);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-motive-badge:hover {
+  background: rgba(167, 201, 87, 0.07);
+  border-color: rgba(167, 201, 87, 0.3);
+  border-left-color: #D5EDB0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(167, 201, 87, 0.08);
+}
+
+.motive-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.motive-emblem-svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.motive-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.motive-sanskrit {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.motive-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.motive-description {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #B1C2B0;
+  margin: 0;
+}
+
 /* --------------------------------------------------------------------------
    FOOTER BOTTOM BAR & GIANT BRAND WORDMARK
    -------------------------------------------------------------------------- */
@@ -5461,23 +5560,23 @@ html[data-theme="light"] .site-footer {
 .footer-wordmark {
   width: 100%;
   max-width: 100%;
-  margin-top: clamp(0.75rem, 1.5vw, 1.15rem);
+  margin-top: clamp(1rem, 2vw, 1.85rem);
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5rem 0.5rem clamp(0.75rem, 1.5vw, 1.5rem);
+  padding: 0.5rem 0 clamp(0.75rem, 1.75vw, 1.5rem);
   overflow: visible;
   font-family: 'Inter', var(--font-sans);
-  font-size: clamp(1.75rem, 7.2vw, 7.35rem);
+  font-size: clamp(2.4rem, 8.7vw, 9.2rem);
   font-weight: 900;
   font-variation-settings: 'wght' 900;
-  letter-spacing: -0.05em;
-  line-height: 0.95;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
   text-align: center;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
-  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
+  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 30%, #FFFFFF 48%, #A8D568 70%, #6F9E45 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5485,14 +5584,14 @@ html[data-theme="light"] .site-footer {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7))
           drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85))
           drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9))
-          drop-shadow(0 0 35px rgba(167, 201, 87, 0.22));
+          drop-shadow(0 0 40px rgba(167, 201, 87, 0.28));
   opacity: 1;
   box-sizing: border-box;
 }
 
 html[data-theme="dark"] .footer-wordmark,
 html[data-theme="light"] .footer-wordmark {
-  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 32%, #EAF5C7 48%, #A8D568 70%, #6F9E45 100%);
+  background: linear-gradient(96deg, #A7C957 0%, #D5EDB0 30%, #FFFFFF 48%, #A8D568 70%, #6F9E45 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -5500,7 +5599,7 @@ html[data-theme="light"] .footer-wordmark {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7))
           drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85))
           drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9))
-          drop-shadow(0 0 35px rgba(167, 201, 87, 0.22));
+          drop-shadow(0 0 40px rgba(167, 201, 87, 0.28));
   opacity: 1;
 }
 
