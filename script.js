@@ -747,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '56%' : isTablet ? 'min(82%, 310px)' : 'min(92%, 380px)';
+          const tx = isMobile ? '68%' : isTablet ? 'min(82%, 235px)' : 'min(92%, 270px)';
           const rotY = isMobile ? -14 : -15;
           const tz = isMobile ? '-60px' : '-65px';
           const scale = isMobile ? 0.88 : 0.90;
@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-56%' : isTablet ? 'max(-82%, -310px)' : 'max(-92%, -380px)';
+          const tx = isMobile ? '-68%' : isTablet ? 'max(-82%, -235px)' : 'max(-92%, -270px)';
           const rotY = isMobile ? 14 : 15;
           const tz = isMobile ? '-60px' : '-65px';
           const scale = isMobile ? 0.88 : 0.90;
@@ -771,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '96%' : isTablet ? 'min(150%, 560px)' : 'min(170%, 720px)';
+          const tx = isMobile ? '118%' : isTablet ? 'min(150%, 430px)' : 'min(165%, 490px)';
           const rotY = isMobile ? -22 : -26;
           const tz = isMobile ? '-110px' : '-130px';
           const scale = isMobile ? 0.74 : 0.78;
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-96%' : isTablet ? 'max(-150%, -560px)' : 'max(-170%, -720px)';
+          const tx = isMobile ? '-118%' : isTablet ? 'max(-150%, -430px)' : 'max(-165%, -490px)';
           const rotY = isMobile ? 22 : 26;
           const tz = isMobile ? '-110px' : '-130px';
           const scale = isMobile ? 0.74 : 0.78;
@@ -795,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 3) {
           // Outer Right (fans out on wider screens)
-          const tx = isMobile ? '130%' : isTablet ? 'min(210%, 780px)' : 'min(240%, 1000px)';
+          const tx = isMobile ? '160%' : isTablet ? 'min(210%, 620px)' : 'min(230%, 700px)';
           const rotY = isMobile ? -28 : -32;
           const tz = isMobile ? '-150px' : '-180px';
           const scale = isMobile ? 0.64 : 0.66;
@@ -807,7 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -3) {
           // Outer Left (fans out on wider screens)
-          const tx = isMobile ? '-130%' : isTablet ? 'max(-210%, -780px)' : 'max(-240%, -1000px)';
+          const tx = isMobile ? '-160%' : isTablet ? 'max(-210%, -620px)' : 'max(-230%, -700px)';
           const rotY = isMobile ? 28 : 32;
           const tz = isMobile ? '-150px' : '-180px';
           const scale = isMobile ? 0.64 : 0.66;
@@ -859,7 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // Card click & hover selection
+    // Card click & hover-to-front selection
     cards.forEach((card, idx) => {
       // Click selection
       card.addEventListener('click', (e) => {
@@ -879,12 +879,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hover on any card to switch immediately (just like the upper tabs)
+      // Hover on any card to bring it directly to the front
       const handleCardHover = () => {
+        stopAutoplay();
         if (idx !== currentIndex) {
           slideDirection = idx > currentIndex ? 1 : -1;
           updateSlider(idx);
-          restartAutoplay();
         }
       };
 
@@ -893,6 +893,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.pointerType === 'mouse') {
           handleCardHover();
         }
+      });
+      card.addEventListener('mouseleave', () => {
+        restartAutoplay();
       });
     });
 
