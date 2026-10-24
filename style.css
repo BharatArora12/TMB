@@ -841,9 +841,9 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Minimalist Editorial Subbrand */
 .hero-subbrand {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: clamp(0.96rem, 1.15vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #C8C5C1 !important;
   line-height: 1.2;
@@ -858,16 +858,16 @@ html[data-theme="dark"] .hero-vignette-linear {
   color: #F7F3ED;
 }
 
-/* Master Editorial Headline - Inter ExtraBold 800 + Instrument Serif Italic */
+/* Master Editorial Headline - Inter ExtraBold 800 + Instrument Serif Italic (+45% size) */
 .hero-title,
 .hero-editorial-headline {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.95rem, 3.4vw, 3.65rem);
-  line-height: 0.96;
+  font-size: clamp(2.8rem, 4.9vw, 5.3rem);
+  line-height: 0.94;
   letter-spacing: -0.045em;
   color: #F7F3ED !important;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.04em;
@@ -879,7 +879,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 .hero-headline-line {
   display: block;
   color: #F7F3ED !important;
-  line-height: 0.96;
+  line-height: 0.94;
   letter-spacing: -0.045em;
   font-weight: 800;
   animation: heroEditorialFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -931,16 +931,16 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 @media (max-width: 767px) {
   .hero-subbrand {
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     margin-bottom: 1rem;
   }
 
   .hero-title,
   .hero-editorial-headline {
-    font-size: clamp(2.2rem, 9.5vw, 3.25rem);
-    line-height: 0.98;
+    font-size: clamp(2.8rem, 12vw, 4.2rem);
+    line-height: 0.96;
     letter-spacing: -0.04em;
-    gap: 0.08em;
+    gap: 0.06em;
     margin-bottom: 1.25rem;
   }
 
