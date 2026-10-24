@@ -5476,28 +5476,27 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
-/* Column 3: Artistic Living Heritage Bridge */
+/* Column 3: Artistic Living Heritage Bridge (Seamlessly Merged with Footer) */
 .footer-bridge-card {
-  margin-top: 1.35rem;
-  padding: 0.85rem 0.95rem 0.65rem;
-  background: linear-gradient(160deg, rgba(167, 201, 87, 0.05) 0%, rgba(233, 196, 106, 0.03) 100%);
-  border: 1px solid rgba(167, 201, 87, 0.16);
-  border-radius: 10px;
+  margin-top: 1.25rem;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 270px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  align-items: flex-start;
+  max-width: 260px;
   position: relative;
-  overflow: hidden;
+  transition: opacity 0.25s ease;
 }
 
 .footer-bridge-card:hover {
-  border-color: rgba(167, 201, 87, 0.36);
-  background: linear-gradient(160deg, rgba(167, 201, 87, 0.09) 0%, rgba(233, 196, 106, 0.06) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(167, 201, 87, 0.12);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none;
 }
 
 .footer-bridge-svg {
@@ -5505,15 +5504,20 @@ html[data-theme="light"] .site-footer {
   height: auto;
   max-height: 110px;
   display: block;
+  transition: filter 0.3s ease;
+}
+
+.footer-bridge-card:hover .footer-bridge-svg {
+  filter: drop-shadow(0 0 10px rgba(167, 201, 87, 0.35));
 }
 
 .footer-bridge-caption {
-  margin-top: 0.45rem;
-  text-align: center;
+  margin-top: 0.5rem;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.1rem;
+  align-items: flex-start;
+  gap: 0.15rem;
 }
 
 .bridge-tagline {
@@ -5533,7 +5537,7 @@ html[data-theme="light"] .site-footer {
 .bridge-subtag {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  color: #A0B2A0;
+  color: #8C9E8C;
   letter-spacing: 0.02em;
 }
 
