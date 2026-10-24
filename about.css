@@ -123,48 +123,77 @@ html[data-theme="light"] .about-top-title {
   -webkit-text-fill-color: transparent;
 }
 
-/* Cinematic Concept Artwork Frame */
+/* Cinematic Concept Artwork Showcase (Seamlessly Merged with Background) */
 .about-hero-artwork-frame {
   position: relative;
   width: 100%;
-  max-width: 1140px;
-  border-radius: clamp(1rem, 2vw, 1.75rem);
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(167, 201, 87, 0.2);
-  border: 1px solid rgba(167, 201, 87, 0.28);
-  background: #ffffff;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  max-width: 1220px;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .about-hero-artwork-frame:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 26px 75px rgba(0, 0, 0, 0.75), 0 0 50px rgba(167, 201, 87, 0.28);
+  transform: translateY(-2px);
+  filter: drop-shadow(0 14px 40px rgba(167, 201, 87, 0.16));
 }
 
 html[data-theme="light"] .about-hero-artwork-frame {
-  background: #ffffff;
-  border: 1px solid rgba(46, 93, 58, 0.22);
-  box-shadow: 0 16px 44px rgba(46, 93, 58, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 html[data-theme="light"] .about-hero-artwork-frame:hover {
-  box-shadow: 0 22px 56px rgba(46, 93, 58, 0.24), 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: none !important;
+  filter: drop-shadow(0 12px 32px rgba(46, 93, 58, 0.12));
 }
 
 .about-hero-artwork-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1024 / 468;
+  aspect-ratio: 1376 / 768;
   object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Theme Switching for Hero Artwork */
+.about-hero-artwork-dark {
+  display: block;
+}
+
+.about-hero-artwork-light {
+  display: none;
+}
+
+html[data-theme="light"] .about-hero-artwork-dark {
+  display: none;
+}
+
+html[data-theme="light"] .about-hero-artwork-light {
   display: block;
 }
 
 .about-artwork-glow {
   position: absolute;
-  inset: 0;
+  inset: -10px;
   pointer-events: none;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.06);
-  border-radius: inherit;
+  background: radial-gradient(circle at 50% 55%, rgba(233, 196, 106, 0.07) 0%, rgba(167, 201, 87, 0.03) 40%, transparent 70%);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+html[data-theme="light"] .about-artwork-glow {
+  background: radial-gradient(circle at 50% 55%, rgba(46, 93, 58, 0.05) 0%, rgba(167, 201, 87, 0.02) 45%, transparent 70%);
+  opacity: 0.6;
 }
 
 .visually-hidden {
