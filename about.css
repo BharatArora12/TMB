@@ -52,15 +52,20 @@ html[data-theme="light"] .about-page {
 }
 
 /* --------------------------------------------------------------------------
-   2. PAGE HERO HEADER SECTION (About TowardsMyBharat Showcase)
+   2. PAGE HERO HEADER SECTION (About TowardsMyBharat Showcase - 2-Column First View)
    -------------------------------------------------------------------------- */
 .about-hero-section {
   position: relative;
   width: 100%;
-  padding: clamp(6.85rem, 9.5vw, 8.5rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  min-height: calc(100vh - 80px);
+  min-height: calc(100svh - 80px);
+  display: flex;
+  align-items: center;
+  padding: clamp(1.25rem, 3vh, 2.5rem) 0;
   background-color: #06090e;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
 }
 
 html[data-theme="light"] .about-hero-section {
@@ -69,33 +74,45 @@ html[data-theme="light"] .about-hero-section {
 }
 
 .about-hero-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
   align-items: center;
-  text-align: center;
+  gap: clamp(2rem, 3.8vw, 3.75rem);
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .about-hero-header {
-  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: -120px;
+  align-items: flex-start;
+  text-align: left;
+  gap: clamp(0.35rem, 0.9vh, 0.65rem);
+  margin: 0;
 }
 
-/* Small "About" text */
+/* Small "About" kicker */
 .about-top-kicker {
   font-family: var(--font-sans);
-  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-accent);
   opacity: 0.95;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-top-kicker::before {
+  content: '';
   display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 
 html[data-theme="light"] .about-top-kicker {
@@ -103,12 +120,16 @@ html[data-theme="light"] .about-top-kicker {
   opacity: 0.9;
 }
 
-/* Big "TowardsMyBharat" text */
+html[data-theme="light"] .about-top-kicker::before {
+  background: var(--color-primary);
+}
+
+/* Big "TowardsMyBharat" title */
 .about-top-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-size: clamp(2.35rem, 4.4vw, 4.25rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   margin: 0;
   color: #ffffff;
@@ -126,22 +147,96 @@ html[data-theme="light"] .about-top-title {
   -webkit-text-fill-color: transparent;
 }
 
-/* Cinematic Concept Artwork Frame */
+/* Tagline describing the civilizational mission */
+.about-hero-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.08vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.74);
+  margin: 0.4rem 0 0.5rem;
+  max-width: 520px;
+}
+
+html[data-theme="light"] .about-hero-tagline {
+  color: var(--color-text-muted);
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+
+.about-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(167, 201, 87, 0.12);
+  border: 1px solid rgba(167, 201, 87, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-hero-pill .material-symbols-outlined {
+  font-size: 1.15rem;
+  transition: transform 0.3s ease;
+}
+
+.about-hero-pill:hover {
+  background: rgba(167, 201, 87, 0.22);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(167, 201, 87, 0.25);
+  color: #ffffff;
+}
+
+.about-hero-pill:hover .material-symbols-outlined {
+  transform: translateY(3px);
+}
+
+html[data-theme="light"] .about-hero-pill {
+  color: var(--color-primary);
+  background: rgba(46, 93, 58, 0.08);
+  border: 1px solid rgba(46, 93, 58, 0.22);
+  box-shadow: 0 4px 14px rgba(46, 93, 58, 0.08);
+}
+
+html[data-theme="light"] .about-hero-pill:hover {
+  background: rgba(46, 93, 58, 0.16);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(46, 93, 58, 0.15);
+}
+
+/* Cinematic Concept Artwork Frame (Right Side) */
 .about-hero-artwork-frame {
   position: relative;
   width: 100%;
-  max-width: 1140px;
-  border-radius: clamp(1rem, 2vw, 1.75rem);
+  max-width: 100%;
+  max-height: min(60vh, 470px);
+  border-radius: clamp(1rem, 1.6vw, 1.5rem);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(167, 201, 87, 0.12);
-  border: 1px solid rgba(167, 201, 87, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(167, 201, 87, 0.14);
+  border: 1px solid rgba(167, 201, 87, 0.25);
   background: #111a14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .about-hero-artwork-frame:hover {
   transform: translateY(-3px);
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(167, 201, 87, 0.18);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.75), 0 0 45px rgba(167, 201, 87, 0.22);
 }
 
 html[data-theme="light"] .about-hero-artwork-frame {
@@ -156,10 +251,12 @@ html[data-theme="light"] .about-hero-artwork-frame:hover {
 
 .about-hero-artwork-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  max-height: min(60vh, 470px);
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
+  border-radius: inherit;
 }
 
 .about-artwork-glow {
@@ -757,6 +854,48 @@ html[data-theme="light"] .btn-outline-light:hover {
 
   .pillars-mini-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-hero-section {
+    min-height: auto;
+    padding: clamp(2.5rem, 6vh, 3.5rem) 0 2rem;
+  }
+
+  .about-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .about-hero-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-top-kicker {
+    justify-content: center;
+  }
+
+  .about-hero-tagline {
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-hero-actions {
+    justify-content: center;
+  }
+
+  .about-hero-artwork-frame {
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 46vh;
+  }
+
+  .about-hero-artwork-img {
+    max-height: 46vh;
   }
 }
 
