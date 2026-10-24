@@ -4344,7 +4344,7 @@ html[data-theme="dark"] .testimonial-image-col {
    Dark Mode Overrides for Testimonial Cards & Carousel Controls
    -------------------------------------------------------------------------- */
 html[data-theme="dark"] .testimonial-card-col {
-  background: rgba(24, 39, 29, 0.96);
+  background: #223629;
   border-color: rgba(167, 201, 87, 0.25);
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55), 0 0 20px rgba(167, 201, 87, 0.08);
 }
