@@ -747,10 +747,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '52%' : isTablet ? 'min(95%, 280px)' : 'min(115%, 340px)';
-          const rotY = isMobile ? -15 : -16;
-          const tz = isMobile ? '-70px' : '-75px';
-          const scale = isMobile ? 0.86 : 0.88;
+          const tx = isMobile ? '56%' : isTablet ? 'min(82%, 310px)' : 'min(92%, 380px)';
+          const rotY = isMobile ? -14 : -15;
+          const tz = isMobile ? '-60px' : '-65px';
+          const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = '0.88';
           card.style.filter = 'none';
@@ -759,10 +759,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-52%' : isTablet ? 'max(-95%, -280px)' : 'max(-115%, -340px)';
-          const rotY = isMobile ? 15 : 16;
-          const tz = isMobile ? '-70px' : '-75px';
-          const scale = isMobile ? 0.86 : 0.88;
+          const tx = isMobile ? '-56%' : isTablet ? 'max(-82%, -310px)' : 'max(-92%, -380px)';
+          const rotY = isMobile ? 14 : 15;
+          const tz = isMobile ? '-60px' : '-65px';
+          const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = '0.88';
           card.style.filter = 'none';
@@ -771,10 +771,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '92%' : isTablet ? 'min(170%, 500px)' : 'min(215%, 640px)';
-          const rotY = isMobile ? -24 : -28;
-          const tz = isMobile ? '-130px' : '-150px';
-          const scale = isMobile ? 0.72 : 0.76;
+          const tx = isMobile ? '96%' : isTablet ? 'min(150%, 560px)' : 'min(170%, 720px)';
+          const rotY = isMobile ? -22 : -26;
+          const tz = isMobile ? '-110px' : '-130px';
+          const scale = isMobile ? 0.74 : 0.78;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = '0.68';
           card.style.filter = 'blur(0.3px)';
@@ -783,10 +783,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-92%' : isTablet ? 'max(-170%, -500px)' : 'max(-215%, -640px)';
-          const rotY = isMobile ? 24 : 28;
-          const tz = isMobile ? '-130px' : '-150px';
-          const scale = isMobile ? 0.72 : 0.76;
+          const tx = isMobile ? '-96%' : isTablet ? 'max(-150%, -560px)' : 'max(-170%, -720px)';
+          const rotY = isMobile ? 22 : 26;
+          const tz = isMobile ? '-110px' : '-130px';
+          const scale = isMobile ? 0.74 : 0.78;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = '0.68';
           card.style.filter = 'blur(0.3px)';
@@ -795,10 +795,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 3) {
           // Outer Right (fans out on wider screens)
-          const tx = isMobile ? '125%' : isTablet ? 'min(235%, 680px)' : 'min(310%, 910px)';
-          const rotY = isMobile ? -32 : -36;
-          const tz = isMobile ? '-170px' : '-210px';
-          const scale = isMobile ? 0.62 : 0.64;
+          const tx = isMobile ? '130%' : isTablet ? 'min(210%, 780px)' : 'min(240%, 1000px)';
+          const rotY = isMobile ? -28 : -32;
+          const tz = isMobile ? '-150px' : '-180px';
+          const scale = isMobile ? 0.64 : 0.66;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.45';
           card.style.filter = 'blur(0.6px)';
@@ -807,10 +807,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -3) {
           // Outer Left (fans out on wider screens)
-          const tx = isMobile ? '-125%' : isTablet ? 'max(-235%, -680px)' : 'max(-310%, -910px)';
-          const rotY = isMobile ? 32 : 36;
-          const tz = isMobile ? '-170px' : '-210px';
-          const scale = isMobile ? 0.62 : 0.64;
+          const tx = isMobile ? '-130%' : isTablet ? 'max(-210%, -780px)' : 'max(-240%, -1000px)';
+          const rotY = isMobile ? 28 : 32;
+          const tz = isMobile ? '-150px' : '-180px';
+          const scale = isMobile ? 0.64 : 0.66;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.45';
           card.style.filter = 'blur(0.6px)';
@@ -879,11 +879,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hover on previous or next cards triggers smooth slide
-      card.addEventListener('mouseenter', () => {
+      // Hover on any card to switch immediately (just like the upper tabs)
+      const handleCardHover = () => {
         if (idx !== currentIndex) {
           slideDirection = idx > currentIndex ? 1 : -1;
           updateSlider(idx);
+          restartAutoplay();
+        }
+      };
+
+      card.addEventListener('mouseenter', handleCardHover);
+      card.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'mouse') {
+          handleCardHover();
         }
       });
     });
