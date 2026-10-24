@@ -712,8 +712,8 @@ html[data-theme="dark"] .hero-vignette-linear {
 @media (min-width: 900px) {
   .hero-section .container.hero-content,
   .hero-content {
-    width: 44% !important;
-    max-width: 44% !important;
+    width: clamp(560px, 58vw, 860px) !important;
+    max-width: 62% !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     padding-left: clamp(2.5rem, 5vw, 5.5rem) !important;
@@ -730,15 +730,15 @@ html[data-theme="dark"] .hero-vignette-linear {
 
   .hero-phrase-modern,
   .hero-headline-line {
-    white-space: normal;
+    white-space: nowrap;
   }
 }
 
 @media (min-width: 768px) and (max-width: 899px) {
   .hero-slideshow {
-    left: 35%;
+    left: 40%;
     right: 0;
-    width: 65%;
+    width: 60%;
     z-index: 1;
   }
 
@@ -748,20 +748,20 @@ html[data-theme="dark"] .hero-vignette-linear {
     background:
       linear-gradient(
         to right,
-        #11100F 0%,
-        #11100F 35%,
-        rgba(17, 16, 15, 0.94) 40%,
-        rgba(17, 16, 15, 0.6) 48%,
-        rgba(17, 16, 15, 0.15) 54%,
-        transparent 60%
+        #100F0E 0%,
+        #100F0E 38%,
+        rgba(16, 15, 14, 0.94) 44%,
+        rgba(16, 15, 14, 0.6) 52%,
+        rgba(16, 15, 14, 0.15) 60%,
+        transparent 68%
       ),
-      linear-gradient(to bottom, #11100F 0%, transparent 6%, transparent 94%, #11100F 100%) !important;
+      linear-gradient(to bottom, #100F0E 0%, transparent 6%, transparent 94%, #100F0E 100%) !important;
   }
 
   .hero-section .container.hero-content,
   .hero-content {
-    width: 50% !important;
-    max-width: 50% !important;
+    width: 62% !important;
+    max-width: 62% !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     padding-left: clamp(1.5rem, 3vw, 2.5rem) !important;
@@ -780,13 +780,13 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Minimalist Editorial Subbrand */
 .hero-subbrand {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #C8C5C1 !important;
   line-height: 1.2;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   animation: heroEditorialFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -794,58 +794,62 @@ html[data-theme="dark"] .hero-vignette-linear {
   display: inline-block;
   min-width: 3.2em;
   transition: opacity 0.25s ease;
-  color: #F7F4EF;
+  color: #F7F3ED;
 }
 
-/* Master Editorial Headline - Inter 800 + Instrument Serif Italic */
+/* Master Editorial Headline - Inter ExtraBold 800 + Instrument Serif Italic */
 .hero-title,
 .hero-editorial-headline {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(2.5rem, 4.4vw, 5.25rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  color: #F7F4EF !important;
-  margin-bottom: 1.35rem;
+  font-size: clamp(2.65rem, 5.2vw, 5.65rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  color: #F7F3ED !important;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.06em;
+  gap: 0.04em;
   text-shadow: none !important;
+  text-align: left;
 }
 
 /* Deliberate 3-line Composition */
 .hero-headline-line {
   display: block;
-  white-space: normal;
-  color: #F7F4EF !important;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  color: #F7F3ED !important;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  font-weight: 800;
   animation: heroEditorialFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-line-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.08s;
 }
 
 .hero-line-2 {
-  animation-delay: 0.18s;
+  animation-delay: 0.16s;
 }
 
 .hero-line-3 {
-  animation-delay: 0.26s;
+  animation-delay: 0.24s;
 }
 
-/* Highlighted Accent Phrase - Instrument Serif Italic */
+/* Secondary Typeface: Expressive Italic Serif */
 .hero-accent-serif,
 .hero-word-bridge {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
   font-weight: 400;
   font-style: italic;
-  letter-spacing: -0.02em;
-  color: #F7F4EF !important;
-  font-size: 1.08em;
-  line-height: 0.98;
-  display: inline;
+  letter-spacing: -0.015em;
+  color: #F7F3ED !important;
+  font-size: 1.1em;
+  line-height: 0.94;
+  display: inline-block;
+  margin-right: 0.14em;
+  text-transform: none;
+  font-feature-settings: 'liga' 1, 'swsh' 1;
 }
 
 /* Supporting Understated Description */
@@ -862,21 +866,29 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 @media (max-width: 767px) {
   .hero-subbrand {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     margin-bottom: 1rem;
   }
 
   .hero-title,
   .hero-editorial-headline {
-    font-size: clamp(2rem, 8.5vw, 2.85rem);
-    line-height: 1.02;
-    letter-spacing: -0.045em;
-    gap: 0.12em;
+    font-size: clamp(2.2rem, 9.5vw, 3.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    gap: 0.08em;
     margin-bottom: 1.25rem;
   }
 
   .hero-headline-line {
-    line-height: 1.02;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    white-space: normal;
+  }
+
+  .hero-accent-serif,
+  .hero-word-bridge {
+    font-size: 1.08em;
+    line-height: 0.98;
   }
 
   .hero-editorial-desc {
@@ -2603,71 +2615,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   z-index: 2;
 }
 
-/* Civilizational Side Artworks (Jnana Stambha on Left, Bodhi Tree on Right) */
-.courses-side-artwork {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(75px, 9vw, 135px);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.88;
-  transition: opacity 0.35s ease;
-}
 
-.courses-side-artwork.courses-art-left {
-  left: 0;
-  justify-content: flex-start;
-}
-
-.courses-side-artwork.courses-art-right {
-  right: 0;
-  justify-content: flex-end;
-}
-
-.courses-side-svg {
-  width: 100%;
-  height: 90%;
-  max-height: 520px;
-  display: block;
-}
-
-.courses-art-sun {
-  fill: var(--color-accent);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, filter 0.3s ease;
-}
-
-.courses-section:hover .courses-art-sun {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 16px rgba(167, 201, 87, 0.45));
-}
-
-.courses-art-stroke {
-  stroke: var(--color-primary);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke 0.3s ease;
-}
-
-html[data-theme="dark"] .courses-art-stroke {
-  stroke: #E7EFE5;
-}
-
-@media (max-width: 1200px) {
-  .courses-side-artwork {
-    width: clamp(55px, 7vw, 95px);
-    opacity: 0.65;
-  }
-}
-
-@media (max-width: 860px) {
-  .courses-side-artwork {
-    display: none;
-  }
-}
 
 .courses-header,
 .programs-header {
