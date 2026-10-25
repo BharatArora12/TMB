@@ -749,7 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '60%' : isTablet ? 'min(58%, 240px)' : 'min(62%, 290px)';
+          const tx = isMobile ? '60%' : isTablet ? 'min(64%, 270px)' : 'min(72%, 350px)';
           const rotY = isMobile ? -10 : -14;
           const tz = isMobile ? '-40px' : '-60px';
           const scale = isMobile ? 0.88 : 0.90;
@@ -761,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-60%' : isTablet ? 'max(-58%, -240px)' : 'max(-62%, -290px)';
+          const tx = isMobile ? '-60%' : isTablet ? 'max(-64%, -270px)' : 'max(-72%, -350px)';
           const rotY = isMobile ? 10 : 14;
           const tz = isMobile ? '-40px' : '-60px';
           const scale = isMobile ? 0.88 : 0.90;
@@ -773,7 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '105%' : isTablet ? 'min(98%, 390px)' : 'min(108%, 510px)';
+          const tx = isMobile ? '105%' : isTablet ? 'min(110%, 460px)' : 'min(128%, 620px)';
           const rotY = isMobile ? -16 : -22;
           const tz = isMobile ? '-80px' : '-115px';
           const scale = isMobile ? 0.72 : 0.76;
@@ -785,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-105%' : isTablet ? 'max(-98%, -390px)' : 'max(-108%, -510px)';
+          const tx = isMobile ? '-105%' : isTablet ? 'max(-110%, -460px)' : 'max(-128%, -620px)';
           const rotY = isMobile ? 16 : 22;
           const tz = isMobile ? '-80px' : '-115px';
           const scale = isMobile ? 0.72 : 0.76;
@@ -837,7 +837,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (idx === currentIndex || e.target.closest('.work-open-popup-btn')) {
           openDetailModal(idx);
         } else {
-          slideDirection = idx > currentIndex ? 1 : -1;
+          let diff = idx - currentIndex;
+          while (diff > totalCards / 2) diff -= totalCards;
+          while (diff < -totalCards / 2) diff += totalCards;
+          slideDirection = diff >= 0 ? 1 : -1;
           updateSlider(idx);
           restartAutoplay();
         }
@@ -850,23 +853,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hover on any card to bring it directly to the front
-      const handleCardHover = () => {
+      // Hover on any box/card to bring it directly to the front (instant like the tabs above)
+      const triggerBringToFront = () => {
         stopAutoplay();
         if (idx !== currentIndex) {
-          slideDirection = idx > currentIndex ? 1 : -1;
+          let diff = idx - currentIndex;
+          while (diff > totalCards / 2) diff -= totalCards;
+          while (diff < -totalCards / 2) diff += totalCards;
+          slideDirection = diff >= 0 ? 1 : -1;
           updateSlider(idx);
         }
       };
 
-      card.addEventListener('mouseenter', handleCardHover);
+      card.addEventListener('mouseenter', triggerBringToFront);
       card.addEventListener('pointerenter', (e) => {
         if (e.pointerType === 'mouse') {
-          handleCardHover();
+          triggerBringToFront();
         }
-      });
-      card.addEventListener('mouseleave', () => {
-        restartAutoplay();
       });
     });
 
@@ -876,7 +879,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx)) {
-          slideDirection = targetIdx > currentIndex ? 1 : -1;
+          let diff = targetIdx - currentIndex;
+          while (diff > totalCards / 2) diff -= totalCards;
+          while (diff < -totalCards / 2) diff += totalCards;
+          slideDirection = diff >= 0 ? 1 : -1;
           updateSlider(targetIdx);
           restartAutoplay();
         }
@@ -885,7 +891,10 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener('mouseenter', () => {
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
-          slideDirection = targetIdx > currentIndex ? 1 : -1;
+          let diff = targetIdx - currentIndex;
+          while (diff > totalCards / 2) diff -= totalCards;
+          while (diff < -totalCards / 2) diff += totalCards;
+          slideDirection = diff >= 0 ? 1 : -1;
           updateSlider(targetIdx);
         }
       });
@@ -996,7 +1005,14 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoplay();
     };
 
-    // Pause autoplay on mouse hover over the active cards stage or tabs
+    // Pause autoplay on mouse hover over the slider container, stage, or tabs
+    workSlider.addEventListener('mouseenter', stopAutoplay);
+    workSlider.addEventListener('mouseleave', () => {
+      if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
+        startAutoplay();
+      }
+    });
+
     const workStage = workSlider.querySelector('.work-3d-stage');
     if (workStage) {
       workStage.addEventListener('mouseenter', stopAutoplay);
