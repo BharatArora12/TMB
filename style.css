@@ -1748,7 +1748,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 }
 
 
-/* Background Image with Smooth Zoom on Hover */
+/* Background Image */
 .work-3d-card .card-bg-image {
   position: absolute;
   inset: 0;
@@ -1757,10 +1757,6 @@ html[data-theme="dark"] .hero-vignette-linear {
   background-repeat: no-repeat;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
   z-index: 1;
-}
-
-.work-3d-card:hover .card-bg-image {
-  transform: scale(1.08);
 }
 
 /* Glassmorphic Dark Tint Overlay - Semi-Transparent */
@@ -1784,30 +1780,10 @@ html[data-theme="dark"] .hero-vignette-linear {
       rgba(17, 26, 20, 0.90) 100%);
 }
 
-/* Active card base state */
+/* Active card base state (Centered & Foremost) */
 .work-3d-card.is-active .card-inner {
   border-color: var(--color-accent);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 28px rgba(168, 217, 79, 0.28);
-}
-
-/* Active card hover state — Smooth lift & radiant accent glow */
-.work-3d-card.is-active:hover .card-inner {
-  transform: translateY(-8px) scale(1.015);
-  border-color: #A8D94F;
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.58), 0 0 40px rgba(168, 217, 79, 0.5);
-}
-
-/* Inactive flanking cards hover state — Instant visual bring-to-front anticipation & glow */
-.work-3d-card:not(.is-active):hover {
-  opacity: 1 !important;
-  filter: none !important;
-  z-index: 9 !important;
-}
-
-.work-3d-card:not(.is-active):hover .card-inner {
-  transform: translateY(-8px) scale(1.02);
-  border-color: #A8D94F !important;
-  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5), 0 0 32px rgba(168, 217, 79, 0.42);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.48), 0 0 28px rgba(168, 217, 79, 0.32);
 }
 
 .work-3d-card:focus-visible .card-inner {
@@ -1934,19 +1910,6 @@ html[data-theme="dark"] .hero-vignette-linear {
 .card-explore-hint .material-symbols-outlined {
   font-size: 0.95rem;
   transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.work-3d-card:hover .card-explore-hint {
-  background: #254F36;
-  border-color: rgba(168, 217, 79, 0.65);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  transform: translateY(-1px);
-}
-
-.work-3d-card:hover .card-explore-hint .material-symbols-outlined {
-  transform: translateX(4px);
-  color: #A8D94F;
 }
 
 /* ==========================================================================

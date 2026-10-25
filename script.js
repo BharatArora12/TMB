@@ -853,8 +853,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hover on any box/card to bring it directly to the front (instant like the tabs above)
-      const triggerBringToFront = () => {
+      // Pointing mouse to any box slides it directly into center, just like the tab names above
+      const slideToThisCard = () => {
         stopAutoplay();
         if (idx !== currentIndex) {
           let diff = idx - currentIndex;
@@ -865,12 +865,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      card.addEventListener('mouseenter', triggerBringToFront);
+      card.addEventListener('mouseenter', slideToThisCard);
       card.addEventListener('pointerenter', (e) => {
         if (e.pointerType === 'mouse') {
-          triggerBringToFront();
+          slideToThisCard();
         }
       });
+      card.addEventListener('mouseover', slideToThisCard);
     });
 
     // Slide Tab bar click & hover interactions
@@ -1016,6 +1017,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const workStage = workSlider.querySelector('.work-3d-stage');
     if (workStage) {
       workStage.addEventListener('mouseenter', stopAutoplay);
+      workStage.addEventListener('mouseover', (e) => {
+        const card = e.target.closest('.work-3d-card');
+        if (!card) return;
+        const targetIdx = parseInt(card.getAttribute('data-index'), 10);
+        if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
+          let diff = targetIdx - currentIndex;
+          while (diff > totalCards / 2) diff -= totalCards;
+          while (diff < -totalCards / 2) diff += totalCards;
+          slideDirection = diff >= 0 ? 1 : -1;
+          updateSlider(targetIdx);
+        }
+      });
       workStage.addEventListener('mouseleave', () => {
         if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
           startAutoplay();
