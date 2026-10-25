@@ -732,7 +732,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
 
       cards.forEach((card, cardIndex) => {
-        const diff = cardIndex - currentIndex;
+        let diff = cardIndex - currentIndex;
+        while (diff > 2) diff -= totalCards;
+        while (diff < -2) diff += totalCards;
 
         card.classList.remove('is-active');
 
@@ -747,86 +749,55 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '68%' : isTablet ? 'min(82%, 235px)' : 'min(92%, 270px)';
-          const rotY = isMobile ? -14 : -15;
-          const tz = isMobile ? '-60px' : '-65px';
+          const tx = isMobile ? '60%' : isTablet ? 'min(58%, 240px)' : 'min(62%, 290px)';
+          const rotY = isMobile ? -10 : -14;
+          const tz = isMobile ? '-40px' : '-60px';
           const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.88';
+          card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
           card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-68%' : isTablet ? 'max(-82%, -235px)' : 'max(-92%, -270px)';
-          const rotY = isMobile ? 14 : 15;
-          const tz = isMobile ? '-60px' : '-65px';
+          const tx = isMobile ? '-60%' : isTablet ? 'max(-58%, -240px)' : 'max(-62%, -290px)';
+          const rotY = isMobile ? 10 : 14;
+          const tz = isMobile ? '-40px' : '-60px';
           const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.88';
+          card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
           card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '118%' : isTablet ? 'min(150%, 430px)' : 'min(165%, 490px)';
-          const rotY = isMobile ? -22 : -26;
-          const tz = isMobile ? '-110px' : '-130px';
-          const scale = isMobile ? 0.74 : 0.78;
+          const tx = isMobile ? '105%' : isTablet ? 'min(98%, 390px)' : 'min(108%, 510px)';
+          const rotY = isMobile ? -16 : -22;
+          const tz = isMobile ? '-80px' : '-115px';
+          const scale = isMobile ? 0.72 : 0.76;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.68';
-          card.style.filter = 'blur(0.3px)';
+          card.style.opacity = isMobile ? '0' : '0.62';
+          card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
           card.style.zIndex = '4';
-          card.style.pointerEvents = 'auto';
+          card.style.pointerEvents = isMobile ? 'none' : 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-118%' : isTablet ? 'max(-150%, -430px)' : 'max(-165%, -490px)';
-          const rotY = isMobile ? 22 : 26;
-          const tz = isMobile ? '-110px' : '-130px';
-          const scale = isMobile ? 0.74 : 0.78;
+          const tx = isMobile ? '-105%' : isTablet ? 'max(-98%, -390px)' : 'max(-108%, -510px)';
+          const rotY = isMobile ? 16 : 22;
+          const tz = isMobile ? '-80px' : '-115px';
+          const scale = isMobile ? 0.72 : 0.76;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = '0.68';
-          card.style.filter = 'blur(0.3px)';
+          card.style.opacity = isMobile ? '0' : '0.62';
+          card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
           card.style.zIndex = '4';
-          card.style.pointerEvents = 'auto';
-          card.setAttribute('aria-hidden', 'true');
-        } else if (diff === 3) {
-          // Outer Right (fans out on wider screens)
-          const tx = isMobile ? '160%' : isTablet ? 'min(210%, 620px)' : 'min(230%, 700px)';
-          const rotY = isMobile ? -28 : -32;
-          const tz = isMobile ? '-150px' : '-180px';
-          const scale = isMobile ? 0.64 : 0.66;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = isMobile ? '0' : '0.45';
-          card.style.filter = 'blur(0.6px)';
-          card.style.zIndex = '2';
           card.style.pointerEvents = isMobile ? 'none' : 'auto';
-          card.setAttribute('aria-hidden', 'true');
-        } else if (diff === -3) {
-          // Outer Left (fans out on wider screens)
-          const tx = isMobile ? '-160%' : isTablet ? 'max(-210%, -620px)' : 'max(-230%, -700px)';
-          const rotY = isMobile ? 28 : 32;
-          const tz = isMobile ? '-150px' : '-180px';
-          const scale = isMobile ? 0.64 : 0.66;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
-          card.style.opacity = isMobile ? '0' : '0.45';
-          card.style.filter = 'blur(0.6px)';
-          card.style.zIndex = '2';
-          card.style.pointerEvents = isMobile ? 'none' : 'auto';
-          card.setAttribute('aria-hidden', 'true');
-        } else if (diff > 3) {
-          // Beyond right
-          card.style.transform = 'translateX(140%) translateZ(-300px) scale(0.55) rotateY(-45deg)';
-          card.style.opacity = '0';
-          card.style.zIndex = '0';
-          card.style.pointerEvents = 'none';
           card.setAttribute('aria-hidden', 'true');
         } else {
-          // Beyond left
-          card.style.transform = 'translateX(-140%) translateZ(-300px) scale(0.55) rotateY(45deg)';
+          // Any outer slides beyond +/- 2
+          card.style.transform = 'translateX(0) translateZ(-250px) scale(0.5)';
           card.style.opacity = '0';
           card.style.zIndex = '0';
           card.style.pointerEvents = 'none';
