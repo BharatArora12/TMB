@@ -2805,6 +2805,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 @media (min-width: 768px) {
+
   .courses-header,
   .programs-header {
     flex-direction: row;
@@ -5651,15 +5652,13 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
-/* Column 3: Visionary Heritage Quote (Aesthetic Editorial Styling with Portrait) */
+/* Column 3: Visionary Heritage Quote (Seamlessly Merged with Footer Background) */
 .footer-quote-card {
-  margin-top: 1.65rem;
-  padding: 0.85rem 1rem 0.85rem 1.15rem;
-  background: linear-gradient(90deg, rgba(167, 201, 87, 0.05) 0%, rgba(197, 160, 89, 0.03) 60%, transparent 100%);
+  margin-top: 1.5rem;
+  padding: 0;
+  background: transparent;
   border: none;
-  border-left: 2px solid;
-  border-image: linear-gradient(180deg, #A7C957 0%, #C5A059 60%, rgba(167, 201, 87, 0.1) 100%) 1;
-  border-radius: 0 16px 16px 0;
+  border-radius: 0;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
@@ -5668,15 +5667,15 @@ html[data-theme="light"] .site-footer {
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  max-width: 460px;
+  max-width: 440px;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-quote-card:hover {
-  background: linear-gradient(90deg, rgba(167, 201, 87, 0.08) 0%, rgba(197, 160, 89, 0.05) 60%, transparent 100%);
-  border-image: linear-gradient(180deg, #D5EDB0 0%, #E76F51 70%, rgba(197, 160, 89, 0.25) 100%) 1;
-  transform: translateX(3px);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: none;
 }
 
 .footer-quote-body {
@@ -5695,16 +5694,16 @@ html[data-theme="light"] .site-footer {
   height: 26px;
   border-radius: 6px;
   background: linear-gradient(135deg, rgba(167, 201, 87, 0.16), rgba(197, 160, 89, 0.12));
-  border: 1px solid rgba(167, 201, 87, 0.3);
+  border: 1px solid rgba(167, 201, 87, 0.25);
   color: #D5EDB0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 10px rgba(167, 201, 87, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 10px rgba(167, 201, 87, 0.12);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
 .footer-quote-card:hover .footer-quote-icon {
   transform: scale(1.08) rotate(-4deg);
-  border-color: rgba(167, 201, 87, 0.6);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 14px rgba(167, 201, 87, 0.3);
+  border-color: rgba(167, 201, 87, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 14px rgba(167, 201, 87, 0.25);
   color: #FFFFFF;
 }
 
@@ -5814,12 +5813,14 @@ html[data-theme="light"] .site-footer {
     gap: 0.85rem;
     padding-right: 0.85rem;
   }
+
   .footer-quote-portrait-wrap {
     width: 76px;
     height: 76px;
     flex: 0 0 76px;
   }
 }
+
 
 /* --------------------------------------------------------------------------
    FOOTER BOTTOM BAR & GIANT BRAND WORDMARK
