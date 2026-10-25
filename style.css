@@ -5613,106 +5613,143 @@ html[data-theme="light"] .site-footer {
   transform: translateX(4px);
 }
 
-/* Column 3: Visionary Quote (Seamlessly Merged with Footer Background) */
+/* Column 3: Visionary Heritage Quote (Aesthetic Editorial Styling) */
 .footer-quote-card {
-  margin-top: 1.5rem;
-  padding: 0;
-  background: transparent;
+  margin-top: 1.65rem;
+  padding: 0.75rem 0.5rem 0.75rem 1.15rem;
+  background: linear-gradient(90deg, rgba(167, 201, 87, 0.05) 0%, rgba(197, 160, 89, 0.02) 45%, transparent 100%);
   border: none;
-  border-radius: 0;
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, #A7C957 0%, #C5A059 60%, rgba(167, 201, 87, 0.1) 100%) 1;
+  border-radius: 0 10px 10px 0;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  max-width: 320px;
+  gap: 0.75rem;
+  max-width: 335px;
   position: relative;
-  transition: opacity 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Delicate Watermark Quotation Mark in Background */
+.footer-quote-card::after {
+  content: "“";
+  position: absolute;
+  top: -12px;
+  right: 12px;
+  font-family: var(--font-serif);
+  font-size: 5.2rem;
+  line-height: 1;
+  color: rgba(167, 201, 87, 0.07);
+  pointer-events: none;
+  user-select: none;
+  font-style: italic;
+  font-weight: 700;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-quote-card:hover {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  transform: none;
+  background: linear-gradient(90deg, rgba(167, 201, 87, 0.09) 0%, rgba(197, 160, 89, 0.04) 50%, transparent 100%);
+  border-image: linear-gradient(180deg, #D5EDB0 0%, #E76F51 70%, rgba(197, 160, 89, 0.25) 100%) 1;
+  transform: translateX(3px);
+}
+
+.footer-quote-card:hover::after {
+  color: rgba(197, 160, 89, 0.14);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .footer-quote-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(167, 201, 87, 0.12);
-  color: var(--color-accent);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(167, 201, 87, 0.16), rgba(197, 160, 89, 0.12));
+  border: 1px solid rgba(167, 201, 87, 0.3);
+  color: #D5EDB0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 12px rgba(167, 201, 87, 0.15);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.footer-quote-card:hover .footer-quote-icon {
+  transform: scale(1.08) rotate(-4deg);
+  border-color: rgba(167, 201, 87, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 16px rgba(167, 201, 87, 0.35);
+  color: #FFFFFF;
 }
 
 .footer-quote-icon .material-symbols-outlined {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .footer-quote-text {
   margin: 0;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.92rem;
-  line-height: 1.52;
-  color: #F7FAF5;
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.58;
+  color: #F2F7EF;
+  letter-spacing: 0.015em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s ease;
+}
+
+.footer-quote-card:hover .footer-quote-text {
+  color: #FFFFFF;
 }
 
 .footer-quote-author-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  padding-top: 0.35rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  align-items: center;
+  padding-top: 0.55rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-quote-author-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(167, 201, 87, 0.4) 0%, rgba(197, 160, 89, 0.25) 55%, transparent 100%);
 }
 
 .footer-quote-author {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-accent);
-}
-
-.footer-quote-role {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: #8FA882;
-  letter-spacing: 0.02em;
-}
-
-.footer-quote-tagline {
-  margin-top: 0.2rem;
-  padding-top: 0.45rem;
-  border-top: 1px dashed rgba(167, 201, 87, 0.2);
-}
-
-.footer-quote-tagline span,
-.bridge-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--primary-gold);
-  transition: color 0.2s ease;
+  background: linear-gradient(135deg, #E2F3CD 0%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: opacity 0.2s ease;
 }
 
-.footer-quote-card:hover .footer-quote-tagline span,
-.footer-quote-card:hover .bridge-tagline {
-  color: #D5EDB0;
+.footer-quote-author::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #A7C957, #C5A059);
+  border-radius: 2px;
+  -webkit-text-fill-color: initial;
 }
 
-.bridge-subtag {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: #8C9E8C;
-  letter-spacing: 0.02em;
+.footer-quote-card:hover .footer-quote-author {
+  opacity: 0.95;
 }
 
 /* --------------------------------------------------------------------------
