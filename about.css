@@ -52,16 +52,16 @@ html[data-theme="light"] .about-page {
 }
 
 /* --------------------------------------------------------------------------
-   2. PAGE HERO HEADER SECTION (About TowardsMyBharat Showcase - 2-Column First View)
+   2. PAGE HERO HEADER SECTION (About TowardsMyBharat Showcase - Stacked Top Header + Enlarged Artwork)
    -------------------------------------------------------------------------- */
 .about-hero-section {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 80px);
-  min-height: calc(100svh - 80px);
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: clamp(1.25rem, 3vh, 2.5rem) 0;
+  justify-content: center;
+  padding: clamp(3rem, 6vh, 4.75rem) 0 clamp(3.5rem, 7vh, 5.5rem);
   background-color: #06090e;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -74,28 +74,32 @@ html[data-theme="light"] .about-hero-section {
 }
 
 .about-hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 3.8vw, 3.75rem);
+  text-align: center;
+  gap: clamp(2rem, 4vh, 3.25rem);
   position: relative;
   z-index: 2;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-hero-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: clamp(0.35rem, 0.9vh, 0.65rem);
-  margin: 0;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.45rem, 1vh, 0.75rem);
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 /* Small "About" kicker */
 .about-top-kicker {
   font-family: var(--font-sans);
-  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  font-size: clamp(0.82rem, 0.95vw, 0.95rem);
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -103,13 +107,23 @@ html[data-theme="light"] .about-hero-section {
   opacity: 0.95;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.65rem;
 }
 
 .about-top-kicker::before {
   content: '';
   display: inline-block;
-  width: 18px;
+  width: 20px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.about-top-kicker::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
   height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
@@ -120,17 +134,18 @@ html[data-theme="light"] .about-top-kicker {
   opacity: 0.9;
 }
 
-html[data-theme="light"] .about-top-kicker::before {
+html[data-theme="light"] .about-top-kicker::before,
+html[data-theme="light"] .about-top-kicker::after {
   background: var(--color-primary);
 }
 
 /* Big "TowardsMyBharat" title */
 .about-top-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.35rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.5rem, 5.2vw, 4.6rem);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   margin: 0;
   color: #ffffff;
   background: linear-gradient(135deg, #FFFFFF 0%, #E7EFE5 55%, var(--color-accent) 100%);
@@ -150,11 +165,11 @@ html[data-theme="light"] .about-top-title {
 /* Tagline describing the civilizational mission */
 .about-hero-tagline {
   font-family: var(--font-sans);
-  font-size: clamp(0.92rem, 1.08vw, 1.05rem);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.74);
-  margin: 0.4rem 0 0.5rem;
-  max-width: 520px;
+  font-size: clamp(0.98rem, 1.15vw, 1.15rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0.35rem auto 0.5rem;
+  max-width: 680px;
 }
 
 html[data-theme="light"] .about-hero-tagline {
@@ -164,18 +179,19 @@ html[data-theme="light"] .about-hero-tagline {
 .about-hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .about-hero-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.3rem;
+  padding: 0.65rem 1.45rem;
   border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -217,44 +233,43 @@ html[data-theme="light"] .about-hero-pill:hover {
   box-shadow: 0 8px 20px rgba(46, 93, 58, 0.15);
 }
 
-/* Cinematic Concept Artwork Frame (Right Side) */
+/* Cinematic Concept Artwork Frame (Enlarged Showcase below Header) */
 .about-hero-artwork-frame {
   position: relative;
   width: 100%;
-  max-width: 100%;
-  max-height: min(60vh, 470px);
-  border-radius: clamp(1rem, 1.6vw, 1.5rem);
+  max-width: 1140px;
+  margin: 0 auto;
+  border-radius: clamp(1.2rem, 2vw, 1.85rem);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(167, 201, 87, 0.14);
-  border: 1px solid rgba(167, 201, 87, 0.25);
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.65), 0 0 50px rgba(167, 201, 87, 0.18);
+  border: 1px solid rgba(167, 201, 87, 0.3);
   background: #111a14;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .about-hero-artwork-frame:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.75), 0 0 45px rgba(167, 201, 87, 0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 34px 85px rgba(0, 0, 0, 0.75), 0 0 60px rgba(167, 201, 87, 0.25);
 }
 
 html[data-theme="light"] .about-hero-artwork-frame {
   background: #ffffff;
-  border: 1px solid rgba(46, 93, 58, 0.18);
-  box-shadow: 0 16px 44px rgba(46, 93, 58, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(46, 93, 58, 0.22);
+  box-shadow: 0 24px 60px rgba(46, 93, 58, 0.16), 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 html[data-theme="light"] .about-hero-artwork-frame:hover {
-  box-shadow: 0 22px 56px rgba(46, 93, 58, 0.2), 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 32px 75px rgba(46, 93, 58, 0.22), 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .about-hero-artwork-img {
   width: 100%;
-  height: 100%;
-  max-height: min(60vh, 470px);
-  aspect-ratio: 16 / 10;
+  height: auto;
+  max-height: min(72vh, 660px);
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: center 38%;
   display: block;
   border-radius: inherit;
 }
@@ -263,7 +278,7 @@ html[data-theme="light"] .about-hero-artwork-frame:hover {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.2);
   border-radius: inherit;
 }
 
@@ -859,43 +874,25 @@ html[data-theme="light"] .btn-outline-light:hover {
 
 @media (max-width: 900px) {
   .about-hero-section {
-    min-height: auto;
-    padding: clamp(2.5rem, 6vh, 3.5rem) 0 2rem;
+    padding: clamp(2.5rem, 5vh, 3.5rem) 0 clamp(2.5rem, 5vh, 3.5rem);
   }
 
   .about-hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 1.75rem;
-  }
-
-  .about-hero-header {
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-top-kicker {
-    justify-content: center;
+    gap: 1.85rem;
   }
 
   .about-hero-tagline {
     max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .about-hero-actions {
-    justify-content: center;
   }
 
   .about-hero-artwork-frame {
-    max-width: 600px;
-    margin: 0 auto;
-    max-height: 46vh;
+    max-width: 100%;
+    border-radius: 1.25rem;
+    max-height: 56vh;
   }
 
   .about-hero-artwork-img {
-    max-height: 46vh;
+    max-height: 56vh;
   }
 }
 
