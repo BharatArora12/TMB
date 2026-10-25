@@ -2715,11 +2715,20 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .courses-section,
 .programs-section {
   width: 100%;
-  background: var(--bg-canvas);
-  padding: clamp(2.85rem, 4vw, 3.85rem) 0;
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(circle at 3% 48%, rgba(216, 235, 215, 0.55) 0%, transparent 26%),
+    radial-gradient(circle at 97% 45%, rgba(216, 235, 215, 0.5) 0%, transparent 26%);
+  padding: clamp(3rem, 4.5vw, 4.5rem) 0;
   border-top: 1px solid var(--border-gold-subtle);
   position: relative;
   overflow: hidden;
+}
+
+html[data-theme="dark"] .courses-section {
+  background-image: 
+    radial-gradient(circle at 3% 48%, rgba(52, 75, 56, 0.45) 0%, transparent 26%),
+    radial-gradient(circle at 97% 45%, rgba(52, 75, 56, 0.4) 0%, transparent 26%);
 }
 
 .courses-container {
@@ -2727,34 +2736,89 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   z-index: 2;
 }
 
-/* Short Delicate Cultural Motifs with Saffron/Orange Touch */
-.courses-accent-motif {
+/* Flanking Decorative Motifs (Learned Books Stack & Academic Mortarboard) */
+.courses-flank-motif {
   position: absolute;
   pointer-events: none;
   z-index: 1;
+  user-select: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.flank-motif-left {
+  left: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
+  top: 52%;
+  transform: translateY(-50%);
+  width: clamp(120px, 11vw, 175px);
+  max-width: 180px;
+}
+
+.flank-motif-right {
+  right: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(120px, 11vw, 175px);
+  max-width: 180px;
+}
+
+.courses-motif-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(46, 93, 58, 0.08));
+}
+
+html[data-theme="dark"] .courses-motif-img {
+  filter: drop-shadow(0 0 16px rgba(167, 201, 87, 0.2)) brightness(0.92);
   opacity: 0.85;
-  transition: opacity 0.3s ease;
 }
 
-.courses-accent-motif.motif-top-left {
-  top: 1.5rem;
-  left: 1rem;
-  width: 110px;
-  height: 110px;
-}
-
-.courses-accent-motif.motif-bottom-right {
-  bottom: 2.5rem;
-  right: 1.5rem;
-  width: 125px;
-  height: 110px;
-}
-
-@media (max-width: 860px) {
-  .courses-accent-motif {
-    opacity: 0.55;
-    transform: scale(0.85);
+@media (max-width: 1260px) {
+  .flank-motif-left {
+    left: -20px;
+    opacity: 0.45;
   }
+  .flank-motif-right {
+    right: -20px;
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 1024px) {
+  .courses-flank-motif {
+    display: none;
+  }
+}
+
+/* Courses Title Ornamental Lotus Flourish */
+.courses-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.courses-title-lotus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.lotus-flourish-wing {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.lotus-flourish-icon {
+  width: 22px;
+  height: 15px;
+  display: block;
 }
 
 /* Courses Header */
