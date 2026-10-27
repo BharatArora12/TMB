@@ -830,61 +830,72 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // Card click & hover-to-front selection
+    // Helper function to smoothly bring any slide/box to the center front
+    let cardHoverCooldown = false;
+    let cardHoverTimer = null;
+
+    const bringCardToFront = (targetIdx) => {
+      stopAutoplay();
+      if (targetIdx === currentIndex) return;
+
+      let diff = targetIdx - currentIndex;
+      while (diff > totalCards / 2) diff -= totalCards;
+      while (diff < -totalCards / 2) diff += totalCards;
+      slideDirection = diff >= 0 ? 1 : -1;
+      updateSlider(targetIdx);
+    };
+
+    // Card click & hover-to-front interactions
     cards.forEach((card, idx) => {
-      // Click selection
+      // Click on ANY box brings it to the front and immediately opens the details modal
       card.addEventListener('click', (e) => {
-        if (idx === currentIndex || e.target.closest('.work-open-popup-btn')) {
-          openDetailModal(idx);
-        } else {
-          let diff = idx - currentIndex;
-          while (diff > totalCards / 2) diff -= totalCards;
-          while (diff < -totalCards / 2) diff += totalCards;
-          slideDirection = diff >= 0 ? 1 : -1;
-          updateSlider(idx);
-          restartAutoplay();
+        e.preventDefault();
+        if (idx !== currentIndex) {
+          bringCardToFront(idx);
         }
+        openDetailModal(idx);
       });
 
+      // Keyboard accessibility
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          if (idx !== currentIndex) {
+            bringCardToFront(idx);
+          }
           openDetailModal(idx);
         }
       });
 
-      // Pointing mouse to any box slides it directly into center, just like the tab names above
-      const slideToThisCard = () => {
+      // Hovering over any box brings it smoothly to the front, just like hovering over the upper tabs
+      const onCardHover = () => {
         stopAutoplay();
+        if (cardHoverCooldown) return;
         if (idx !== currentIndex) {
-          let diff = idx - currentIndex;
-          while (diff > totalCards / 2) diff -= totalCards;
-          while (diff < -totalCards / 2) diff += totalCards;
-          slideDirection = diff >= 0 ? 1 : -1;
-          updateSlider(idx);
+          bringCardToFront(idx);
+          cardHoverCooldown = true;
+          clearTimeout(cardHoverTimer);
+          cardHoverTimer = setTimeout(() => {
+            cardHoverCooldown = false;
+          }, 280);
         }
       };
 
-      card.addEventListener('mouseenter', slideToThisCard);
+      card.addEventListener('mouseenter', onCardHover);
       card.addEventListener('pointerenter', (e) => {
         if (e.pointerType === 'mouse') {
-          slideToThisCard();
+          onCardHover();
         }
       });
-      card.addEventListener('mouseover', slideToThisCard);
     });
 
-    // Slide Tab bar click & hover interactions
+    // Slide Tab bar click & hover interactions (synchronous with boxes)
     tabs.forEach((tab) => {
       tab.addEventListener('click', (e) => {
         e.stopPropagation();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx)) {
-          let diff = targetIdx - currentIndex;
-          while (diff > totalCards / 2) diff -= totalCards;
-          while (diff < -totalCards / 2) diff += totalCards;
-          slideDirection = diff >= 0 ? 1 : -1;
-          updateSlider(targetIdx);
+          bringCardToFront(targetIdx);
           restartAutoplay();
         }
       });
@@ -892,11 +903,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener('mouseenter', () => {
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
-          let diff = targetIdx - currentIndex;
-          while (diff > totalCards / 2) diff -= totalCards;
-          while (diff < -totalCards / 2) diff += totalCards;
-          slideDirection = diff >= 0 ? 1 : -1;
-          updateSlider(targetIdx);
+          bringCardToFront(targetIdx);
         }
       });
     });
@@ -1017,19 +1024,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const workStage = workSlider.querySelector('.work-3d-stage');
     if (workStage) {
       workStage.addEventListener('mouseenter', stopAutoplay);
-      workStage.addEventListener('mouseover', (e) => {
-        const card = e.target.closest('.work-3d-card');
-        if (!card) return;
-        const targetIdx = parseInt(card.getAttribute('data-index'), 10);
-        if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
-          let diff = targetIdx - currentIndex;
-          while (diff > totalCards / 2) diff -= totalCards;
-          while (diff < -totalCards / 2) diff += totalCards;
-          slideDirection = diff >= 0 ? 1 : -1;
-          updateSlider(targetIdx);
-        }
-      });
       workStage.addEventListener('mouseleave', () => {
+        cardHoverCooldown = false;
         if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
           startAutoplay();
         }
