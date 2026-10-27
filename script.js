@@ -609,6 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCards = cards.length;
     let autoplayTimer = null;
     let slideDirection = 1; // 1 = forward (right), -1 = backward (left)
+    let isMouseInsideSection = false;
 
     /**
      * Injects detailed initiative data into #workDetailModal and reveals it.
@@ -687,7 +688,9 @@ document.addEventListener('DOMContentLoaded', () => {
       workDetailModal.classList.remove('is-open');
       workDetailModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      startAutoplay();
+      if (!isMouseInsideSection) {
+        startAutoplay();
+      }
     };
 
     // Modal close button in header
@@ -749,34 +752,34 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'false');
         } else if (diff === 1) {
           // Immediate Right Card
-          const tx = isMobile ? '60%' : isTablet ? 'min(64%, 270px)' : 'min(72%, 350px)';
-          const rotY = isMobile ? -10 : -14;
-          const tz = isMobile ? '-40px' : '-60px';
+          const tx = isMobile ? '62%' : isTablet ? 'min(70%, 310px)' : 'clamp(380px, 31vw, 440px)';
+          const rotY = isMobile ? -8 : -11;
+          const tz = isMobile ? '-35px' : '-50px';
           const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
-          card.style.zIndex = '6';
+          card.style.zIndex = '7';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -1) {
           // Immediate Left Card
-          const tx = isMobile ? '-60%' : isTablet ? 'max(-64%, -270px)' : 'max(-72%, -350px)';
-          const rotY = isMobile ? 10 : 14;
-          const tz = isMobile ? '-40px' : '-60px';
+          const tx = isMobile ? '-62%' : isTablet ? 'max(-70%, -310px)' : 'clamp(-440px, -31vw, -380px)';
+          const rotY = isMobile ? 8 : 11;
+          const tz = isMobile ? '-35px' : '-50px';
           const scale = isMobile ? 0.88 : 0.90;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
-          card.style.zIndex = '6';
+          card.style.zIndex = '7';
           card.style.pointerEvents = 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === 2) {
           // Far Right
-          const tx = isMobile ? '105%' : isTablet ? 'min(110%, 460px)' : 'min(128%, 620px)';
-          const rotY = isMobile ? -16 : -22;
-          const tz = isMobile ? '-80px' : '-115px';
-          const scale = isMobile ? 0.72 : 0.76;
+          const tx = isMobile ? '108%' : isTablet ? 'min(115%, 500px)' : 'clamp(660px, 55vw, 760px)';
+          const rotY = isMobile ? -14 : -18;
+          const tz = isMobile ? '-70px' : '-95px';
+          const scale = isMobile ? 0.74 : 0.78;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.62';
           card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
@@ -785,10 +788,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.setAttribute('aria-hidden', 'true');
         } else if (diff === -2) {
           // Far Left
-          const tx = isMobile ? '-105%' : isTablet ? 'max(-110%, -460px)' : 'max(-128%, -620px)';
-          const rotY = isMobile ? 16 : 22;
-          const tz = isMobile ? '-80px' : '-115px';
-          const scale = isMobile ? 0.72 : 0.76;
+          const tx = isMobile ? '-108%' : isTablet ? 'max(-115%, -500px)' : 'clamp(-760px, -55vw, -660px)';
+          const rotY = isMobile ? 14 : 18;
+          const tz = isMobile ? '-70px' : '-95px';
+          const scale = isMobile ? 0.74 : 0.78;
           card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.62';
           card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
@@ -831,25 +834,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Helper function to smoothly bring any slide/box to the center front
-    let cardHoverCooldown = false;
-    let cardHoverTimer = null;
-
     const bringCardToFront = (targetIdx) => {
       stopAutoplay();
-      if (targetIdx === currentIndex) return;
+      const normalizedTarget = ((targetIdx % totalCards) + totalCards) % totalCards;
+      if (normalizedTarget === currentIndex) return;
 
-      let diff = targetIdx - currentIndex;
+      let diff = normalizedTarget - currentIndex;
       while (diff > totalCards / 2) diff -= totalCards;
       while (diff < -totalCards / 2) diff += totalCards;
       slideDirection = diff >= 0 ? 1 : -1;
-      updateSlider(targetIdx);
+      updateSlider(normalizedTarget);
     };
 
-    // Card click & hover-to-front interactions
+    // Responsive, reliable hover and click interactions for every card
+    let lastPointerX = -1;
+    let lastPointerY = -1;
+    let hoverGlideTimer = null;
+
     cards.forEach((card, idx) => {
-      // Click on ANY box brings it to the front and immediately opens the details modal
+      // Click on ANY box:
+      // If active center card -> opens details modal immediately
+      // If side card (left or right) -> brings to front AND opens details modal
       card.addEventListener('click', (e) => {
         e.preventDefault();
+        stopAutoplay();
         if (idx !== currentIndex) {
           bringCardToFront(idx);
         }
@@ -860,6 +868,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          stopAutoplay();
           if (idx !== currentIndex) {
             bringCardToFront(idx);
           }
@@ -867,25 +876,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hovering over any box brings it smoothly to the front, just like hovering over the upper tabs
-      const onCardHover = () => {
+      // Hover interaction: Placing cursor/arrow on any left or right box brings it to the front
+      const handleCardHover = (isDirectUserMove = false) => {
         stopAutoplay();
-        if (cardHoverCooldown) return;
-        if (idx !== currentIndex) {
+        if (idx === currentIndex) return;
+
+        clearTimeout(hoverGlideTimer);
+        if (isDirectUserMove) {
           bringCardToFront(idx);
-          cardHoverCooldown = true;
-          clearTimeout(cardHoverTimer);
-          cardHoverTimer = setTimeout(() => {
-            cardHoverCooldown = false;
-          }, 280);
+        } else {
+          hoverGlideTimer = setTimeout(() => {
+            if (idx !== currentIndex) {
+              bringCardToFront(idx);
+            }
+          }, 60);
         }
       };
 
-      card.addEventListener('mouseenter', onCardHover);
-      card.addEventListener('pointerenter', (e) => {
-        if (e.pointerType === 'mouse') {
-          onCardHover();
+      // Mouseenter fires as soon as the mouse cursor enters the card
+      card.addEventListener('mouseenter', (e) => {
+        const deltaX = Math.abs(e.clientX - lastPointerX);
+        const deltaY = Math.abs(e.clientY - lastPointerY);
+
+        if (deltaX > 2 || deltaY > 2 || lastPointerX === -1) {
+          lastPointerX = e.clientX;
+          lastPointerY = e.clientY;
+          handleCardHover(true);
+        } else {
+          // Card slid into place under stationary cursor: brief rest before transition
+          clearTimeout(hoverGlideTimer);
+          hoverGlideTimer = setTimeout(() => {
+            if (idx !== currentIndex) {
+              bringCardToFront(idx);
+            }
+          }, 240);
         }
+      });
+
+      // Pointermove: Detects cursor moving inside the card
+      card.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        const deltaX = Math.abs(e.clientX - lastPointerX);
+        const deltaY = Math.abs(e.clientY - lastPointerY);
+        if (deltaX > 2 || deltaY > 2) {
+          lastPointerX = e.clientX;
+          lastPointerY = e.clientY;
+          if (idx !== currentIndex) {
+            handleCardHover(true);
+          }
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        clearTimeout(hoverGlideTimer);
       });
     });
 
@@ -893,14 +936,15 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach((tab) => {
       tab.addEventListener('click', (e) => {
         e.stopPropagation();
+        stopAutoplay();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx)) {
           bringCardToFront(targetIdx);
-          restartAutoplay();
         }
       });
 
       tab.addEventListener('mouseenter', () => {
+        stopAutoplay();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
           bringCardToFront(targetIdx);
@@ -912,18 +956,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        stopAutoplay();
         slideDirection = -1;
         updateSlider(currentIndex - 1);
-        restartAutoplay();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        stopAutoplay();
         slideDirection = 1;
         updateSlider(currentIndex + 1);
-        restartAutoplay();
       });
     }
 
@@ -931,14 +975,14 @@ document.addEventListener('DOMContentLoaded', () => {
     workSlider.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
+        stopAutoplay();
         slideDirection = -1;
         updateSlider(currentIndex - 1);
-        restartAutoplay();
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
+        stopAutoplay();
         slideDirection = 1;
         updateSlider(currentIndex + 1);
-        restartAutoplay();
       }
     });
 
@@ -963,7 +1007,9 @@ document.addEventListener('DOMContentLoaded', () => {
           updateSlider(currentIndex + 1);
         }
       }
-      restartAutoplay();
+      if (!isMouseInsideSection) {
+        startAutoplay();
+      }
     });
 
     workSlider.addEventListener('mousedown', (e) => {
@@ -987,14 +1033,17 @@ document.addEventListener('DOMContentLoaded', () => {
           updateSlider(currentIndex + 1);
         }
       }
-      restartAutoplay();
+      if (!isMouseInsideSection) {
+        startAutoplay();
+      }
     });
 
-    // Autoplay: Automatically advances to next card every 3.5 seconds (3 to 4 seconds)
+    // Autoplay: Automatically advances to next card every 3.5 seconds
     const AUTOPLAY_INTERVAL = 3500;
 
     const startAutoplay = () => {
       if (autoplayTimer) clearInterval(autoplayTimer);
+      if (isMouseInsideSection) return;
       autoplayTimer = setInterval(() => {
         slideDirection = 1;
         updateSlider(currentIndex + 1);
@@ -1008,34 +1057,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const restartAutoplay = () => {
-      stopAutoplay();
-      startAutoplay();
-    };
-
-    // Pause autoplay on mouse hover over the slider container, stage, or tabs
-    workSlider.addEventListener('mouseenter', stopAutoplay);
-    workSlider.addEventListener('mouseleave', () => {
-      if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
-        startAutoplay();
-      }
-    });
-
-    const workStage = workSlider.querySelector('.work-3d-stage');
-    if (workStage) {
-      workStage.addEventListener('mouseenter', stopAutoplay);
-      workStage.addEventListener('mouseleave', () => {
-        cardHoverCooldown = false;
-        if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
-          startAutoplay();
-        }
+    // Track mouse inside the entire initiatives section
+    const initiativesSection = document.getElementById('initiatives');
+    if (initiativesSection) {
+      initiativesSection.addEventListener('mouseenter', () => {
+        isMouseInsideSection = true;
+        stopAutoplay();
       });
-    }
-
-    const tabsContainer = document.getElementById('workSliderTabs');
-    if (tabsContainer) {
-      tabsContainer.addEventListener('mouseenter', stopAutoplay);
-      tabsContainer.addEventListener('mouseleave', () => {
+      initiativesSection.addEventListener('mouseleave', () => {
+        isMouseInsideSection = false;
         if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
           startAutoplay();
         }
@@ -1051,11 +1081,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlider(0);
 
     // Smart viewport observer: only run autoplay when initiatives section is in view
-    const initiativesSection = document.getElementById('initiatives');
     if (initiativesSection && 'IntersectionObserver' in window) {
       const sliderObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isMouseInsideSection) {
             startAutoplay();
           } else {
             stopAutoplay();

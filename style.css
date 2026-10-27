@@ -1712,7 +1712,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 /* 3D Slider Card (Horizontal Rectangle Ratio) */
 .work-3d-card {
-  --card-w: min(86vw, clamp(380px, 34vw, 480px));
+  --card-w: min(86vw, clamp(340px, 30vw, 440px));
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1723,10 +1723,10 @@ html[data-theme="dark"] .hero-vignette-linear {
   margin-top: calc(-1 * var(--card-w) * 5 / 16);
   transform-style: preserve-3d;
   border-radius: 18px;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.65s ease,
-    filter 0.65s ease,
-    box-shadow 0.65s ease;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease,
+    filter 0.6s ease,
+    box-shadow 0.6s ease;
   cursor: pointer;
   outline: none;
 }
@@ -1789,6 +1789,12 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Card hover cues */
 .work-3d-card:hover .card-inner {
   border-color: var(--color-accent);
+}
+
+.work-3d-card:not(.is-active):hover .card-inner {
+  border-color: var(--color-accent);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 22px rgba(168, 217, 79, 0.28);
+  transform: translateY(-2px);
 }
 
 .work-3d-card.is-active:hover .card-inner {
