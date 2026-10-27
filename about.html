@@ -52,7 +52,7 @@
 
   <!-- Core Master Stylesheet & About Page Stacking Stylesheet -->
   <link rel="stylesheet" href="style.css?v=35">
-  <link rel="stylesheet" href="about.css?v=6">
+  <link rel="stylesheet" href="about.css?v=7">
 </head>
 
 <body class="about-page">
@@ -115,29 +115,26 @@
   </header>
 
   <!-- =========================================================================
-       HERO SECTION: ABOUT TOWARDSMYBHARAT (2-COLUMN FIRST-VIEW SHOWCASE)
+       HERO SHOWCASE: THEMED SPLIT NARRATIVE & CONCEPT ARTWORK
        ========================================================================= -->
-  <section class="about-hero-section" aria-label="About TowardsMyBharat">
-    <div class="container about-hero-container">
-
-      <!-- Left Column: Typography & Narrative Introduction -->
+  <section class="main-about-herosection" aria-label="About Towards My Bharat">
+    <div class="main-about-herosection01">
       <div class="about-hero-header">
         <span class="about-top-kicker">About</span>
-        <span>
-          <h1 class="about-top-title">TowardsMyBharat</h1>
-        </span>
+        <h1 class="about-top-title">TowardsMyBharat</h1>
         <!-- <p class="about-hero-tagline">
           Bridging India’s timeless cultural heritage with tomorrow’s innovation — empowering the next generation to
           lead, build, and shape Bharat’s future.
         </p> -->
-        <span class="about-hero-actions">
+        <div class="about-hero-actions">
           <a href="#origin-story" class="about-hero-pill" aria-label="Explore our story">
             <span>Explore Our Journey</span>
             <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
           </a>
-        </span>
+        </div>
       </div>
-
+    </div>
+    <div class="main-about-herosection02">
       <!-- Right Column: Concept Artwork Showcase -->
       <div class="about-hero-artwork-frame">
         <img class="about-hero-artwork-img" src="assets/images/Bridging Modernity and Tradition in India.png"
@@ -145,9 +142,11 @@
           width="1920" height="1080" loading="eager" decoding="async">
         <div class="about-artwork-glow" aria-hidden="true"></div>
       </div>
-
     </div>
   </section>
+
+
+
 
   <!-- =========================================================================
        STICKY RAIL & OVERLAPPING STACKING CARDS EXPERIENCE
@@ -353,30 +352,7 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       CALL TO ACTION BANNER
-       ========================================================================= -->
-  <section class="about-cta-banner">
-    <div class="container">
-      <div class="about-cta-box">
-        <h2 class="about-cta-title">Step into the Vanguard.</h2>
-        <p class="about-cta-text">
-          Join thousands of young thinkers, researchers, and creators actively shaping Bharat's cultural and
-          intellectual renaissance.
-        </p>
-        <div class="about-cta-buttons">
-          <a href="https://linktr.ee/towardsmybharat" target="_blank" rel="noopener noreferrer"
-            class="btn-gold-primary">
-            <span>Enlist with TMB</span>
-            <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
-          </a>
-          <a href="blog.html" class="btn-outline-light">
-            <span>Read Dispatches</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+
   <!-- =========================================================================
        FOOTER
        ========================================================================= -->
@@ -440,7 +416,6 @@
           <nav class="footer-vertical-links" aria-label="Footer pages navigation">
             <a href="index.html#hero">Home</a>
             <a href="about.html">About</a>
-            <a href="index.html#initiatives">Work We Do</a>
             <a href="blog.html">Blogs</a>
             <a href="contact.html">Contact Us</a>
           </nav>

@@ -842,8 +842,8 @@ html[data-theme="dark"] .hero-vignette-linear {
 .hero-subbrand {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.50rem, 1.15vw, 1.15rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #C8C5C1 !important;
   line-height: 1.2;
@@ -2912,9 +2912,9 @@ html[data-theme="dark"] .courses-motif-img {
 }
 
 .course-3d-card:hover .course-card-glass {
-  transform: translateY(-8px);
+  /* transform: translateY(-8px); */
   border-color: rgba(168, 217, 79, 0.75);
-  box-shadow: 0 20px 44px rgba(46, 93, 58, 0.16), 0 0 24px rgba(168, 217, 79, 0.14);
+  /* box-shadow: 0 20px 44px rgba(46, 93, 58, 0.16), 0 0 24px rgba(168, 217, 79, 0.14); */
 }
 
 html[data-theme="dark"] .course-3d-card:hover .course-card-glass {

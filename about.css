@@ -142,11 +142,11 @@ html[data-theme="light"] .about-top-kicker::after {
 /* Big "TowardsMyBharat" title */
 .about-top-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5.2vw, 4.6rem);
+  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.025em;
-  margin: 0;
+  margin: 0.2rem 0 0.4rem;
   color: #ffffff;
   background: linear-gradient(135deg, #FFFFFF 0%, #E7EFE5 55%, var(--color-accent) 100%);
   background-clip: text;
@@ -271,7 +271,6 @@ html[data-theme="light"] .about-hero-artwork-frame:hover {
   object-fit: cover;
   object-position: center 38%;
   display: block;
-  border-radius: inherit;
 }
 
 .about-artwork-glow {
@@ -279,7 +278,6 @@ html[data-theme="light"] .about-hero-artwork-frame:hover {
   inset: 0;
   pointer-events: none;
   box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.2);
-  border-radius: inherit;
 }
 
 .visually-hidden {
@@ -729,36 +727,6 @@ html[data-theme="light"] .pillar-mini-desc {
   color: #64748b;
 }
 
-/* ==========================================================================
-   CALL TO ACTION BANNER (Before Footer)
-   ========================================================================== */
-.about-cta-banner {
-  padding: 5rem 0;
-  background: linear-gradient(180deg, #06090e 0%, #0a0f18 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  text-align: center;
-}
-
-html[data-theme="light"] .about-cta-banner {
-  background: linear-gradient(180deg, #f3f6f1 0%, #e8f0e4 100%);
-  border-top-color: rgba(46, 93, 58, 0.12);
-}
-
-.about-cta-box {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  background: rgba(197, 160, 89, 0.04);
-  border: 1px solid rgba(197, 160, 89, 0.2);
-}
-
-html[data-theme="light"] .about-cta-box {
-  background: #ffffff;
-  border-color: rgba(46, 93, 58, 0.25);
-  box-shadow: 0 10px 30px rgba(46, 93, 58, 0.08);
-}
-
 .about-cta-title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -892,7 +860,7 @@ html[data-theme="light"] .btn-outline-light:hover {
   }
 
   .about-hero-artwork-img {
-    max-height: 56vh;
+    max-height: 70vh;
   }
 }
 
@@ -973,5 +941,171 @@ html[data-theme="light"] .btn-outline-light:hover {
 
   .metric-big-num {
     font-size: 2.8rem;
+  }
+}
+
+
+/* ==========================================================================
+   HERO SHOWCASE: THEMED SPLIT NARRATIVE & CONCEPT ARTWORK
+   ========================================================================== */
+.main-about-herosection {
+  position: relative;
+  width: 100%;
+  min-height: clamp(480px, 60vh, 620px);
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-background, #F6FAF4);
+  border-bottom: 1px solid rgba(46, 93, 58, 0.12);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+html[data-theme="dark"] .main-about-herosection {
+  background-color: #06090e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Left Column: Brand Editorial & Call-to-Action */
+.main-about-herosection01 {
+  flex: 0 0 38%;
+  width: 38%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem);
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #eaf6e7 0%, #d8ebd3 55%, #cde5c7 100%);
+  border-right: 1px solid rgba(46, 93, 58, 0.14);
+}
+
+html[data-theme="dark"] .main-about-herosection01 {
+  background: linear-gradient(145deg, #101c14 0%, #15251b 55%, #0d1711 100%);
+  border-right: 1px solid rgba(167, 201, 87, 0.16);
+}
+
+/* Internal header wrapper */
+.main-about-herosection01 .about-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.5rem, 1vh, 0.85rem);
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-about-herosection01 .about-top-title {
+  margin: 0.2rem 0 0.5rem;
+}
+
+.main-about-herosection01 .about-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+  width: 100%;
+}
+
+/* Right Column: Concept Artwork Showcase */
+.main-about-herosection02 {
+  flex: 1;
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #06090e;
+}
+
+html[data-theme="light"] .main-about-herosection02 {
+  background-color: #d8ebd3;
+}
+
+/* Reset artwork frame inside the split hero to fill the container seamlessly */
+.main-about-herosection02 .about-hero-artwork-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  display: block;
+  overflow: hidden;
+}
+
+.main-about-herosection02 .about-hero-artwork-frame:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.main-about-herosection02 .about-hero-artwork-img {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(480px, 60vh, 620px);
+  aspect-ratio: auto;
+  max-height: none;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* Atmospheric gradient overlay softly blending the artwork with the left column */
+.main-about-herosection02::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  background: linear-gradient(to right, rgba(205, 229, 199, 0.45) 0%, rgba(205, 229, 199, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+html[data-theme="dark"] .main-about-herosection02::before {
+  background: linear-gradient(to right, rgba(13, 23, 17, 0.75) 0%, rgba(13, 23, 17, 0) 100%);
+}
+
+/* Responsive Stacking for Tablets & Mobile Devices */
+@media (max-width: 991px) {
+  .main-about-herosection {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .main-about-herosection01 {
+    flex: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(46, 93, 58, 0.14);
+    padding: clamp(3rem, 6vh, 4rem) 1.5rem clamp(2.5rem, 5vh, 3.25rem);
+  }
+
+  html[data-theme="dark"] .main-about-herosection01 {
+    border-bottom: 1px solid rgba(167, 201, 87, 0.16);
+  }
+
+  .main-about-herosection02 {
+    flex: none;
+    width: 100%;
+    min-height: 360px;
+    height: clamp(360px, 50vh, 460px);
+  }
+
+  .main-about-herosection02::before {
+    display: none;
+  }
+
+  .main-about-herosection02 .about-hero-artwork-img {
+    min-height: 100%;
+    height: 100%;
   }
 }
