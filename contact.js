@@ -347,7 +347,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const originalText = buttonText.textContent;
     buttonText.textContent = "Sending Message...";
 
+    // Configure hidden form fields for reply-to and redirect
+    const replyToInput = document.getElementById("formReplyTo");
+    if (replyToInput) replyToInput.value = emailCheck.email;
+    const nextUrlInput = document.getElementById("formNextUrl");
+    if (nextUrlInput && window.location.protocol.startsWith("http")) {
+      nextUrlInput.value = window.location.href;
+    }
+
     try {
+      const isLocalFile = window.location.protocol === "file:";
+
+      // If browsing directly via file:/// protocol, FormSubmit AJAX is disallowed by design; submit via standard POST
+      if (isLocalFile) {
+        buttonText.textContent = "Redirecting to secure dispatch...";
+        contactForm.submit();
+        return;
+      }
+
       const payload = {
         name: nameCheck.name,
         mobile: mobileCheck.mobile,
@@ -377,9 +394,28 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         result = JSON.parse(responseText);
       } catch (parseErr) {
-        throw new Error(
-          "The email service sent an unexpected response. Please try again or reach out directly to info@towardsmybharat.in."
+        // If JSON parsing fails, fall back to standard form POST
+        contactForm.submit();
+        return;
+      }
+
+      // Check if FormSubmit requires 1-time email activation
+      if (
+        result.message &&
+        (result.message.toLowerCase().includes("activation") ||
+          result.message.toLowerCase().includes("activate"))
+      ) {
+        showStatus(
+          "Action Required: A one-time activation email from FormSubmit has been sent to bhartiyasanskriti120706@gmail.com. Please open Gmail, check your Inbox (or Spam folder), and click 'Activate Form' once. After clicking it, this form and all future messages will arrive directly in your inbox!",
+          "error"
         );
+        return;
+      }
+
+      // If FormSubmit indicates page needs web server
+      if (result.message && result.message.includes("web server")) {
+        contactForm.submit();
+        return;
       }
 
       if (!response.ok || result.success === false || result.success === "false") {
@@ -406,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isNetworkErr = error.message && error.message.includes("Failed to fetch");
       const errorMsg = isNetworkErr
-        ? "Network connection error. Please verify your internet connection or email us directly at info@towardsmybharat.in."
+        ? "Network connection error. You can also email us directly at info@towardsmybharat.in or bhartiyasanskriti120706@gmail.com."
         : error.message;
 
       showStatus(errorMsg, "error");
