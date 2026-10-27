@@ -1008,10 +1008,10 @@ html[data-theme="dark"] .hero-vignette-linear {
 }
 
 .hero-social-links .social-btn:hover {
-  border-color: #F7F4EF !important;
-  background-color: rgba(247, 244, 239, 0.12) !important;
+  border-color: #000000 !important;
+  background-color: rgb(110, 153, 84) !important;
   color: #FFFFFF !important;
-  transform: translateY(-2px);
+  transform: translateY(-1.5px);
 }
 
 .hero-social-links .social-btn:focus-visible {
@@ -1058,8 +1058,8 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 .hero-credential:hover {
   transform: translateY(-1px);
-  border-color: rgba(247, 244, 239, 0.6) !important;
-  background-color: rgba(247, 244, 239, 0.14) !important;
+  border-color: rgba(0, 0, 0, 0.6) !important;
+  background-color: rgb(110, 153, 84) !important;
 }
 
 .hero-credential:focus-visible {
@@ -2716,7 +2716,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .programs-section {
   width: 100%;
   background-color: var(--bg-canvas);
-  background-image: 
+  background-image:
     radial-gradient(circle at 3% 48%, rgba(216, 235, 215, 0.55) 0%, transparent 26%),
     radial-gradient(circle at 97% 45%, rgba(216, 235, 215, 0.5) 0%, transparent 26%);
   padding: clamp(3rem, 4.5vw, 4.5rem) 0;
@@ -2726,7 +2726,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 html[data-theme="dark"] .courses-section {
-  background-image: 
+  background-image:
     radial-gradient(circle at 3% 48%, rgba(52, 75, 56, 0.45) 0%, transparent 26%),
     radial-gradient(circle at 97% 45%, rgba(52, 75, 56, 0.4) 0%, transparent 26%);
 }
@@ -2778,6 +2778,7 @@ html[data-theme="dark"] .courses-motif-img {
     left: -20px;
     opacity: 0.45;
   }
+
   .flank-motif-right {
     right: -20px;
     opacity: 0.45;
