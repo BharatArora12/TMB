@@ -2798,8 +2798,8 @@ html[data-theme="dark"] .courses-section {
 }
 
 html[data-theme="dark"] .courses-motif-img {
-  filter: drop-shadow(0 0 16px rgba(167, 201, 87, 0.2)) brightness(0.92);
-  opacity: 0.85;
+  filter: drop-shadow(0 4px 20px rgba(167, 201, 87, 0.25));
+  opacity: 0.92;
 }
 
 @media (max-width: 1260px) {
