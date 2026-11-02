@@ -831,6 +831,17 @@ document.addEventListener('DOMContentLoaded', () => {
           tab.setAttribute('aria-selected', 'false');
         }
       });
+
+      // Update the CTA hint label on each card:
+      //   Active center card  -> 'Click for Full Details'
+      //   Side cards          -> 'Click to Bring Forward'
+      cards.forEach((card, cardIdx) => {
+        const hintSpan = card.querySelector('.card-explore-hint > span:first-child');
+        if (!hintSpan) return;
+        hintSpan.textContent = (cardIdx === currentIndex)
+          ? 'Click for Full Details'
+          : 'Click to Bring Forward';
+      });
     };
 
     // Helper function to smoothly bring any slide/box to the center front
@@ -861,15 +872,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach((card, idx) => {
       // -----------------------------------------------------------------------
-      // CLICK: side card -> bring to front + open modal; center -> just modal
+      // CLICK:
+      //   Side card  → slide it smoothly to the center front (like tab click)
+      //   Center card → open the full details modal
+      // This mirrors the tab-name behaviour: click moves the card forward first;
+      // a second click (now it is active) opens the details popup.
       // -----------------------------------------------------------------------
       card.addEventListener('click', (e) => {
         e.preventDefault();
         stopAutoplay();
         if (idx !== currentIndex) {
+          // Side card clicked — bring it to center, no modal yet
+          hoverCooldownUntil = Date.now() + HOVER_COOLDOWN_MS;
           bringCardToFront(idx);
+        } else {
+          // Already the active center card — open the details modal
+          openDetailModal(idx);
         }
-        openDetailModal(idx);
       });
 
       // -----------------------------------------------------------------------
@@ -880,9 +899,11 @@ document.addEventListener('DOMContentLoaded', () => {
           e.preventDefault();
           stopAutoplay();
           if (idx !== currentIndex) {
+            hoverCooldownUntil = Date.now() + HOVER_COOLDOWN_MS;
             bringCardToFront(idx);
+          } else {
+            openDetailModal(idx);
           }
-          openDetailModal(idx);
         }
       });
 
