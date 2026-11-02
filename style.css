@@ -5698,14 +5698,14 @@ html[data-theme="light"] .site-footer {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
-  color: #FFFFFF;
+  color: #7fad69;
   text-decoration: none;
   transition: color 0.2s ease;
   word-break: break-all;
 }
 
 .footer-email-link:hover {
-  color: #A7C957;
+  color: #384f01;
 }
 
 .footer-copy-btn {

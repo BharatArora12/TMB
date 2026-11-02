@@ -2,7 +2,7 @@
  * Towards My Bharat — Contact Form Controller
  * Features:
  * - Robust client-side validation (Email format, typos, phone, name, message)
- * - Serverless submission to FormSubmit (recipient: bhartiyasanskriti120706@gmail.com)
+ * - Serverless submission to FormSubmit (recipient: tinusatija@gmail.com)
  * - Real-time error feedback without page reload
  */
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageError = document.getElementById("messageError");
 
   // Destination email address specified by the administration
-  const RECIPIENT_EMAIL = "bhartiyasanskriti120706@gmail.com";
+  const RECIPIENT_EMAIL = "tinusatija@gmail.com";
 
   // Common email domain typo detection dictionary
   const DOMAIN_TYPOS = {
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
           result.message.toLowerCase().includes("activate"))
       ) {
         showStatus(
-          "Action Required: A one-time activation email from FormSubmit has been sent to bhartiyasanskriti120706@gmail.com. Please open Gmail, check your Inbox (or Spam folder), and click 'Activate Form' once. After clicking it, this form and all future messages will arrive directly in your inbox!",
+          "Action Required: A one-time activation email from FormSubmit has been sent to tinusatija@gmail.com. Please open Gmail, check your Inbox (or Spam folder), and click 'Activate Form' once. After clicking it, this form and all future messages will arrive directly in your inbox!",
           "error"
         );
         return;
@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isNetworkErr = error.message && error.message.includes("Failed to fetch");
       const errorMsg = isNetworkErr
-        ? "Network connection error. You can also email us directly at info@towardsmybharat.in or bhartiyasanskriti120706@gmail.com."
+        ? "Network connection error. You can also email us directly at info@towardsmybharat.in or tinusatija@gmail.com."
         : error.message;
 
       showStatus(errorMsg, "error");
