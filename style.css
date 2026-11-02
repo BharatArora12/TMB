@@ -3476,6 +3476,12 @@ html[data-theme="dark"] .btn-outline-3d:hover {
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.courses-contact-banner:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-card-hover);
 }
 
 @media (min-width: 768px) {

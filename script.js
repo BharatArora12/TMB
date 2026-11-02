@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * TOWARDS MY BHARAT (TMB) PLATFORM — INTERACTIVE CLIENT CORE
  * Synchronized with Google Stitch Design System & Modern Web Standards
@@ -1538,6 +1538,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ============================================================================
+  // MODULE 12: INSTITUTIONAL INQUIRY BANNER DIRECT GMAIL REDIRECT
+  // ============================================================================
+  const inquireBanner = document.getElementById('coursesInquireBanner');
+  if (inquireBanner) {
+    inquireBanner.addEventListener('click', (e) => {
+      // Let native <a> click handle itself if clicked directly
+      if (e.target.closest('a')) return;
+      const url = inquireBanner.getAttribute('data-href');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+    inquireBanner.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target.closest('a')) return;
+        e.preventDefault();
+        const url = inquireBanner.getAttribute('data-href');
+        if (url) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      }
+    });
+  }
 });
 
 
