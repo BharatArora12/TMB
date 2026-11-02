@@ -5696,9 +5696,10 @@ html[data-theme="light"] .site-footer {
 
 .footer-bridge-img {
   display: block;
-  width: min(100%, 300px);
+  width: min(100%, 340px);
   height: auto;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
+  margin-left: 0.75rem;
 }
 
 .footer-email-link {
