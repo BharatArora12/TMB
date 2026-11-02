@@ -32,58 +32,54 @@
 /* --------------------------------------------------------------------------
    2. HERO SHOWCASE: THEMED SPLIT NARRATIVE & CONCEPT ARTWORK
    -------------------------------------------------------------------------- */
+/* ── FULL-BLEED BANNER HERO ─────────────────────────────────────────────── */
 .main-about-herosection {
   position: relative;
   width: 100%;
-  min-height: clamp(480px, 60vh, 620px);
+  aspect-ratio: 653 / 238;
+  min-height: 0;
   display: flex;
-  flex-direction: row;
-  background-color: var(--color-background);
+  align-items: center;
   border-bottom: 1px solid var(--color-border);
   overflow: hidden;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-html[data-theme="dark"] .main-about-herosection {
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
-}
-
-/* Left Column: Brand Editorial & Call-to-Action */
-.main-about-herosection01 {
-  flex: 0 0 38%;
-  width: 38%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3.5vw, 3.5rem);
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
-  background: linear-gradient(145deg, var(--color-background) 0%, var(--color-background-soft) 100%);
-  border-right: 1px solid var(--color-border);
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-html[data-theme="dark"] .main-about-herosection01 {
-  background: linear-gradient(145deg, #111A14 0%, #18271D 60%, #152219 100%);
-  border-right: 1px solid var(--color-border);
-}
-
-/* Internal header wrapper */
-.main-about-herosection01 .about-hero-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: clamp(0.5rem, 1vh, 0.85rem);
-  max-width: 440px;
+/* Full-bleed background image */
+.main-about-herosection > .about-hero-artwork-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  z-index: 0;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .about-hero-overlay {
+  background: transparent;
+}
+
+.main-about-herosection > .about-hero-header {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-top-kicker,
+.about-top-title {
+  position: absolute;
+  opacity: 0;
 }
 
 /* Editorial Subbrand Kicker */
@@ -96,7 +92,6 @@ html[data-theme="dark"] .main-about-herosection01 {
   color: var(--color-primary);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.65rem;
   transition: color 0.3s ease;
 }
@@ -121,12 +116,12 @@ html[data-theme="dark"] .about-top-kicker::after {
   background: var(--color-accent);
 }
 
-/* Hero Title: Cormorant Garamond Civilizational Serif */
+/* Hero Title */
 .about-top-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   margin: 0.2rem 0 0.5rem;
   background: linear-gradient(105deg, var(--color-primary) 0%, #1a3a22 55%, var(--color-accent) 100%);
@@ -143,133 +138,53 @@ html[data-theme="dark"] .about-top-title {
   -webkit-text-fill-color: transparent;
 }
 
-/* Action Pill Button (Harmonized with Home Page CTA) */
-.main-about-herosection01 .about-hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.6rem;
-  width: 100%;
+/* Action row */
+.about-hero-actions {
+  position: absolute;
+  top: 59.66%;
+  left: 10.57%;
+  width: 24.96%;
+  height: max(12.61%, 44px);
+  pointer-events: auto;
 }
 
 .about-hero-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.72rem 1.65rem;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  gap: 0;
   border-radius: 9999px;
   font-family: 'Inter', var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-decoration: none;
-  color: #FFFFFF;
-  background: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 4px 14px rgba(46, 93, 58, 0.18);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: transparent;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .about-hero-pill .material-symbols-outlined {
-  font-size: 1.15rem;
-  transition: transform 0.3s ease;
+  display: none;
 }
 
-.about-hero-pill:hover {
-  background: #23472c;
-  border-color: #23472c;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(46, 93, 58, 0.28);
-  color: #FFFFFF;
+.about-hero-pill:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
-.about-hero-pill:hover .material-symbols-outlined {
-  transform: translateY(3px);
-}
-
-html[data-theme="dark"] .about-hero-pill {
-  color: var(--color-text-on-accent);
-  background: var(--color-accent);
-  border: 1px solid var(--color-accent);
-  box-shadow: 0 4px 14px rgba(167, 201, 87, 0.25);
-}
-
-html[data-theme="dark"] .about-hero-pill:hover {
-  background: #bde06a;
-  border-color: #bde06a;
-  color: var(--color-text-on-accent);
-  box-shadow: 0 8px 24px rgba(167, 201, 87, 0.4);
-}
-
-/* Right Column: Concept Artwork Showcase */
-.main-about-herosection02 {
-  flex: 1;
-  position: relative;
-  min-height: 100%;
-  overflow: hidden;
-  background-color: var(--color-background-soft);
-  transition: background-color 0.3s ease;
-}
-
-html[data-theme="dark"] .main-about-herosection02 {
-  background-color: #111A14;
-}
-
-.main-about-herosection02 .about-hero-artwork-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  margin: 0;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  display: block;
-  overflow: hidden;
-}
-
-.main-about-herosection02 .about-hero-artwork-frame:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.main-about-herosection02 .about-hero-artwork-img {
-  width: 100%;
-  height: 100%;
-  min-height: clamp(480px, 60vh, 620px);
-  aspect-ratio: auto;
-  max-height: none;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-}
-
+/* Old two-column classes — hidden, kept to avoid JS errors */
+.main-about-herosection01,
+.main-about-herosection02,
+.about-hero-artwork-frame,
 .about-artwork-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.18);
+  display: none;
 }
 
-/* Atmospheric soft gradient transition between columns */
-.main-about-herosection02::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 70px;
-  background: linear-gradient(to right, rgba(221, 235, 214, 0.55) 0%, rgba(221, 235, 214, 0) 100%);
-  pointer-events: none;
-  z-index: 2;
-  transition: background 0.3s ease;
-}
-
-html[data-theme="dark"] .main-about-herosection02::before {
-  background: linear-gradient(to right, rgba(17, 26, 20, 0.85) 0%, rgba(17, 26, 20, 0) 100%);
-}
 
 .visually-hidden {
   position: absolute;
@@ -454,6 +369,118 @@ html[data-theme="dark"] .story-card {
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(167, 201, 87, 0.08);
+}
+
+/* Theme-aware color variations for the founder and pillars cards. */
+.story-card:nth-child(2) {
+  --story-surface: #E7F0E2;
+  --story-overlay: rgba(231, 240, 226, 0.92);
+  --story-heading: #2E5D3A;
+  --story-body: #526B55;
+  --story-accent: #2E5D3A;
+  --story-border: #CFDFCA;
+  --story-pill: #D5E8CF;
+  --story-mini-surface: rgba(255, 255, 255, 0.62);
+  --story-mini-hover: #DDEBD6;
+}
+
+.story-card:nth-child(3) {
+  --story-surface: #23472C;
+  --story-overlay: rgba(35, 71, 44, 0.94);
+  --story-heading: #F6FAF4;
+  --story-body: #D6E4D2;
+  --story-accent: #A7C957;
+  --story-border: rgba(167, 201, 87, 0.3);
+  --story-pill: rgba(167, 201, 87, 0.15);
+  --story-mini-surface: rgba(17, 26, 20, 0.42);
+  --story-mini-hover: rgba(17, 26, 20, 0.68);
+}
+
+html[data-theme="dark"] .story-card:nth-child(2) {
+  --story-surface: #2E4734;
+  --story-overlay: rgba(46, 71, 52, 0.94);
+  --story-heading: #F0F5ED;
+  --story-body: #D0DACD;
+  --story-accent: #A7C957;
+  --story-border: #506A53;
+  --story-pill: rgba(167, 201, 87, 0.16);
+  --story-mini-surface: rgba(17, 26, 20, 0.4);
+  --story-mini-hover: rgba(17, 26, 20, 0.64);
+  background-color: var(--story-surface);
+  border-color: var(--story-border);
+}
+
+html[data-theme="dark"] .story-card:nth-child(3) {
+  --story-surface: #111A14;
+  --story-overlay: rgba(17, 26, 20, 0.94);
+  --story-heading: #E7EFE5;
+  --story-body: #B1C2B0;
+  --story-accent: #A7C957;
+  --story-border: #344B38;
+  --story-pill: rgba(167, 201, 87, 0.12);
+  --story-mini-surface: rgba(34, 54, 41, 0.72);
+  --story-mini-hover: rgba(34, 54, 41, 0.92);
+  background-color: var(--story-surface);
+  border-color: var(--story-border);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) {
+  background-color: var(--story-surface);
+  border-color: var(--story-border);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-bg-overlay {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(167, 201, 87, 0.14) 0%, transparent 60%),
+    linear-gradient(var(--story-overlay), var(--story-overlay));
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-pill {
+  background: var(--story-pill);
+  border-color: var(--story-border);
+  color: var(--story-accent);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .pill-dot {
+  background-color: var(--story-accent);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-headline,
+.story-card:is(:nth-child(2), :nth-child(3)) .metric-big-num {
+  color: var(--story-heading);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-story-block {
+  border-left-color: var(--story-accent);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-story-paragraph,
+.story-card:is(:nth-child(2), :nth-child(3)) .metric-caption,
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-desc {
+  color: var(--story-body);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .card-metric-row {
+  border-top-color: var(--story-border);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-card {
+  background: var(--story-mini-surface);
+  border-color: var(--story-border);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-card:hover {
+  background: var(--story-mini-hover);
+  border-color: var(--story-accent);
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-num,
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-header .material-symbols-outlined {
+  color: var(--story-accent) !important;
+}
+
+.story-card:is(:nth-child(2), :nth-child(3)) .pillar-mini-title {
+  color: var(--story-heading);
 }
 
 /* Layering hierarchy: subsequent cards overlap previous ones */
@@ -834,32 +861,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 @media (max-width: 991px) {
   .main-about-herosection {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .main-about-herosection01 {
-    flex: none;
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    padding: clamp(3rem, 6vh, 4rem) 1.5rem clamp(2.5rem, 5vh, 3.25rem);
-  }
-
-  .main-about-herosection02 {
-    flex: none;
-    width: 100%;
-    min-height: 360px;
-    height: clamp(360px, 50vh, 460px);
-  }
-
-  .main-about-herosection02::before {
-    display: none;
-  }
-
-  .main-about-herosection02 .about-hero-artwork-img {
-    min-height: 100%;
-    height: 100%;
+    min-height: 0;
   }
 }
 
@@ -939,4 +941,9 @@ html[data-theme="dark"] .btn-outline-light:hover {
   .metric-big-num {
     font-size: 2.8rem;
   }
+}
+@media (max-width: 600px) {
+  .main-about-herosection {
+  }
+
 }

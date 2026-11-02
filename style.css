@@ -2827,7 +2827,7 @@ html[data-theme="dark"] .courses-section {
 .flank-motif-right {
   right: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scaleX(-1);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
 }
@@ -5692,6 +5692,13 @@ html[data-theme="light"] .site-footer {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+}
+
+.footer-bridge-img {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  margin-top: 0.75rem;
 }
 
 .footer-email-link {
