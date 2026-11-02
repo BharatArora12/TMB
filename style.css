@@ -847,6 +847,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   text-transform: uppercase;
   color: #C8C5C1 !important;
   line-height: 1.2;
+  margin-left: clamp(0.35rem, 0.6vw, 0.65rem);
   margin-bottom: clamp(1.15rem, 1.8vh, 1.6rem);
   animation: heroEditorialFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
