@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ==============================================================================
  * TOWARDS MY BHARAT (TMB) — MASTER DESIGN SYSTEM & COMPONENT STYLESHEET
  * ==============================================================================
@@ -1759,6 +1759,11 @@ html[data-theme="dark"] .hero-vignette-linear {
   z-index: 1;
 }
 
+/* Subtle image zoom when active card is hovered — gives life without excess */
+.work-3d-card.is-active:hover .card-bg-image {
+  transform: scale(1.04);
+}
+
 /* Glassmorphic Dark Tint Overlay - Semi-Transparent */
 .work-3d-card .card-glass-overlay {
   position: absolute;
@@ -1783,23 +1788,29 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Active card base state (Centered & Foremost) */
 .work-3d-card.is-active .card-inner {
   border-color: var(--color-accent);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.48), 0 0 28px rgba(168, 217, 79, 0.32);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.50), 0 0 24px rgba(168, 217, 79, 0.22);
 }
 
-/* Card hover cues */
+/* All cards: accent border on hover */
 .work-3d-card:hover .card-inner {
   border-color: var(--color-accent);
 }
 
+/*
+ * Non-active card hover: subtle lift + sharper shadow to signal it is being
+ * pulled toward the front. This state is brief (transition is ~0.6 s) but
+ * prevents a jarring jump by easing the card-inner independently.
+ */
 .work-3d-card:not(.is-active):hover .card-inner {
   border-color: var(--color-accent);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 22px rgba(168, 217, 79, 0.28);
-  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 18px rgba(168, 217, 79, 0.18);
+  transform: translateY(-3px);
 }
 
+/* Active (center) card hover: gentle extra lift — no glow overload */
 .work-3d-card.is-active:hover .card-inner {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.55), 0 0 36px rgba(168, 217, 79, 0.42);
+  transform: translateY(-5px) scale(1.012);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.52), 0 0 28px rgba(168, 217, 79, 0.26);
 }
 
 .work-3d-card:hover .card-explore-hint {

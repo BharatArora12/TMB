@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ==============================================================================
  * TOWARDS MY BHARAT (TMB) PLATFORM — INTERACTIVE CLIENT CORE
  * Synchronized with Google Stitch Design System & Modern Web Standards
@@ -846,15 +846,23 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider(normalizedTarget);
     };
 
-    // Responsive, reliable hover and click interactions for every card
+    // -------------------------------------------------------------------------
+    // Hover-to-front interactions for every card
+    // Uses a cooldown window to prevent chain-reaction slides when a card
+    // drifts under a stationary cursor after being repositioned by JS.
+    // -------------------------------------------------------------------------
     let lastPointerX = -1;
     let lastPointerY = -1;
     let hoverGlideTimer = null;
+    // Timestamp until which hover-triggered slides are suppressed (ms)
+    let hoverCooldownUntil = 0;
+    // Duration matches the CSS card transition (0.6 s) plus a small buffer
+    const HOVER_COOLDOWN_MS = 680;
 
     cards.forEach((card, idx) => {
-      // Click on ANY box:
-      // If active center card -> opens details modal immediately
-      // If side card (left or right) -> brings to front AND opens details modal
+      // -----------------------------------------------------------------------
+      // CLICK: side card -> bring to front + open modal; center -> just modal
+      // -----------------------------------------------------------------------
       card.addEventListener('click', (e) => {
         e.preventDefault();
         stopAutoplay();
@@ -864,7 +872,9 @@ document.addEventListener('DOMContentLoaded', () => {
         openDetailModal(idx);
       });
 
-      // Keyboard accessibility
+      // -----------------------------------------------------------------------
+      // KEYBOARD: Enter / Space mirrors click behaviour
+      // -----------------------------------------------------------------------
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -876,57 +886,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Hover interaction: Placing cursor/arrow on any left or right box brings it to the front
-      const handleCardHover = (isDirectUserMove = false) => {
+      // -----------------------------------------------------------------------
+      // MOUSEENTER: bring hovered card to center front
+      // Guards:
+      //  1. Skip touch-generated synthetic mouse events
+      //  2. Require real pointer movement (>= 5 px in either axis) so that a
+      //     card sliding under a stationary cursor does NOT trigger another slide
+      //  3. Respect the cooldown window set after every programmatic slide
+      // -----------------------------------------------------------------------
+      card.addEventListener('mouseenter', (e) => {
+        // Do nothing for touch-driven synthetic events
+        if (e.pointerType === 'touch') return;
+
         stopAutoplay();
-        if (idx === currentIndex) return;
+        if (idx === currentIndex) return; // Already the active card
+
+        const now = Date.now();
+        const deltaX = Math.abs(e.clientX - lastPointerX);
+        const deltaY = Math.abs(e.clientY - lastPointerY);
+        const realMove = (lastPointerX === -1) || (deltaX >= 5 || deltaY >= 5);
+
+        // Always record current pointer position
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
 
         clearTimeout(hoverGlideTimer);
-        if (isDirectUserMove) {
+
+        if (realMove && now >= hoverCooldownUntil) {
+          // Genuine user hover — slide this card to center immediately
+          hoverCooldownUntil = now + HOVER_COOLDOWN_MS;
           bringCardToFront(idx);
-        } else {
-          hoverGlideTimer = setTimeout(() => {
-            if (idx !== currentIndex) {
-              bringCardToFront(idx);
-            }
-          }, 60);
         }
-      };
-
-      // Mouseenter fires as soon as the mouse cursor enters the card
-      card.addEventListener('mouseenter', (e) => {
-        const deltaX = Math.abs(e.clientX - lastPointerX);
-        const deltaY = Math.abs(e.clientY - lastPointerY);
-
-        if (deltaX > 2 || deltaY > 2 || lastPointerX === -1) {
-          lastPointerX = e.clientX;
-          lastPointerY = e.clientY;
-          handleCardHover(true);
-        } else {
-          // Card slid into place under stationary cursor: brief rest before transition
-          clearTimeout(hoverGlideTimer);
-          hoverGlideTimer = setTimeout(() => {
-            if (idx !== currentIndex) {
-              bringCardToFront(idx);
-            }
-          }, 240);
-        }
+        // If inside cooldown window (card slid under cursor): do nothing
       });
 
-      // Pointermove: Detects cursor moving inside the card
+      // -----------------------------------------------------------------------
+      // POINTERMOVE: also responds when cursor moves *inside* a side card
+      // (e.g. user moves mouse slowly onto card without triggering mouseenter)
+      // Same cooldown guard applies.
+      // -----------------------------------------------------------------------
       card.addEventListener('pointermove', (e) => {
         if (e.pointerType === 'touch') return;
+        if (idx === currentIndex) return;
+
+        const now = Date.now();
         const deltaX = Math.abs(e.clientX - lastPointerX);
         const deltaY = Math.abs(e.clientY - lastPointerY);
-        if (deltaX > 2 || deltaY > 2) {
+
+        if ((deltaX >= 5 || deltaY >= 5) && now >= hoverCooldownUntil) {
           lastPointerX = e.clientX;
           lastPointerY = e.clientY;
-          if (idx !== currentIndex) {
-            handleCardHover(true);
-          }
+          hoverCooldownUntil = now + HOVER_COOLDOWN_MS;
+          stopAutoplay();
+          bringCardToFront(idx);
         }
       });
 
+      // -----------------------------------------------------------------------
+      // MOUSELEAVE: clear any pending timer
+      // -----------------------------------------------------------------------
       card.addEventListener('mouseleave', () => {
         clearTimeout(hoverGlideTimer);
       });
