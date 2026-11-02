@@ -166,6 +166,8 @@ html[data-theme="dark"] .about-top-title {
   background: transparent;
   border: 0;
   box-shadow: none;
+  cursor: pointer;
+  appearance: none;
 }
 
 .about-hero-pill .material-symbols-outlined {

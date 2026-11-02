@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // The outer stream container
   const cardsStream = document.querySelector('.about-cards-stream');
 
+  const heroStoryButton = document.querySelector('.about-hero-pill');
+  const originStory = document.getElementById('origin-story');
+  if (heroStoryButton && originStory) {
+    heroStoryButton.addEventListener('click', () => {
+      originStory.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
   // Guard: If the page layout doesn't contain cards or rail, exit gracefully.
   if (!cards.length || !railItems.length) return;
 
@@ -199,5 +207,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
