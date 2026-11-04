@@ -5113,9 +5113,6 @@ html[data-theme="dark"] .contact-card:hover .contact-card-action {
   color: #FFFFFF;
 }
 
-.contact-card:hover .contact-card-action .action-arrow {
-  transform: translateX(4px);
-}
 
 /* Bottom Decorative Flourish */
 .contact-decor-footer {
@@ -5694,9 +5691,9 @@ html[data-theme="light"] .site-footer {
   gap: 0.45rem;
 }
 
-.footer-bridge-img {
+.footer-heritage-img {
   display: block;
-  width: min(100%, 340px);
+  width: min(100%, 440px);
   height: auto;
   margin-top: 1rem;
   margin-left: 0.75rem;

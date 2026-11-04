@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 320" fill="none">
+  <defs>
+    <linearGradient id="heritage" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E6EBC0" />
+      <stop offset="0.52" stop-color="#BED76F" />
+      <stop offset="1" stop-color="#D8C98A" />
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0.3" />
+      <stop offset="0.6" stop-color="white" stop-opacity="0.68" />
+      <stop offset="1" stop-color="white" stop-opacity="0.96" />
+    </linearGradient>
+    <mask id="mist">
+      <rect width="1400" height="320" fill="url(#fade)" />
+    </mask>
+  </defs>
+  <g fill="url(#heritage)" mask="url(#mist)">
+    <path d="M0 275h53v-42h28v-26h18v-16h12v16h18v26h28v42h49v-59h27v-20h17v-17h12v17h17v20h27v59h50v-34h28v-23h17v-15h12v15h17v23h28v34H0zm1015 0h47v-39h27v-25h17v-18h12v18h17v25h27v39h51v-57h27v-20h17v-17h12v17h17v20h27v57h36v18H1015z" opacity="0.45" />
+    <path d="M430 270h540v-9h-28v-10h-26v-11H484v11h-26v10h-28z" />
+    <path d="M490 240h420v-16h-30v-12H520v12h-30z" />
+    <path d="M520 224h360v46H520z M541 270v-17c0-25 43-25 43 0v17zm69 0v-17c0-25 43-25 43 0v17zm69 0v-17c0-25 43-25 43 0v17zm69 0v-17c0-25 43-25 43 0v17zm69 0v-17c0-25 43-25 43 0v17z" fill-rule="evenodd" />
+    <path d="M627 224c0-17 11-27 23-38 13-12 17-28 29-41 12-14 15-30 20-46 6-17 8-32 13-49 5 17 7 32 13 49 5 16 8 32 20 46 12 13 16 29 29 41 12 11 23 21 23 38z" />
+    <path d="M552 224c0-13 8-21 17-29 10-10 13-22 22-32 9-11 11-23 15-36 4 13 6 25 15 36 9 10 12 22 22 32 9 8 17 16 17 29zm268 0c0-13 8-21 17-29 10-10 13-22 22-32 9-11 11-23 15-36 4 13 6 25 15 36 9 10 12 22 22 32 9 8 17 16 17 29z" />
+    <path d="M709 50h6V31h7v19h14v5h-42v-5h15zM718 31l19-13-2 17z" />
+  </g>
+</svg>

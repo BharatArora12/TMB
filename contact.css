@@ -452,6 +452,59 @@ html[data-theme="dark"] .form-status.error {
   border-color: rgba(229, 115, 115, 0.35);
 }
 
+.fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn-mailto-fallback,
+.btn-gmail-fallback {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-gmail-fallback {
+  background: #D93025;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(217, 48, 37, 0.25);
+}
+
+.btn-gmail-fallback:hover {
+  background: #B31412;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 48, 37, 0.35);
+}
+
+.btn-mailto-fallback {
+  background: var(--contact-primary);
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(40, 88, 59, 0.2);
+}
+
+html[data-theme="dark"] .btn-mailto-fallback {
+  background: var(--contact-accent);
+  color: #111A14 !important;
+}
+
+.btn-mailto-fallback:hover {
+  background: var(--contact-primary-dark);
+  transform: translateY(-1px);
+}
+
+html[data-theme="dark"] .btn-mailto-fallback:hover {
+  background: #BFE36B;
+}
+
 .privacy-note {
   margin: 18px 0 0;
   color: var(--contact-text-muted);
