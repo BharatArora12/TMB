@@ -846,7 +846,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #C8C5C1 !important;
-  line-height: 1.2;
+  line-height: 2.6;
   margin-left: clamp(0.35rem, 0.6vw, 0.65rem);
   margin-bottom: clamp(1.15rem, 1.8vh, 1.6rem);
   animation: heroEditorialFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -874,6 +874,11 @@ html[data-theme="dark"] .hero-vignette-linear {
   gap: 0.02em;
   text-shadow: none !important;
   text-align: left;
+}
+
+.hero-editorial-headline {
+  font-size: calc(clamp(2.4rem, 4.2vw, 4.5rem) + 2px);
+  margin-bottom: 2rem;
 }
 
 /* Deliberate 4-line Composition with Compact Editorial Flow */
@@ -946,6 +951,11 @@ html[data-theme="dark"] .hero-vignette-linear {
     margin-bottom: 1.2rem;
   }
 
+  .hero-editorial-headline {
+    font-size: calc(clamp(2.3rem, 10vw, 3.6rem) + 2px);
+    margin-bottom: 2rem;
+  }
+
   .hero-headline-line {
     line-height: 0.92;
     letter-spacing: -0.035em;
@@ -981,9 +991,9 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Hero Actions Row - Align social icons and Udyam button straight in a horizontal row */
 .hero-actions-row {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.15rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
   flex-wrap: wrap;
   width: 100%;
   margin-top: 0.25rem;
@@ -2818,10 +2828,24 @@ html[data-theme="dark"] .courses-section {
 
 .flank-motif-left {
   left: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
-  top: 52%;
+  top: 46%;
   transform: translateY(-50%);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
+}
+
+.courses-section.courses-motif-entered .flank-motif-left {
+  animation: coursesLeafEnterFromLeft 900ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes coursesLeafEnterFromLeft {
+  from {
+    transform: translate(-115%, -50%);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
 }
 
 .flank-motif-right {
@@ -2859,6 +2883,12 @@ html[data-theme="dark"] .courses-motif-img {
 @media (max-width: 1024px) {
   .courses-flank-motif {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .courses-section.courses-motif-entered .flank-motif-left {
+    animation: none;
   }
 }
 

@@ -36,6 +36,26 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const coursesSection = document.querySelector('.courses-section');
+  const leftCoursesMotif = coursesSection && coursesSection.querySelector('.flank-motif-left');
+
+  if (coursesSection && leftCoursesMotif) {
+    if ('IntersectionObserver' in window) {
+      const coursesMotifObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          coursesSection.classList.add('courses-motif-entered');
+          observer.disconnect();
+        }
+      });
+
+
+
+      coursesMotifObserver.observe(coursesSection);
+    } else {
+      coursesSection.classList.add('courses-motif-entered');
+    }
+  }
+
   // ============================================================================
   // MODULE 1: EDITORIAL BLOG ARCHIVE & DYNAMIC RENDERER
   // ============================================================================
@@ -1563,5 +1583,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-
