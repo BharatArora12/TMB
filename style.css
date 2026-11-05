@@ -2828,7 +2828,7 @@ html[data-theme="dark"] .courses-section {
 
 .flank-motif-left {
   left: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
-  top: 42%;
+  top: 36%;
   transform: translateY(-50%);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
@@ -2850,7 +2850,7 @@ html[data-theme="dark"] .courses-section {
 
 .flank-motif-right {
   right: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
-  top: 58%;
+  top: 64%;
   transform: translateY(-50%) rotate(180deg);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
