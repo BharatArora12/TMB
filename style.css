@@ -5728,7 +5728,7 @@ html[data-theme="light"] .site-footer {
   aspect-ratio: 1100 / 360;
   object-fit: fill;
   margin-top: 1rem;
-  margin-left: 0.75rem;
+  margin-left: -1.75rem;
 }
 
 .footer-email-link {
