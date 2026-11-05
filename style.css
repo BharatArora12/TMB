@@ -2828,7 +2828,7 @@ html[data-theme="dark"] .courses-section {
 
 .flank-motif-left {
   left: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
-  top: 46%;
+  top: 42%;
   transform: translateY(-50%);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
@@ -2850,8 +2850,8 @@ html[data-theme="dark"] .courses-section {
 
 .flank-motif-right {
   right: max(0.5rem, calc((100vw - var(--max-width)) / 2 - 130px));
-  top: 50%;
-  transform: translateY(-50%) scaleX(-1);
+  top: 58%;
+  transform: translateY(-50%) rotate(180deg);
   width: clamp(120px, 11vw, 175px);
   max-width: 180px;
 }
@@ -5725,6 +5725,8 @@ html[data-theme="light"] .site-footer {
   display: block;
   width: min(100%, 440px);
   height: auto;
+  aspect-ratio: 1100 / 360;
+  object-fit: fill;
   margin-top: 1rem;
   margin-left: 0.75rem;
 }

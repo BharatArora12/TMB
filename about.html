@@ -52,7 +52,7 @@
 
   <!-- Core Master Stylesheet & About Page Stacking Stylesheet -->
   <link rel="stylesheet" href="style.css?v=36">
-  <link rel="stylesheet" href="about.css?v=10">
+  <link rel="stylesheet" href="about.css?v=13">
 </head>
 
 <body class="about-page">
@@ -115,14 +115,29 @@
   </header>  <!-- =========================================================================
        HERO SHOWCASE: FULL-WIDTH BANNER WITH OVERLAY TEXT
        ========================================================================= -->
+  <!-- Previous About hero: uncomment to restore the original banner.
   <section class="main-about-herosection" aria-label="About Towards My Bharat">
-    <!-- Full-bleed background image -->
     <img class="about-hero-artwork-img" src="assets/images/about-hero-user.png"
       alt="Towards My Bharat � Cultural heritage and young generation shaping India's future through the portal of opportunity"
       width="2078" height="757" loading="eager" decoding="async">
     <a class="about-hero-image-cta" href="#origin-story" aria-label="Explore our journey">
       <span class="visually-hidden">Explore Our Journey</span>
     </a>
+  </section>
+  -->
+  <section class="about-video-hero" aria-labelledby="about-video-hero-title">
+    <video class="about-video-hero-media" autoplay muted loop playsinline preload="metadata"
+      poster="assets/images/about-yagya-poster.jpg" aria-hidden="true">
+      <source src="Yagya%202022%2C%20Daugavpils%20city%2C%20Latvia.mp4" type="video/mp4">
+    </video>
+    <div class="about-video-hero-content">
+      <span class="about-video-hero-kicker">A living tradition · Daugavpils, Latvia</span>
+      <h1 id="about-video-hero-title">Wisdom shared across generations.</h1>
+      <a class="about-video-hero-link" href="#origin-story">
+        <span>Explore our journey</span>
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
+      </a>
+    </div>
   </section>
   <!-- =========================================================================
        STICKY RAIL & OVERLAPPING STACKING CARDS EXPERIENCE
@@ -407,8 +422,8 @@
               <span class="material-symbols-outlined">content_copy</span>
             </button>
           </div>
-          <img class="footer-heritage-img" src="assets/images/footer-heritage-silhouette.svg" alt="" aria-hidden="true"
-            width="1400" height="320" loading="lazy" decoding="async">
+          <img class="footer-heritage-img" src="assets/images/footer-heritage-panorama.png?v=1" alt="" aria-hidden="true"
+            width="1100" height="360" loading="lazy" decoding="async">
         </div>
       </div>
 
