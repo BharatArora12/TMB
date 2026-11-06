@@ -33,6 +33,70 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const heroVideo = document.querySelector('.about-video-hero-media');
+  const soundToggle = document.querySelector('.about-video-hero-sound');
+
+  if (heroVideo instanceof HTMLVideoElement && soundToggle instanceof HTMLButtonElement) {
+    const soundLabel = soundToggle.querySelector('.about-video-hero-sound-label');
+    let soundEnabled = false;
+    let videoIsVisible = false;
+
+    const updateSoundToggle = () => {
+      soundToggle.setAttribute('aria-pressed', String(soundEnabled));
+      soundLabel.textContent = soundEnabled ? 'Disable automatic sound' : 'Enable sound when video is visible';
+    };
+
+    const syncVideoSound = () => {
+      const videoCanPlaySound = soundEnabled
+        && videoIsVisible
+        && !document.hidden
+        && getComputedStyle(heroVideo).visibility !== 'hidden';
+
+      heroVideo.muted = !videoCanPlaySound;
+    };
+
+    soundToggle.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      updateSoundToggle();
+      syncVideoSound();
+
+      if (soundEnabled && videoIsVisible && heroVideo.paused) {
+        const playback = heroVideo.play();
+        playback.catch(() => {
+          soundEnabled = false;
+          heroVideo.muted = true;
+          updateSoundToggle();
+          soundToggle.title = 'Video playback could not start. Check the video file and browser playback settings.';
+        });
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      const videoVisibilityObserver = new IntersectionObserver(([entry]) => {
+        videoIsVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
+        syncVideoSound();
+      }, { threshold: [0, 0.1] });
+
+      videoVisibilityObserver.observe(heroVideo);
+    } else {
+      const updateVideoVisibility = () => {
+        const bounds = heroVideo.getBoundingClientRect();
+        videoIsVisible = bounds.bottom > 0
+          && bounds.top < window.innerHeight
+          && bounds.right > 0
+          && bounds.left < window.innerWidth;
+        syncVideoSound();
+      };
+
+      window.addEventListener('scroll', updateVideoVisibility, { passive: true });
+      window.addEventListener('resize', updateVideoVisibility, { passive: true });
+      updateVideoVisibility();
+    }
+
+    document.addEventListener('visibilitychange', syncVideoSound);
+    updateSoundToggle();
+  }
+
   // ----------------------------------------------------------------------------
   // 1. DOM ELEMENT SELECTION
   // ----------------------------------------------------------------------------

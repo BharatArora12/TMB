@@ -126,10 +126,6 @@
   </section>
   -->
   <section class="about-video-hero" aria-labelledby="about-video-hero-title">
-    <video class="about-video-hero-media" autoplay muted loop playsinline preload="metadata"
-      poster="assets/images/about-yagya-poster.jpg" aria-hidden="true">
-      <source src="Yagya%202022%2C%20Daugavpils%20city%2C%20Latvia.mp4" type="video/mp4">
-    </video>
     <div class="about-video-hero-content">
       <span class="about-video-hero-kicker">A living tradition · Daugavpils, Latvia</span>
       <h1 id="about-video-hero-title">Wisdom shared across generations.</h1>
@@ -137,6 +133,16 @@
         <span>Explore our journey</span>
         <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
       </a>
+    </div>
+    <div class="about-video-hero-media-container">
+      <video id="about-hero-video" class="about-video-hero-media" autoplay muted loop playsinline preload="metadata"
+        poster="assets/images/about-yagya-poster.jpg" aria-hidden="true">
+        <source src="Yagya%202022%2C%20Daugavpils%20city%2C%20Latvia.mp4" type="video/mp4">
+      </video>
+      <button class="about-video-hero-sound" type="button" aria-controls="about-hero-video" aria-pressed="false">
+        <span class="material-symbols-outlined" aria-hidden="true">volume_up</span>
+        <span class="about-video-hero-sound-label">Enable sound when video is visible</span>
+      </button>
     </div>
   </section>
   <!-- =========================================================================
