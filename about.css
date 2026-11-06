@@ -104,33 +104,6 @@
   object-position: center;
 }
 
-.about-video-hero-sound {
-  position: absolute;
-  right: clamp(0.75rem, 2vw, 1.25rem);
-  bottom: clamp(0.75rem, 2vw, 1.25rem);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 42px;
-  padding: 0.6rem 0.9rem;
-  border: 1px solid rgba(200, 223, 138, 0.7);
-  border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.72);
-  color: #fff;
-  font: 600 0.75rem/1.2 var(--font-sans);
-  cursor: pointer;
-}
-
-.about-video-hero-sound:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.about-video-hero-sound:focus-visible {
-  outline: 3px solid #c8df8a;
-  outline-offset: 3px;
-}
-
 .about-video-hero-content {
   display: flex;
   flex-direction: column;
@@ -201,9 +174,6 @@
     visibility: hidden;
   }
 
-  .about-video-hero-sound {
-    display: none;
-  }
 }
 
 .about-hero-image-cta {

@@ -34,42 +34,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.querySelector('.about-video-hero-media');
-  const soundToggle = document.querySelector('.about-video-hero-sound');
 
-  if (heroVideo instanceof HTMLVideoElement && soundToggle instanceof HTMLButtonElement) {
-    const soundLabel = soundToggle.querySelector('.about-video-hero-sound-label');
-    let soundEnabled = false;
+  if (heroVideo instanceof HTMLVideoElement) {
     let videoIsVisible = false;
 
-    const updateSoundToggle = () => {
-      soundToggle.setAttribute('aria-pressed', String(soundEnabled));
-      soundLabel.textContent = soundEnabled ? 'Disable automatic sound' : 'Enable sound when video is visible';
-    };
-
     const syncVideoSound = () => {
-      const videoCanPlaySound = soundEnabled
-        && videoIsVisible
+      const videoCanPlaySound = videoIsVisible
         && !document.hidden
         && getComputedStyle(heroVideo).visibility !== 'hidden';
 
       heroVideo.muted = !videoCanPlaySound;
     };
-
-    soundToggle.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      updateSoundToggle();
-      syncVideoSound();
-
-      if (soundEnabled && videoIsVisible && heroVideo.paused) {
-        const playback = heroVideo.play();
-        playback.catch(() => {
-          soundEnabled = false;
-          heroVideo.muted = true;
-          updateSoundToggle();
-          soundToggle.title = 'Video playback could not start. Check the video file and browser playback settings.';
-        });
-      }
-    });
 
     if ('IntersectionObserver' in window) {
       const videoVisibilityObserver = new IntersectionObserver(([entry]) => {
@@ -94,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('visibilitychange', syncVideoSound);
-    updateSoundToggle();
   }
 
   // ----------------------------------------------------------------------------
