@@ -713,6 +713,10 @@ html[data-theme="dark"] .hero-section {
   will-change: opacity, filter;
 }
 
+.hero-slide-people {
+  filter: grayscale(35%) contrast(1.05) brightness(1.12);
+}
+
 .hero-slide.active {
   opacity: 1;
 }
