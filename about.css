@@ -1136,10 +1136,6 @@ html[data-theme="dark"] .btn-outline-light:hover {
   height: auto;
 }
 
-.blog-editable-about-hero.blog-page-image-hero .blog-page-hero-artwork {
-  filter: brightness(0.82) contrast(0.9) saturate(0.9);
-}
-
 .blog-page-hero-cta-link {
   position: absolute;
   top: 57%;
