@@ -66,16 +66,51 @@ document.addEventListener('DOMContentLoaded', () => {
    * Field definitions:
    * - image: Relative filename inside `assets/images/`
    * - alt: Screen-reader accessible image description
-   * - category: Editorial topic label (e.g., Heritage, Leadership, Research)
+   * - categoryId: One of the four editorial sections
    * - readTime: Estimated reader duration
    * - title: Article headline
    * - description: Condensed thematic abstract
    */
+  const blogCategories = [
+    {
+      id: 'spiritual',
+      title: 'Spiritual',
+      lens: 'Inner life',
+      description: 'Reflections on practice, meaning, and the wisdom that steadies a life.',
+      image: 'varanasi-ghats.jpg',
+      alt: 'The Varanasi ghats along the river at sunrise'
+    },
+    {
+      id: 'cultural',
+      title: 'Cultural',
+      lens: 'Living traditions',
+      description: 'The customs, arts, and shared rituals that keep a culture in motion.',
+      image: 'gallery-celebrations.jpg',
+      alt: 'A community celebrating together'
+    },
+    {
+      id: 'historical',
+      title: 'Historical',
+      lens: 'Memory & heritage',
+      description: 'Stories from our past, read with care and carried into the present.',
+      image: 'research-archive.jpg',
+      alt: 'Historical research materials and archival references'
+    },
+    {
+      id: 'political',
+      title: 'Political',
+      lens: 'Ideas & public life',
+      description: 'Thoughtful perspectives on leadership, citizenship, and the common good.',
+      image: 'youth-nation-building.jpg',
+      alt: 'Young people gathered to shape their shared future'
+    }
+  ];
+
   const blogs = [
     {
-      image: 'hero-courtyard.jpg',
-      alt: 'Heritage courtyard and architecture',
-      category: 'Heritage',
+      image: 'community-workshop.jpg',
+      alt: 'A community workshop gathered beneath a courtyard tree',
+      categoryId: 'cultural',
       readTime: '07 min read',
       title: 'Why a courtyard still teaches us how to gather',
       description: 'Design, memory, and community often begin in the same spatial rhythm: the place where people meet, pause, and think together.'
@@ -83,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       image: 'youth-nation-building.jpg',
       alt: 'Youth building a future together',
-      category: 'Leadership',
+      categoryId: 'political',
       readTime: '05 min read',
       title: 'Leadership is not performance',
       description: 'On building trust, humility, and steadiness in a culture that often rewards noise over judgment.'
@@ -91,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       image: 'research-archive.jpg',
       alt: 'Archive materials and historical references',
-      category: 'Research',
+      categoryId: 'historical',
       readTime: '04 min read',
       title: 'Research begins with listening',
       description: 'What happens when we stop searching for answers and begin by tracing the questions that shaped a place over time.'
@@ -99,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       image: 'varanasi-ghats.jpg',
       alt: 'Sacred ghats along the river',
-      category: 'Field notes',
+      categoryId: 'spiritual',
       readTime: '06 min read',
       title: 'Walking a riverfront with attention',
       description: 'Places live in memory, rituals, and repeated acts of care. To notice them is to notice history continuing to speak.'
@@ -107,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       image: 'community-workshop.jpg',
       alt: 'People collaborating in a workshop',
-      category: 'Practice',
+      categoryId: 'cultural',
       readTime: '03 min read',
       title: 'Making together builds belonging',
       description: 'Participation is not just a method; it is a way of cultivating trust, skill, and shared direction.'
@@ -115,12 +150,43 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       image: 'research-archive.jpg',
       alt: 'Historical learning table with documents',
-      category: 'Education',
+      categoryId: 'historical',
       readTime: '05 min read',
       title: 'Classrooms that connect memory and future',
       description: 'Education becomes broader and more valuable when students are invited to relate ideas to actual living traditions and communities.'
     }
   ];
+
+  const getCategory = (categoryId) => blogCategories.find((category) => category.id === categoryId);
+
+  const renderBlogCategories = (container) => {
+    container.innerHTML = blogCategories.map((category, index) => {
+      const postCount = blogs.filter((post) => post.categoryId === category.id).length;
+      return `
+        <a class="blog-category-card blog-category-${category.id}"
+          href="all-blogs.html?category=${category.id}" aria-label="Explore ${category.title} blogs, ${postCount} stories">
+          <div class="blog-category-image">
+            <img src="assets/images/${category.image}" alt="${category.alt}" loading="lazy" decoding="async">
+            <span class="blog-category-number">${String(index + 1).padStart(2, '0')}</span>
+            <span class="blog-category-lens">${category.lens}</span>
+          </div>
+          <div class="blog-category-copy">
+            <div>
+              <h3>${category.title}</h3>
+              <p>${category.description}</p>
+            </div>
+            <span class="blog-category-link">
+              <span>${postCount} ${postCount === 1 ? 'story' : 'stories'}</span>
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+      `;
+    }).join('');
+  };
+
+  const categoryGrid = document.getElementById('blogCategoryGrid');
+  if (categoryGrid) renderBlogCategories(categoryGrid);
 
   /**
    * Renders a given collection of blog post objects into a specified DOM container.
@@ -132,13 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderBlogs = (container, posts) => {
     container.innerHTML = posts.map((post, index) => `
       <article class="blog-card${index === 0 ? ' featured-blog' : ''}">
-        <img src="assets/images/${post.image}" alt="${post.alt}">
+        <img src="assets/images/${post.image}" alt="${post.alt}" loading="lazy" decoding="async">
         <div class="blog-card-body">
-          <div class="journal-meta"><span>${post.category}</span><span>${post.readTime}</span></div>
+          <div class="journal-meta"><span>${getCategory(post.categoryId).title}</span><span>${post.readTime}</span></div>
           <${index === 0 ? 'h2' : 'h3'}>${post.title}</${index === 0 ? 'h2' : 'h3'}>
           <p>${post.description}</p>
-          <a class="journal-read-link" href="#">
-            <span>Read story</span>
+          <a class="journal-read-link" href="all-blogs.html?category=${post.categoryId}">
+            <span>Explore ${getCategory(post.categoryId).title}</span>
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -147,12 +213,40 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Mount blogs dynamically depending on which page is currently loaded:
-  // - index.html mounts the top 4 articles into #latestBlogs
+  // - blog.html mounts the top 4 articles into #latestBlogGrid
   // - all-blogs.html mounts the full article array into #allBlogs
-  const latestBlogs = document.getElementById('latestBlogs');
+  const latestBlogs = document.getElementById('latestBlogGrid');
   const allBlogs = document.getElementById('allBlogs');
   if (latestBlogs) renderBlogs(latestBlogs, blogs.slice(0, 4));
-  if (allBlogs) renderBlogs(allBlogs, blogs);
+  if (allBlogs) {
+    const categoryNavigation = document.getElementById('blogCategoryNav');
+    const requestedCategory = new URLSearchParams(window.location.search).get('category');
+    const activeCategory = blogCategories.find((category) => category.id === requestedCategory);
+    const visibleBlogs = activeCategory
+      ? blogs.filter((post) => post.categoryId === activeCategory.id)
+      : blogs;
+
+    if (categoryNavigation) {
+      categoryNavigation.innerHTML = `
+        <a class="blog-category-filter${activeCategory ? '' : ' is-active'}" href="all-blogs.html"
+          ${activeCategory ? '' : 'aria-current="page"'}>All stories</a>
+        ${blogCategories.map((category) => `
+          <a class="blog-category-filter${activeCategory === category ? ' is-active' : ''}"
+            href="all-blogs.html?category=${category.id}"
+            ${activeCategory === category ? 'aria-current="page"' : ''}>${category.title}</a>
+        `).join('')}
+      `;
+    }
+
+    const archiveEyebrow = document.getElementById('blogArchiveEyebrow');
+    const archiveTitle = document.getElementById('blogArchiveTitle');
+    if (activeCategory && archiveEyebrow && archiveTitle) {
+      archiveEyebrow.textContent = `${activeCategory.lens} / ${visibleBlogs.length} ${visibleBlogs.length === 1 ? 'story' : 'stories'}`;
+      archiveTitle.textContent = `${activeCategory.title} stories.`;
+    }
+
+    renderBlogs(allBlogs, visibleBlogs);
+  }
 
   // ============================================================================
   // MODULE 2: BLOG EDITORIAL SLIDESHOW (Cross-fade)
