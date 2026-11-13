@@ -535,35 +535,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const workDetailModal = document.getElementById('workDetailModal');
   const workModalClose = document.getElementById('workModalClose');
   const workModalContent = document.getElementById('workModalContent');
+  const workReelModal = document.getElementById('workReelModal');
+  const workReelClose = document.getElementById('workReelClose');
+  const workReelFrame = document.getElementById('workReelFrame');
 
   // Comprehensive Detailed Data Schema for Each Initiative (Injected into Modal)
   const initiativesData = [
     {
       index: '01',
       tag: 'Digital Media & Storytelling',
-      title: 'Short Form Videos',
-      tagline: 'Sovereign Media, Culture & Civilizational Narratives in the Digital Age',
-      overview: 'Our short-form video division produces bite-sized, high-production cultural explainers, podcasts, and digital essays tailored for India’s digitally native youth. By bridging classical civilizational wisdom with modern storytelling, we demystify history, statecraft, art, and philosophy for millions across social platforms.',
-      pillars: [
+      title: 'Breaking the shackles of mental colonialism through digital storytelling.',
+      tagline: 'Discovering Bharat, one curious question at a time',
+      storyParagraphs: [
+        'We create engaging short-form videos that explore the stories, facts, and ideas shaping our understanding of Bharat. Our videos help today’s generation reconnect with the roots of our ancient Bharat and grow into proud Bharatiyas — building an Army of Proud Bharatiyas, one story at a time.',
+        'From lesser-known historical events and forgotten stories to Bharatiya cultural traditions, the scientific essence of spirituality, and trending topics that deserve a reality check — we explore the questions curious minds ask and often uncover answers they never knew existed. Our team works with one simple belief: every story has a reason, and every curious mind deserves to know its why.',
+        'Through this work, we strive to bridge the gap between today’s generation and our ancient knowledge. That’s what we serve at Towards My Bharat.'
+      ],
+      exploreTopics: 'History · Culture · Current Affairs · Spirituality · Ancient Wisdom',
+      featuredVideos: [
         {
-          icon: 'history_edu',
-          title: 'Civilizational History',
-          desc: 'Highlighting unsung Indian thinkers, mathematicians, scientists, architects, and historical turning points.'
+          title: 'Untold History',
+          cover: 'assets/images/featured-reel-untold-history.jpg',
+          url: 'https://www.instagram.com/towards.mybharat/reel/DRzn14iDBgS/'
         },
         {
-          icon: 'psychology',
-          title: 'Indian Knowledge Systems (IKS)',
-          desc: 'Distilling timeless ideas from Vedanta, Arthashastra, and Nyaya into practical modern frameworks.'
+          title: 'Culture',
+          cover: 'assets/images/featured-reel-culture.jpg',
+          url: 'https://www.instagram.com/towards.mybharat/reel/DDj_I-Ov5kB/'
         },
         {
-          icon: 'videocam',
-          title: 'On-Ground Visual Dispatches',
-          desc: 'Documentary vignettes capturing living traditions, temple architecture, sacred geography, and artisan hubs.'
-        },
-        {
-          icon: 'podcasts',
-          title: 'Youth Cultural Dialogues',
-          desc: 'Interactive digital interviews and debates addressing contemporary challenges with cultural depth.'
+          title: 'Ancient Wisdom',
+          cover: 'assets/images/featured-reel-ancient-wisdom.jpg',
+          url: 'https://www.instagram.com/towards.mybharat/reel/DLxAAqtPkKJ/'
         }
       ],
       meta: [
@@ -724,6 +727,64 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoplayTimer = null;
     let slideDirection = 1; // 1 = forward (right), -1 = backward (left)
     let isMouseInsideSection = false;
+    let reelReturnFocus = null;
+
+    const closeReelModal = () => {
+      if (!workReelModal || !workReelFrame) return;
+      workReelModal.classList.remove('is-open');
+      workReelModal.setAttribute('aria-hidden', 'true');
+      workReelFrame.replaceChildren();
+      if (reelReturnFocus && document.contains(reelReturnFocus)) {
+        reelReturnFocus.focus();
+      }
+      reelReturnFocus = null;
+    };
+
+    const openReelModal = (video, trigger) => {
+      if (!workReelModal || !workReelFrame) return;
+      const reelMatch = new URL(video.url).pathname.match(/\/reel\/([^/]+)/);
+      if (!reelMatch) return;
+      const blockquote = document.createElement('blockquote');
+      blockquote.className = 'instagram-media';
+      blockquote.setAttribute('data-instgrm-permalink',
+        `https://www.instagram.com/reel/${reelMatch[1]}/?utm_source=ig_embed`);
+      blockquote.setAttribute('data-instgrm-version', '14');
+
+      const fallbackLink = document.createElement('a');
+      fallbackLink.className = 'work-reel-fallback';
+      fallbackLink.href = video.url;
+      fallbackLink.target = '_blank';
+      fallbackLink.rel = 'noopener noreferrer';
+      fallbackLink.textContent = 'If the Reel does not load, watch it on Instagram.';
+      workReelFrame.replaceChildren(blockquote, fallbackLink);
+      document.getElementById('workReelTitle').textContent = video.title;
+      reelReturnFocus = trigger;
+      workReelModal.classList.add('is-open');
+      workReelModal.setAttribute('aria-hidden', 'false');
+      if (workReelClose) workReelClose.focus();
+
+      const processInstagramEmbeds = () => {
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        }
+      };
+      const embedScript = document.querySelector('script[data-instagram-embed]');
+      if (window.instgrm && window.instgrm.Embeds) {
+        processInstagramEmbeds();
+      } else if (embedScript) {
+        embedScript.addEventListener('load', processInstagramEmbeds, { once: true });
+      } else {
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.dataset.instagramEmbed = 'true';
+        script.addEventListener('load', processInstagramEmbeds, { once: true });
+        script.addEventListener('error', () => {
+          fallbackLink.textContent = 'Instagram could not load the Reel. Watch it on Instagram.';
+        }, { once: true });
+        document.body.appendChild(script);
+      }
+    };
 
     /**
      * Injects detailed initiative data into #workDetailModal and reveals it.
@@ -737,6 +798,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Stop automated transitions while user reads initiative details
       stopAutoplay();
+      workDetailModal.classList.toggle('has-featured-story', Boolean(data.featuredVideos));
 
       // Dynamically compile markup using data from initiativesData
       workModalContent.innerHTML = `
@@ -746,34 +808,65 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <h2 class="modal-title" id="workModalTitle">${data.title}</h2>
         <p class="modal-tagline">${data.tagline}</p>
-        <p class="modal-overview">${data.overview}</p>
-
-        <h3 class="modal-pillars-heading">Key Focus Areas &amp; Methodologies</h3>
-        <div class="modal-pillars-grid">
-          ${data.pillars.map(pillar => `
-            <div class="modal-pillar-item">
-              <h4><span class="material-symbols-outlined">${pillar.icon}</span> ${pillar.title}</h4>
-              <p>${pillar.desc}</p>
+        ${data.featuredVideos ? `
+          <div class="modal-story-copy">
+            ${data.storyParagraphs.map(paragraph => `<p>${paragraph}</p>`).join('')}
+          </div>
+          <section class="modal-explore" aria-labelledby="modalExploreTitle">
+            <span class="modal-section-label">03 · WHAT WE EXPLORE</span>
+            <h3 id="modalExploreTitle">${data.exploreTopics}</h3>
+          </section>
+          <section class="modal-featured" aria-labelledby="modalFeaturedTitle">
+            <span class="modal-section-label">04 · FEATURED VIDEOS</span>
+            <h3 class="modal-featured-title" id="modalFeaturedTitle">Stories worth discovering</h3>
+            <div class="modal-featured-grid">
+              ${data.featuredVideos.map((video, videoIndex) => `
+                <figure class="modal-featured-item">
+                  <button type="button" class="modal-featured-play" data-reel-index="${videoIndex}"
+                    data-reel-title="${video.title}" data-reel-url="${video.url}" aria-label="Play ${video.title}">
+                    <img src="${video.cover}" alt="" loading="lazy">
+                    <span class="modal-featured-play-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
+                  </button>
+                  <figcaption>${video.title}</figcaption>
+                </figure>
+              `).join('')}
             </div>
-          `).join('')}
-        </div>
-
-        <div class="modal-meta-strip">
-          ${data.meta.map(m => `
-            <div class="modal-meta-col">
-              <span class="modal-meta-label">${m.label}</span>
-              <span class="modal-meta-value">${m.value}</span>
+          </section>
+          <section class="modal-more-discover" aria-label="Explore more">
+            <h3>There’s more to discover.</h3>
+            <p>Explore our stories, videos and conversations.</p>
+            <div class="modal-social-links">
+              <a href="https://www.instagram.com/towards.mybharat" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@Towards_.MyBharat" target="_blank" rel="noopener noreferrer">YouTube</a>
             </div>
-          `).join('')}
-        </div>
-
-        <div class="modal-actions">
-          <a href="#voices" class="btn btn-primary work-modal-cta-btn">
-            <span>Participate &amp; Join</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-          <button type="button" class="modal-btn-close" id="workModalInnerClose">Close Details</button>
-        </div>
+          </section>
+        ` : `
+          <p class="modal-overview">${data.overview}</p>
+          <h3 class="modal-pillars-heading">Key Focus Areas &amp; Methodologies</h3>
+          <div class="modal-pillars-grid">
+            ${data.pillars.map(pillar => `
+              <div class="modal-pillar-item">
+                <h4><span class="material-symbols-outlined">${pillar.icon}</span> ${pillar.title}</h4>
+                <p>${pillar.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+          <div class="modal-meta-strip">
+            ${data.meta.map(m => `
+              <div class="modal-meta-col">
+                <span class="modal-meta-label">${m.label}</span>
+                <span class="modal-meta-value">${m.value}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="modal-actions">
+            <a href="#voices" class="btn btn-primary work-modal-cta-btn">
+              <span>Participate &amp; Join</span>
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <button type="button" class="modal-btn-close" id="workModalInnerClose">Close Details</button>
+          </div>
+        `}
       `;
 
       // Display modal and lock body scrolling
@@ -792,7 +885,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ctaBtn) {
         ctaBtn.addEventListener('click', closeDetailModal);
       }
+
     };
+
+    workModalContent.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-reel-index]');
+      if (!trigger) return;
+      openReelModal({
+        title: trigger.dataset.reelTitle,
+        url: trigger.dataset.reelUrl
+      }, trigger);
+    });
 
     /**
      * Hides the detail modal dialog, restores page scrolling, and resumes autoplay.
@@ -821,10 +924,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    if (workReelClose) {
+      workReelClose.addEventListener('click', closeReelModal);
+    }
+
+    if (workReelModal) {
+      workReelModal.addEventListener('click', (e) => {
+        if (e.target === workReelModal) closeReelModal();
+      });
+    }
+
     // Keyboard ESC dismisses modal
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && workDetailModal && workDetailModal.classList.contains('is-open')) {
-        closeDetailModal();
+      if (e.key === 'Escape') {
+        if (workReelModal && workReelModal.classList.contains('is-open')) {
+          closeReelModal();
+        } else if (workDetailModal && workDetailModal.classList.contains('is-open')) {
+          closeDetailModal();
+        }
       }
     });
 
@@ -847,6 +964,12 @@ document.addEventListener('DOMContentLoaded', () => {
       currentIndex = ((index % totalCards) + totalCards) % totalCards;
       const isMobile = window.innerWidth < 640;
       const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+      const activeTab = tabs[currentIndex];
+      const sliderRect = workSlider.getBoundingClientRect();
+      const activeTabRect = activeTab ? activeTab.getBoundingClientRect() : null;
+      const activeOffset = activeTabRect
+        ? activeTabRect.left + activeTabRect.width / 2 - (sliderRect.left + sliderRect.width / 2)
+        : 0;
 
       cards.forEach((card, cardIndex) => {
         let diff = cardIndex - currentIndex;
@@ -858,7 +981,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (diff === 0) {
           // Active Center Card
           card.classList.add('is-active');
-          card.style.transform = 'translateX(0) translateZ(0) scale(1) rotateY(0deg)';
+          card.style.transform = `translateX(${activeOffset}px) translateZ(0) scale(1) rotateY(0deg)`;
           card.style.opacity = '1';
           card.style.filter = 'none';
           card.style.zIndex = '10';
@@ -870,7 +993,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const rotY = isMobile ? -8 : -11;
           const tz = isMobile ? '-35px' : '-50px';
           const scale = isMobile ? 0.88 : 0.90;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
           card.style.zIndex = '7';
@@ -882,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const rotY = isMobile ? 8 : 11;
           const tz = isMobile ? '-35px' : '-50px';
           const scale = isMobile ? 0.88 : 0.90;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0.75' : '0.88';
           card.style.filter = 'none';
           card.style.zIndex = '7';
@@ -894,7 +1017,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const rotY = isMobile ? -14 : -18;
           const tz = isMobile ? '-70px' : '-95px';
           const scale = isMobile ? 0.74 : 0.78;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.62';
           card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
           card.style.zIndex = '4';
@@ -906,7 +1029,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const rotY = isMobile ? 14 : 18;
           const tz = isMobile ? '-70px' : '-95px';
           const scale = isMobile ? 0.74 : 0.78;
-          card.style.transform = `translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(${tz}) scale(${scale}) rotateY(${rotY}deg)`;
           card.style.opacity = isMobile ? '0' : '0.62';
           card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
           card.style.zIndex = '4';
