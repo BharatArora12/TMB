@@ -813,11 +813,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ${data.storyParagraphs.map(paragraph => `<p>${paragraph}</p>`).join('')}
           </div>
           <section class="modal-explore" aria-labelledby="modalExploreTitle">
-            <span class="modal-section-label">03 · WHAT WE EXPLORE</span>
+            <span class="modal-section-label">02 · WHAT WE EXPLORE</span>
             <h3 id="modalExploreTitle">${data.exploreTopics}</h3>
           </section>
           <section class="modal-featured" aria-labelledby="modalFeaturedTitle">
-            <span class="modal-section-label">04 · FEATURED VIDEOS</span>
+            <span class="modal-section-label">03 · FEATURED VIDEOS</span>
             <h3 class="modal-featured-title" id="modalFeaturedTitle">Stories worth discovering</h3>
             <div class="modal-featured-grid">
               ${data.featuredVideos.map((video, videoIndex) => `
