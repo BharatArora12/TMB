@@ -1358,11 +1358,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smart viewport observer: only run autoplay when initiatives section is in view
     if (initiativesSection && 'IntersectionObserver' in window) {
+      let wasInitiativesInView = false;
       const sliderObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && !isMouseInsideSection) {
-            startAutoplay();
+          if (entry.isIntersecting) {
+            if (!wasInitiativesInView) {
+              updateSlider(0);
+              wasInitiativesInView = true;
+            }
+            if (!isMouseInsideSection) startAutoplay();
           } else {
+            wasInitiativesInView = false;
             stopAutoplay();
           }
         });
