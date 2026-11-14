@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (categoryNavigation) {
       categoryNavigation.innerHTML = `
-        <a class="blog-category-filter${activeCategory ? '' : ' is-active'}" href="all-blogs.html"
+        <a class="blog-category-filter${activeCategory ? '' : ' is-active'}" href="blog.html"
           ${activeCategory ? '' : 'aria-current="page"'}>All stories</a>
         ${blogCategories.map((category) => `
           <a class="blog-category-filter${activeCategory === category ? ' is-active' : ''}"
