@@ -575,138 +575,105 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       index: '02',
-      tag: 'Curated Pedagogy',
+      tag: 'Description',
       title: 'Online Courses',
-      tagline: 'Structured Learning Pathways in Indic Thought, Ethics & Sovereign Strategy',
-      overview: 'We offer cohort-based and self-paced digital educational modules designed in collaboration with leading scholars, historians, and practitioners. Courses provide structured foundational learning in Indian epistemology, classical literature, ethical statecraft, and civilizational literacy.',
-      pillars: [
+      tagline: 'Learning beyond textbooks. Growing beyond classrooms.',
+      overview: 'We serve completely new & fresh dimensions in our courses & curricula.',
+      descriptionSections: [
         {
-          icon: 'menu_book',
-          title: 'Foundations of Indic Philosophy',
-          desc: 'Systematic study of the Shad-Darshanas, cognitive frameworks, ethics, and metaphysics.'
+          title: 'Why are we so confident?',
+          body: 'Because we have a purpose: To connect DIGITAL MODERN INDIA with its ANCIENT BHARAT ROOTS.'
         },
         {
-          icon: 'account_tree',
-          title: 'Statecraft & Strategic Thought',
-          desc: 'Analysing Kautilya’s Arthashastra, Rajadharma, and strategic traditions for modern leaders.'
+          title: 'How do we do it?',
+          body: 'We bring together ancient knowledge and modern skills — from understanding the Hanuman Chalisa and its meaning to writing speeches about it, from exploring stories of the Ramayana to developing storytelling, communication, and public speaking skills.'
         },
-        {
-          icon: 'school',
-          title: 'Civilizational Literacy for Educators',
-          desc: 'Equipping teachers and educators with indigenous pedagogical tools and historical frameworks.'
-        },
-        {
-          icon: 'workspace_premium',
-          title: 'Guided Cohorts & Certification',
-          desc: 'Interactive webinars, curated reading archives, peer review groups, and verified certifications.'
-        }
       ],
-      meta: [
-        { label: 'Delivery Mode', value: 'Live Cohorts & Self-Paced Modules' },
-        { label: 'Target Audience', value: 'University Students, Scholars & Professionals' },
-        { label: 'Curriculum Focus', value: 'IKS, Classical Governance & Ethics' }
-      ]
+      galleryTitle: 'Images from our courses',
+      galleryImages: [
+        {
+          src: 'assets/images/course-adults-dharma.jpg',
+          alt: 'Learners studying together in a traditional courtyard',
+          caption: 'Learning through shared study'
+        },
+        {
+          src: 'assets/images/course-kids-learning.jpg',
+          alt: 'Children learning from a teacher in a heritage courtyard',
+          caption: 'Wisdom shared across generations'
+        },
+        {
+          src: 'assets/images/course-vedic-sciences.jpg',
+          alt: 'Historic Indian temple and an astronomical instrument',
+          caption: 'Exploring India’s knowledge traditions'
+        },
+      ],
+      closingSection: {
+        title: 'What do we nurture?',
+        body: "Through personality development, soft skills training, spirituality, and mindfulness, we help young minds build confidence, discipline, and a deeper understanding of life. Our online courses connect India's younger generation with ancient Indian wisdom and spiritual practices while preparing them for the modern world."
+      }
     },
     {
       index: '03',
-      tag: 'Immersive Learning',
-      title: 'Offline Workshops',
-      tagline: 'Experiential Character Development, Rhetoric & Heritage Expeditions',
-      overview: 'Our on-ground workshops and residential academies offer young leaders immersive environments for intellectual rigor, moral clarity, and peer bonding. Through dialectics, mindfulness, and direct cultural exploration, participants develop grounded perspectives and executive leadership capabilities.',
+      tag: 'Learning Approach',
+      title: 'What We Teach',
+      tagline: 'Ancient Knowledge Empowered with Modern Skills.',
+      overview: '',
+      hidePillarsHeading: true,
       pillars: [
         {
-          icon: 'forum',
-          title: 'Classical Debate & Vada Circles',
-          desc: 'Training youth in the ancient Indic Vada tradition—debating for truth and synthesis rather than victory.'
+          icon: 'record_voice_over',
+          title: 'Communication & Public Speaking Skills',
+          desc: 'Speech writing, storytelling, public speaking, and confident expression.'
         },
         {
-          icon: 'explore',
-          title: 'Heritage & Field Expeditions',
-          desc: 'Guided field expeditions across architectural marvels, sacred rivers, and heritage clusters across Bharat.'
+          icon: 'groups',
+          title: 'Personality Development & Soft Skills',
+          desc: 'Confidence, leadership, creativity, critical thinking and interpersonal skills.'
         },
         {
           icon: 'self_improvement',
-          title: 'Inner Leadership Retreats',
-          desc: 'Residential camps cultivating emotional resilience, ethical clarity, and holistic discipline.'
+          title: 'Spirituality & Mindfulness',
+          desc: 'Ancient Indian wisdom, scriptures, meditation, mantra chanting, and mindful living.'
         },
         {
-          icon: 'record_voice_over',
-          title: 'Public Rhetoric & Expression',
-          desc: 'Intensive coaching in articulation, persuasive speechwriting, and nuanced policy presentation.'
+          icon: 'schedule',
+          title: 'Discipline & Daily Routine',
+          desc: 'Healthy habits, morning routines, self-discipline, grounding, and self-awareness.'
         }
       ],
-      meta: [
-        { label: 'Format', value: 'Residential Bootcamps & City Intensives' },
-        { label: 'Duration', value: 'Weekend Retreats to 7-Day Immersions' },
-        { label: 'Key Outcome', value: 'Leadership Clarity, Public Speaking & Camaraderie' }
-      ]
     },
     {
       index: '04',
-      tag: 'Grassroots Synergy',
-      title: 'Collaborations with NGOs',
-      tagline: 'Bridging Youth Passion with Measurable Grassroots Social Impact',
-      overview: 'Towards My Bharat collaborates with mission-aligned non-profit organizations, social enterprises, and community trusts. We mobilize youth volunteers, researchers, and creators to support rural education, artisan livelihoods, ecological conservation, and cultural revival.',
-      pillars: [
-        {
-          icon: 'local_library',
-          title: 'Rural Education & Knowledge Centers',
-          desc: 'Establishing grassroots libraries and supplemental learning cohorts in rural communities.'
-        },
-        {
-          icon: 'palette',
-          title: 'Artisan & Craft Guild Support',
-          desc: 'Assisting traditional handloom and artisan clusters with digital storytelling, branding, and market access.'
-        },
-        {
-          icon: 'forest',
-          title: 'Ecological & Sacred Grove Stewardship',
-          desc: 'Youth-led conservation of sacred geography, afforestation drives, and traditional water bodies.'
-        },
-        {
-          icon: 'volunteer_activism',
-          title: 'Social Fellowship Placement',
-          desc: 'Structured fellowships placing skilled graduates inside high-impact grassroots organizations.'
-        }
-      ],
+      tag: 'Our First Initiative',
+      title: 'TMB Spiritual Summer Camp 2026',
+      tagline: 'A summer of learning, discovery, and reconnecting with our roots.',
+      overview: '',
+      metaBeforeGallery: true,
       meta: [
-        { label: 'Partner Network', value: '40+ NGOs Across 12 Indian States' },
-        { label: 'Volunteer Capacity', value: '1,500+ Active Youth Volunteer Hours / Month' },
-        { label: 'Impact Areas', value: 'Education, Heritage Crafts & Environment' }
-      ]
+        { label: 'Online', value: 'Learning Format' },
+        { label: 'Summer Vacation', value: 'Programme' }
+      ],
+      galleryTitle: 'Camp photographs and learning activities',
+      galleryImages: [],
+      closingMessage: 'The Roots of Yesterday. The Confidence of Tomorrow.'
     },
     {
       index: '05',
-      tag: 'Global Leadership',
-      title: 'Representing India Globally',
-      tagline: 'Articulating Bharat’s Civilizational Perspective on the World Stage',
-      overview: 'We prepare, mentor, and delegate young Indian scholars and professionals to represent India’s civilizational worldview at international youth summits, academic symposiums, and global diplomatic conferences. We bring nuanced Indic perspectives to global discussions on ethics, sustainability, technology, and pluralism.',
-      pillars: [
+      tag: 'Explore TMB',
+      title: 'Upcoming Programmes & Parents Feedback',
+      sectionLinks: [
         {
-          icon: 'public',
-          title: 'International Youth Delegations',
-          desc: 'Sending articulate youth leaders to global youth forums, G20/Y20 dialogues, and international summits.'
+          index: '05',
+          title: 'Upcoming Programmes',
+          description: 'Explore our programmes and learning opportunities.',
+          href: '#voices'
         },
         {
-          icon: 'handshake',
-          title: 'Civilizational Diplomacy',
-          desc: 'Fostering cross-cultural dialogues grounded in mutual respect and ancient Indic universalism.'
-        },
-        {
-          icon: 'description',
-          title: 'Policy Research & White Papers',
-          desc: 'Publishing youth-led policy position papers on global sustainability, digital ethics, and cultural preservation.'
-        },
-        {
-          icon: 'language',
-          title: 'Diaspora Youth Engagement',
-          desc: 'Connecting global Indian diaspora students with their ancestral heritage and nation-building initiatives.'
+          index: '06',
+          title: 'Parents Feedback',
+          description: 'Read what parents and families have shared.',
+          href: '#testimonials'
         }
-      ],
-      meta: [
-        { label: 'Global Footprint', value: 'Delegations & Forums Across 15+ Countries' },
-        { label: 'Key Platforms', value: 'Y20, Global Policy Symposia & Bilateral Forums' },
-        { label: 'Primary Goal', value: 'Sovereign Narrative & Global Thought Leadership' }
       ]
     }
   ];
@@ -795,6 +762,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = initiativesData[index];
       if (!data || !workDetailModal || !workModalContent) return;
 
+      const metaStripMarkup = data.meta && data.meta.length ? `
+        <div class="modal-meta-strip${data.meta.length === 2 ? ' modal-meta-strip-two' : ''}">
+          ${data.meta.map(m => `
+            <div class="modal-meta-col">
+              <span class="modal-meta-label">${m.label}</span>
+              <span class="modal-meta-value">${m.value}</span>
+            </div>
+          `).join('')}
+        </div>
+      ` : '';
+
       // Stop automated transitions while user reads initiative details
       stopAutoplay();
       workDetailModal.classList.toggle('has-featured-story', Boolean(data.featuredVideos));
@@ -835,29 +813,73 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </section>
         ` : `
-          <p class="modal-overview">${data.overview}</p>
-          <h3 class="modal-pillars-heading">Key Focus Areas &amp; Methodologies</h3>
-          <div class="modal-pillars-grid">
-            ${data.pillars.map(pillar => `
-              <div class="modal-pillar-item">
-                <h4><span class="material-symbols-outlined">${pillar.icon}</span> ${pillar.title}</h4>
-                <p>${pillar.desc}</p>
+          ${data.overview ? `<p class="modal-overview">${data.overview}</p>` : ''}
+          ${data.descriptionSections && data.descriptionSections.length ? `
+            <div class="modal-course-copy">
+              ${data.descriptionSections.map(section => `
+                <section>
+                  <h3>${section.title}</h3>
+                  <p>${section.body}</p>
+                </section>
+              `).join('')}
+            </div>
+          ` : ''}
+          ${data.metaBeforeGallery ? metaStripMarkup : ''}
+          ${data.galleryImages && data.galleryImages.length ? `
+            <section class="modal-image-gallery" aria-labelledby="modalGalleryTitle">
+              <h3 class="modal-pillars-heading" id="modalGalleryTitle">${data.galleryTitle || 'Images'}</h3>
+              <div class="modal-image-gallery-grid">
+                ${data.galleryImages.map(image => `
+                  <figure class="modal-gallery-image">
+                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
+                    <figcaption>${image.caption}</figcaption>
+                  </figure>
+                `).join('')}
               </div>
-            `).join('')}
-          </div>
-          <div class="modal-meta-strip">
-            ${data.meta.map(m => `
-              <div class="modal-meta-col">
-                <span class="modal-meta-label">${m.label}</span>
-                <span class="modal-meta-value">${m.value}</span>
-              </div>
-            `).join('')}
-          </div>
+            </section>
+          ` : ''}
+          ${data.closingMessage ? `<p class="modal-ending-note">${data.closingMessage}</p>` : ''}
+          ${data.closingSection ? `
+            <div class="modal-course-copy modal-course-closing">
+              <section>
+                <h3>${data.closingSection.title}</h3>
+                <p>${data.closingSection.body}</p>
+              </section>
+            </div>
+          ` : ''}
+          ${data.sectionLinks && data.sectionLinks.length ? `
+            <nav class="modal-section-links" aria-label="Explore programmes and feedback">
+              ${data.sectionLinks.map(link => `
+                <a class="modal-section-link" href="${link.href}">
+                  <span class="modal-section-link-index">${link.index}</span>
+                  <span class="modal-section-link-copy">
+                    <strong>${link.title}</strong>
+                    <span>${link.description}</span>
+                  </span>
+                  <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+              `).join('')}
+            </nav>
+          ` : ''}
+          ${data.pillars && data.pillars.length ? `
+            ${data.hidePillarsHeading ? '' : '<h3 class="modal-pillars-heading">Key Focus Areas &amp; Methodologies</h3>'}
+            <div class="modal-pillars-grid">
+              ${data.pillars.map(pillar => `
+                <div class="modal-pillar-item">
+                  <h4><span class="material-symbols-outlined">${pillar.icon}</span> ${pillar.title}</h4>
+                  <p>${pillar.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+          ${data.metaBeforeGallery ? '' : metaStripMarkup}
           <div class="modal-actions">
-            <a href="#voices" class="btn btn-primary work-modal-cta-btn">
-              <span>Participate &amp; Join</span>
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+            ${data.sectionLinks && data.sectionLinks.length ? '' : `
+              <a href="#voices" class="btn btn-primary work-modal-cta-btn">
+                <span>Participate &amp; Join</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            `}
             <button type="button" class="modal-btn-close" id="workModalInnerClose">Close Details</button>
           </div>
         `}
@@ -874,11 +896,9 @@ document.addEventListener('DOMContentLoaded', () => {
         innerClose.addEventListener('click', closeDetailModal);
       }
 
-      // Close modal if user clicks CTA link to navigate to another section
-      const ctaBtn = workModalContent.querySelector('.work-modal-cta-btn');
-      if (ctaBtn) {
-        ctaBtn.addEventListener('click', closeDetailModal);
-      }
+      workModalContent.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', closeDetailModal);
+      });
 
     };
 
