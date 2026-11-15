@@ -1119,6 +1119,15 @@ html[data-theme="dark"] .btn-outline-light:hover {
   border-bottom: 1px solid var(--color-border);
 }
 
+.blog-page-image-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, #11100F 0%, rgba(17, 16, 15, 0.85) 12%, rgba(17, 16, 15, 0.4) 22%, transparent 30%);
+  content: "";
+  pointer-events: none;
+}
+
 .blog-editable-about-hero.blog-page-image-hero .about-hero-header {
   position: absolute;
   top: 50%;

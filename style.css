@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * TOWARDS MY BHARAT (TMB) — MASTER DESIGN SYSTEM & COMPONENT STYLESHEET
  * ==============================================================================
@@ -2273,6 +2273,13 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   margin-bottom: 0.4rem;
 }
 
+.work-detail-modal-backdrop.has-featured-story .modal-title {
+  font-size: clamp(0.72rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .modal-tagline {
   font-size: 1rem;
   font-weight: 600;
@@ -2692,6 +2699,11 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 
   .modal-title {
     font-size: 1.5rem;
+  }
+
+  .work-detail-modal-backdrop.has-featured-story .modal-title {
+    font-size: 1.1rem;
+    white-space: normal;
   }
 
   .work-section {

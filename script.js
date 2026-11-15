@@ -544,29 +544,27 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       index: '01',
       tag: 'Digital Media & Storytelling',
-      title: 'Breaking the shackles of mental colonialism through digital storytelling.',
-      tagline: 'Discovering Bharat, one curious question at a time',
+      title: 'Breaking The Shackles Of Mental Colonialism Through Digital Storytelling.',
+      tagline: '',
       storyParagraphs: [
-        'We create engaging short-form videos that explore the stories, facts, and ideas shaping our understanding of Bharat. Our videos help today’s generation reconnect with the roots of our ancient Bharat and grow into proud Bharatiyas — building an Army of Proud Bharatiyas, one story at a time.',
-        'From lesser-known historical events and forgotten stories to Bharatiya cultural traditions, the scientific essence of spirituality, and trending topics that deserve a reality check — we explore the questions curious minds ask and often uncover answers they never knew existed. Our team works with one simple belief: every story has a reason, and every curious mind deserves to know its why.',
-        'Through this work, we strive to bridge the gap between today’s generation and our ancient knowledge. That’s what we serve at Towards My Bharat.'
+        'We create engaging short-form videos exploring Bharat’s untold history, cultural traditions, ancient wisdom, spirituality, and current affairs. Through stories, facts, and thought-provoking questions, we help today’s generation rediscover its roots, question what they know, and understand the why behind it.',
+        'Our mission is simple: bridge the gap between modern India and its ancient knowledge, one story at a time, nurturing an Army of Proud Bharatiyas.'
       ],
-      exploreTopics: 'History · Culture · Current Affairs · Spirituality · Ancient Wisdom',
       featuredVideos: [
         {
-          title: 'Untold History',
+          title: 'Cultural and Spiritual',
           cover: 'assets/images/featured-reel-untold-history.jpg',
           url: 'https://www.instagram.com/towards.mybharat/reel/DRzn14iDBgS/'
         },
         {
-          title: 'Culture',
-          cover: 'assets/images/featured-reel-culture.jpg',
-          url: 'https://www.instagram.com/towards.mybharat/reel/DDj_I-Ov5kB/'
+          title: 'Untold History',
+          cover: 'assets/images/featured-reel-shastri.jpg',
+          url: 'https://www.instagram.com/reel/DPTRoGGDKox/?utm_source=ig_web_copy_link&vrfl=NTc4MTIwNjQ2YQ=='
         },
         {
-          title: 'Ancient Wisdom',
-          cover: 'assets/images/featured-reel-ancient-wisdom.jpg',
-          url: 'https://www.instagram.com/towards.mybharat/reel/DLxAAqtPkKJ/'
+          title: 'Politics and Current Affair',
+          cover: 'assets/images/featured-reel-current-affairs.jpg',
+          url: 'https://www.instagram.com/reel/DRAF9lAjHM0/?utm_source=ig_web_copy_link&dlrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=='
         }
       ],
       meta: [
@@ -742,12 +740,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openReelModal = (video, trigger) => {
       if (!workReelModal || !workReelFrame) return;
-      const reelMatch = new URL(video.url).pathname.match(/\/reel\/([^/]+)/);
-      if (!reelMatch) return;
+      const instagramPostMatch = new URL(video.url).pathname.match(/\/(reel|p)\/([^/]+)/);
+      if (!instagramPostMatch) return;
+      const [, postType, postId] = instagramPostMatch;
       const blockquote = document.createElement('blockquote');
       blockquote.className = 'instagram-media';
       blockquote.setAttribute('data-instgrm-permalink',
-        `https://www.instagram.com/reel/${reelMatch[1]}/?utm_source=ig_embed`);
+        `https://www.instagram.com/${postType}/${postId}/?utm_source=ig_embed`);
       blockquote.setAttribute('data-instgrm-version', '14');
 
       const fallbackLink = document.createElement('a');
@@ -755,7 +754,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fallbackLink.href = video.url;
       fallbackLink.target = '_blank';
       fallbackLink.rel = 'noopener noreferrer';
-      fallbackLink.textContent = 'If the Reel does not load, watch it on Instagram.';
+      fallbackLink.textContent = 'If the Instagram post does not load, watch it on Instagram.';
       workReelFrame.replaceChildren(blockquote, fallbackLink);
       document.getElementById('workReelTitle').textContent = video.title;
       reelReturnFocus = trigger;
@@ -780,7 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
         script.dataset.instagramEmbed = 'true';
         script.addEventListener('load', processInstagramEmbeds, { once: true });
         script.addEventListener('error', () => {
-          fallbackLink.textContent = 'Instagram could not load the Reel. Watch it on Instagram.';
+          fallbackLink.textContent = 'Instagram could not load the post. Open it on Instagram.';
         }, { once: true });
         document.body.appendChild(script);
       }
@@ -807,17 +806,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="modal-tag">${data.tag}</span>
         </div>
         <h2 class="modal-title" id="workModalTitle">${data.title}</h2>
-        <p class="modal-tagline">${data.tagline}</p>
+        ${data.tagline ? `<p class="modal-tagline">${data.tagline}</p>` : ''}
         ${data.featuredVideos ? `
           <div class="modal-story-copy">
             ${data.storyParagraphs.map(paragraph => `<p>${paragraph}</p>`).join('')}
           </div>
-          <section class="modal-explore" aria-labelledby="modalExploreTitle">
-            <span class="modal-section-label">02 · WHAT WE EXPLORE</span>
-            <h3 id="modalExploreTitle">${data.exploreTopics}</h3>
-          </section>
           <section class="modal-featured" aria-labelledby="modalFeaturedTitle">
-            <span class="modal-section-label">03 · FEATURED VIDEOS</span>
+            <span class="modal-section-label">02 · FEATURED VIDEOS</span>
             <h3 class="modal-featured-title" id="modalFeaturedTitle">Stories worth discovering</h3>
             <div class="modal-featured-grid">
               ${data.featuredVideos.map((video, videoIndex) => `
@@ -836,8 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3>There’s more to discover.</h3>
             <p>Explore our stories, videos and conversations.</p>
             <div class="modal-social-links">
-              <a href="https://www.instagram.com/towards.mybharat" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://www.youtube.com/@Towards_.MyBharat" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://linktr.ee/TowardsMyBharat_TMB" target="_blank" rel="noopener noreferrer">Visit our Social Media Platform</a>
             </div>
           </section>
         ` : `
@@ -965,16 +959,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const isMobile = window.innerWidth < 640;
       const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
       const activeTab = tabs[currentIndex];
-      const sliderRect = workSlider.getBoundingClientRect();
       const activeTabRect = activeTab ? activeTab.getBoundingClientRect() : null;
-      const activeOffset = activeTabRect
+      const sliderRect = workSlider.getBoundingClientRect();
+      const maxOffset = Math.max(0, (sliderRect.width - cards[currentIndex].offsetWidth) / 2 - 12);
+      const desiredOffset = activeTabRect
         ? activeTabRect.left + activeTabRect.width / 2 - (sliderRect.left + sliderRect.width / 2)
         : 0;
+      const activeOffset = Math.min(maxOffset, Math.max(-maxOffset, desiredOffset));
 
       cards.forEach((card, cardIndex) => {
         let diff = cardIndex - currentIndex;
-        while (diff > 2) diff -= totalCards;
-        while (diff < -2) diff += totalCards;
+        const keepEdgeCardInPlace =
+          (currentIndex === 0 && diff === 3) ||
+          (currentIndex === totalCards - 1 && diff === -3);
+        while (diff > 2 && !keepEdgeCardInPlace) diff -= totalCards;
+        while (diff < -2 && !keepEdgeCardInPlace) diff += totalCards;
 
         card.classList.remove('is-active');
 
@@ -1033,6 +1032,22 @@ document.addEventListener('DOMContentLoaded', () => {
           card.style.opacity = isMobile ? '0' : '0.62';
           card.style.filter = isMobile ? 'none' : 'blur(0.3px)';
           card.style.zIndex = '4';
+          card.style.pointerEvents = isMobile ? 'none' : 'auto';
+          card.setAttribute('aria-hidden', 'true');
+        } else if (diff === -3) {
+          const tx = isTablet ? 'max(-200%, -700px)' : 'clamp(-1300px, -68vw, -900px)';
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(-125px) scale(0.68) rotateY(22deg)`;
+          card.style.opacity = isMobile ? '0' : '0.38';
+          card.style.filter = isMobile ? 'none' : 'blur(0.4px)';
+          card.style.zIndex = '2';
+          card.style.pointerEvents = isMobile ? 'none' : 'auto';
+          card.setAttribute('aria-hidden', 'true');
+        } else if (diff === 3) {
+          const tx = isMobile ? '180%' : isTablet ? 'min(170%, 600px)' : 'clamp(900px, 68vw, 1300px)';
+          card.style.transform = `translateX(${activeOffset}px) translateX(${tx}) translateZ(-125px) scale(0.68) rotateY(-22deg)`;
+          card.style.opacity = isMobile ? '0' : '0.38';
+          card.style.filter = isMobile ? 'none' : 'blur(0.4px)';
+          card.style.zIndex = '2';
           card.style.pointerEvents = isMobile ? 'none' : 'auto';
           card.setAttribute('aria-hidden', 'true');
         } else {
@@ -1219,7 +1234,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      tab.addEventListener('mouseenter', () => {
+      tab.addEventListener('pointerenter', (event) => {
+        if (event.pointerType === 'touch') return;
         stopAutoplay();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
