@@ -1149,17 +1149,18 @@ html[data-theme="dark"] .hero-vignette-linear {
 .credential-modal-panel {
   position: relative;
   z-index: 1;
-  width: min(90vw, 52rem);
-  max-height: 90vh;
+  width: min(92vw, 36rem);
+  max-height: 92vh;
   overflow: auto;
   background: rgba(20, 30, 24, 0.98);
   border: 1px solid rgba(167, 201, 87, 0.45);
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.45);
   padding: 1.25rem;
 }
 
 .credential-modal-label {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -1170,9 +1171,10 @@ html[data-theme="dark"] .hero-vignette-linear {
 .credential-modal-image {
   display: block;
   width: 100%;
-  max-height: 75vh;
+  max-height: 78vh;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
 }
 
 .credential-modal-close {
