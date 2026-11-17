@@ -1,0 +1,749 @@
+/**
+ * ==============================================================================
+ * TOWARDS MY BHARAT (TMB) — EDITORIAL ARTICLE READING EXPERIENCE STYLESHEET
+ * ==============================================================================
+ *
+ * Designed for deep, distraction-free historical reading:
+ * - Refined serif headings ('Cormorant Garamond') and crisp editorial body ('Manrope').
+ * - Reading progress indicator synchronized with window scroll.
+ * - Theme-aware variables harmonized with TMB Design System (Light & Dark modes).
+ * - Elegant pull-quotes, biographical callouts, reference index, and responsive layout.
+ * ==============================================================================
+ */
+
+/* --------------------------------------------------------------------------
+   1. READING PROGRESS BAR
+   -------------------------------------------------------------------------- */
+.article-progress-container {
+  position: fixed;
+  top: 72px; /* Directly below the site-header */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.article-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width 0.08s linear;
+}
+
+/* --------------------------------------------------------------------------
+   2. ARTICLE PAGE STRUCTURE
+   -------------------------------------------------------------------------- */
+.article-page-wrap {
+  width: 100%;
+  background: var(--color-background);
+  color: var(--color-text);
+  padding: 2.5rem 0 5rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.article-container {
+  width: min(100% - 2.5rem, 840px);
+  margin-inline: auto;
+}
+
+.article-wide-container {
+  width: min(100% - 2.5rem, 1020px);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. BREADCRUMBS & TOP NAVIGATION
+   -------------------------------------------------------------------------- */
+.article-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-gold-subtle);
+  flex-wrap: wrap;
+}
+
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.article-breadcrumbs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.article-breadcrumbs a:hover {
+  color: var(--color-primary);
+}
+
+.article-breadcrumbs .breadcrumb-sep {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+.article-breadcrumbs .breadcrumb-current {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.article-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+  background: var(--color-surface);
+  transition: all var(--transition-fast);
+}
+
+.article-back-btn:hover {
+  border-color: var(--color-primary);
+  transform: translateX(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.article-back-btn .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. ARTICLE HEADER / HERO
+   -------------------------------------------------------------------------- */
+.article-header {
+  margin-bottom: 2.75rem;
+}
+
+.article-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.article-badge-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--color-background-soft);
+  color: var(--color-primary);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-radius: 2px;
+  border: 1px solid var(--border-gold-subtle);
+}
+
+.article-badge-time,
+.article-badge-archive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.article-badge-time .material-symbols-outlined,
+.article-badge-archive .material-symbols-outlined {
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.article-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.35rem, 5vw, 3.85rem);
+  line-height: 1.05;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.article-deck {
+  font-size: clamp(1.08rem, 2vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+  max-width: 760px;
+}
+
+.article-byline-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-gold-subtle);
+  border-bottom: 1px solid var(--border-gold-subtle);
+  flex-wrap: wrap;
+}
+
+.article-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.article-author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-background-soft);
+  border: 1px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.article-author-avatar .material-symbols-outlined {
+  font-size: 1.35rem;
+}
+
+.article-author-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-author-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.article-author-role {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.article-share-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.article-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--color-text);
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.article-share-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.article-share-btn .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. ARCHIVAL HERO IMAGE
+   -------------------------------------------------------------------------- */
+.article-hero-figure {
+  margin: 2.25rem 0 3.5rem;
+  background: var(--color-background-soft);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.article-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.article-hero-caption {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.article-hero-caption .caption-pill {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. EDITORIAL CONTENT TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+.article-body {
+  font-size: 1.125rem;
+  line-height: 1.88;
+  color: var(--color-text);
+  letter-spacing: -0.003em;
+}
+
+.article-body p {
+  margin-bottom: 1.75rem;
+}
+
+.article-body h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--color-primary);
+  margin: 3.5rem 0 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.article-body h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.article-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  line-height: 1.25;
+  color: var(--color-primary);
+  margin: 2.25rem 0 1rem;
+  font-weight: 600;
+}
+
+/* Drop Cap on Opening Paragraph */
+.article-lead-p::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.9rem;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.35rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   7. PULL QUOTES & HIGHLIGHT BLOCKS
+   -------------------------------------------------------------------------- */
+.article-pullquote {
+  margin: 2.75rem 0;
+  padding: 2rem 2.25rem;
+  background: var(--color-background-soft);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 4px 4px 0;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.article-pullquote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 1.95rem);
+  line-height: 1.35;
+  color: var(--color-primary);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+}
+
+.article-pullquote-cite {
+  display: block;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+/* Slogan Showcase Card */
+.article-slogan-card {
+  margin: 3.25rem 0;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle at center, var(--color-background-soft), var(--color-surface));
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.article-slogan-card::before {
+  content: '“';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 9rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.article-slogan-text {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.article-slogan-sub {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Bio Inset Card */
+.article-bio-card {
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--color-background-soft);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+}
+
+.article-bio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.article-bio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-bio-item-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.article-bio-item-val {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Mystery Investigative Callout */
+.article-investigative-box {
+  margin: 2.75rem 0;
+  padding: 1.75rem 2rem;
+  background: var(--color-background-soft);
+  border: 1px dashed var(--color-primary);
+  border-radius: 4px;
+}
+
+.article-investigative-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-primary);
+}
+
+.article-investigative-header h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+/* TMB Pledge Card */
+.article-pledge-card {
+  margin: 3.5rem 0;
+  padding: 2.75rem 2.25rem;
+  background: var(--color-primary);
+  color: #F6FAF4;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(46, 93, 58, 0.25);
+  position: relative;
+}
+
+.article-pledge-badge {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+  color: #F6FAF4;
+}
+
+.article-pledge-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: #FFFFFF;
+}
+
+.article-pledge-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+}
+
+.article-pledge-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.article-salutation {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 3rem 0;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   8. CURATED REFERENCES & ARCHIVES SECTION
+   -------------------------------------------------------------------------- */
+.article-references-section {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.article-references-section h3 {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.article-references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.article-ref-card {
+  padding: 1.25rem 1.5rem;
+  background: var(--color-background-soft);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 4px;
+}
+
+.article-ref-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.85rem;
+}
+
+.article-ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.article-ref-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.article-ref-list a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+  word-break: break-word;
+}
+
+.article-ref-list a:hover {
+  color: var(--color-primary);
+}
+
+.article-ref-list .material-symbols-outlined {
+  font-size: 1rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. BOTTOM NAVIGATION & RELATED STORIES
+   -------------------------------------------------------------------------- */
+.article-bottom-nav {
+  margin-top: 3.5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border-gold-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.article-related-section {
+  padding: 4rem 0;
+  background: var(--color-background-soft);
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.article-related-header {
+  margin-bottom: 2rem;
+}
+
+.article-related-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   10. TOAST NOTIFICATION FOR COPY LINK
+   -------------------------------------------------------------------------- */
+.article-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.article-toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .article-page-wrap {
+    padding: 1.5rem 0 3.5rem;
+  }
+  
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  
+  .article-pullquote {
+    padding: 1.5rem;
+  }
+  
+  .article-slogan-card {
+    padding: 2rem 1.25rem;
+  }
+  
+  .article-pledge-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .article-references-grid {
+    grid-template-columns: 1fr;
+  }
+}

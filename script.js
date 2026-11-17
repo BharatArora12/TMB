@@ -108,36 +108,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const blogs = [
     {
-      image: 'community-workshop.jpg',
-      alt: 'A community workshop gathered beneath a courtyard tree',
+      id: 'modern-mind-ancient-vedas',
+      slug: 'modern-mind-ancient-vedas',
+      image: 'blog-vedas-scholar.jpg',
+      alt: 'Young Vedic scholar reciting sacred Sanskrit mantras by the holy Ganga at sunrise in Kashi',
       categoryId: 'cultural',
-      readTime: '07 min read',
-      title: 'Why a courtyard still teaches us how to gather',
-      description: 'Design, memory, and community often begin in the same spatial rhythm: the place where people meet, pause, and think together.'
+      readTime: '04 min read',
+      title: 'Modern Mind, Ancient Legacy: Rediscovering the Vedas',
+      description: 'How 19-year-old Vedmurti Devvrat Rekhe recited 2,000 mantras of the Shukla Yajurveda over 50 days in Kashi—challenging an age of AI shortcuts and distraction.',
+      url: 'blog-modern-mind-ancient-vedas.html'
     },
     {
-      image: 'youth-nation-building.jpg',
-      alt: 'Youth building a future together',
+      id: 'sardar-vallabhbhai-patel',
+      slug: 'sardar-patel',
+      image: 'blog-sardar-patel.jpg',
+      alt: 'Sardar Vallabhbhai Patel, the Iron Man of India, statesman of national unity',
       categoryId: 'political',
       readTime: '05 min read',
-      title: 'Leadership is not performance',
-      description: 'On building trust, humility, and steadiness in a culture that often rewards noise over judgment.'
+      title: 'Iron Man of India: Pillar of National Unity',
+      description: 'How Sardar Vallabhbhai Patel integrated over 560 princely states, proved that unity is not uniformity, and laid the foundations of a sovereign, diverse Bharat.',
+      url: 'blog-sardar-patel.html'
     },
     {
-      image: 'research-archive.jpg',
-      alt: 'Archive materials and historical references',
+      id: 'lal-bahadur-shastri',
+      slug: 'lal-bahadur-shastri',
+      image: 'blog-shastri-portrait.jpg',
+      alt: 'Dignified editorial portrait of Lal Bahadur Shastri, second Prime Minister of India',
       categoryId: 'historical',
-      readTime: '04 min read',
-      title: 'Research begins with listening',
-      description: 'What happens when we stop searching for answers and begin by tracing the questions that shaped a place over time.'
+      readTime: '05 min read',
+      title: 'Lal Bahadur Shastri: Soul of Self-Reliance and Dignity',
+      description: 'The Prime Minister who owned nothing, led India through war and hunger with quiet courage, and left an enduring legacy of simplicity and mystery.',
+      url: 'blog-lal-bahadur-shastri.html'
     },
     {
-      image: 'varanasi-ghats.jpg',
-      alt: 'Sacred ghats along the river',
+      id: 'sundarkand-lessons',
+      slug: 'sundarkand-lessons',
+      image: 'blog-sundarkand.jpg',
+      alt: 'Sri Hanuman Ji standing at the cliff overlooking the vast ocean before leaping to Lanka in the Sundarkand',
       categoryId: 'spiritual',
-      readTime: '06 min read',
-      title: 'Walking a riverfront with attention',
-      description: 'Places live in memory, rituals, and repeated acts of care. To notice them is to notice history continuing to speak.'
+      readTime: '05 min read',
+      title: '“Every Success Needs Struggle”: Lessons from Sundarkand for Today’s Generation',
+      description: 'How Hanuman Ji’s journey across the ocean, conquering inner self-doubt, and the mindset of Nishkama Karma teach us that true strength begins within.',
+      url: 'blog-sundarkand-lessons.html'
     },
     {
       image: 'community-workshop.jpg',
@@ -196,20 +208,51 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Array<Object>} posts - Slice or complete array of blog objects
    */
   const renderBlogs = (container, posts) => {
-    container.innerHTML = posts.map((post, index) => `
-      <article class="blog-card${index === 0 ? ' featured-blog' : ''}">
-        <img src="assets/images/${post.image}" alt="${post.alt}" loading="lazy" decoding="async">
-        <div class="blog-card-body">
-          <div class="journal-meta"><span>${getCategory(post.categoryId).title}</span><span>${post.readTime}</span></div>
-          <${index === 0 ? 'h2' : 'h3'}>${post.title}</${index === 0 ? 'h2' : 'h3'}>
-          <p>${post.description}</p>
-          <a class="journal-read-link" href="all-blogs.html?category=${post.categoryId}">
-            <span>Explore ${getCategory(post.categoryId).title}</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-        </div>
-      </article>
-    `).join('');
+    container.innerHTML = posts.map((post, index) => {
+      const category = getCategory(post.categoryId);
+      const categoryTitle = category ? category.title : (post.categoryId.charAt(0).toUpperCase() + post.categoryId.slice(1));
+      const targetUrl = post.url || `all-blogs.html?category=${post.categoryId}`;
+      return `
+        <article class="blog-card${index === 0 ? ' featured-blog' : ''}" data-url="${targetUrl}" tabindex="0" role="link" aria-label="Read article: ${post.title}">
+          <a class="blog-card-clickable-overlay" href="${targetUrl}" aria-hidden="true" tabindex="-1"></a>
+          <img src="assets/images/${post.image}" alt="${post.alt}" loading="lazy" decoding="async">
+          <div class="blog-card-body">
+            <div class="journal-meta">
+              <span>${categoryTitle}</span>
+              <span>${post.readTime}</span>
+            </div>
+            <${index === 0 ? 'h2' : 'h3'} class="blog-card-title">
+              <a href="${targetUrl}">${post.title}</a>
+            </${index === 0 ? 'h2' : 'h3'}>
+            <p>${post.description}</p>
+            <a class="journal-read-link" href="${targetUrl}">
+              <span>Explore ${categoryTitle}</span>
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    // Attach card click handlers for seamless whole-card interaction
+    container.querySelectorAll('.blog-card').forEach((card) => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          const targetUrl = card.dataset.url;
+          if (targetUrl) {
+            window.location.href = targetUrl;
+          }
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const targetUrl = card.dataset.url;
+          if (targetUrl) {
+            window.location.href = targetUrl;
+          }
+        }
+      });
+    });
   };
 
   // Mount blogs dynamically depending on which page is currently loaded:
