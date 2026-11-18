@@ -16,7 +16,7 @@
     rel="stylesheet">
   <script src="theme.js"></script>
   <script src="page-transitions.js" defer></script>
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=40">
   <link rel="stylesheet" href="about.css?v=14">
 </head>
 
@@ -41,8 +41,8 @@
           <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
         </button>
 
-        <a href="https://whatsapp.com/channel/0029Vb9bMMyDTkKBztQtTL2A" target="_blank"
-          rel="noopener noreferrer" class="nav-cta-btn">
+        <a href="https://whatsapp.com/channel/0029Vb9bMMyDTkKBztQtTL2A" target="_blank" rel="noopener noreferrer"
+          class="nav-cta-btn">
           Join Us
         </a>
 
@@ -59,8 +59,8 @@
         <li><a class="mobile-nav-link" href="blog.html">Blogs</a></li>
         <li><a class="mobile-nav-link" href="contact.html">Contact</a></li>
         <li>
-          <a href="https://whatsapp.com/channel/0029Vb9bMMyDTkKBztQtTL2A" target="_blank"
-            rel="noopener noreferrer" class="mobile-cta">
+          <a href="https://whatsapp.com/channel/0029Vb9bMMyDTkKBztQtTL2A" target="_blank" rel="noopener noreferrer"
+            class="mobile-cta">
             Join Us
           </a>
         </li>
@@ -70,10 +70,9 @@
 
   <main>
     <section class="blog-editable-about-hero blog-page-image-hero" aria-labelledby="blog-hero-title">
-      <img class="blog-page-hero-artwork"
-        src="assets/images/blog-banner.png"
-        alt="A modern Indian city and historic temples connected by a cultural gateway"
-        width="1871" height="673" loading="eager" decoding="async">
+      <img class="blog-page-hero-artwork" src="assets/images/blog-banner.png"
+        alt="A modern Indian city and historic temples connected by a cultural gateway" width="1871" height="673"
+        loading="eager" decoding="async">
       <div class="blog-page-hero-content">
         <h1 class="blog-page-hero-title" id="blog-hero-title">Towards My Bharat</h1>
         <a class="blog-page-hero-cta-link" href="#blogCategories">
@@ -90,13 +89,14 @@
             <span class="section-badge">Four ways into Bharat</span>
             <h1 id="blog-category-title">Four lenses.<br><span>One living story.</span></h1>
           </div>
-          <p>Every story opens a different window into who we are. Choose a lens to explore the ideas, memories, and traditions that shape us.</p>
+          <p>Every story opens a different window into who we are. Choose a lens to explore the ideas, memories, and
+            traditions that shape us.</p>
         </div>
         <div id="blogCategoryGrid" class="blog-category-grid" aria-label="Browse blogs by category"></div>
       </div>
     </section>
 
-    <section class="blog-page-content">
+    <!-- <section class="blog-page-content">
       <div class="container">
         <div class="blog-slideshow" aria-label="Featured blog slideshow">
           <div class="blog-slide active">
@@ -109,30 +109,30 @@
             <img src="assets/images/community-workshop.jpg" alt="People in a collaborative workshop setting">
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="container blog-page-intro">
-        <div>
-          <span class="section-badge">Latest dispatches</span>
-          <h2 id="latestBlogs">Editorial notes from the field.</h2>
-        </div>
+    <!-- <div class="container blog-page-intro">
+      <div>
+        <span class="section-badge">Latest dispatches</span>
+        <h2 id="latestBlogs">Editorial notes from the field.</h2>
       </div>
+    </div>
 
-      <div id="latestBlogGrid" class="container blog-grid blog-latest-grid"></div>
+    <div id="latestBlogGrid" class="container blog-grid blog-latest-grid"></div>
 
-      <div class="container blog-explore-wrap">
-        <a class="btn btn-primary" href="all-blogs.html">
-          <span>Explore More</span>
-          <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
-      </div>
-    </section>
+    <div class="container blog-explore-wrap">
+      <a class="btn btn-primary" href="all-blogs.html">
+        <span>Explore More</span>
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+    </section> -->
 
 
     <!-- =========================================================================
          SECTION 4: FIELD GALLERY (Continuous Visual Marquee)
          ========================================================================= -->
-    <!-- <section id="framework" class="field-gallery-section" aria-labelledby="field-gallery-title">
+    <section id="framework" class="field-gallery-section" aria-labelledby="field-gallery-title">
       <div class="container field-gallery-header">
         <div>
           <span class="section-badge">Field notes / visual archive</span>
@@ -143,29 +143,78 @@
 
       <div class="field-gallery-viewport" aria-label="Moving image gallery">
         <div class="field-gallery-track">
+          <!-- Event Box 01: Replace img src, tag, title, and meta with your event details -->
           <figure class="field-gallery-slide">
-            <img src="assets/images/youth-nation-building.jpg" alt="Young people gathered for a community discussion">
-            <figcaption><span>01 / People</span><strong>Learning in public</strong></figcaption>
+            <div class="field-gallery-image">
+              <img src="assets/images/youth-nation-building.jpg" alt="Young people gathered for a community discussion"
+                loading="lazy" decoding="async">
+              <span class="field-gallery-number">01</span>
+              <span class="field-gallery-tag">People</span>
+            </div>
+            <figcaption class="field-gallery-copy">
+              <strong>Learning in public</strong>
+              <span class="field-gallery-meta">Event Highlight</span>
+            </figcaption>
           </figure>
+
+          <!-- Event Box 02 -->
           <figure class="field-gallery-slide">
-            <img src="assets/images/varanasi-ghats.jpg" alt="A quiet view of the Varanasi ghats">
-            <figcaption><span>02 / Place</span><strong>Memory in the landscape</strong></figcaption>
+            <div class="field-gallery-image">
+              <img src="assets/images/varanasi-ghats.jpg" alt="A quiet view of the Varanasi ghats" loading="lazy"
+                decoding="async">
+              <span class="field-gallery-number">02</span>
+              <span class="field-gallery-tag">Place</span>
+            </div>
+            <figcaption class="field-gallery-copy">
+              <strong>Memory in the landscape</strong>
+              <span class="field-gallery-meta">Event Highlight</span>
+            </figcaption>
           </figure>
+
+          <!-- Event Box 03 -->
           <figure class="field-gallery-slide">
-            <img src="assets/images/research-archive.jpg" alt="Historical research materials arranged on a table">
-            <figcaption><span>03 / Archive</span><strong>Returning to the source</strong></figcaption>
+            <div class="field-gallery-image">
+              <img src="assets/images/research-archive.jpg" alt="Historical research materials arranged on a table"
+                loading="lazy" decoding="async">
+              <span class="field-gallery-number">03</span>
+              <span class="field-gallery-tag">Archive</span>
+            </div>
+            <figcaption class="field-gallery-copy">
+              <strong>Returning to the source</strong>
+              <span class="field-gallery-meta">Event Highlight</span>
+            </figcaption>
           </figure>
+
+          <!-- Event Box 04 -->
           <figure class="field-gallery-slide">
-            <img src="assets/images/community-workshop.jpg" alt="Participants collaborating beneath a courtyard tree">
-            <figcaption><span>04 / Heritage</span><strong>Culture in motion</strong></figcaption>
+            <div class="field-gallery-image">
+              <img src="assets/images/community-workshop.jpg" alt="Participants collaborating beneath a courtyard tree"
+                loading="lazy" decoding="async">
+              <span class="field-gallery-number">04</span>
+              <span class="field-gallery-tag">Heritage</span>
+            </div>
+            <figcaption class="field-gallery-copy">
+              <strong>Culture in motion</strong>
+              <span class="field-gallery-meta">Event Highlight</span>
+            </figcaption>
           </figure>
+
+          <!-- Event Box 05 -->
           <figure class="field-gallery-slide">
-            <img src="assets/images/community-workshop.jpg" alt="Participants working together in a community workshop">
-            <figcaption><span>05 / Practice</span><strong>Ideas become action</strong></figcaption>
-          </figure> 
+            <div class="field-gallery-image">
+              <img src="assets/images/community-workshop.jpg" alt="Participants working together in a community workshop"
+                loading="lazy" decoding="async">
+              <span class="field-gallery-number">05</span>
+              <span class="field-gallery-tag">Practice</span>
+            </div>
+            <figcaption class="field-gallery-copy">
+              <strong>Ideas become action</strong>
+              <span class="field-gallery-meta">Event Highlight</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
-    </section> -->
+    </section>
 
   </main>
 
@@ -183,7 +232,7 @@
             <img class="footer-brand-img" alt="Towards My Bharat Logo" src="photos/TMB Logo.png">
             <span class="footer-brand-name">Towards My Bharat</span>
           </a>
-           <p class="footer-brand-tagline">
+          <p class="footer-brand-tagline">
             Honouring our roots, awakening youth, <br>and shaping our future.
           </p>
           <div class="footer-social-row" aria-label="Social media channels">
@@ -247,8 +296,8 @@
               <span class="material-symbols-outlined">content_copy</span>
             </button>
           </div>
-          <img class="footer-heritage-img" src="assets/images/footer-heritage-panorama.png?v=1" alt="" aria-hidden="true"
-            width="1100" height="360" loading="lazy" decoding="async">
+          <img class="footer-heritage-img" src="assets/images/footer-heritage-panorama.png?v=1" alt=""
+            aria-hidden="true" width="1100" height="360" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -265,7 +314,7 @@
   </footer>
 
   <!-- Page Interaction Script -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 
 </html>

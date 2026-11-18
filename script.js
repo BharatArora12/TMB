@@ -152,14 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'blog-sundarkand-lessons.html'
     },
     {
-      image: 'community-workshop.jpg',
-      alt: 'People collaborating in a workshop',
-      categoryId: 'cultural',
-      readTime: '03 min read',
-      title: 'Making together builds belonging',
-      description: 'Participation is not just a method; it is a way of cultivating trust, skill, and shared direction.'
-    },
-    {
       image: 'research-archive.jpg',
       alt: 'Historical learning table with documents',
       categoryId: 'historical',
@@ -1883,5 +1875,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+  }
+
+  // ============================================================================
+  // MODULE 13: ENDLESS SEAMLESS FIELD GALLERY MARQUEE
+  // ============================================================================
+  const fieldGalleryTrack = document.querySelector('.field-gallery-track');
+  if (fieldGalleryTrack && !fieldGalleryTrack.dataset.loopReady) {
+    const originalSlides = Array.from(fieldGalleryTrack.children);
+    if (originalSlides.length > 0) {
+      fieldGalleryTrack.dataset.loopReady = 'true';
+      const viewport = fieldGalleryTrack.closest('.field-gallery-viewport');
+      const minHalfWidth = Math.max(window.innerWidth || 1440, viewport ? viewport.clientWidth : 0);
+
+      // Ensure the first half exceeds the viewport width so blank space never appears
+      const firstHalfSlides = [...originalSlides];
+      let safetyCount = 0;
+      while (fieldGalleryTrack.scrollWidth < minHalfWidth + 400 && safetyCount < 6) {
+        originalSlides.forEach((slide) => {
+          const filler = slide.cloneNode(true);
+          filler.setAttribute('aria-hidden', 'true');
+          fieldGalleryTrack.appendChild(filler);
+          firstHalfSlides.push(filler);
+        });
+        safetyCount += 1;
+      }
+
+      // Append an exact mirror half so translateX(-50%) loops seamlessly forever
+      const fragment = document.createDocumentFragment();
+      firstHalfSlides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        fragment.appendChild(clone);
+      });
+      fieldGalleryTrack.appendChild(fragment);
+
+      // Keep scroll speed consistent (~55px/sec) regardless of how many event cards are added
+      const halfWidth = fieldGalleryTrack.scrollWidth / 2;
+      if (halfWidth > 0) {
+        const durationSeconds = Math.max(20, Math.round(halfWidth / 55));
+        fieldGalleryTrack.style.setProperty('--gallery-duration', `${durationSeconds}s`);
+      }
+    }
   }
 });
