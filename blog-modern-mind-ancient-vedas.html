@@ -42,7 +42,7 @@
 
   <!-- Core Design System & Dedicated Article Styles -->
   <link rel="stylesheet" href="style.css?v=38">
-  <link rel="stylesheet" href="article.css?v=1">
+  <link rel="stylesheet" href="article.css?v=2">
 </head>
 
 <body>
@@ -289,28 +289,92 @@
 
         </p>
 
-        <!-- TMB Mission Card -->
-        <div class="article-pledge-card">
-          <span class="article-pledge-badge">Towards My Bharat Vision</span>
-          <div class="article-pledge-title">
-            “Connecting Digital Modern India with its Ancient Bharat Roots.”
+        <!-- Section: Related Reel & Curated References -->
+        <section class="article-reel-ref-section" aria-label="Related Reel and Curated References">
+          <div class="article-reel-ref-grid">
+            <!-- Left Side: Related Reel Photo with Instagram Pop-up Trigger -->
+            <div class="article-reel-preview-card" id="openReelBtn" role="button" tabindex="0"
+              aria-label="Play related Instagram Reel: Vedic Chanting Tradition in Kashi">
+              <div class="article-reel-thumb-wrap">
+                <img src="assets/images/featured-reel-ancient-wisdom.jpg"
+                  alt="Young Vedic scholar chanting mantras in Kashi - Related Reel" loading="lazy">
+                <span class="article-reel-overlay-badge">
+                  <span class="material-symbols-outlined" style="font-size: 0.95rem;">play_arrow</span>
+                  Watch Reel
+                </span>
+                <div class="article-reel-play-icon" aria-hidden="true">
+                  <div class="article-reel-play-btn">
+                    <span class="material-symbols-outlined">play_arrow</span>
+                  </div>
+                </div>
+              </div>
+              <div class="article-reel-card-footer">
+                <strong>Vedic Chanting & Dandakrama Parayanam</strong>
+                <span>
+                  <span class="material-symbols-outlined" style="font-size: 0.95rem;">open_in_new</span>
+                  Watch on Instagram Pop-up
+                </span>
+              </div>
+            </div>
+
+            <!-- Right Side: Curated Reference Links -->
+            <div class="article-reel-ref-panel">
+              <div class="article-ref-title">
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                <span>Curated Archival References & Readings</span>
+              </div>
+              <ul class="article-ref-list">
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                  <a href="https://www.instagram.com/towards.mybharat/reel/DRzn14iDBgS/" target="_blank"
+                    rel="noopener noreferrer">
+                    Towards My Bharat — Official Video Story on Vedic Heritage in Kashi
+                  </a>
+                </li>
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                  <a href="https://vedicheritage.gov.in/shukla-yajurveda/" target="_blank"
+                    rel="noopener noreferrer">
+                    Vedic Heritage Portal (IGNCA) — Shukla Yajurveda Chanting Traditions
+                  </a>
+                </li>
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                  <a href="https://ich.unesco.org/en/RL/tradition-of-vedic-chanting-00062" target="_blank"
+                    rel="noopener noreferrer">
+                    UNESCO Intangible Cultural Heritage — The Tradition of Vedic Chanting
+                  </a>
+                </li>
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                  <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+                    rel="noopener noreferrer">
+                    Follow Towards My Bharat Official Instagram Channel (@towards._mybharat)
+                  </a>
+                </li>
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                  <a href="all-blogs.html?category=cultural">
+                    Explore Living Traditions Archive (Towards My Bharat)
+                  </a>
+                </li>
+              </ul>
+
+              <div class="article-pledge-actions" style="margin-top: auto; justify-content: flex-start;">
+                <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-primary"
+                  style="background: #F6FAF4; color: #2E5D3A; padding: 0.65rem 1.25rem;">
+                  <span>Follow on Instagram</span>
+                  <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+                <a href="all-blogs.html?category=cultural" class="btn btn-outline"
+                  style="border-color: #F6FAF4; color: #F6FAF4; padding: 0.65rem 1.25rem;">
+                  <span>Explore Cultural Archive</span>
+                </a>
+              </div>
+            </div>
           </div>
-          <p class="article-pledge-sub">
-            We celebrate the young scholars, thinkers, and innovators who carry forward our timeless legacy with pride
-            and purpose. Join our mission to inspire an Army of Proud Bharatiyas.
-          </p>
-          <div class="article-pledge-actions">
-            <a href="https://www.instagram.com/towards._mybharat?stkn=MXZlNnU2aWJ4YjN1eQ==" target="_blank"
-              rel="noopener noreferrer" class="btn btn-primary" style="background: #F6FAF4; color: #2E5D3A;">
-              <span>Follow Towards My Bharat on Instagram</span>
-              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-            </a>
-            <a href="all-blogs.html?category=cultural" class="btn btn-outline"
-              style="border-color: #F6FAF4; color: #F6FAF4;">
-              <span>Explore Living Traditions</span>
-            </a>
-          </div>
-        </div>
+        </section>
 
         <div class="article-salutation">Jai Hind, Jai Bharat</div>
 
@@ -470,6 +534,20 @@
     </div>
   </footer>
 
+  <!-- Instagram Reel Popup Modal -->
+  <div class="work-reel-modal" id="reelModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="reelModalTitle">
+    <div class="work-reel-modal-panel">
+      <div class="work-reel-modal-header">
+        <h2 id="reelModalTitle">Vedic Heritage in Kashi • Towards My Bharat</h2>
+        <button type="button" class="work-reel-modal-close" id="reelModalClose" aria-label="Close Instagram Reel">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="work-reel-frame" id="reelModalFrame"></div>
+    </div>
+  </div>
+
   <!-- Toast Notification for Link Copying -->
   <div id="articleToast" class="article-toast" role="status" aria-live="polite">
     <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
@@ -482,7 +560,72 @@
     (() => {
       'use strict';
 
-      // 1. Reading Progress Bar Synchronization
+      // 1. Instagram Reel Pop-up Controller
+      const reelTrigger = document.getElementById('openReelBtn');
+      const reelModal = document.getElementById('reelModal');
+      const reelClose = document.getElementById('reelModalClose');
+      const reelFrame = document.getElementById('reelModalFrame');
+
+      const REEL_URL = 'https://www.instagram.com/towards.mybharat/reel/DRzn14iDBgS/';
+      const REEL_EMBED_URL = 'https://www.instagram.com/reel/DRzn14iDBgS/embed/';
+
+      const openReelPopup = () => {
+        if (!reelModal || !reelFrame) return;
+
+        reelFrame.innerHTML = `
+          <iframe src="${REEL_EMBED_URL}"
+            width="100%" height="100%"
+            style="border:0; min-height:min(78vh, 660px); width:100%; display:block;"
+            allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"></iframe>
+          <div style="padding: 0.85rem; text-align: center; background: #111A14; width: 100%;">
+            <a href="${REEL_URL}" target="_blank" rel="noopener noreferrer"
+              style="color: #A7C957; font-size: 0.82rem; font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span>Watch directly on Instagram</span>
+              <span class="material-symbols-outlined" style="font-size: 0.95rem;">open_in_new</span>
+            </a>
+          </div>
+        `;
+
+        reelModal.classList.add('is-open');
+        reelModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (reelClose) reelClose.focus();
+      };
+
+      const closeReelPopup = () => {
+        if (!reelModal || !reelFrame) return;
+        reelModal.classList.remove('is-open');
+        reelModal.setAttribute('aria-hidden', 'true');
+        reelFrame.innerHTML = '';
+        document.body.style.overflow = '';
+      };
+
+      if (reelTrigger) {
+        reelTrigger.addEventListener('click', openReelPopup);
+        reelTrigger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openReelPopup();
+          }
+        });
+      }
+
+      if (reelClose) reelClose.addEventListener('click', closeReelPopup);
+
+      if (reelModal) {
+        reelModal.addEventListener('click', (e) => {
+          if (e.target === reelModal) closeReelPopup();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && reelModal && reelModal.classList.contains('is-open')) {
+          closeReelPopup();
+        }
+      });
+
+      // 2. Reading Progress Bar Synchronization
       const progressBar = document.getElementById('articleProgressBar');
       const updateReadingProgress = () => {
         if (!progressBar) return;
@@ -495,7 +638,7 @@
       window.addEventListener('resize', updateReadingProgress);
       updateReadingProgress();
 
-      // 2. Dynamic Copy Link Handler
+      // 3. Dynamic Copy Link Handler
       const copyBtn = document.getElementById('copyArticleLink');
       const toast = document.getElementById('articleToast');
       if (copyBtn && toast) {
@@ -521,7 +664,7 @@
         });
       }
 
-      // 3. Dynamic WhatsApp Share Link
+      // 4. Dynamic WhatsApp Share Link
       const waBtn = document.getElementById('whatsappShareBtn');
       if (waBtn) {
         const shareText = encodeURIComponent(

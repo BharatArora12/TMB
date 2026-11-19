@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lens: 'Inner life',
       description: 'Reflections on practice, meaning, and the wisdom that steadies a life.',
       image: 'varanasi-ghats.jpg',
-      alt: 'Aerial view of the Varanasi ghats and ancient temples glowing in golden sunset light'
+      alt: 'The Varanasi ghats along the river at sunrise'
     },
     {
       id: 'cultural',
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lens: 'Living traditions',
       description: 'The customs, arts, and shared rituals that keep a culture in motion.',
       image: 'gallery-celebrations.jpg',
-      alt: 'A Bharatanatyam dancer performing gracefully in traditional attire before a Nataraja idol'
+      alt: 'A community celebrating together'
     },
     {
       id: 'historical',
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lens: 'Memory & heritage',
       description: 'Stories from our past, read with care and carried into the present.',
       image: 'research-archive.jpg',
-      alt: 'Intricate stone carvings and the iconic chariot wheel of the Konark Sun Temple'
+      alt: 'Historical research materials and archival references'
     },
     {
       id: 'political',
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'modern-mind-ancient-vedas',
       slug: 'modern-mind-ancient-vedas',
       image: 'blog-vedas-scholar.jpg',
-      alt: 'Indian classical dancers performing traditional Bharatanatyam in vibrant colourful silhouettes',
+      alt: 'Young Vedic scholar reciting sacred Sanskrit mantras by the holy Ganga at sunrise in Kashi',
       categoryId: 'cultural',
       readTime: '04 min read',
       title: 'Modern Mind, Ancient Legacy: Rediscovering the Vedas',
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'sardar-vallabhbhai-patel',
       slug: 'sardar-patel',
       image: 'blog-sardar-patel.jpg',
-      alt: 'Black and white close-up portrait of Sardar Vallabhbhai Patel, the Iron Man of India',
+      alt: 'Sardar Vallabhbhai Patel, the Iron Man of India, statesman of national unity',
       categoryId: 'political',
       readTime: '05 min read',
       title: 'Iron Man of India: Pillar of National Unity',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'lal-bahadur-shastri',
       slug: 'lal-bahadur-shastri',
       image: 'blog-shastri-portrait.jpg',
-      alt: 'Black and white photograph of Lal Bahadur Shastri, second Prime Minister of India',
+      alt: 'Dignified editorial portrait of Lal Bahadur Shastri, second Prime Minister of India',
       categoryId: 'historical',
       readTime: '05 min read',
       title: 'Lal Bahadur Shastri: Soul of Self-Reliance and Dignity',
@@ -144,13 +144,21 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'sundarkand-lessons',
       slug: 'sundarkand-lessons',
       image: 'blog-sundarkand.jpg',
-      alt: 'Sri Hanuman Ji in deep meditation, seated in a serene and peaceful pose',
+      alt: 'Sri Hanuman Ji standing at the cliff overlooking the vast ocean before leaping to Lanka in the Sundarkand',
       categoryId: 'spiritual',
       readTime: '05 min read',
       title: '“Every Success Needs Struggle”: Lessons from Sundarkand for Today’s Generation',
       description: 'How Hanuman Ji’s journey across the ocean, conquering inner self-doubt, and the mindset of Nishkama Karma teach us that true strength begins within.',
       url: 'blog-sundarkand-lessons.html'
     },
+    {
+      image: 'research-archive.jpg',
+      alt: 'Historical learning table with documents',
+      categoryId: 'historical',
+      readTime: '05 min read',
+      title: 'Classrooms that connect memory and future',
+      description: 'Education becomes broader and more valuable when students are invited to relate ideas to actual living traditions and communities.'
+    }
   ];
 
   const getCategory = (categoryId) => blogCategories.find((category) => category.id === categoryId);
@@ -1496,7 +1504,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileNav = document.getElementById('mobileNav');
-  
+
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener('click', () => {
       mobileNav.classList.toggle('open');
@@ -1686,8 +1694,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progress < 1.0) {
           // Sprouting & spring unfurl until original numbers appear
           const growth = Math.min(1, (progress - thresh) / 0.04);
-          const pop = growth < 0.7 
-            ? (growth / 0.7) * 1.15 
+          const pop = growth < 0.7
+            ? (growth / 0.7) * 1.15
             : 1.15 - ((growth - 0.7) / 0.3) * 0.15;
           finalScale = scale * pop;
           opacity = Math.min(1, growth * 1.8);
