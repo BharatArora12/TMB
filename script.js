@@ -150,14 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
       title: '“Every Success Needs Struggle”: Lessons from Sundarkand for Today’s Generation',
       description: 'How Hanuman Ji’s journey across the ocean, conquering inner self-doubt, and the mindset of Nishkama Karma teach us that true strength begins within.',
       url: 'blog-sundarkand-lessons.html'
-    },
-    {
-      image: 'research-archive.jpg',
-      alt: 'Historical learning table with documents',
-      categoryId: 'historical',
-      readTime: '05 min read',
-      title: 'Classrooms that connect memory and future',
-      description: 'Education becomes broader and more valuable when students are invited to relate ideas to actual living traditions and communities.'
     }
   ];
 
