@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       index: '02',
-      tag: 'Description',
+      tag: 'Online Courses',
       title: 'Online Courses',
       tagline: 'Learning beyond textbooks. Growing beyond classrooms.',
       overview: 'We serve completely new & fresh dimensions in our courses & curricula.',
@@ -637,71 +637,74 @@ document.addEventListener('DOMContentLoaded', () => {
       closingSection: {
         title: 'What do we nurture?',
         body: "Through personality development, soft skills training, spirituality, and mindfulness, we help young minds build confidence, discipline, and a deeper understanding of life. Our online courses connect India's younger generation with ancient Indian wisdom and spiritual practices while preparing them for the modern world."
+      },
+      card3Content: {
+        title: 'What We Teach',
+        tagline: 'Ancient Knowledge Empowered with Modern Skills.',
+        pillars: [
+          {
+            icon: 'record_voice_over',
+            title: 'Communication & Public Speaking Skills',
+            desc: 'Speech writing, storytelling, public speaking, and confident expression.'
+          },
+          {
+            icon: 'groups',
+            title: 'Personality Development & Soft Skills',
+            desc: 'Confidence, leadership, creativity, critical thinking and interpersonal skills.'
+          },
+          {
+            icon: 'self_improvement',
+            title: 'Spirituality & Mindfulness',
+            desc: 'Ancient Indian wisdom, scriptures, meditation, mantra chanting, and mindful living.'
+          },
+          {
+            icon: 'schedule',
+            title: 'Discipline & Daily Routine',
+            desc: 'Healthy habits, morning routines, self-discipline, grounding, and self-awareness.'
+          }
+        ]
+      },
+      card4Content: {
+        title: 'TMB Spiritual Summer Camp 2026',
+        tagline: 'A summer of learning, discovery, and reconnecting with our roots.',
+        meta: [
+          { label: 'Online', value: 'Learning Format' },
+          { label: 'Summer Vacation', value: 'Programme' }
+        ],
+        closingMessage: 'The Roots of Yesterday. The Confidence of Tomorrow.'
+      },
+      card5Content: {
+        title: 'Upcoming Programmes & Parents Feedback',
+        sectionLinks: [
+          {
+            index: '05',
+            title: 'Upcoming Programmes',
+            description: 'Explore our programmes and learning opportunities.',
+            href: '#voices'
+          },
+          {
+            index: '06',
+            title: 'Parents Feedback',
+            description: 'Read what parents and families have shared.',
+            href: '#testimonials'
+          }
+        ]
       }
     },
     {
       index: '03',
-      tag: 'Learning Approach',
-      title: 'What We Teach',
-      tagline: 'Ancient Knowledge Empowered with Modern Skills.',
-      overview: '',
-      hidePillarsHeading: true,
-      pillars: [
-        {
-          icon: 'record_voice_over',
-          title: 'Communication & Public Speaking Skills',
-          desc: 'Speech writing, storytelling, public speaking, and confident expression.'
-        },
-        {
-          icon: 'groups',
-          title: 'Personality Development & Soft Skills',
-          desc: 'Confidence, leadership, creativity, critical thinking and interpersonal skills.'
-        },
-        {
-          icon: 'self_improvement',
-          title: 'Spirituality & Mindfulness',
-          desc: 'Ancient Indian wisdom, scriptures, meditation, mantra chanting, and mindful living.'
-        },
-        {
-          icon: 'schedule',
-          title: 'Discipline & Daily Routine',
-          desc: 'Healthy habits, morning routines, self-discipline, grounding, and self-awareness.'
-        }
-      ],
+      tag: 'Workshops',
+      title: 'Workshops'
     },
     {
       index: '04',
-      tag: 'Our First Initiative',
-      title: 'TMB Spiritual Summer Camp 2026',
-      tagline: 'A summer of learning, discovery, and reconnecting with our roots.',
-      overview: '',
-      metaBeforeGallery: true,
-      meta: [
-        { label: 'Online', value: 'Learning Format' },
-        { label: 'Summer Vacation', value: 'Programme' }
-      ],
-      galleryTitle: 'Camp photographs and learning activities',
-      galleryImages: [],
-      closingMessage: 'The Roots of Yesterday. The Confidence of Tomorrow.'
+      tag: 'NGO Partnerships',
+      title: 'NGO Partnerships'
     },
     {
       index: '05',
-      tag: 'Explore TMB',
-      title: 'Upcoming Programmes & Parents Feedback',
-      sectionLinks: [
-        {
-          index: '05',
-          title: 'Upcoming Programmes',
-          description: 'Explore our programmes and learning opportunities.',
-          href: '#voices'
-        },
-        {
-          index: '06',
-          title: 'Parents Feedback',
-          description: 'Read what parents and families have shared.',
-          href: '#testimonials'
-        }
-      ]
+      tag: 'Global Voice',
+      title: 'Global Voice'
     }
   ];
 
@@ -900,13 +903,65 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           ` : ''}
           ${data.metaBeforeGallery ? '' : metaStripMarkup}
+          ${data.card3Content ? `
+            <section class="modal-sub-section">
+              <h3 class="modal-sub-title">${data.card3Content.title}</h3>
+              ${data.card3Content.tagline ? `<p class="modal-sub-tagline">${data.card3Content.tagline}</p>` : ''}
+              ${data.card3Content.pillars && data.card3Content.pillars.length ? `
+                <div class="modal-pillars-grid">
+                  ${data.card3Content.pillars.map(pillar => `
+                    <div class="modal-pillar-item">
+                      <h4><span class="material-symbols-outlined">${pillar.icon}</span> ${pillar.title}</h4>
+                      <p>${pillar.desc}</p>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </section>
+          ` : ''}
+          ${data.card4Content ? `
+            <section class="modal-sub-section">
+              <h3 class="modal-sub-title">${data.card4Content.title}</h3>
+              ${data.card4Content.tagline ? `<p class="modal-sub-tagline">${data.card4Content.tagline}</p>` : ''}
+              ${data.card4Content.meta && data.card4Content.meta.length ? `
+                <div class="modal-meta-strip${data.card4Content.meta.length === 2 ? ' modal-meta-strip-two' : ''}">
+                  ${data.card4Content.meta.map(m => `
+                    <div class="modal-meta-col">
+                      <span class="modal-meta-label">${m.label}</span>
+                      <span class="modal-meta-value">${m.value}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+              ${data.card4Content.closingMessage ? `<p class="modal-ending-note" style="margin-bottom: 0;">${data.card4Content.closingMessage}</p>` : ''}
+            </section>
+          ` : ''}
+          ${data.card5Content ? `
+            <section class="modal-sub-section">
+              <h3 class="modal-sub-title" style="margin-bottom: 1.25rem;">${data.card5Content.title}</h3>
+              ${data.card5Content.sectionLinks && data.card5Content.sectionLinks.length ? `
+                <nav class="modal-section-links" aria-label="Explore programmes and feedback">
+                  ${data.card5Content.sectionLinks.map(link => `
+                    <a class="modal-section-link" href="${link.href}">
+                      <span class="modal-section-link-index">${link.index}</span>
+                      <span class="modal-section-link-copy">
+                        <strong>${link.title}</strong>
+                        <span>${link.description}</span>
+                      </span>
+                      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
+                  `).join('')}
+                </nav>
+              ` : ''}
+            </section>
+          ` : ''}
           <div class="modal-actions">
-            ${data.sectionLinks && data.sectionLinks.length ? '' : `
+            ${(data.overview || data.descriptionSections || data.card5Content || (data.sectionLinks && data.sectionLinks.length)) ? `
               <a href="#voices" class="btn btn-primary work-modal-cta-btn">
                 <span>Participate &amp; Join</span>
                 <span class="material-symbols-outlined">arrow_forward</span>
               </a>
-            `}
+            ` : ''}
             <button type="button" class="modal-btn-close" id="workModalInnerClose">Close Details</button>
           </div>
         `}
@@ -1845,7 +1900,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================================================
-  // MODULE 12: INSTITUTIONAL INQUIRY BANNER DIRECT GMAIL REDIRECT
+  // MODULE 12: INSTITUTIONAL INQUIRY BANNER & CONTACT CARDS GMAIL REDIRECT
   // ============================================================================
   const inquireBanner = document.getElementById('coursesInquireBanner');
   if (inquireBanner) {
@@ -1868,6 +1923,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Contact Cards (Pitch a collaboration / Reach the team / See open roles)
+  const contactCards = document.querySelectorAll('.contact-card[data-href]');
+  contactCards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const url = card.getAttribute('data-href');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target.closest('a')) return;
+        e.preventDefault();
+        const url = card.getAttribute('data-href');
+        if (url) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      }
+    });
+  });
 
   // ============================================================================
   // MODULE 13: ENDLESS SEAMLESS FIELD GALLERY MARQUEE
