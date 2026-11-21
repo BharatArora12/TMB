@@ -1124,7 +1124,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 38%, rgba(17, 16, 15, 0.68) 48%, transparent 60%);
+  background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 16%, rgba(17, 16, 15, 0.68) 20%, transparent 25%);
   content: "";
   pointer-events: none;
 }
@@ -1132,13 +1132,13 @@ html[data-theme="dark"] .btn-outline-light:hover {
 .blog-page-hero-content {
   position: absolute;
   top: 50%;
-  left: clamp(1.25rem, 6vw, 7rem);
+  left: clamp(1rem, 2.6vw, 3.25rem);
   z-index: 2;
   display: flex;
-  width: min(48%, 54rem);
+  width: min(21%, 22rem);
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  gap: clamp(0.65rem, 1.2vw, 1rem);
   transform: translateY(-50%);
 }
 
@@ -1146,9 +1146,9 @@ html[data-theme="dark"] .btn-outline-light:hover {
   margin: 0;
   color: #f8faf4;
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4.2vw, 4.6rem);
+  font-size: clamp(1.8rem, 2.1vw, 2.45rem);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.1;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
   white-space: nowrap;
 }
@@ -1172,19 +1172,20 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 .blog-page-hero-cta-link {
   display: inline-flex;
-  min-height: 48px;
+  min-height: clamp(38px, 2.4vw, 44px);
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.65rem 1.25rem;
+  gap: 0.55rem;
+  padding: clamp(0.45rem, 0.6vw, 0.6rem) clamp(0.85rem, 1vw, 1.15rem);
   border-radius: 9999px;
   background: #07552c;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
   color: #fff;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: clamp(0.78rem, 0.88vw, 0.92rem);
   font-weight: 700;
   text-decoration: none;
+  white-space: nowrap;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -1194,7 +1195,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
 }
 
 .blog-page-hero-cta-link .material-symbols-outlined {
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
 }
 
 .blog-page-hero-cta-link:focus-visible {
