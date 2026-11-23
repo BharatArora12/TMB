@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   footerCopyButtons.forEach((btn) => {
     btn.addEventListener('click', async () => {
       // Extract target email from data-copy attribute, or fallback to default
-      const email = btn.dataset.copy || 'info@towardsmybharat.in';
+      const email = btn.dataset.copy || 'info@towardsmybharat.com';
       try {
         await navigator.clipboard.writeText(email);
         const icon = btn.querySelector('.material-symbols-outlined');
