@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isNetworkErr = error.message && error.message.includes("Failed to fetch");
       const errorMsg = isNetworkErr
-        ? "Network connection error. You can also email us directly at info@towardsmybharat.in or tinusatija@gmail.com."
+        ? "Network connection error. You can also email us directly at info@towardsmybharat.com or tinusatija@gmail.com."
         : error.message;
 
       showStatus(errorMsg, "error");

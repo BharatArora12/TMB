@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
    *   or pressing the Escape key.
    * - Manages `aria-hidden` attribute for assistive technology.
    */
-  const udyamCredentialButton = document.querySelector('.hero-credential');
+  const udyamCredentialButtons = document.querySelectorAll('.hero-credential, .contact-udyam-tag, #contactUdyamBtn');
   const udyamCertModal = document.getElementById('udyamCertModal');
   const closeCertificateButtons = document.querySelectorAll('[data-close-certificate]');
 
@@ -474,14 +474,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = shouldOpen ? 'hidden' : '';
   };
 
-  if (udyamCredentialButton && udyamCertModal) {
-    udyamCredentialButton.addEventListener('click', () => toggleUdyamCert(true));
-    // Keyboard activation (Enter or Space)
-    udyamCredentialButton.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleUdyamCert(true);
-      }
+  if (udyamCredentialButtons.length && udyamCertModal) {
+    udyamCredentialButtons.forEach((btn) => {
+      btn.addEventListener('click', () => toggleUdyamCert(true));
+      // Keyboard activation (Enter or Space)
+      btn.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleUdyamCert(true);
+        }
+      });
     });
   }
 
@@ -1879,7 +1881,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerCopyButtons = document.querySelectorAll('.footer-copy-btn');
   footerCopyButtons.forEach((btn) => {
     btn.addEventListener('click', async () => {
-      const email = btn.dataset.copy || 'info@towardsmybharat.in';
+      const email = btn.dataset.copy || 'info@towardsmybharat.com';
       try {
         await navigator.clipboard.writeText(email);
         const icon = btn.querySelector('.material-symbols-outlined');

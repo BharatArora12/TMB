@@ -111,16 +111,16 @@
         <div class="contact-direct-info">
           <div class="footer-email-row contact-email-badge">
             <span class="material-symbols-outlined contact-badge-icon" aria-hidden="true">mail</span>
-            <a href="mailto:info@towardsmybharat.in" class="footer-email-link">info@towardsmybharat.in</a>
-            <button type="button" class="footer-copy-btn" data-copy="info@towardsmybharat.in" aria-label="Copy email"
+            <a href="mailto:info@towardsmybharat.com" class="footer-email-link">info@towardsmybharat.com</a>
+            <button type="button" class="footer-copy-btn" data-copy="info@towardsmybharat.com" aria-label="Copy email"
               title="Copy email">
               <span class="material-symbols-outlined">content_copy</span>
             </button>
           </div>
-          <div class="contact-udyam-tag">
+          <button type="button" class="contact-udyam-tag" id="contactUdyamBtn" aria-label="Open Udyam verified certification" aria-haspopup="dialog">
             <span class="material-symbols-outlined" aria-hidden="true">verified</span>
             <span>Udyam Verified Civilizational Initiative</span>
-          </div>
+          </button>
         </div>
       </section>
 
@@ -277,8 +277,8 @@
         <div class="footer-col-contact">
           <span class="footer-heading">GET IN TOUCH</span>
           <div class="footer-email-row">
-            <a href="mailto:info@towardsmybharat.in" class="footer-email-link">info@towardsmybharat.in</a>
-            <button type="button" class="footer-copy-btn" data-copy="info@towardsmybharat.in" aria-label="Copy email"
+            <a href="mailto:info@towardsmybharat.com" class="footer-email-link">info@towardsmybharat.com</a>
+            <button type="button" class="footer-copy-btn" data-copy="info@towardsmybharat.com" aria-label="Copy email"
               title="Copy email">
               <span class="material-symbols-outlined">content_copy</span>
             </button>
@@ -299,6 +299,22 @@
 
     </div>
   </footer>
+
+  <!-- Udyam Registration Certificate Modal -->
+  <div class="credential-modal" id="udyamCertModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="udyamCertTitle">
+    <div class="credential-modal-backdrop" data-close-certificate="true"></div>
+    <div class="credential-modal-panel">
+      <button class="credential-modal-close" type="button" aria-label="Close Udyam certificate"
+        data-close-certificate="true">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <p class="credential-modal-label" id="udyamCertTitle">Udyam Registration Certificate • Ministry of MSME</p>
+      <img class="credential-modal-image" src="assets/images/udyam_verified_poster.jpg"
+        alt="Towards My Bharat officially registered and government recognized as MSME under Udyam Registration"
+        width="768" height="1024" loading="lazy">
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="script.js"></script>

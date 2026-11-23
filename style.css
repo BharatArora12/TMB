@@ -39,56 +39,6 @@
  * ==============================================================================
  */
 
-/* ==============================================================================
-   SERIF NUMERAL TYPOGRAPHY (Cormorant Garamond)
-   Applies authentic serif numeral typography (matching the story cards)
-   to all numbers across the website via unicode-range: U+0030-0039.
-   ============================================================================== */
-@font-face {
-  font-family: 'TMBSerifNumbers';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cormorant Garamond Regular'), local('Cormorant Garamond'),
-    url('https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf') format('truetype');
-  unicode-range: U+0030-0039;
-}
-
-@font-face {
-  font-family: 'TMBSerifNumbers';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Cormorant Garamond Medium'), local('Cormorant Garamond'),
-    url('https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf') format('truetype');
-  unicode-range: U+0030-0039;
-}
-
-@font-face {
-  font-family: 'TMBSerifNumbers';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Cormorant Garamond SemiBold'), local('Cormorant Garamond'),
-    url('https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf') format('truetype');
-  unicode-range: U+0030-0039;
-}
-
-@font-face {
-  font-family: 'TMBSerifNumbers';
-  font-style: normal;
-  font-weight: 700 900;
-  src: local('Cormorant Garamond Bold'), local('Cormorant Garamond'),
-    url('https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_hg9GnM.ttf') format('truetype');
-  unicode-range: U+0030-0039;
-}
-
-@font-face {
-  font-family: 'TMBSerifNumbers';
-  font-style: italic;
-  font-weight: 400 900;
-  src: local('Cormorant Garamond Italic'), local('Cormorant Garamond'),
-    url('https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf') format('truetype');
-  unicode-range: U+0030-0039;
-}
-
 :root {
   /* --------------------------------------------------------------------------
      1. LIGHT MODE COLOR TOKENS (Default Theme)
@@ -196,7 +146,7 @@
      3. TYPOGRAPHY TOKENS
      -------------------------------------------------------------------------- */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'TMBSerifNumbers', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* --------------------------------------------------------------------------
      4. SPACING SCALES
@@ -894,7 +844,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 /* Minimalist Editorial Subbrand */
 .hero-subbrand {
-  font-family: 'TMBSerifNumbers', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.35rem, 1.65vw, 1.75rem);
   font-weight: 800;
   letter-spacing: 0.05em;
@@ -916,7 +866,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 /* Master Editorial Headline - Inter ExtraBold 800 + Instrument Serif Italic (Tight Editorial Leading) */
 .hero-title,
 .hero-editorial-headline {
-  font-family: 'TMBSerifNumbers', 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(2.4rem, 4.2vw, 4.5rem);
   line-height: 0.88;
@@ -980,7 +930,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 /* Supporting Understated Description */
 .hero-editorial-desc {
-  font-family: 'TMBSerifNumbers', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: clamp(1.05rem, 1.25vw, 1.25rem);
   line-height: 1.6;
@@ -1140,7 +1090,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   border-radius: 999px;
   padding: 0.42rem 0.85rem;
   color: #F7F4EF !important;
-  font-family: 'TMBSerifNumbers', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -1734,11 +1684,8 @@ html[data-theme="dark"] .hero-vignette-linear {
 }
 
 .slider-counter-badge .counter-total {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-style: italic;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 .slider-arrow-btn {
@@ -5026,11 +4973,11 @@ html[data-theme="dark"] .impact-kicker {
 }
 
 .impact-total {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(5.2rem, 8.2vw, 7.6rem);
   line-height: 0.88;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-weight: 900;
   color: var(--color-primary);
   font-feature-settings: "tnum" 1, "kern" 1;
 }
@@ -5040,9 +4987,9 @@ html[data-theme="dark"] .impact-total {
 }
 
 .impact-plus {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(3.6rem, 5.6vw, 5.2rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 0.88;
   color: #C85A32;
   margin-left: 0.2rem;
@@ -5256,11 +5203,11 @@ html[data-theme="dark"] .impact-stat-name {
 }
 
 .impact-stat-number {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 4.4vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   color: var(--color-primary);
   font-feature-settings: "tnum" 1;
 }
@@ -7023,7 +6970,7 @@ html[data-theme="light"] .site-footer {
   margin-right: auto;
   padding: 0.5rem 1.25rem clamp(0.75rem, 1.75vw, 1.5rem);
   overflow: visible;
-  font-family: 'TMBSerifNumbers', 'Inter', var(--font-sans);
+  font-family: 'Inter', var(--font-sans);
   font-size: clamp(2rem, 7.4vw, 7.8rem);
   font-weight: 700;
   font-variation-settings: 'wght' 700;
@@ -7130,9 +7077,24 @@ html[data-theme="light"] .tmb-page-loader {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.15rem;
+  gap: 1rem;
   text-align: center;
   transform: translateY(0);
+}
+
+/* Centered Brand Emblem Logo */
+.tmb-loader-logo {
+  width: clamp(48px, 7vw, 64px);
+  height: clamp(48px, 7vw, 64px);
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  filter: drop-shadow(0 4px 16px rgba(197, 160, 89, 0.28));
+}
+
+html[data-theme="light"] .tmb-loader-logo {
+  filter: drop-shadow(0 4px 14px rgba(46, 93, 58, 0.2));
 }
 
 /* Centered Tracked-out Brand Title */

@@ -36,6 +36,7 @@
         pageLoader.setAttribute('aria-hidden', 'true');
         pageLoader.innerHTML = `
           <div class="tmb-loader-card">
+            <img src="photos/TMB Logo.png" alt="Towards My Bharat Logo" class="tmb-loader-logo" width="64" height="64">
             <div class="tmb-loader-title">TOWARDS MY BHARAT</div>
             <div class="tmb-loader-line-track">
               <div class="tmb-loader-line-fill" id="tmbLoaderLineFill"></div>

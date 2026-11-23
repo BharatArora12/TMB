@@ -178,6 +178,24 @@ html[data-theme="dark"] .contact-note {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact-udyam-tag:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.contact-udyam-tag:focus-visible {
+  outline: 2px solid var(--contact-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .contact-udyam-tag .material-symbols-outlined {
