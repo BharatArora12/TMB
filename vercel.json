@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "towardsmybharat.org"
+        }
+      ],
+      "destination": "https://towardsmybharat.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.towardsmybharat.org"
+        }
+      ],
+      "destination": "https://towardsmybharat.com/:path*",
+      "permanent": true
+    }
+  ]
+}

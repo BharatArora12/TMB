@@ -1122,7 +1122,18 @@ html[data-theme="dark"] .btn-outline-light:hover {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 16%, rgba(17, 16, 15, 0.68) 20%, rgba(17, 16, 15, 0.22) 25%, rgba(17, 16, 15, 0.22) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.96) 21%,
+    rgba(0, 0, 0, 0.90) 24%,
+    rgba(0, 0, 0, 0.74) 27%,
+    rgba(0, 0, 0, 0.50) 30%,
+    rgba(0, 0, 0, 0.28) 33%,
+    rgba(0, 0, 0, 0.16) 36%,
+    rgba(0, 0, 0, 0.12) 40%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
   content: "";
   pointer-events: none;
 }
@@ -1268,7 +1279,17 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 @media (max-width: 600px) {
   .blog-page-image-hero::after {
-    background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 56%, rgba(17, 16, 15, 0.68) 68%, rgba(17, 16, 15, 0.22) 82%, rgba(17, 16, 15, 0.22) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.96) 58%,
+      rgba(0, 0, 0, 0.88) 64%,
+      rgba(0, 0, 0, 0.70) 72%,
+      rgba(0, 0, 0, 0.45) 80%,
+      rgba(0, 0, 0, 0.22) 88%,
+      rgba(0, 0, 0, 0.12) 95%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
   }
 
   .blog-page-hero-content {

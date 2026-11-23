@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Redirect towardsmybharat.org and www.towardsmybharat.org to towardsmybharat.com
+  RewriteCond %{HTTP_HOST} ^(www\.)?towardsmybharat\.org$ [NC]
+  RewriteRule ^(.*)$ https://towardsmybharat.com/$1 [R=301,L]
+</IfModule>
