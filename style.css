@@ -591,6 +591,28 @@ html[data-theme="dark"] .site-header {
   box-shadow: var(--shadow-card);
 }
 
+@media (max-width: 639px) {
+  .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background-color: var(--earth-gold);
+    color: var(--color-text-on-accent);
+    border: 1px solid var(--color-accent);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+}
+
 @media (min-width: 640px) {
   .nav-cta-btn {
     display: inline-flex;
@@ -740,7 +762,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   pointer-events: none;
 }
 
-@media (max-width: 899px) {
+@media (min-width: 768px) and (max-width: 899px) {
 
   .hero-vignette-linear,
   html[data-theme="light"] .hero-vignette-linear,
@@ -846,12 +868,6 @@ html[data-theme="dark"] .hero-vignette-linear {
   }
 }
 
-@media (max-width: 767px) {
-  .hero-content {
-    width: 100%;
-    padding: 1.25rem;
-  }
-}
 
 /* Minimalist Editorial Subbrand */
 .hero-subbrand {
@@ -949,45 +965,6 @@ html[data-theme="dark"] .hero-vignette-linear {
   max-width: 480px;
   margin: 0 0 1.65rem 0;
   animation: heroEditorialFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
-}
-
-@media (max-width: 767px) {
-  .hero-subbrand {
-    font-size: 1.1rem;
-    margin-bottom: 1.15rem;
-  }
-
-  .hero-title,
-  .hero-editorial-headline {
-    font-size: clamp(2.3rem, 10vw, 3.6rem);
-    line-height: 0.90;
-    letter-spacing: -0.035em;
-    gap: 0.02em;
-    margin-bottom: 1.2rem;
-  }
-
-  .hero-editorial-headline {
-    font-size: calc(clamp(2.3rem, 10vw, 3.6rem) + 2px);
-    margin-bottom: 2rem;
-  }
-
-  .hero-headline-line {
-    line-height: 0.92;
-    letter-spacing: -0.035em;
-    white-space: normal;
-  }
-
-  .hero-accent-serif,
-  .hero-word-bridge {
-    font-size: 1.08em;
-    line-height: 0.90;
-  }
-
-  .hero-editorial-desc {
-    font-size: 1rem;
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1213,6 +1190,202 @@ html[data-theme="dark"] .hero-vignette-linear {
 @media (min-width: 640px) {
   .hero-btn-group {
     width: auto;
+  }
+}
+
+/* ==========================================================================
+   MOBILE HERO SECTION FORMAT (Matches Editorial Creator Reference)
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* 1. Full-viewport bottom-aligned hero container */
+  .hero-section,
+  html[data-theme="light"] .hero-section,
+  html[data-theme="dark"] .hero-section {
+    min-height: calc(100vh - 72px) !important;
+    min-height: calc(100svh - 72px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    padding: 0 0 2.25rem 0 !important;
+    position: relative !important;
+    background-color: #11100F !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Full-bleed background slideshow with top-centered subject focus */
+  .hero-slideshow {
+    position: absolute !important;
+    inset: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important;
+  }
+
+  .hero-slide {
+    background-size: cover !important;
+    background-position: center 15% !important;
+    filter: grayscale(85%) contrast(1.1) brightness(0.92) !important;
+  }
+
+  /* 3. Cinema-grade vertical vignette: clear photo at top, smooth fade to solid dark ground */
+  .hero-vignette-linear,
+  html[data-theme="light"] .hero-vignette-linear,
+  html[data-theme="dark"] .hero-vignette-linear {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    background: linear-gradient(
+      to bottom,
+      rgba(17, 16, 15, 0.72) 0%,
+      rgba(17, 16, 15, 0.22) 12%,
+      transparent 22%,
+      transparent 38%,
+      rgba(17, 16, 15, 0.40) 48%,
+      rgba(17, 16, 15, 0.78) 60%,
+      rgba(17, 16, 15, 0.96) 72%,
+      #11100F 84%,
+      #11100F 100%
+    ) !important;
+    pointer-events: none !important;
+  }
+
+  /* 4. Bottom-anchored content container */
+  .hero-section .container.hero-content,
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+    box-sizing: border-box !important;
+    z-index: 20 !important;
+    padding-top: 0 !important;
+  }
+
+  /* 5. Minimalist, tracked-out brand kicker */
+  .hero-subbrand {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: rgba(247, 244, 239, 0.7) !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  /* 6. Bold high-impact editorial headline matching screenshot typography */
+  .hero-title,
+  .hero-editorial-headline {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
+    font-size: clamp(2.2rem, 8.4vw, 3.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.035em !important;
+    color: #F7F3ED !important;
+    margin: 0 0 0.85rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.04em !important;
+    text-align: left !important;
+  }
+
+  .hero-headline-line {
+    line-height: 1.02 !important;
+    letter-spacing: -0.035em !important;
+    white-space: normal !important;
+  }
+
+  .hero-accent-serif {
+    font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    font-size: 1.1em !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* 7. Supporting description text matching screenshot style */
+  .hero-editorial-desc {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: clamp(0.92rem, 3.8vw, 1.05rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: rgba(247, 244, 239, 0.78) !important;
+    max-width: 440px !important;
+    margin: 0 0 1.35rem 0 !important;
+  }
+
+  /* 8. Circular outline social media icons in horizontal row */
+  .hero-actions-row {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.85rem !important;
+    margin-top: 0.15rem !important;
+  }
+
+  .hero-actions-row .hero-social-links,
+  .hero-social-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .hero-social-links .social-btn {
+    width: 2.65rem !important;
+    height: 2.65rem !important;
+    flex: 0 0 2.65rem !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(247, 244, 239, 0.3) !important;
+    background: transparent !important;
+    color: #F7F4EF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .hero-social-links .social-btn svg {
+    width: 1.15rem !important;
+    height: 1.15rem !important;
+    fill: currentColor !important;
+  }
+
+  .hero-social-links .social-btn:hover,
+  .hero-social-links .social-btn:active {
+    border-color: #F7F4EF !important;
+    background: rgba(247, 244, 239, 0.12) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* 9. Credential actions below social icons */
+  .hero-actions-row .hero-actions,
+  .hero-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    flex-wrap: wrap !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .hero-credential {
+    padding: 0.42rem 0.85rem !important;
+    font-size: 0.65rem !important;
+    border-radius: 999px !important;
+    background: rgba(247, 244, 239, 0.08) !important;
+    border: 1px solid rgba(247, 244, 239, 0.2) !important;
+    color: #F7F4EF !important;
   }
 }
 
@@ -6993,13 +7166,24 @@ html[data-theme="light"] .site-footer {
     justify-content: center;
   }
 
-  /* Center the Explore nav column */
+  /* Center the Explore nav column and align page links horizontally */
   .footer-col-nav {
     text-align: center;
+    width: 100%;
   }
 
   .footer-vertical-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 0.85rem clamp(1rem, 3.5vw, 1.5rem);
+    width: 100%;
+  }
+
+  .footer-vertical-links a {
+    width: auto;
+    white-space: nowrap;
   }
 
   /* Disable side-shift hover on mobile (irrelevant for centred layout) */
