@@ -695,9 +695,9 @@ html[data-theme="dark"] .hero-section {
 
 @media (min-width: 900px) {
   .hero-slideshow {
-    left: 40%;
+    left: 30%;
     right: 0;
-    width: 60%;
+    width: 70%;
     z-index: 1;
   }
 }
@@ -708,7 +708,7 @@ html[data-theme="dark"] .hero-section {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  filter: grayscale(80%) contrast(1.08) brightness(0.92);
+  filter: grayscale(80%) contrast(1.08) brightness(0.82);
   transition: opacity 1.2s ease-in-out;
   will-change: opacity, filter;
 }
@@ -730,12 +730,12 @@ html[data-theme="dark"] .hero-vignette-linear {
   background:
     linear-gradient(to right,
       #11100F 0%,
-      #11100F 40%,
-      rgba(17, 16, 15, 0.95) 43%,
-      rgba(17, 16, 15, 0.72) 48%,
-      rgba(17, 16, 15, 0.36) 53%,
-      rgba(17, 16, 15, 0.08) 58%,
-      transparent 62%),
+      #11100F 30%,
+      rgba(17, 16, 15, 0.98) 34%,
+      rgba(17, 16, 15, 0.82) 40%,
+      rgba(17, 16, 15, 0.46) 48%,
+      rgba(17, 16, 15, 0.18) 55%,
+      transparent 60%),
     linear-gradient(to bottom, #11100F 0%, transparent 6%, transparent 94%, #11100F 100%) !important;
   pointer-events: none;
 }
@@ -745,11 +745,22 @@ html[data-theme="dark"] .hero-vignette-linear {
   .hero-vignette-linear,
   html[data-theme="light"] .hero-vignette-linear,
   html[data-theme="dark"] .hero-vignette-linear {
-    background: linear-gradient(to bottom,
-        rgba(17, 16, 15, 0.96) 0%,
-        rgba(17, 16, 15, 0.9) 60%,
-        rgba(17, 16, 15, 0.82) 85%,
-        #11100F 100%) !important;
+    background:
+      linear-gradient(to right,
+        #11100F 0%,
+        #11100F 20%,
+        rgba(17, 16, 15, 0.52) 28%,
+        rgba(17, 16, 15, 0.30) 55%,
+        rgba(17, 16, 15, 0.22) 100%),
+      linear-gradient(to bottom,
+        rgba(17, 16, 15, 0.45) 0%,
+        transparent 12%,
+        transparent 88%,
+        rgba(17, 16, 15, 0.50) 100%) !important;
+  }
+
+  .hero-slide {
+    filter: grayscale(20%) contrast(1.05) brightness(0.95);
   }
 }
 
@@ -803,9 +814,9 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 @media (min-width: 768px) and (max-width: 899px) {
   .hero-slideshow {
-    left: 40%;
+    left: 30%;
     right: 0;
-    width: 60%;
+    width: 70%;
     z-index: 1;
   }
 
@@ -815,11 +826,11 @@ html[data-theme="dark"] .hero-vignette-linear {
     background:
       linear-gradient(to right,
         #100F0E 0%,
-        #100F0E 38%,
-        rgba(16, 15, 14, 0.94) 44%,
-        rgba(16, 15, 14, 0.6) 52%,
-        rgba(16, 15, 14, 0.15) 60%,
-        transparent 68%),
+        #100F0E 30%,
+        rgba(16, 15, 14, 0.98) 36%,
+        rgba(16, 15, 14, 0.70) 44%,
+        rgba(16, 15, 14, 0.25) 54%,
+        transparent 62%),
       linear-gradient(to bottom, #100F0E 0%, transparent 6%, transparent 94%, #100F0E 100%) !important;
   }
 
@@ -2874,19 +2885,46 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
     max-height: 92vh;
   }
 
-  .modal-featured-grid {
-    grid-template-columns: repeat(3, minmax(130px, 1fr));
-    overflow-x: auto;
-    padding-bottom: 0.4rem;
+  /* Centre the badge + tag row */
+  .modal-header-meta {
+    justify-content: center;
+    text-align: center;
   }
 
+  /* Centre the main modal title on mobile */
   .modal-title {
     font-size: 1.5rem;
+    text-align: center;
   }
 
+  /* Featured-story variant: wrap and centre */
   .work-detail-modal-backdrop.has-featured-story .modal-title {
     font-size: 1.1rem;
     white-space: normal;
+    text-align: center;
+  }
+
+  /* Keep body paragraphs left-aligned for readability */
+  .modal-story-copy p,
+  .modal-overview,
+  .modal-course-copy p {
+    text-align: left;
+  }
+
+  /* Centre the "02 · FEATURED VIDEOS" label and subtitle */
+  .modal-section-label {
+    text-align: center;
+  }
+
+  .modal-featured-title {
+    text-align: center;
+  }
+
+  /* Fix video grid to 2 columns on very small screens to prevent overflow */
+  .modal-featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: unset;
+    padding-bottom: 0.4rem;
   }
 
   .work-section {
@@ -6922,12 +6960,80 @@ html[data-theme="light"] .site-footer {
   background-color: #0d140f;
 }
 
+/* ---- Mobile Footer Alignment ---- */
+@media (max-width: 767px) {
+  /* Reduce top padding on mobile */
+  .site-footer {
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Tighten vertical gap between the 3 stacked columns */
+  .footer-main-grid {
+    gap: 1.75rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Center the brand column */
+  .footer-col-brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand-tagline {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-social-row {
+    justify-content: center;
+  }
+
+  /* Center the Explore nav column */
+  .footer-col-nav {
+    text-align: center;
+  }
+
+  .footer-vertical-links {
+    align-items: center;
+  }
+
+  /* Disable side-shift hover on mobile (irrelevant for centred layout) */
+  .footer-vertical-links a:hover {
+    transform: none;
+  }
+
+  /* Center the contact column */
+  .footer-col-contact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-email-row {
+    justify-content: center;
+  }
+
+  /* Fix heritage panorama: remove negative margin and span full width */
+  .footer-heritage-img {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Centre the copyright bar */
+  .footer-meta-bar {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 480px) {
   .footer-quote-card {
     flex-direction: column-reverse;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.85rem;
-    padding-right: 0.85rem;
+    padding-right: 0;
   }
 
   .footer-quote-portrait-wrap {
