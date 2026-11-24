@@ -302,7 +302,7 @@
 }
 
 .about-hero-pill:hover {
-  background: #064522;
+  background: #ffd000;
   box-shadow: 0 10px 24px rgba(7, 85, 44, 0.32);
   transform: translateY(-2px);
 }
@@ -1122,7 +1122,15 @@ html[data-theme="dark"] .btn-outline-light:hover {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 16%, rgba(17, 16, 15, 0.68) 20%, rgba(17, 16, 15, 0.22) 25%, rgba(17, 16, 15, 0.22) 100%);
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.95) 15%,
+      rgba(0, 0, 0, 0.88) 25%,
+      rgba(0, 0, 0, 0.30) 50%,
+      rgba(0, 0, 0, 0.30) 56%,
+      rgba(0, 0, 0, 0.22) 63%,
+      rgba(0, 0, 0, 0.10) 80%,
+      rgba(0, 0, 0, 0.10) 100%);
   content: "";
   pointer-events: none;
 }
@@ -1167,6 +1175,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   width: 100%;
   height: auto;
 }
+
 .blog-page-hero-cta-link {
   display: inline-flex;
   min-height: clamp(38px, 2.4vw, 44px);
@@ -1268,7 +1277,14 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 @media (max-width: 600px) {
   .blog-page-image-hero::after {
-    background: linear-gradient(to right, rgba(17, 16, 15, 0.94) 0%, rgba(17, 16, 15, 0.94) 56%, rgba(17, 16, 15, 0.68) 68%, rgba(17, 16, 15, 0.22) 82%, rgba(17, 16, 15, 0.22) 100%);
+    background: linear-gradient(to right,
+        rgba(0, 0, 0, 0.96) 0%,
+        rgba(0, 0, 0, 0.96) 65%,
+        rgba(0, 0, 0, 0.88) 72%,
+        rgba(0, 0, 0, 0.70) 80%,
+        rgba(0, 0, 0, 0.45) 88%,
+        rgba(0, 0, 0, 0.22) 94%,
+        rgba(0, 0, 0, 0.10) 100%);
   }
 
   .blog-page-hero-content {

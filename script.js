@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
    *   or pressing the Escape key.
    * - Manages `aria-hidden` attribute for assistive technology.
    */
-  const udyamCredentialButtons = document.querySelectorAll('.hero-credential, .contact-udyam-tag, #contactUdyamBtn');
+  const udyamCredentialButtons = document.querySelectorAll('button.hero-credential, .contact-udyam-tag, #contactUdyamBtn');
   const udyamCertModal = document.getElementById('udyamCertModal');
   const closeCertificateButtons = document.querySelectorAll('[data-close-certificate]');
 
@@ -607,7 +607,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tag: 'Online Courses',
       title: 'Online Courses',
       tagline: 'Learning beyond textbooks. Growing beyond classrooms.',
-      overview: 'We serve completely new & fresh dimensions in our courses & curricula.',
       descriptionSections: [
         {
           title: 'Why are we so confident?',

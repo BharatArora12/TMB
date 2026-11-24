@@ -1,0 +1,5 @@
+# Netlify & Cloudflare Pages Redirects
+https://towardsmybharat.org/*     https://towardsmybharat.com/:splat 301!
+https://www.towardsmybharat.org/* https://towardsmybharat.com/:splat 301!
+http://towardsmybharat.org/*      https://towardsmybharat.com/:splat 301!
+http://www.towardsmybharat.org/*  https://towardsmybharat.com/:splat 301!

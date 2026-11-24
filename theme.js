@@ -32,6 +32,16 @@
  */
 
 (() => {
+  // 0. DOMAIN REDIRECTION (towardsmybharat.org -> towardsmybharat.com)
+  // ----------------------------------------------------------------------------
+  // Automatically redirects any incoming visitor on towardsmybharat.org or any of
+  // its subdomains to towardsmybharat.com, preserving the exact path and parameters.
+  const host = window.location.hostname.toLowerCase();
+  if (host === 'towardsmybharat.org' || host === 'www.towardsmybharat.org' || host.endsWith('.towardsmybharat.org')) {
+    window.location.replace('https://towardsmybharat.com' + window.location.pathname + window.location.search + window.location.hash);
+    return;
+  }
+
   // 1. CONSTANTS & DOM REFERENCES
   // ----------------------------------------------------------------------------
   // Storage key used in window.localStorage to persist user preference.
