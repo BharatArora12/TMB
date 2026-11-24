@@ -1213,7 +1213,7 @@ html[data-theme="dark"] .hero-vignette-linear {
     overflow: hidden !important;
   }
 
-  /* 2. Full-bleed background slideshow with top-centered subject focus */
+  /* 2. Full-bleed background slideshow */
   .hero-slideshow {
     position: absolute !important;
     inset: 0 !important;
@@ -1222,12 +1222,6 @@ html[data-theme="dark"] .hero-vignette-linear {
     width: 100% !important;
     height: 100% !important;
     z-index: 0 !important;
-  }
-
-  .hero-slide {
-    background-size: cover !important;
-    background-position: center 15% !important;
-    filter: grayscale(85%) contrast(1.1) brightness(0.92) !important;
   }
 
   /* 3. Cinema-grade vertical vignette: clear photo at top, smooth fade to solid dark ground */
