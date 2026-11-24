@@ -4025,7 +4025,7 @@ html[data-theme="dark"] .courses-motif-img {
 
 .course-3d-card:hover .course-card-glass {
   /* transform: translateY(-8px); */
-  border-color: rgba(168, 217, 79, 0.75);
+  border-color: rgba(255, 208, 0, 0.75);
   /* box-shadow: 0 20px 44px rgba(46, 93, 58, 0.16), 0 0 24px rgba(168, 217, 79, 0.14); */
 }
 
@@ -5616,9 +5616,10 @@ html[data-theme="dark"] .testimonial-image-col {
 .testimonial-nav-btn:hover,
 .testimonial-nav-btn:focus-visible {
   transform: translateY(-2px);
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: #C5A059;
+  border-color: #C5A059;
   color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.35);
   outline: none;
 }
 
@@ -5701,9 +5702,10 @@ html[data-theme="dark"] .testimonial-nav-btn {
 
 html[data-theme="dark"] .testimonial-nav-btn:hover,
 html[data-theme="dark"] .testimonial-nav-btn:focus-visible {
-  background: #A7C957;
-  border-color: #A7C957;
+  background: #C5A059;
+  border-color: #C5A059;
   color: #111A14;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.45);
 }
 
 html[data-theme="dark"] .testimonial-indicator {
@@ -6962,6 +6964,7 @@ html[data-theme="light"] .site-footer {
 
 /* ---- Mobile Footer Alignment ---- */
 @media (max-width: 767px) {
+
   /* Reduce top padding on mobile */
   .site-footer {
     padding-top: 2.5rem;

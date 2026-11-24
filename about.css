@@ -302,7 +302,7 @@
 }
 
 .about-hero-pill:hover {
-  background: #064522;
+  background: #ffd000;
   box-shadow: 0 10px 24px rgba(7, 85, 44, 0.32);
   transform: translateY(-2px);
 }
