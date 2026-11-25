@@ -1067,7 +1067,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .main-about-herosection {
     aspect-ratio: auto;
     min-height: clamp(300px, 88vw, 430px);
@@ -1082,6 +1082,11 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
   .about-video-hero-media-container {
     min-height: 0;
+  }
+
+  /* Remove the black gradient overlay on the left side in mobile view */
+  .about-video-hero-media-container::after {
+    display: none !important;
   }
 
   .about-video-hero-content {
