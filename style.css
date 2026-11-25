@@ -2165,8 +2165,10 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 .card-heading {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.35vw, 1.28rem);
-  font-weight: 600;
+  font-size: clamp(1.15rem, 1.35vw, 1.32rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
   color: #FFFFFF;
   line-height: 1.2;
   margin: 0;
@@ -2444,20 +2446,18 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   color: var(--primary-gold);
 }
 
-.modal-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.15;
-  margin-bottom: 0.4rem;
-}
-
+.modal-title,
 .work-detail-modal-backdrop.has-featured-story .modal-title {
-  font-size: clamp(0.72rem, 1.8vw, 1.25rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
   font-weight: 700;
   text-transform: uppercase;
-  white-space: nowrap;
+  letter-spacing: 0.025em;
+  color: var(--color-primary);
+  line-height: 1.28;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  white-space: normal;
 }
 
 .modal-tagline {
@@ -2501,10 +2501,12 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .modal-course-copy h3 {
-  color: var(--color-text);
-  font-size: 0.98rem;
-  font-weight: 700;
-  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.35rem 0;
 }
 
 .modal-course-copy p {
@@ -2575,9 +2577,9 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 
 .modal-sub-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-primary);
   line-height: 1.25;
   margin: 0 0 0.35rem;
 }
@@ -2599,18 +2601,20 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .modal-section-label {
   display: block;
   color: var(--text-muted);
-  font-size: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 0.55rem;
 }
 
 .modal-explore h3 {
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -2619,9 +2623,11 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .modal-featured-title {
-  color: var(--color-text);
+  color: var(--color-primary);
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
   margin: 0 0 0.85rem;
 }
 
@@ -2704,9 +2710,10 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .modal-more-discover h3 {
-  color: var(--color-text);
+  color: var(--color-primary);
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 600;
   margin: 0;
 }
 
@@ -2739,8 +2746,8 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 
 .modal-pillars-heading {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
-  color: var(--color-text);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -2774,9 +2781,10 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .modal-pillar-item h4 {
-  font-size: 0.9375rem;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -3058,17 +3066,14 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
     text-align: center;
   }
 
-  /* Centre the main modal title on mobile */
-  .modal-title {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  /* Featured-story variant: wrap and centre */
+  /* Centre the main modal title on mobile with unified heading style */
+  .modal-title,
   .work-detail-modal-backdrop.has-featured-story .modal-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     white-space: normal;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
   }
 
   /* Keep body paragraphs left-aligned for readability */
@@ -3120,6 +3125,8 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 
   .card-heading {
     font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.035em;
   }
 }
 

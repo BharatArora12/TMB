@@ -1290,7 +1290,6 @@ html[data-theme="dark"] .btn-outline-light:hover {
 }
 
 @media (max-width: 767px) {
-<<<<<<< HEAD
   /* 1. Mobile blog hero container - natural flow with zero black void below image */
   .blog-page-image-hero,
   .blog-editable-about-hero.blog-page-image-hero {
@@ -1367,35 +1366,9 @@ html[data-theme="dark"] .btn-outline-light:hover {
     margin: 0 !important;
     white-space: normal !important;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
-=======
-  .blog-page-image-hero::after {
-    background: linear-gradient(to right,
-        rgba(0, 0, 0, 0.96) 0%,
-        rgba(0, 0, 0, 0.96) 65%,
-        rgba(0, 0, 0, 0.88) 72%,
-        rgba(0, 0, 0, 0.70) 80%,
-        rgba(0, 0, 0, 0.45) 88%,
-        rgba(0, 0, 0, 0.22) 94%,
-        rgba(0, 0, 0, 0.10) 100%);
-  }
-
-  .blog-page-hero-content {
-    left: 1rem;
-    width: calc(100% - 2rem);
-    gap: 0.5rem;
-  }
-
-  .blog-page-hero-title {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
-    font-size: clamp(1.5rem, 6.5vw, 2.25rem);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
->>>>>>> 72cd62ceb423bc127266e4adc40b23cf2a6a0537
   }
 
   .blog-page-hero-cta-link {
-<<<<<<< HEAD
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1423,11 +1396,6 @@ html[data-theme="dark"] .btn-outline-light:hover {
   .blog-page-hero-cta-link:active {
     background: #064522 !important;
     transform: translateY(-1px) !important;
-=======
-    min-height: 40px;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.78rem;
->>>>>>> 72cd62ceb423bc127266e4adc40b23cf2a6a0537
   }
 
   .blog-editable-about-hero .about-hero-header {
