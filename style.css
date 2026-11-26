@@ -2700,47 +2700,39 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 .modal-more-discover {
-  display: grid;
-  justify-items: center;
-  gap: 0.45rem;
+  display: block;
   border-top: 1px solid var(--border-gold-subtle);
-  padding: 1.25rem 0 0.25rem;
+  padding: 1.25rem 0 0.5rem;
   text-align: center;
 }
 
-.modal-more-discover h3 {
-  color: var(--color-primary);
-  font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-  font-weight: 600;
+.modal-discover-line {
   margin: 0;
-}
-
-.modal-more-discover p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
   color: var(--text-muted);
-  font-size: 0.82rem;
-  margin: 0;
+  line-height: 1.6;
 }
 
-.modal-social-links {
-  display: flex;
-  gap: 0.5rem;
+.modal-discover-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
-.modal-social-links a {
-  border: 1px solid var(--color-border);
-  border-radius: 9999px;
-  color: var(--color-text);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease;
+.modal-discover-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
 }
 
-.modal-social-links a:hover {
-  background: var(--color-background-soft);
-  border-color: var(--color-primary);
+html[data-theme="dark"] .modal-discover-link {
+  color: var(--color-accent);
+}
+
+html[data-theme="dark"] .modal-discover-link:hover {
+  color: var(--primary-gold);
 }
 
 .modal-pillars-heading {

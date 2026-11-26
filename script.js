@@ -838,11 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </section>
           <section class="modal-more-discover" aria-label="Explore more">
-            <h3>There’s more to discover.</h3>
-            <p>Explore our stories, videos and conversations.</p>
-            <div class="modal-social-links">
-              <a href="https://linktr.ee/TowardsMyBharat_TMB" target="_blank" rel="noopener noreferrer">Visit our Social Media Platform</a>
-            </div>
+            <p class="modal-discover-line">On Towards my Bharat <a href="https://linktr.ee/TowardsMyBharat_TMB" target="_blank" rel="noopener noreferrer" class="modal-discover-link">visit our social media platform</a>.</p>
           </section>
         ` : `
           ${data.overview ? `<p class="modal-overview">${data.overview}</p>` : ''}
