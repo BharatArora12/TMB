@@ -1153,6 +1153,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   width: auto;
   max-width: min(35%, 26rem);
   flex-direction: column;
+  align-items: flex-start;
   align-items: center;
   text-align: center;
   gap: clamp(0.65rem, 1.2vw, 1rem);
@@ -1205,26 +1206,33 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 .blog-page-hero-cta-link {
   display: inline-flex;
+  min-height: clamp(38px, 2.4vw, 44px);
   min-height: clamp(32px, 1.9vw, 36px);
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
+  padding: clamp(0.45rem, 0.6vw, 0.6rem) clamp(0.85rem, 1vw, 1.15rem);
   align-self: center;
   margin-inline: auto;
   gap: 0.45rem;
   padding: clamp(0.35rem, 0.45vw, 0.48rem) clamp(0.75rem, 0.85vw, 0.95rem);
   border-radius: 9999px;
   background: #07552c;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   color: #fff;
   font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 0.88vw, 0.92rem);
   font-size: clamp(0.72rem, 0.8vw, 0.82rem);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .blog-page-hero-cta-link:hover {
+  background: #064522;
   background: #A7C957;
   color: #111A14;
   transform: translateY(-2px);
@@ -1232,10 +1240,12 @@ html[data-theme="dark"] .btn-outline-light:hover {
 }
 
 .blog-page-hero-cta-link .material-symbols-outlined {
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
   font-size: clamp(0.95rem, 1.1vw, 1.08rem);
 }
 
 .blog-page-hero-cta-link:focus-visible {
+  outline: 3px solid #07552c;
   outline: 3px solid #A7C957;
   outline-offset: 3px;
 }
@@ -1343,12 +1353,12 @@ html[data-theme="dark"] .btn-outline-light:hover {
     z-index: 2 !important;
     background: linear-gradient(to right,
         rgba(17, 16, 15, 0.88) 0%,
-        rgba(17, 16, 15, 0.65) 30%,
-        rgba(17, 16, 15, 0.28) 50%,
+        rgba(17, 16, 15, 0.73) 30%,
+        rgba(17, 16, 15, 0.35) 60%,
         transparent 70%),
       linear-gradient(to top,
         rgba(17, 16, 15, 0.60) 0%,
-        transparent 55%) !important;
+        transparent 50%) !important;
     content: "" !important;
     pointer-events: none !important;
   }
@@ -1366,6 +1376,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
     z-index: 3 !important;
     display: flex !important;
     flex-direction: column !important;
+    align-items: flex-start !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
@@ -1404,6 +1415,8 @@ html[data-theme="dark"] .btn-outline-light:hover {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 0.4rem !important;
+    padding: clamp(0.42rem, 1.5vw, 0.6rem) clamp(0.85rem, 2.5vw, 1.15rem) !important;
     align-self: center !important;
     margin-inline: auto !important;
     gap: 0.35rem !important;
@@ -1415,6 +1428,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
     color: #F7F4EF !important;
     font-family: 'Inter', sans-serif !important;
+    font-size: clamp(0.72rem, 2.2vw, 0.82rem) !important;
     font-size: clamp(0.68rem, 2vw, 0.76rem) !important;
     font-weight: 700 !important;
     letter-spacing: 0.03em !important;
@@ -1424,11 +1438,13 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 
   .blog-page-hero-cta-link .material-symbols-outlined {
+    font-size: clamp(0.95rem, 2.8vw, 1.1rem) !important;
     font-size: clamp(0.85rem, 2.4vw, 0.98rem) !important;
   }
 
   .blog-page-hero-cta-link:hover,
   .blog-page-hero-cta-link:active {
+    background: #064522 !important;
     background: #A7C957 !important;
     color: #111A14 !important;
     transform: translateY(-1px) !important;
