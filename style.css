@@ -2460,6 +2460,13 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   white-space: normal;
 }
 
+@media (min-width: 641px) {
+  .work-detail-modal-backdrop.has-featured-story .modal-title {
+    font-size: clamp(0.72rem, 1.6vw, 1.22rem);
+    white-space: nowrap;
+  }
+}
+
 .modal-tagline {
   font-size: 1rem;
   font-weight: 600;
