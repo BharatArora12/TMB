@@ -1153,7 +1153,8 @@ html[data-theme="dark"] .btn-outline-light:hover {
   width: auto;
   max-width: min(35%, 26rem);
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: clamp(0.65rem, 1.2vw, 1rem);
   transform: translateY(-50%);
 }
@@ -1169,6 +1170,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   line-height: 1.1;
   text-shadow: none;
   white-space: nowrap;
+  text-align: center;
 }
 
 .blog-editable-about-hero.blog-page-image-hero .about-hero-header {
@@ -1190,34 +1192,37 @@ html[data-theme="dark"] .btn-outline-light:hover {
 
 .blog-page-hero-cta-link {
   display: inline-flex;
-  min-height: clamp(38px, 2.4vw, 44px);
+  min-height: clamp(32px, 1.9vw, 36px);
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  padding: clamp(0.45rem, 0.6vw, 0.6rem) clamp(0.85rem, 1vw, 1.15rem);
+  align-self: center;
+  gap: 0.45rem;
+  padding: clamp(0.35rem, 0.45vw, 0.48rem) clamp(0.75rem, 0.85vw, 0.95rem);
   border-radius: 9999px;
   background: #07552c;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   color: #fff;
   font-family: var(--font-sans);
-  font-size: clamp(0.78rem, 0.88vw, 0.92rem);
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .blog-page-hero-cta-link:hover {
-  background: #064522;
+  background: #A7C957;
+  color: #111A14;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(167, 201, 87, 0.35);
 }
 
 .blog-page-hero-cta-link .material-symbols-outlined {
-  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
 }
 
 .blog-page-hero-cta-link:focus-visible {
-  outline: 3px solid #07552c;
+  outline: 3px solid #A7C957;
   outline-offset: 3px;
 }
 
@@ -1350,8 +1355,9 @@ html[data-theme="dark"] .btn-outline-light:hover {
     z-index: 3 !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: center !important;
+    text-align: center !important;
     gap: clamp(0.4rem, 1.8vw, 0.75rem) !important;
     box-sizing: border-box !important;
   }
@@ -1367,6 +1373,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
     color: #F7F3ED !important;
     margin: 0 !important;
     white-space: normal !important;
+    text-align: center !important;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
   }
 
@@ -1374,15 +1381,17 @@ html[data-theme="dark"] .btn-outline-light:hover {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.4rem !important;
-    padding: clamp(0.42rem, 1.5vw, 0.6rem) clamp(0.85rem, 2.5vw, 1.15rem) !important;
+    align-self: center !important;
+    gap: 0.35rem !important;
+    min-height: 30px !important;
+    padding: clamp(0.3rem, 1.2vw, 0.42rem) clamp(0.65rem, 2vw, 0.85rem) !important;
     border-radius: 9999px !important;
     background: #07552c !important;
     border: 1px solid rgba(247, 244, 239, 0.25) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
     color: #F7F4EF !important;
     font-family: 'Inter', sans-serif !important;
-    font-size: clamp(0.72rem, 2.2vw, 0.82rem) !important;
+    font-size: clamp(0.68rem, 2vw, 0.76rem) !important;
     font-weight: 700 !important;
     letter-spacing: 0.03em !important;
     text-decoration: none !important;
@@ -1391,12 +1400,13 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 
   .blog-page-hero-cta-link .material-symbols-outlined {
-    font-size: clamp(0.95rem, 2.8vw, 1.1rem) !important;
+    font-size: clamp(0.85rem, 2.4vw, 0.98rem) !important;
   }
 
   .blog-page-hero-cta-link:hover,
   .blog-page-hero-cta-link:active {
-    background: #064522 !important;
+    background: #A7C957 !important;
+    color: #111A14 !important;
     transform: translateY(-1px) !important;
   }
 
