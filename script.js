@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       index: '02',
-      tag: 'Online Courses',
+      tag: 'Description',
       title: 'Online Courses',
       tagline: 'Learning beyond textbooks. Growing beyond classrooms.',
       descriptionSections: [
