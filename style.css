@@ -1213,16 +1213,30 @@ html[data-theme="dark"] .hero-vignette-linear {
     overflow: hidden !important;
   }
 
-  /* 2. Full-bleed background slideshow */
+  /* 2. Focused upper-viewport background slideshow for mobile framing */
   .hero-slideshow {
     position: absolute !important;
-    inset: 0 !important;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: clamp(300px, 48svh, 380px) !important;
     z-index: 0 !important;
   }
+
+  .hero-slide {
+    background-size: cover !important;
+    background-position: center 15% !important;
+  }
+
+  .hero-slideshow .hero-slide:nth-child(1) { background-position: center 20% !important; }
+  .hero-slideshow .hero-slide:nth-child(2) { background-position: center 25% !important; }
+  .hero-slideshow .hero-slide:nth-child(3) { background-position: 38% 15% !important; }
+  .hero-slideshow .hero-slide:nth-child(4) { background-position: center 15% !important; }
+  .hero-slideshow .hero-slide:nth-child(5) { background-position: 25% 25% !important; }
+  .hero-slideshow .hero-slide:nth-child(6) { background-position: center 15% !important; }
+  .hero-slideshow .hero-slide:nth-child(7) { background-position: center 20% !important; }
+  .hero-slideshow .hero-slide:nth-child(8) { background-position: center 20% !important; }
 
   /* 3. Cinema-grade vertical vignette: clear photo at top, smooth fade to solid dark ground */
   .hero-vignette-linear,
@@ -1233,14 +1247,14 @@ html[data-theme="dark"] .hero-vignette-linear {
     z-index: 5 !important;
     background: linear-gradient(
       to bottom,
-      rgba(17, 16, 15, 0.72) 0%,
-      rgba(17, 16, 15, 0.22) 12%,
-      transparent 22%,
-      transparent 38%,
-      rgba(17, 16, 15, 0.40) 48%,
-      rgba(17, 16, 15, 0.78) 60%,
-      rgba(17, 16, 15, 0.96) 72%,
-      #11100F 84%,
+      rgba(17, 16, 15, 0.40) 0%,
+      rgba(17, 16, 15, 0.10) 10%,
+      transparent 18%,
+      transparent 32%,
+      rgba(17, 16, 15, 0.35) 42%,
+      rgba(17, 16, 15, 0.75) 50%,
+      rgba(17, 16, 15, 0.96) 58%,
+      #11100F 66%,
       #11100F 100%
     ) !important;
     pointer-events: none !important;

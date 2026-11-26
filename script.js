@@ -1509,15 +1509,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSlide = 0;
 
   if (slides.length > 0) {
+    const applySlidePosition = (slide) => {
+      const isMobile = window.innerWidth <= 767;
+      if (isMobile && slide.dataset.mobilePosition) {
+        slide.style.backgroundPosition = slide.dataset.mobilePosition;
+      } else {
+        slide.style.backgroundPosition = slide.dataset.position || 'center';
+      }
+    };
+
     // Initialize base styles on all slides
     slides.forEach((slide, idx) => {
       slide.style.position = 'absolute';
       slide.style.inset = '0';
       slide.style.backgroundSize = 'cover';
-      slide.style.backgroundPosition = slide.dataset.position || 'center';
+      applySlidePosition(slide);
       slide.style.transition = 'opacity 1.2s ease-in-out';
       slide.style.opacity = idx === 0 ? '1' : '0';
       slide.style.zIndex = idx === 0 ? '2' : '1';
+    });
+
+    window.addEventListener('resize', () => {
+      slides.forEach(applySlidePosition);
     });
 
     setInterval(() => {
