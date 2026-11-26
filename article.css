@@ -175,8 +175,8 @@
 
 .article-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.35rem, 5vw, 3.85rem);
-  line-height: 1.05;
+  font-size: clamp(1.85rem, 3.8vw, 2.95rem);
+  line-height: 1.1;
   color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 1.25rem;
