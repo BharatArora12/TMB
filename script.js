@@ -607,7 +607,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tag: 'Description',
       title: 'Online Courses',
       tagline: 'Learning beyond textbooks. Growing beyond classrooms.',
-      overview: 'We serve completely new & fresh dimensions in our courses & curricula.',
       descriptionSections: [
         {
           title: 'Why are we so confident?',
