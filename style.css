@@ -869,19 +869,6 @@ html[data-theme="dark"] .hero-vignette-linear {
 }
 
 
-/* Bold Brand Acronym above Towards My Bharat */
-.hero-brand-tmb {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(2rem, 3.2vw, 3.4rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #F7F3ED !important;
-  margin-left: clamp(0.35rem, 0.6vw, 0.65rem);
-  margin-bottom: 0.35rem;
-  animation: heroEditorialFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 /* Minimalist Editorial Subbrand */
 .hero-subbrand {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -890,7 +877,7 @@ html[data-theme="dark"] .hero-vignette-linear {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #C8C5C1 !important;
-  line-height: 1.25;
+  line-height: 2.6;
   margin-left: clamp(0.35rem, 0.6vw, 0.65rem);
   margin-bottom: clamp(1.15rem, 1.8vh, 1.6rem);
   animation: heroEditorialFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -982,7 +969,6 @@ html[data-theme="dark"] .hero-vignette-linear {
 
 @media (prefers-reduced-motion: reduce) {
 
-  .hero-brand-tmb,
   .hero-subbrand,
   .hero-headline-line,
   .hero-editorial-desc,
@@ -1277,13 +1263,6 @@ html[data-theme="dark"] .hero-vignette-linear {
   }
 
   /* 5. Minimalist, tracked-out brand kicker */
-  .hero-brand-tmb {
-    font-size: clamp(1.5rem, 6vw, 2rem) !important;
-    margin-left: 0 !important;
-    margin-bottom: 0.2rem !important;
-    line-height: 1 !important;
-  }
-
   .hero-subbrand {
     font-size: 0.75rem !important;
     font-weight: 700 !important;

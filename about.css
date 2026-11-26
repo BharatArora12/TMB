@@ -1159,6 +1159,18 @@ html[data-theme="dark"] .btn-outline-light:hover {
   transform: translateY(-50%);
 }
 
+.blog-page-hero-tmb {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #F7F3ED;
+  margin: 0 0 0.2rem 0;
+  text-align: center;
+  align-self: center;
+}
+
 .blog-page-hero-title {
   margin: 0;
   color: #F7F3ED;
@@ -1363,6 +1375,17 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 
   /* 5. Bold high-impact editorial headline matching slider style */
+  .blog-page-hero-tmb {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.04em !important;
+    color: #F7F3ED !important;
+    margin: 0 0 0.15rem 0 !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+
   .blog-page-hero-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
     font-size: clamp(1rem, 4.2vw, 1.45rem) !important;
