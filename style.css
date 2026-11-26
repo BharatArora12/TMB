@@ -2446,7 +2446,19 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   color: var(--primary-gold);
 }
 
-.modal-title,
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+  text-align: left;
+  white-space: normal;
+}
+
 .work-detail-modal-backdrop.has-featured-story .modal-title {
   font-family: var(--font-serif);
   font-size: clamp(0.82rem, 1.15vw, 1.02rem);
@@ -2461,7 +2473,6 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 @media (min-width: 641px) {
-  .modal-title,
   .work-detail-modal-backdrop.has-featured-story .modal-title {
     font-size: clamp(0.82rem, 1.15vw, 1.02rem);
     white-space: nowrap;
@@ -2471,7 +2482,7 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 .modal-tagline {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-gold);
+  color: var(--color-primary);
   margin-bottom: 1.25rem;
 }
 
