@@ -1162,7 +1162,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
 .blog-page-hero-tmb {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  font-size: clamp(4rem, 5.2vw, 5.4rem);
   line-height: 1;
   letter-spacing: -0.04em;
   color: #F7F3ED;
@@ -1175,7 +1175,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   margin: 0;
   color: #F7F3ED;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
-  font-size: clamp(1.35rem, 1.75vw, 2.1rem);
+  font-size: clamp(0.9rem, 1.4vw, 1.8rem);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1183,6 +1183,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   text-shadow: none;
   white-space: nowrap;
   text-align: center;
+  align-self: center;
 }
 
 .blog-editable-about-hero.blog-page-image-hero .about-hero-header {
@@ -1208,6 +1209,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   align-items: center;
   justify-content: center;
   align-self: center;
+  margin-inline: auto;
   gap: 0.45rem;
   padding: clamp(0.35rem, 0.45vw, 0.48rem) clamp(0.75rem, 0.85vw, 0.95rem);
   border-radius: 9999px;
@@ -1308,6 +1310,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
 }
 
 @media (max-width: 767px) {
+
   /* 1. Mobile blog hero container - natural flow with zero black void below image */
   .blog-page-image-hero,
   .blog-editable-about-hero.blog-page-image-hero {
@@ -1338,18 +1341,14 @@ html[data-theme="dark"] .btn-outline-light:hover {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: linear-gradient(
-      to right,
-      rgba(17, 16, 15, 0.88) 0%,
-      rgba(17, 16, 15, 0.65) 24%,
-      rgba(17, 16, 15, 0.28) 48%,
-      transparent 70%
-    ),
-    linear-gradient(
-      to top,
-      rgba(17, 16, 15, 0.60) 0%,
-      transparent 55%
-    ) !important;
+    background: linear-gradient(to right,
+        rgba(17, 16, 15, 0.88) 0%,
+        rgba(17, 16, 15, 0.65) 30%,
+        rgba(17, 16, 15, 0.28) 50%,
+        transparent 70%),
+      linear-gradient(to top,
+        rgba(17, 16, 15, 0.60) 0%,
+        transparent 55%) !important;
     content: "" !important;
     pointer-events: none !important;
   }
@@ -1397,6 +1396,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
     margin: 0 !important;
     white-space: normal !important;
     text-align: center !important;
+    align-self: center !important;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
   }
 
@@ -1405,6 +1405,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
     align-items: center !important;
     justify-content: center !important;
     align-self: center !important;
+    margin-inline: auto !important;
     gap: 0.35rem !important;
     min-height: 30px !important;
     padding: clamp(0.3rem, 1.2vw, 0.42rem) clamp(0.65rem, 2vw, 0.85rem) !important;
