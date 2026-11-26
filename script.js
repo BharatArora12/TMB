@@ -573,8 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       index: '01',
       tag: 'Digital Media & Storytelling',
-      title: 'Breaking The Shackles Of Mental Colonialism Through Digital Storytelling.',
-      tagline: '',
+      title: 'Social Media Videos',
+      tagline: 'Breaking The Shackles Of Mental Colonialism Through Digital Storytelling.',
       storyParagraphs: [
         'We create engaging short-form videos exploring Bharat’s untold history, cultural traditions, ancient wisdom, spirituality, and current affairs. Through stories, facts, and thought-provoking questions, we help today’s generation rediscover its roots, question what they know, and understand the why behind it.',
         'Our mission is simple: bridge the gap between modern India and its ancient knowledge, one story at a time, nurturing an Army of Proud Bharatiyas.'

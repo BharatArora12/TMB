@@ -2459,26 +2459,6 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
   white-space: normal;
 }
 
-.work-detail-modal-backdrop.has-featured-story .modal-title {
-  font-family: var(--font-serif);
-  font-size: clamp(0.82rem, 1.15vw, 1.02rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  color: var(--color-primary);
-  line-height: 1.28;
-  margin-bottom: 0.75rem;
-  text-align: left;
-  white-space: normal;
-}
-
-@media (min-width: 641px) {
-  .work-detail-modal-backdrop.has-featured-story .modal-title {
-    font-size: clamp(0.82rem, 1.15vw, 1.02rem);
-    white-space: nowrap;
-  }
-}
-
 .modal-tagline {
   font-size: 1rem;
   font-weight: 600;
