@@ -2167,8 +2167,8 @@ html[data-theme="dark"] .hero-vignette-linear {
   font-family: var(--font-serif);
   font-size: clamp(1.15rem, 1.35vw, 1.32rem);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.035em;
+  text-transform: none;
+  letter-spacing: 0.015em;
   color: #FFFFFF;
   line-height: 1.2;
   margin: 0;
@@ -3125,8 +3125,8 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 
   .card-heading {
     font-size: 1.15rem;
-    text-transform: uppercase;
-    letter-spacing: 0.035em;
+    text-transform: none;
+    letter-spacing: 0.015em;
   }
 }
 
