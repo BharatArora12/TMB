@@ -1162,10 +1162,11 @@ html[data-theme="dark"] .btn-outline-light:hover {
   margin: 0;
   color: #F7F3ED;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif;
-  font-size: clamp(1.8rem, 2.3vw, 2.85rem);
+  font-size: clamp(1.35rem, 1.75vw, 2.1rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.1;
   text-shadow: none;
   white-space: nowrap;
 }
@@ -1358,10 +1359,11 @@ html[data-theme="dark"] .btn-outline-light:hover {
   /* 5. Bold high-impact editorial headline matching slider style */
   .blog-page-hero-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
-    font-size: clamp(1.25rem, 5.2vw, 1.85rem) !important;
+    font-size: clamp(1rem, 4.2vw, 1.45rem) !important;
     font-weight: 800 !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.035em !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
     color: #F7F3ED !important;
     margin: 0 !important;
     white-space: normal !important;
