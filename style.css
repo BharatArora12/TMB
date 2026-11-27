@@ -1207,13 +1207,13 @@ html[data-theme="dark"] .hero-vignette-linear {
     flex-direction: column !important;
     justify-content: flex-end !important;
     align-items: flex-start !important;
-    padding: 0 0 2.25rem 0 !important;
+    padding: 0 0 2rem 0 !important;
     position: relative !important;
     background-color: #11100F !important;
     overflow: hidden !important;
   }
 
-  /* 2. Full-bleed background slideshow */
+  /* 2. Full-bleed background slideshow with high-clarity subject framing */
   .hero-slideshow {
     position: absolute !important;
     inset: 0 !important;
@@ -1224,7 +1224,21 @@ html[data-theme="dark"] .hero-vignette-linear {
     z-index: 0 !important;
   }
 
-  /* 3. Cinema-grade vertical vignette: clear photo at top, smooth fade to solid dark ground */
+  .hero-slide {
+    background-position: center 18% !important;
+    filter: grayscale(25%) contrast(1.08) brightness(1.02) !important;
+  }
+
+  .hero-slide:nth-child(3) {
+    background-position: 32% 18% !important;
+  }
+
+  .hero-slide:nth-child(7),
+  .hero-slide:nth-child(8) {
+    background-position: center 28% !important;
+  }
+
+  /* 3. Reference-matched vertical vignette: crystal-clear photo in upper viewport, buttery fade into solid dark ground */
   .hero-vignette-linear,
   html[data-theme="light"] .hero-vignette-linear,
   html[data-theme="dark"] .hero-vignette-linear {
@@ -1233,26 +1247,26 @@ html[data-theme="dark"] .hero-vignette-linear {
     z-index: 5 !important;
     background: linear-gradient(
       to bottom,
-      rgba(17, 16, 15, 0.72) 0%,
-      rgba(17, 16, 15, 0.22) 12%,
-      transparent 22%,
-      transparent 38%,
-      rgba(17, 16, 15, 0.40) 48%,
-      rgba(17, 16, 15, 0.78) 60%,
-      rgba(17, 16, 15, 0.96) 72%,
-      #11100F 84%,
+      rgba(17, 16, 15, 0.32) 0%,
+      rgba(17, 16, 15, 0.10) 8%,
+      transparent 15%,
+      transparent 36%,
+      rgba(17, 16, 15, 0.38) 46%,
+      rgba(17, 16, 15, 0.78) 56%,
+      rgba(17, 16, 15, 0.96) 66%,
+      #11100F 74%,
       #11100F 100%
     ) !important;
     pointer-events: none !important;
   }
 
-  /* 4. Bottom-anchored content container */
+  /* 4. Bottom-anchored content container matching reference layout */
   .hero-section .container.hero-content,
   .hero-content {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 1.25rem !important;
+    padding: 0 clamp(1.15rem, 5vw, 1.65rem) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -1264,34 +1278,34 @@ html[data-theme="dark"] .hero-vignette-linear {
 
   /* 5. Minimalist, tracked-out brand kicker */
   .hero-subbrand {
-    font-size: 0.75rem !important;
+    font-size: 0.72rem !important;
     font-weight: 700 !important;
     letter-spacing: 0.16em !important;
     text-transform: uppercase !important;
-    color: rgba(247, 244, 239, 0.7) !important;
+    color: rgba(247, 244, 239, 0.72) !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.5rem 0 !important;
+    margin: 0 0 0.45rem 0 !important;
   }
 
-  /* 6. Bold high-impact editorial headline matching screenshot typography */
+  /* 6. Bold high-impact editorial headline matching reference typography */
   .hero-title,
   .hero-editorial-headline {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Manrope', sans-serif !important;
-    font-size: clamp(2.2rem, 8.4vw, 3.2rem) !important;
+    font-size: clamp(1.95rem, 7.5vw, 2.65rem) !important;
     font-weight: 800 !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.035em !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.03em !important;
     color: #F7F3ED !important;
     margin: 0 0 0.85rem 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.04em !important;
+    gap: 0.03em !important;
     text-align: left !important;
   }
 
   .hero-headline-line {
-    line-height: 1.02 !important;
-    letter-spacing: -0.035em !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.03em !important;
     white-space: normal !important;
   }
 
@@ -1299,29 +1313,29 @@ html[data-theme="dark"] .hero-vignette-linear {
     font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif !important;
     font-style: italic !important;
     font-weight: 400 !important;
-    font-size: 1.1em !important;
+    font-size: 1.08em !important;
     line-height: 0.98 !important;
     letter-spacing: -0.01em !important;
   }
 
-  /* 7. Supporting description text matching screenshot style */
+  /* 7. Supporting description text */
   .hero-editorial-desc {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    font-size: clamp(0.92rem, 3.8vw, 1.05rem) !important;
+    font-size: clamp(0.88rem, 3.6vw, 1rem) !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: rgba(247, 244, 239, 0.78) !important;
     max-width: 440px !important;
-    margin: 0 0 1.35rem 0 !important;
+    margin: 0 0 1.15rem 0 !important;
   }
 
-  /* 8. Circular outline social media icons in horizontal row */
+  /* 8. Circular outline social media icons in horizontal row matching reference */
   .hero-actions-row {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 0.85rem !important;
+    gap: 0.75rem !important;
     margin-top: 0.15rem !important;
   }
 
@@ -1330,17 +1344,17 @@ html[data-theme="dark"] .hero-vignette-linear {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    gap: 0.75rem !important;
+    gap: 0.65rem !important;
     width: 100% !important;
     margin: 0 !important;
   }
 
   .hero-social-links .social-btn {
-    width: 2.65rem !important;
-    height: 2.65rem !important;
-    flex: 0 0 2.65rem !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    flex: 0 0 2.5rem !important;
     border-radius: 50% !important;
-    border: 1px solid rgba(247, 244, 239, 0.3) !important;
+    border: 1px solid rgba(247, 244, 239, 0.32) !important;
     background: transparent !important;
     color: #F7F4EF !important;
     display: inline-flex !important;
@@ -1350,15 +1364,15 @@ html[data-theme="dark"] .hero-vignette-linear {
   }
 
   .hero-social-links .social-btn svg {
-    width: 1.15rem !important;
-    height: 1.15rem !important;
+    width: 1.05rem !important;
+    height: 1.05rem !important;
     fill: currentColor !important;
   }
 
   .hero-social-links .social-btn:hover,
   .hero-social-links .social-btn:active {
     border-color: #F7F4EF !important;
-    background: rgba(247, 244, 239, 0.12) !important;
+    background: rgba(247, 244, 239, 0.14) !important;
     color: #FFFFFF !important;
     transform: translateY(-1px) !important;
   }
@@ -1368,18 +1382,29 @@ html[data-theme="dark"] .hero-vignette-linear {
   .hero-actions {
     display: flex !important;
     align-items: center !important;
-    gap: 0.55rem !important;
+    gap: 0.5rem !important;
     flex-wrap: wrap !important;
-    margin-top: 0.25rem !important;
+    margin-top: 0.15rem !important;
   }
 
   .hero-credential {
-    padding: 0.42rem 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
     font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
     border-radius: 999px !important;
-    background: rgba(247, 244, 239, 0.08) !important;
-    border: 1px solid rgba(247, 244, 239, 0.2) !important;
+    background: rgba(247, 244, 239, 0.06) !important;
+    border: 1px solid rgba(247, 244, 239, 0.22) !important;
     color: #F7F4EF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+  }
+
+  .hero-credential .material-symbols-outlined {
+    color: #A7C957 !important;
+    font-size: 0.85rem !important;
   }
 }
 
