@@ -1239,7 +1239,7 @@ html[data-theme="dark"] .hero-vignette-linear {
     background-position: center 28% !important;
   }
 
-  /* 3. Light black gradient overlay on mobile photo, smooth fade to solid dark ground */
+  /* 3. Clearly visible black gradient overlay on mobile photo matching PC preview, smooth fade into solid dark ground */
   .hero-vignette-linear,
   html[data-theme="light"] .hero-vignette-linear,
   html[data-theme="dark"] .hero-vignette-linear {
@@ -1248,13 +1248,12 @@ html[data-theme="dark"] .hero-vignette-linear {
     z-index: 5 !important;
     background: linear-gradient(
       to bottom,
-      rgba(17, 16, 15, 0.50) 0%,
-      rgba(17, 16, 15, 0.20) 15%,
-      rgba(17, 16, 15, 0.18) 35%,
-      rgba(17, 16, 15, 0.45) 48%,
-      rgba(17, 16, 15, 0.82) 62%,
-      rgba(17, 16, 15, 0.98) 74%,
-      #11100F 82%,
+      rgba(17, 16, 15, 0.78) 0%,
+      rgba(17, 16, 15, 0.55) 16%,
+      rgba(17, 16, 15, 0.48) 34%,
+      rgba(17, 16, 15, 0.72) 50%,
+      rgba(17, 16, 15, 0.94) 66%,
+      #11100F 80%,
       #11100F 100%
     ) !important;
     pointer-events: none !important;
