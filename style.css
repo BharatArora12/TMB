@@ -2346,22 +2346,139 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
 }
 
 @media (max-width: 768px) {
+  .work-slider-tabs-container {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    display: flex;
+    justify-content: center;
+    padding: 0.35rem 0.5rem 0.6rem;
+  }
+
   .work-slider-tabs {
-    gap: 0.35rem;
-    padding: 0.2rem 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.2rem 0.4rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
+  /* Inactive state: shrink down into small pagination dots so all five stay on screen */
   .work-slider-tab {
-    padding: 0.38rem 0.8rem;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    max-width: 8px;
+    min-height: 8px;
+    max-height: 8px;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    border-radius: 50%;
+    background: rgba(37, 79, 54, 0.35);
+    border: none;
+    box-shadow: none;
+    transform: none;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    transition: width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                border-radius 0.32s ease;
+  }
+
+  /* Accessible touch tap target on mobile */
+  .work-slider-tab::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Inactive dots: hide numbers and text labels completely */
+  .work-slider-tab:not(.is-active) .tab-num,
+  .work-slider-tab:not(.is-active) .tab-label {
+    display: none !important;
+  }
+
+  /* Prevent hover state from prematurely expanding inactive dots on touch/mouse */
+  .work-slider-tab:not(.is-active):hover {
+    background: rgba(37, 79, 54, 0.55);
+    border: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  /* Active state: expand into full capsule pill displaying card number and heading name */
+  .work-slider-tab.is-active {
+    width: auto;
+    height: auto;
+    min-width: unset;
+    max-width: calc(100vw - 90px);
+    min-height: unset;
+    max-height: unset;
+    padding: 0.34rem 0.88rem;
+    gap: 0.42rem;
     border-radius: 9999px;
+    background: #254F36;
+    border: 1px solid #254F36;
+    box-shadow: 0 4px 14px rgba(37, 79, 54, 0.28);
+    transform: translateY(0);
+    white-space: nowrap;
   }
 
-  .work-slider-tab .tab-num {
-    font-size: 0.82rem;
+  .work-slider-tab.is-active .tab-num {
+    display: inline-block !important;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #A8D94F !important;
+    line-height: 1;
   }
 
-  .work-slider-tab .tab-label {
+  .work-slider-tab.is-active .tab-label {
+    display: inline-block !important;
     font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  /* Dark mode overrides for mobile */
+  html[data-theme="dark"] .work-slider-tab:not(.is-active) {
+    background: rgba(221, 235, 214, 0.35);
+    border: none;
+    box-shadow: none;
+  }
+
+  html[data-theme="dark"] .work-slider-tab:not(.is-active):hover {
+    background: rgba(221, 235, 214, 0.55);
+    border: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  html[data-theme="dark"] .work-slider-tab.is-active {
+    background: #254F36;
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px rgba(168, 217, 79, 0.22);
+  }
+
+  html[data-theme="dark"] .work-slider-tab.is-active .tab-num {
+    color: var(--color-accent) !important;
+  }
+
+  html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
+    color: #FFFFFF !important;
   }
 }
 
