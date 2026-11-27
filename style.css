@@ -1197,6 +1197,7 @@ html[data-theme="dark"] .hero-vignette-linear {
    MOBILE HERO SECTION FORMAT (Matches Editorial Creator Reference)
    ========================================================================== */
 @media (max-width: 767px) {
+
   /* 1. Full-viewport bottom-aligned hero container */
   .hero-section,
   html[data-theme="light"] .hero-section,
@@ -1226,7 +1227,7 @@ html[data-theme="dark"] .hero-vignette-linear {
 
   .hero-slide {
     background-position: center 18% !important;
-    filter: grayscale(25%) contrast(1.08) brightness(1.02) !important;
+    filter: none !important;
   }
 
   .hero-slide:nth-child(3) {
@@ -1238,7 +1239,7 @@ html[data-theme="dark"] .hero-vignette-linear {
     background-position: center 28% !important;
   }
 
-  /* 3. Reference-matched vertical vignette: soft light black gradient shade over photo, smooth fade into solid dark ground */
+  /* 3. Light black gradient overlay on mobile photo, smooth fade to solid dark ground */
   .hero-vignette-linear,
   html[data-theme="light"] .hero-vignette-linear,
   html[data-theme="dark"] .hero-vignette-linear {
@@ -1247,13 +1248,13 @@ html[data-theme="dark"] .hero-vignette-linear {
     z-index: 5 !important;
     background: linear-gradient(
       to bottom,
-      rgba(17, 16, 15, 0.70) 0%,
-      rgba(17, 16, 15, 0.35) 15%,
-      rgba(17, 16, 15, 0.28) 35%,
-      rgba(17, 16, 15, 0.55) 48%,
-      rgba(17, 16, 15, 0.85) 60%,
-      rgba(17, 16, 15, 0.98) 72%,
-      #11100F 80%,
+      rgba(17, 16, 15, 0.50) 0%,
+      rgba(17, 16, 15, 0.20) 15%,
+      rgba(17, 16, 15, 0.18) 35%,
+      rgba(17, 16, 15, 0.45) 48%,
+      rgba(17, 16, 15, 0.82) 62%,
+      rgba(17, 16, 15, 0.98) 74%,
+      #11100F 82%,
       #11100F 100%
     ) !important;
     pointer-events: none !important;
