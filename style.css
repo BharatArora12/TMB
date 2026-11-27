@@ -1230,12 +1230,39 @@ html[data-theme="dark"] .hero-vignette-linear {
     filter: none !important;
   }
 
+  /* Mobile-specific hero slide images (copy version) */
+  .hero-slide:nth-child(1) {
+    background-image: url('photos/home-slider-01 copy.jpg') !important;
+  }
+
+  .hero-slide:nth-child(2) {
+    background-image: url('photos/home-slider-02 copy.jpg') !important;
+  }
+
   .hero-slide:nth-child(3) {
+    background-image: url('photos/home-slider-03 copy.jpg') !important;
     background-position: 32% 18% !important;
   }
 
-  .hero-slide:nth-child(7),
+  .hero-slide:nth-child(4) {
+    background-image: url('photos/home-slider-04 copy.jpg') !important;
+  }
+
+  .hero-slide:nth-child(5) {
+    background-image: url('photos/home-slider-05 copy.jpg') !important;
+  }
+
+  .hero-slide:nth-child(6) {
+    background-image: url('photos/home-slider-06 copy.jpg') !important;
+  }
+
+  .hero-slide:nth-child(7) {
+    background-image: url('photos/home-slider-09 copy.jpg') !important;
+    background-position: center 28% !important;
+  }
+
   .hero-slide:nth-child(8) {
+    background-image: url('photos/home-slider-10 copy.jpg') !important;
     background-position: center 28% !important;
   }
 
@@ -1246,16 +1273,14 @@ html[data-theme="dark"] .hero-vignette-linear {
     position: absolute !important;
     inset: 0 !important;
     z-index: 5 !important;
-    background: linear-gradient(
-      to bottom,
-      rgba(17, 16, 15, 0.78) 0%,
-      rgba(17, 16, 15, 0.55) 16%,
-      rgba(17, 16, 15, 0.48) 34%,
-      rgba(17, 16, 15, 0.72) 50%,
-      rgba(17, 16, 15, 0.94) 66%,
-      #11100F 80%,
-      #11100F 100%
-    ) !important;
+    background: linear-gradient(to bottom,
+        rgba(17, 16, 15, 0.78) 0%,
+        rgba(17, 16, 15, 0.55) 16%,
+        rgba(17, 16, 15, 0.48) 34%,
+        rgba(17, 16, 15, 0.72) 50%,
+        rgba(17, 16, 15, 0.94) 66%,
+        #11100F 80%,
+        #11100F 100%) !important;
     pointer-events: none !important;
   }
 
@@ -2395,10 +2420,10 @@ html[data-theme="dark"] .work-slider-tab.is-active .tab-label {
     position: relative;
     cursor: pointer;
     transition: width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                padding 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.25s ease,
-                box-shadow 0.25s ease,
-                border-radius 0.32s ease;
+      padding 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.25s ease,
+      box-shadow 0.25s ease,
+      border-radius 0.32s ease;
   }
 
   /* Accessible touch tap target on mobile */
