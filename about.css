@@ -1074,14 +1074,21 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 
   .about-video-hero {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     aspect-ratio: auto;
-    min-height: clamp(480px, 130vw, 620px);
+    min-height: auto;
   }
 
   .about-video-hero-media-container {
-    min-height: 0;
+    order: 1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: clamp(210px, 56.25vw, 360px);
+  }
+
+  .about-video-hero-media {
+    object-fit: cover;
   }
 
   /* Remove the black gradient overlay on the left side in mobile view */
@@ -1090,6 +1097,7 @@ html[data-theme="dark"] .btn-outline-light:hover {
   }
 
   .about-video-hero-content {
+    order: 2;
     gap: 0.75rem;
     padding: 1.5rem;
   }
