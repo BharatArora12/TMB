@@ -998,9 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
       workDetailModal.classList.remove('is-open');
       workDetailModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (!isMouseInsideSection) {
-        startAutoplay();
-      }
+      startAutoplay();
     };
 
     // Modal close button in header
@@ -1197,7 +1195,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper function to smoothly bring any slide/box to the center front
     const bringCardToFront = (targetIdx) => {
-      stopAutoplay();
       const normalizedTarget = ((targetIdx % totalCards) + totalCards) % totalCards;
       if (normalizedTarget === currentIndex) return;
 
@@ -1206,6 +1203,7 @@ document.addEventListener('DOMContentLoaded', () => {
       while (diff < -totalCards / 2) diff += totalCards;
       slideDirection = diff >= 0 ? 1 : -1;
       updateSlider(normalizedTarget);
+      startAutoplay();
     };
 
     // -------------------------------------------------------------------------
@@ -1231,13 +1229,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // -----------------------------------------------------------------------
       card.addEventListener('click', (e) => {
         e.preventDefault();
-        stopAutoplay();
         if (idx !== currentIndex) {
           // Side card clicked — bring it to center, no modal yet
           hoverCooldownUntil = Date.now() + HOVER_COOLDOWN_MS;
           bringCardToFront(idx);
         } else {
           // Already the active center card — open the details modal
+          stopAutoplay();
           openDetailModal(idx);
         }
       });
@@ -1326,7 +1324,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach((tab) => {
       tab.addEventListener('click', (e) => {
         e.stopPropagation();
-        stopAutoplay();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx)) {
           bringCardToFront(targetIdx);
@@ -1335,7 +1332,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tab.addEventListener('pointerenter', (event) => {
         if (event.pointerType === 'touch') return;
-        stopAutoplay();
         const targetIdx = parseInt(tab.getAttribute('data-index'), 10);
         if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
           bringCardToFront(targetIdx);
@@ -1347,18 +1343,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        stopAutoplay();
         slideDirection = -1;
         updateSlider(currentIndex - 1);
+        startAutoplay();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        stopAutoplay();
         slideDirection = 1;
         updateSlider(currentIndex + 1);
+        startAutoplay();
       });
     }
 
@@ -1366,14 +1362,14 @@ document.addEventListener('DOMContentLoaded', () => {
     workSlider.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        stopAutoplay();
         slideDirection = -1;
         updateSlider(currentIndex - 1);
+        startAutoplay();
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
-        stopAutoplay();
         slideDirection = 1;
         updateSlider(currentIndex + 1);
+        startAutoplay();
       }
     });
 
@@ -1398,9 +1394,7 @@ document.addEventListener('DOMContentLoaded', () => {
           updateSlider(currentIndex + 1);
         }
       }
-      if (!isMouseInsideSection) {
-        startAutoplay();
-      }
+      startAutoplay();
     });
 
     workSlider.addEventListener('mousedown', (e) => {
@@ -1424,17 +1418,16 @@ document.addEventListener('DOMContentLoaded', () => {
           updateSlider(currentIndex + 1);
         }
       }
-      if (!isMouseInsideSection) {
-        startAutoplay();
-      }
+      startAutoplay();
     });
 
-    // Autoplay: Automatically advances to next card every 3.5 seconds
-    const AUTOPLAY_INTERVAL = 3500;
+    // Autoplay: Automatically advances to next card every 1.5 seconds
+    const AUTOPLAY_INTERVAL = 1500;
 
     const startAutoplay = () => {
       if (autoplayTimer) clearInterval(autoplayTimer);
-      if (isMouseInsideSection) return;
+      if (workDetailModal && workDetailModal.classList.contains('is-open')) return;
+      if (workReelModal && workReelModal.classList.contains('is-open')) return;
       autoplayTimer = setInterval(() => {
         slideDirection = 1;
         updateSlider(currentIndex + 1);
@@ -1448,20 +1441,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Track mouse inside the entire initiatives section
     const initiativesSection = document.getElementById('initiatives');
-    if (initiativesSection) {
-      initiativesSection.addEventListener('mouseenter', () => {
-        isMouseInsideSection = true;
-        stopAutoplay();
-      });
-      initiativesSection.addEventListener('mouseleave', () => {
-        isMouseInsideSection = false;
-        if (!workDetailModal || !workDetailModal.classList.contains('is-open')) {
-          startAutoplay();
-        }
-      });
-    }
 
     // Responsive update on window resize
     window.addEventListener('resize', () => {
@@ -1471,26 +1451,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateSlider(0);
 
-    // Smart viewport observer: only run autoplay when initiatives section is in view
+    // Start autoplay immediately
+    startAutoplay();
+
+    // Smart viewport observer: only pause autoplay when initiatives section is completely out of view
     if (initiativesSection && 'IntersectionObserver' in window) {
       let wasInitiativesInView = false;
       const sliderObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             if (!wasInitiativesInView) {
-              updateSlider(0);
+              updateSlider(currentIndex);
               wasInitiativesInView = true;
             }
-            if (!isMouseInsideSection) startAutoplay();
+            startAutoplay();
           } else {
             wasInitiativesInView = false;
             stopAutoplay();
           }
         });
-      }, { threshold: 0.2 });
+      }, { threshold: 0.05 });
       sliderObserver.observe(initiativesSection);
-    } else {
-      startAutoplay();
     }
   }
 
